@@ -15,83 +15,237 @@
 </head>
 
 <body class="body">
-  <header class="header">
-    <h1 class="header__title">Электронный архив</h1>
-    <nav class="haeder__navigation">
-      <div class="header__container-of-block-navigation-and-icon">
-        <img class="header__burger-icon" src="./img/icons8-меню-24.png" alt="Бургер">
-        <h3 class="haeder__title-menu" href="">Меню</h3>
-      </div>
-      <ul class="header__menu-list">
-        <li class="header__menu-element">
-          <div class="header__container-of-block-navigation-and-icon">
-            <img src="./img/icons8-меню-24.png" alt="Архив">
-            <p class="haeder__menu-text">Архив</p>
-          </div>
-          <ul class="haeder__menu-children-list">
-            <li class="haeder__menu-children-element">
-              <div class="header__container-of-block-navigation-and-icon">
-                <img src="./img/icons8-меню-24.png" alt="Создать файл">
-                <p class="haeder__menu-text">Создать файл</p>
-              </div>
-            </li>
-            <li class="haeder__menu-children-element">
-              <div class="header__container-of-block-navigation-and-icon">
-                <img src="./img/icons8-меню-24.png" alt="Удалить файл">
-                <p class="haeder__menu-text">Удалить файл</p>
-              </div>
-            </li>
-            <li class="haeder__menu-children-element">
-              <div class="header__container-of-block-navigation-and-icon">
-                <img src="./img/icons8-меню-24.png" alt="Создать папку">
-                <p class="haeder__menu-text">Создать папку</p>
-              </div>
-            </li>
-            <li class="haeder__menu-children-element">
-              <div class="header__container-of-block-navigation-and-icon">
-                <img src="./img/icons8-меню-24.png" alt="Удалить папку">
-                <p class="haeder__menu-text">Удалить папку</p>
-              </div>
-            </li>
-            <li class="haeder__menu-children-element">
-              <div class="header__container-of-block-navigation-and-icon">
-                <img src="./img/icons8-меню-24.png" alt="Поиск">
-                <p class="haeder__menu-text">Поиск</p>
-              </div>
-            </li>
-          </ul>
-        </li>
-        <li class="header__menu-element">
-          <div class="header__container-of-block-navigation-and-icon">
-            <img src="./img/icons8-меню-24.png" alt="Администрирование">
-            <p>Администрирование</p>
-          </div>
-        </li>
-        <li class="header__menu-element">
-          <div class="header__container-of-block-navigation-and-icon">
-            <img src="./img/icons8-меню-24.png" alt="Настройки">
-            <p class="haeder__menu-text">Настройки</p>
-          </div>
-        </li>
-        <li class="header__menu-element">
-          <div class="header__container-of-block-navigation-and-icon">
-            <img src="./img/icons8-меню-24.png" alt="Помощь">
-            <p class="haeder__menu-text">Помощь</p>
-          </div>
-        </li>
-        <li class="header__menu-element">
-          <div class="header__container-of-block-navigation-and-icon">
-            <img src="./img/icons8-меню-24.png" alt="Выход">
-            <p class="haeder__menu-text">Выход</p>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <header class="header"></header>
   <main class="main">
     <section class="main__container-of-content-archive">
-      <div></div>
-      <div></div>
+      <div class="ct" id="t1">
+        <div class="ct" id="t2">
+          <div class="ct" id="t3">
+            <div class="ct" id="t4">
+              <div class="ct" id="t5">
+                <ul id="menu">
+                  <a href="#t1">
+                    <li class="menu__icon fa fa-bolt" id="uno">Главная</li>
+                  </a>
+                  <a href="#t2">
+                    <li class="menu__icon fa fa-keyboard-o" id="dos">Архив</li>
+                  </a>
+                  <a href="#t3">
+                    <li class="menu__icon fa fa-rocket" id="tres">Настройки</li>
+                  </a>
+                  <a href="#t4">
+                    <li class="menu__icon fa fa-dribbble" id="cuatro">Помощь</li>
+                  </a>
+                  <a href="#t5">
+                    <li class="menu__icon fa fa-plus-circle" id="">Админ</li>
+                  </a>
+                  <li class="menu__icon fa fa-bolt" style="cursor: pointer" id="">Выход</li>
+                </ul>
+                <div class="page" id="p1">
+                  <section class="menu__icon archive fa fa-bolt">
+                    <span class="title">Электронный архив</span><span class="hint">Добро пожаловать, Александр</span>
+                  </section>
+                </div>
+                <div class="page archive" id="p2">
+                  <span class="title">Абонентские дела</span>
+                  <section class="archive__folder">
+                    <div class="archive__folder-menu">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__folder-button" alt="">
+                    </div>
+                    <div class="archive__folder-content-container">
+                      <table class="archive__folder-table">
+
+                      </table>
+                    </div>
+                  </section>
+                  <section class="archive__file">
+                    <div class="archive__file-menu">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                      <img src="./img/icon-archive-svgr.svg" class="archive__file-button" alt="">
+                    </div>
+                    <table class="archive__file-table">
+                      <thead class="archive__file-table-head">
+                        <tr class="archive__file-table-head-row">
+                          <td class="archive__file-table-element">ID документа</td>
+                          <td class="archive__file-table-element">Регистрационный номер</td>
+                          <td class="archive__file-table-element">№ Абонентского дела</td>
+                          <td class="archive__file-table-element">Тип документа</td>
+                          <td class="archive__file-table-element">Комментарий</td>
+                          <td class="archive__file-table-element">Номер договора</td>
+                          <td class="archive__file-table-element">Наименование(ФИО)</td>
+                        </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                      </thead>
+                      <tr class="archive__file-table-row">
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                        <td class="archive__file-table-element">awdsafdawxdwafhfyrhfiuehferifher erhfer fhe nfhi 12u4  hdhlh</td>
+                      </tr>
+                    </table>
+                  </section>
+                </div>
+                <div class="page" id="p3">
+                  <span class="title">Настройки</span>
+                  <section>
+
+                  </section>
+                </div>
+                <div class="page" id="p4">
+                  <div class="fa fa-dribbble">
+                    <span class="title">Помощь</span>
+                    <p class="hint">
+                      <a href="https://dribbble.com/hrtzt" target="_blank"><span class="hint line-trough"></span></a>
+                    </p>
+                    <p class="hint"><a href="http://www.dribbble.com/mrpeters" target="_blank"></a></p>
+                  </div>
+                  <section>
+
+                  </section>
+                </div>
+                <div class="page" id="p5">
+                  <div class="fa fa-plus-circle">
+                    <span class="title">Администрирование</span>
+                    <p class="hint">
+                      <span></span><br>
+                      <a href="https://codepen.io/hrtzt/details/pgXMYb/" target="_blank"></a>
+                    </p>
+                  </div1
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div></div>
+    <div></div>
     </section>
   </main>
   <footer class="footer">
