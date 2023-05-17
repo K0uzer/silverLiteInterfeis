@@ -379,20 +379,20 @@ table.archive__folder-table th {
   justify-content: space-around;
   align-items: center;
   max-width: calc(var(--pixel) * 1000);
-  width: calc(var(--pixel) * 1000);
+  width: calc(var(--pixel) * 600);
   padding: calc(var(--pixel) * 15) 0;
-  margin-left: calc(var(--pixel) * 150);
+  margin-left: calc(var(--pixel) * 350);
 
   &:hover {
     .archive__file-menu-under-line {
-      animation: animate_row-in 0.3s ease-in;
+      animation: animate_row-in 0.2s ease-in;
       animation-fill-mode: forwards;
     }
   }
 
   &:not(:hover) {
     .archive__file-menu-under-line {
-      animation: animate_row-out 0.3s ease;
+      animation: animate_row-out 0.2s ease;
       animation-fill-mode: forwards;
     }
   }
@@ -401,18 +401,6 @@ table.archive__folder-table th {
 @keyframes animate_row-in {
   0% {
     width: 0;
-  }
-
-  25% {
-    width: 25%;
-  }
-
-  50% {
-    width: 50%;
-  }
-
-  75% {
-    width: 75%;
   }
 
   100% {
@@ -425,25 +413,12 @@ table.archive__folder-table th {
     width: 100%;
   }
 
-  25% {
-    width: 75%;
-  }
-
-  50% {
-    width: 50%;
-  }
-
-  75% {
-    width: 25%;
-  }
-
   100% {
     width: 0;
   }
 }
 
 .archive__file-menu-under-line {
-  // z-index: 9999;
   position: absolute;
   width: 0;
   height: calc(var(--pixel) * 1);
