@@ -1,4 +1,4 @@
-export const documentTalbeRow = `
+export const documentTalbeRow = () => `
 <tr>
   <td></td>
   <td></td>
