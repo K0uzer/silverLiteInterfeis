@@ -368,6 +368,7 @@ table.archive__folder-table th {
 
 // БЛОК СТИЛЕЙ ДЛЯ FILE //
 .archive__file {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -542,4 +543,186 @@ table.archive__folder-table th {
 
 ::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 calc(var(--pixel) * 6) rgba(0, 0, 0, 0.3);
+}
+
+// CRAETE DOCUMENT IN BLOCK OF FILE //
+
+.archive__container-of-create-new-document {
+  z-index: 99;
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  line-height: calc(var(--pixel) * 15);
+  color: #000000;
+  background-color: rgb(179 138 109 / 80%);
+  border-radius: 0.8%;
+  overflow: hidden;
+}
+
+.archive__create-new-document-of-button-out {
+  position: absolute;
+  width: calc(var(--pixel) * 25);
+  height: calc(var(--pixel) * 25);
+  top: calc(var(--pixel) * 15);
+  right: calc(var(--pixel) * 15);
+  &:hover {
+    transition: 0.3s;
+    rotate: 360deg;
+    cursor: pointer;
+  }
+}
+
+.archive__wrapper-of-id-document {
+  font-size: calc(var(--pixel)*15);
+  margin: calc(var(--pixel) * 5);
+}
+
+.archive__document-of-text {
+  color: white;
+}
+
+.archive__document-of-id {}
+
+.archive__create-new-document-of-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.archive__create-new-document-input-of-container-elements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: end;
+  padding-right: calc(var(--pixel) * 150);
+}
+
+.archive__create-new-document-of-element-form {
+  display: flex;
+  margin: calc(var(--pixel) * 5);
+  color: white;
+}
+
+.archive__create-new-document-of-text {
+  font-size: calc(var(--pixel) * 20);
+}
+
+.archive__create-new-document-of-input {
+  font-size: calc(var(--pixel) * 20);
+  width: calc(var(--pixel) * 200);
+  height: calc(var(--pixel) * 30);
+  margin: 0 calc(var(--pixel) * 10);
+  border: calc(var(--pixel) * 1) solid black;
+}
+
+.archive__create-new-document-of-textarea {
+  font-size: calc(var(--pixel) * 20);
+  width: calc(var(--pixel) * 500);
+  max-height: calc(var(--pixel) * 450);
+  height: calc(var(--pixel) * 100);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 20) 0;
+  border-radius: 2%;
+  border-color: #000000;
+  resize: vertical;
+}
+
+.archive__create-new-document-of-table {
+  font-size: calc(var(--pixel) * 15);
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border: calc(var(--pixel) * 1) solid black;
+  border-collapse: collapse;
+  overflow-y: scroll;
+}
+
+.archive__create-new-document-of-table tbody tr td {
+  height: calc(var(--pixel) * 30);
+  border: calc(var(--pixel) * 1) solid black;
+  overflow-y: scroll;
+}
+.archive__create-new-document-of-table-thead-img-for-list-del {
+  width: calc(var(--pixel) * 25);
+  height: calc(var(--pixel) * 25);
+}
+.archive__create-new-document-of-button-add-new-file {
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 40);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 5) 0;
+  background-color: transparent;
+  color: white;
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__create-new-document-of-input-file {
+  margin: calc(var(--pixel) * 5);
+  color: white;
+}
+
+.archive__create-new-document-of-table-button-for-delete {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 100);
+  height: calc(var(--pixel) * 25);
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: transparent;
+  color: white;
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__create-new-document-of-button-create {
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 40);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 5) 0;
+  background-color: transparent;
+  color: white;
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__create-new-document-wrapper-of-info {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.archive__create-new-document-element-of-info {
+  margin: 0 calc(var(--pixel) * 20);
+}
+
+.archive__create-new-document-element-of-text {
 }
