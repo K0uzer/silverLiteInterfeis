@@ -565,6 +565,7 @@ table.archive__folder-table th {
   height: calc(var(--pixel) * 25);
   top: calc(var(--pixel) * 15);
   right: calc(var(--pixel) * 15);
+
   &:hover {
     transition: 0.3s;
     rotate: 360deg;
@@ -621,15 +622,21 @@ table.archive__folder-table th {
   height: calc(var(--pixel) * 100);
   padding: calc(var(--pixel) * 5);
   margin: calc(var(--pixel) * 20) 0;
+  line-height: calc(var(--pixel) * 25);
+  border: calc(var(--pixel) * 1) solid black;
   border-radius: 2%;
-  border-color: #000000;
   resize: vertical;
+}
+
+#file-upload-button {
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: black;
 }
 
 .archive__create-new-document-of-table {
   font-size: calc(var(--pixel) * 15);
   width: 100%;
-  height: 100px;
+  height: calc(var(--pixel) * 100);
   text-align: center;
   border: calc(var(--pixel) * 1) solid black;
   border-collapse: collapse;
@@ -641,23 +648,29 @@ table.archive__folder-table th {
   border: calc(var(--pixel) * 1) solid black;
   overflow-y: scroll;
 }
+
 .archive__create-new-document-of-table-thead-img-for-list-del {
   width: calc(var(--pixel) * 25);
   height: calc(var(--pixel) * 25);
 }
+
 .archive__create-new-document-of-button-add-new-file {
+  font-size: calc(var(--pixel) * 15);
   width: calc(var(--pixel) * 150);
   height: calc(var(--pixel) * 40);
   padding: calc(var(--pixel) * 5);
   margin: calc(var(--pixel) * 5) 0;
+  border: calc(var(--pixel) * 1) solid black;
   background-color: transparent;
   color: white;
+
   &:hover {
     transition: 0.3s;
     background-color: black;
     color: white;
     cursor: pointer;
   }
+
   &:not(:hover) {
     transition: 0.3s;
     background-color: white;
@@ -667,6 +680,9 @@ table.archive__folder-table th {
 }
 
 .archive__create-new-document-of-input-file {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 280);
+  height: calc(var(--pixel) * 25);
   margin: calc(var(--pixel) * 5);
   color: white;
 }
@@ -678,12 +694,14 @@ table.archive__folder-table th {
   border: calc(var(--pixel) * 1) solid black;
   background-color: transparent;
   color: white;
+
   &:hover {
     transition: 0.3s;
     background-color: black;
     color: white;
     cursor: pointer;
   }
+
   &:not(:hover) {
     transition: 0.3s;
     background-color: white;
@@ -693,18 +711,22 @@ table.archive__folder-table th {
 }
 
 .archive__create-new-document-of-button-create {
+  font-size: calc(var(--pixel) * 15);
   width: calc(var(--pixel) * 150);
   height: calc(var(--pixel) * 40);
   padding: calc(var(--pixel) * 5);
   margin: calc(var(--pixel) * 5) 0;
+  border: calc(var(--pixel) * 1) solid black;
   background-color: transparent;
   color: white;
+
   &:hover {
     transition: 0.3s;
     background-color: black;
     color: white;
     cursor: pointer;
   }
+
   &:not(:hover) {
     transition: 0.3s;
     background-color: white;
@@ -716,6 +738,7 @@ table.archive__folder-table th {
 .archive__create-new-document-wrapper-of-info {
   position: relative;
   display: flex;
+  font-size: calc(var(--pixel) * 15);
   justify-content: space-around;
   color: white;
 }
@@ -724,5 +747,4 @@ table.archive__folder-table th {
   margin: 0 calc(var(--pixel) * 20);
 }
 
-.archive__create-new-document-element-of-text {
-}
+.archive__create-new-document-element-of-text {}
