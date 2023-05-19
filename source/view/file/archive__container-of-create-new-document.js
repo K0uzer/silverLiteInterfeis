@@ -2,7 +2,7 @@ const archiveContainerOfCreateNewDocument = () => `
 <section class="archive__container-of-create-new-document">
   <img class="archive__create-new-document-of-button-out" src="./img/out.svg" alt="Кпонка выхода">
   <div class="archive__wrapper-of-id-document">
-    <span class="archive__document-of-text">Карточка абонента №</span>
+    <span class="archive__document-of-text">Карточка абонентского дела №</span>
     <span class="archive__document-of-id"></span>
   </div>
   <form class="archive__create-new-document-of-form" action="" method="">
