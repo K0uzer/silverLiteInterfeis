@@ -1,0 +1,202 @@
+// opened document //
+
+.archive__container-of-opened-document {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  line-height: calc(var(--pixel) * 15);
+  color: #000000;
+  background-color: rgb(179 138 109 / 80%);
+  border-radius: 0.8%;
+  overflow: hidden;
+}
+
+.archive__opened-document-of-button-out {
+  position: absolute;
+  width: calc(var(--pixel) * 25);
+  height: calc(var(--pixel) * 25);
+  top: calc(var(--pixel) * 15);
+  right: calc(var(--pixel) * 15);
+
+  &:hover {
+    transition: 0.3s;
+    rotate: 360deg;
+    cursor: pointer;
+  }
+}
+
+.archive__wrapper-of-id-document {
+  font-size: calc(var(--pixel)*15);
+  margin: calc(var(--pixel) * 5);
+}
+
+.archive__document-of-text {
+  color: white;
+}
+
+.archive__document-of-id {}
+
+.archive__opened-document-of-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.archive__opened-document-input-of-container-elements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: end;
+  padding-right: calc(var(--pixel) * 150);
+}
+
+.archive__opened-document-of-element-form {
+  display: flex;
+  margin: calc(var(--pixel) * 5);
+  color: white;
+}
+
+.archive__opened-document-of-text {
+  font-size: calc(var(--pixel) * 20);
+}
+
+.archive__opened-document-of-input {
+  font-size: calc(var(--pixel) * 20);
+  width: calc(var(--pixel) * 200);
+  height: calc(var(--pixel) * 30);
+  margin: 0 calc(var(--pixel) * 10);
+  border: calc(var(--pixel) * 1) solid black;
+}
+
+.archive__opened-document-of-textarea {
+  font-size: calc(var(--pixel) * 20);
+  width: calc(var(--pixel) * 500);
+  max-height: calc(var(--pixel) * 450);
+  height: calc(var(--pixel) * 100);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 20) 0;
+  line-height: calc(var(--pixel) * 25);
+  border: calc(var(--pixel) * 1) solid black;
+  border-radius: 2%;
+  resize: vertical;
+}
+
+#file-upload-button {
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: black;
+}
+
+.archive__opened-document-of-table {
+  font-size: calc(var(--pixel) * 15);
+  width: 100%;
+  height: calc(var(--pixel) * 100);
+  text-align: center;
+  border: calc(var(--pixel) * 1) solid black;
+  border-collapse: collapse;
+  overflow-y: scroll;
+}
+
+.archive__opened-document-of-table tbody tr td {
+  height: calc(var(--pixel) * 30);
+  border: calc(var(--pixel) * 1) solid black;
+  overflow-y: scroll;
+}
+
+.archive__opened-document-of-table-thead-img-for-list-del {
+  width: calc(var(--pixel) * 25);
+  height: calc(var(--pixel) * 25);
+}
+
+.archive__opened-document-of-button-add-new-file {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 40);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 5) 0;
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: transparent;
+  color: white;
+
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__opened-document-of-input-file {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 280);
+  height: calc(var(--pixel) * 25);
+  margin: calc(var(--pixel) * 5);
+  color: white;
+}
+
+.archive__opened-document-of-table-button-for-delete {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 100);
+  height: calc(var(--pixel) * 25);
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: transparent;
+  color: white;
+
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__opened-document-of-button-create {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 40);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 5) 0;
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: transparent;
+  color: white;
+
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.archive__opened-document-wrapper-of-info {
+  position: relative;
+  display: flex;
+  font-size: calc(var(--pixel) * 15);
+  justify-content: space-around;
+  color: white;
+}
+
+.archive__opened-document-element-of-info {
+  margin: 0 calc(var(--pixel) * 20);
+}
+
+.archive__opened-document-element-of-text {}

@@ -1,0 +1,107 @@
+//////////////////////   PAGE ARCHIVE   /////////////////////////
+.archive {}
+
+.archive__filder-menu-container-img {
+  position: relative;
+  display: block;
+}
+
+.archive__filder-menu-img {
+  position: absolute;
+  width: calc(var(--pixel)*25);
+  height: calc(var(--pixel)*25);
+  top: calc(var(--pixel)*10);
+  left: calc(var(--pixel)* -3);
+  rotate: 90deg;
+  animation: horizontal-shaking 0.35s infinite;
+  cursor: pointer;
+}
+
+.archive__filder-menu-img--rotate {
+  width: calc(var(--pixel)*25);
+  height: calc(var(--pixel)*25);
+  margin: calc(var(--pixel)*10) calc(var(--pixel)*5);
+  rotate: -90deg;
+  cursor: pointer;
+}
+
+.archive__filder-title {
+  position: absolute;
+  top: calc(var(--pixel)*15);
+  left: calc(var(--pixel)*100);
+  color: #000000;
+}
+
+.archive__folder-input {
+  font-size: calc(var(--pixel)*15);
+  width: calc(var(--pixel)*230);
+  height: calc(var(--pixel)*25);
+  border: calc(var(--pixel)*1) solid black;
+  margin: calc(var(--pixel)*10) 0;
+}
+
+.archive__folder-conteiner-checkbox-type-of-search {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: calc(var(--pixel)*20);
+  width: calc(var(--pixel)*65);
+}
+
+.archive__folder-input-type-of-search {
+  z-index: 99;
+  position: absolute;
+  width: calc(var(--pixel)*20);
+  height: calc(var(--pixel)*20);
+  visibility: hidden;
+}
+
+#type-folder-search-of-number {
+  left: 0;
+}
+
+#type-folder-search-of-name {
+  right: 0;
+}
+
+.archive__folder-icon-of-checkbox {
+  width: calc(var(--pixel)*20);
+  height: calc(var(--pixel)*20);
+  cursor: pointer;
+}
+
+.archive__folder {
+  z-index: 99;
+  display: none;
+  position: absolute;
+  font-size: calc(var(--pixel) * 15);
+  top: calc(var(--pixel) * 0);
+  left: calc(var(--pixel) * 0);
+  width: calc(var(--pixel) * 400);
+  height: 100%;
+  background-color: #FFF;
+}
+
+.archive__folder-content-container table thead tr th:nth-child(1) {
+  border: none !important;
+}
+
+.archive__folder-menu-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: calc(var(--pixel) * 400);
+}
+
+.archive__folder-button {
+  width: calc(var(--pixel) * 20);
+  height: calc(var(--pixel) * 20);
+  margin: calc(var(--pixel) * 10);
+  cursor: pointer;
+}
+
+.archive__folder-content-container {
+  overflow-y: scroll;
+  height: calc(var(--pixel) * 800);
+}
