@@ -3,12 +3,13 @@
 .archive__container-of-opened-document {
   position: absolute;
   width: 80%;
-  height: 100%;
+  height: 90%;
+  padding: 5px;
   line-height: calc(var(--pixel) * 15);
   color: #000000;
   background-color: rgb(179 138 109 / 80%);
   border-radius: 0.8%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .archive__opened-document-of-button-out {
@@ -51,6 +52,7 @@
 
 .archive__opened-document-of-element-form {
   display: flex;
+  align-items: center;
   margin: calc(var(--pixel) * 5);
   color: white;
 }
@@ -60,11 +62,7 @@
 }
 
 .archive__opened-document-of-input {
-  font-size: calc(var(--pixel) * 20);
-  width: calc(var(--pixel) * 200);
-  height: calc(var(--pixel) * 30);
-  margin: 0 calc(var(--pixel) * 10);
-  border: calc(var(--pixel) * 1) solid black;
+  @extend %mixin-for-input-of-all-opened-windows-archive;
 }
 
 .archive__opened-document-of-textarea {
@@ -93,6 +91,18 @@
   border: calc(var(--pixel) * 1) solid black;
   border-collapse: collapse;
   overflow-y: scroll;
+}
+
+.archive__opened-document-of-table tbody tr {
+  cursor: pointer;
+  &:hover {
+    transition: .3s;
+    background-color: rgba(151, 111, 59, 0.651);
+  }
+  &:not(:hover) {
+    transition: .3s;
+    background-color: rgba(179,138,109,.8);
+  }
 }
 
 .archive__opened-document-of-table tbody tr td {
@@ -163,28 +173,7 @@
 }
 
 .archive__opened-document-of-button-create {
-  font-size: calc(var(--pixel) * 15);
-  width: calc(var(--pixel) * 150);
-  height: calc(var(--pixel) * 40);
-  padding: calc(var(--pixel) * 5);
-  margin: calc(var(--pixel) * 5) 0;
-  border: calc(var(--pixel) * 1) solid black;
-  background-color: transparent;
-  color: white;
-
-  &:hover {
-    transition: 0.3s;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-  }
-
-  &:not(:hover) {
-    transition: 0.3s;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-  }
+  @extend %mixin-for-buttons-of-interfase-under-table;
 }
 
 .archive__opened-document-wrapper-of-info {

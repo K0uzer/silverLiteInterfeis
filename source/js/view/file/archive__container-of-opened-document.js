@@ -59,23 +59,32 @@ export const archiveContainerOfOpenedDocument = () => `
           <th><img class="archive__opened-document-of-table-thead-img-for-list-del" src="./img/task.svg" alt="" srcset=""></th>
           <th>Имя файла</th>
           <th>Тип</th>
+          <th>Размер</th>
           <th>Автор</th>
           <th>Дата публикации</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><button class="archive__opened-document-of-table-button-for-delete">Удалить</button></td>
+          <td><input type="checkbox" class="archive__opened-document-of-table-button-for-delete"></td>
           <td>4123124</td>
+          <td>4124</td>
           <td>4124</td>
           <td>124</td>
           <td>1527</td>
         </tr>
       </tbody>
     </table>
-    <input class="archive__opened-document-of-input-file" type="file">
-    <button class="archive__opened-document-of-button-add-new-file">Добавить файл</button>
-    <button class="archive__opened-document-of-button-create" type="submit">Редактировать</button>
+    <div class="archive__opened-document-of-button-add-new-file-wrapper">
+      <button class="archive__opened-document-of-button-add-new-file">Присоеденить</button>
+      <button class="archive__opened-document-of-button-add-new-file">Показать</button>
+      <button class="archive__opened-document-of-button-add-new-file">Удалить</button>
+    </div>
+    <div class="archive__opened-document-of-button-add-new-file-wrapper">
+      <button class="archive__opened-document-of-button-add-new-file">Печать</button>
+      <button class="archive__opened-document-of-button-add-new-file">Протоколы печати</button>
+      <button class="archive__opened-document-of-button-create" type="submit">Редактировать</button>
+    </div>
     <div class="archive__opened-document-wrapper-of-info">
       <div class="archive__opened-document-element-of-info">
         <span class="archive__opened-document-element-of-text">Создатель документа:</span>

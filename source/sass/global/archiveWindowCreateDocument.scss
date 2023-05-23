@@ -50,6 +50,13 @@
   padding-right: calc(var(--pixel) * 150);
 }
 
+.archive__folder-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
 .archive__create-new-document-of-element-form {
   display: flex;
   margin: calc(var(--pixel) * 5);
