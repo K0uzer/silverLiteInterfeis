@@ -1,3 +1,3 @@
-export const refresh = () => `
-  <img src="./img/refresh.svg" class="archive__file-button" title="Сбросить поиск" alt="">
+export const getRefresh = () => `
+  <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" alt="">
 `;

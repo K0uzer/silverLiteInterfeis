@@ -1,47 +1,50 @@
 // импорт элементов блока окна с папками //
 import {
-  addSquare
-} from './view/folder/mainFolder/buttons/add-square.js';
+  getCreateButton
+} from './view/folder/buttons/create-button.js';
 import {
-  directInbox
-} from './view/folder/mainFolder/buttons/director-inbox.js';
+  getDeleteButton
+} from './view/folder/buttons/delete-button.js';
 import {
-  documentUpload
-} from './view/folder/mainFolder/buttons/document-upload.js';
+  getDocumentUpload
+} from './view/folder/buttons/document-upload.js';
 import {
-  exportsButton
-} from './view/folder/mainFolder/buttons/exportsButton.js';
+  getHighLevelButton
+} from './view/folder/buttons/high-level-button.js';
 import {
-  minusSquare
-} from './view/folder/mainFolder/buttons/minus-square.js';
+  getInsertButton
+} from './view/folder/buttons/insert-button.js';
 import {
-  refresh
-} from './view/folder/mainFolder/buttons/refresh.js';
+  getRefreshButton
+} from './view/folder/buttons/refresh-button.js';
 import {
-  scissor
-} from './view/folder/mainFolder/buttons/scissor.js';
+  getScissorButton
+} from './view/folder/buttons/scissor-button.js';
 import {
-  documentTalbeRow
-} from './view/folder/newRow/documentTableRow.js';
+  getArchiveFolderTable
+} from './view/folder/table/archive_folder-table-row.js';
 // импорт элементов файлового блока //
 import {
-  addSquare
+  getAddSquare
 } from './view/file/buttons/add-square.js';
 import {
-  directInbox
+  getMinusSquare
+} from './view/file/buttons/minus-square.js';
+import {
+  getDirectInbox
 } from './view/file/buttons/director-inbox.js';
 import {
-  addSminusSquarequare
-} from './view/file/buttons/';
+  getRefresh
+} from './view/file/buttons/refresh.js';
 import {
-  refresh
-} from './view/file/buttons/add-square.js';
+  getScissor
+} from './view/file/buttons/scissor.js';
 import {
-  scissor
-} from './view/file/buttons/add-square.js';
+  getSearchStatus
+} from './view/file/buttons/search-status.js';
 import {
-  searchStatus
-} from './view/file/buttons/add-square.js';
+  getScrollTableBodyRow
+} from './view/file/table/scroll-table-body-row.js';
 
 
 // ПЕРЕМЕННЫЕ //
@@ -56,26 +59,7 @@ const folderButtonContainer = document.querySelector('.archive__folder-button-co
 const folderWrapperTable = document.querySelector('.archive__folder-content-container');
 const folderTableBody = document.getElementById('folderTalbeBody');
 const fileMenu = document.querySelector('.archive__file-menu');
-
-// ФОРМИРОВАНИЯ ИНТЕРФЕЙСА //
-const getHighInterfase = () => {
-  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ПАПКОЙ //
-  folderButtonContainer.innerHTML += addSquare();
-  folderButtonContainer.innerHTML += minusSquare();
-  folderButtonContainer.innerHTML += scissor();
-  folderButtonContainer.innerHTML += directInbox();
-  folderButtonContainer.innerHTML += documentUpload();
-  folderButtonContainer.innerHTML += exportsButton();
-  folderButtonContainer.innerHTML += refresh();
-  // ДОБАВЛЯЕМ ПЕРВЫЕ ДВЕ ГЛАВНЫЕ ПАПКИ В ТАБЛИЦУ ОКНА FOLDER //
-  for(let i = 0; i < 20; i++) {
-    folderTableBody.innerHTML += documentTalbeRow();
-  };
-
-  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ФАЙЛАМИ //
-
-
-};
+const fileTalbeBody = document.getElementById('fileTalbeBody');
 
 // СЛУШАТЕЛИ СОБЫТИЫЙ ДЛЯ РАБОТЫ С ОКНОМ ПАПОК //
 // СОЗДАЕМ СЛУШАТЕЛИ //
@@ -87,6 +71,49 @@ const getListnersOfWindowFolders = () => {
   buttonOfCloseFolderWindow.addEventListener('click', () => {
     windowThisFolder.style = 'display: none';
   });
+};
+
+// ФУНКЦИЯ СОБЫТИЫЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getRequiredWindowForFileWork = () => {
+  // СОЗДАЕМ СЛУШАТЕЛИ //
+  Array.from(fileMenu.children).forEach((item) => {
+    item.addEventListener('click', () => console.log(item));
+  });
+};
+
+// РАБОТА С ИНТЕРФЕЙСОМ //
+const getHighInterfase = () => {
+  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ПАПКОЙ //
+  folderButtonContainer.innerHTML += getCreateButton();
+  folderButtonContainer.innerHTML += getDeleteButton();
+  folderButtonContainer.innerHTML += getScissorButton();
+  folderButtonContainer.innerHTML += getInsertButton();
+  folderButtonContainer.innerHTML += getDocumentUpload();
+  folderButtonContainer.innerHTML += getHighLevelButton();
+  folderButtonContainer.innerHTML += getRefreshButton();
+  // ДОБАВЛЯЕМ ПЕРВЫЕ ДВЕ ГЛАВНЫЕ ПАПКИ В ТАБЛИЦУ ОКНА FOLDER //
+  for(let i = 0; i < 2; i++) {
+    folderTableBody.innerHTML += getArchiveFolderTable();
+  };
+  // ФУНКЦИЯ ДЛЯ РАБОТЫ С ПАПКАМИ //
+
+  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileTalbeBody.innerHTML += getScrollTableBodyRow();
+  fileMenu.innerHTML += getAddSquare();
+  fileMenu.innerHTML += getMinusSquare();
+  fileMenu.innerHTML += getDirectInbox();
+  fileMenu.innerHTML += getScissor();
+  fileMenu.innerHTML += getSearchStatus();
+  fileMenu.innerHTML += getRefresh();
+  // ФУНКЦИЯ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+  getRequiredWindowForFileWork();
 };
 
 // ОКНО ПОИСКА //
