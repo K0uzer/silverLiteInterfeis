@@ -210,6 +210,12 @@ const folderTableBody = document.getElementById('folderTalbeBody');
 const fileMenu = document.querySelector('.archive__file-menu');
 const fileTalbeBody = document.getElementById('fileTalbeBody');
 
+// ФУНКЦИИ УНИВЕРСАЛЫ //
+
+//                            //
+// БЛОК КОДА РАБОТЫ С ПАПКАМИ //
+//                            //
+
 // СЛУШАТЕЛИ СОБЫТИЫЙ ДЛЯ РАБОТЫ С ОКНОМ ПАПОК //
 // СОЗДАЕМ СЛУШАТЕЛИ //
 const getListnersOfWindowFolders = () => {
@@ -218,6 +224,22 @@ const getListnersOfWindowFolders = () => {
   });
   buttonOfCloseFolderWindow.addEventListener('click', () => {
     windowThisFolder.style = 'display: none';
+  });
+};
+
+//                                //
+// БЛОК КОДА РАБОТЫ С ДОКУМЕНТАМИ //
+//                                //
+
+// ОБЩИЕ ФУНКЦИИ В БЛОКЕ КОДА FILE//
+// УДАЛЕНИЕ ОКНА ИЗ DOM ДЕРЕВА //
+const getDeleteWindowFromDomTree = (button, className) => {
+  button.addEventListener('click', () => {
+    Array.from(windowThisFile.children).forEach(element => {
+      if (element.className === className) {
+        windowThisFile.removeChild(element);
+      }
+    });
   });
 };
 
@@ -231,26 +253,18 @@ const getWorkWithTheSearchWindow = () => {
     archiveContainerFileSearchOfElementWrapper.classList.add('archive__container-file-search-of-element-wrapper--active');
     searchOfDateRegButton.style = 'display: none';
   });
-  archiveButtonOutSearch.addEventListener('click', () => {
-    Array.from(windowThisFile.children).forEach(element => {
-      if (element.className === 'achive__container-file-search') {
-        windowThisFile.removeChild(element);
-      }
-    });
-  });
+  getDeleteWindowFromDomTree(archiveButtonOutSearch, 'achive__container-file-search');
 };
 
 // ФУНКЦИЯ ОКНА СОЗДАНИЯ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
 const getWorkWithTheWindowOfCrateDocument = () => {
   windowThisFile.innerHTML += getArchiveContainerOfCreateNewDocument();
+  const archiveWindowCreateDocumentOfButtonOut = document.querySelector('.archive__create-new-document-of-button-out');
+  getDeleteWindowFromDomTree(archiveWindowCreateDocumentOfButtonOut, 'archive__container-of-create-new-document');
 };
 
-// ФУНКЦИЯ ОКНА ВЫРЕЗКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
-// ФУНКЦИЯ ОКНА ВСТАВКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
-// ФУНКЦИЯ ОКНА ОБНОВЛЕНИЯ ТАБЛИЦЫ\СОРОСА ПОИСКА ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
-
-// СБОРКА ФУНКЦИЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
-const getRequiredWindowForFileWork = () => {
+// СБОРКА ФУНКЦИЙ ДЛЯ РАБОТЫ С ДОКУМЕНТАМИ //
+function getRequiredWindowForFileWork() {
   // СОЗДАЕМ СЛУШАТЕЛИ //
   Array.from(fileMenu.children).forEach(item => {
     item.addEventListener('click', () => {
@@ -272,7 +286,7 @@ const getRequiredWindowForFileWork = () => {
       }
     });
   });
-};
+}
 
 // РАБОТА С ИНТЕРФЕЙСОМ //
 const getHighInterfase = () => {
@@ -290,7 +304,7 @@ const getHighInterfase = () => {
   }
   // ФУНКЦИЯ ДЛЯ РАБОТЫ С ПАПКАМИ //
 
-  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+  // ФОРМИРУЕМ ОКНО ДЛЯ РАБОТЫ С ДОКУМЕНТАМИ //
   fileTalbeBody.innerHTML += getScrollTableBodyRow();
   fileTalbeBody.innerHTML += getScrollTableBodyRow();
   fileTalbeBody.innerHTML += getScrollTableBodyRow();
