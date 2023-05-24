@@ -20,7 +20,7 @@
   &:nth-child(1) {
     width: calc(var(--pixel) * 54.5);
     border: none !important;
-    background: #ffc194;
+    background: transparent;
   }
 
   &:nth-child(2),
@@ -64,7 +64,7 @@
   &:nth-child(1) {
     width: calc(var(--pixel) * 54);
     border: none !important;
-    background: #ffc194;
+    background: rgba(0, 0, 0, 0.557);
   }
 
   &:nth-child(2),

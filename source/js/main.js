@@ -45,14 +45,22 @@ import {
 import {
   getScrollTableBodyRow
 } from './view/file/table/scroll-table-body-row.js';
-
+// импорт всплывающих окон для блока работающего с файлами //
+import {
+  getArchiveContainerOfCreateNewDocument
+} from './view/file/archive__container-of-create-new-document.js';
+import {
+  getAchiveContainerFileSearch
+} from './view/file/achive__container-file-search.js';
+import {
+  getArchiveContainerOfOpenedDocument
+} from './view/file/archive__container-of-opened-document.js';
 
 // ПЕРЕМЕННЫЕ //
+const windowThisFile = document.querySelector('.archive__file');
+const windowThisFolder = document.querySelector('.archive__folder');
 const buttonOfOpenFolderWindow = document.querySelector('.archive__filder-menu-img');
 const buttonOfCloseFolderWindow = document.querySelector('.archive__filder-menu-img--rotate');
-const windowThisFolder = document.querySelector('.archive__folder');
-const searchOfDateRegButton = document.getElementById('searchOfDateReg');
-const archiveContainerFileSearchOfElementWrapper = document.querySelector('.archive__container-file-search-of-element-wrapper');
 const archiveFolrmFolder = document.querySelector('.archive__folder-menu-form');
 const archiveFolderInputSearch = document.querySelector('.archive__folder-input');
 const folderButtonContainer = document.querySelector('.archive__folder-button-container');
@@ -73,11 +81,65 @@ const getListnersOfWindowFolders = () => {
   });
 };
 
-// ФУНКЦИЯ СОБЫТИЫЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ПОИСКА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getWorkWithTheSearchWindow = () => {
+  windowThisFile.innerHTML += getAchiveContainerFileSearch();
+  const searchOfDateRegButton = document.getElementById('searchOfDateReg');
+  const archiveButtonOutSearch = document.querySelector('.archive__container-file-search-of-element-button-out');
+  searchOfDateRegButton.addEventListener('click', () => {
+    const archiveContainerFileSearchOfElementWrapper = document.querySelector('.archive__container-file-search-of-element-wrapper');
+    archiveContainerFileSearchOfElementWrapper.classList.add('archive__container-file-search-of-element-wrapper--active');
+    searchOfDateRegButton.style = 'display: none';
+  });
+  archiveButtonOutSearch.addEventListener('click', () => {
+    Array.from(windowThisFile.children).forEach((element) => {
+      if (element.className === 'achive__container-file-search') {
+        windowThisFile.removeChild(element);
+      }
+    });
+  });
+};
+
+// ФУНКЦИЯ ОКНА СОЗДАНИЯ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getWorkWithTheWindowOfCrateDocument = () => {
+  windowThisFile.innerHTML += getArchiveContainerOfCreateNewDocument();
+};
+
+// ФУНКЦИЯ ОКНА УДАЛЕНИЯ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getDeleteDocumentFromArchiveTable = () => {
+
+};
+
+// ФУНКЦИЯ ОКНА ВЫРЕЗКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ВСТАВКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ОБНОВЛЕНИЯ ТАБЛИЦЫ\СОРОСА ПОИСКА ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+
+// СБОРКА ФУНКЦИЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
 const getRequiredWindowForFileWork = () => {
   // СОЗДАЕМ СЛУШАТЕЛИ //
   Array.from(fileMenu.children).forEach((item) => {
-    item.addEventListener('click', () => console.log(item));
+    item.addEventListener('click', () => {
+      switch (item.title) {
+        case 'Создать документ':
+          getWorkWithTheWindowOfCrateDocument();
+          break;
+        case 'Удалить документ':
+
+          break;
+        case 'Вставить':
+
+          break;
+        case 'Вырезать':
+
+          break;
+        case 'Поиск':
+          getWorkWithTheSearchWindow();
+          break;
+        case 'Обновить таблицу & Сбросить поиск':
+
+          break;
+      }
+    });
   });
 };
 
@@ -92,7 +154,7 @@ const getHighInterfase = () => {
   folderButtonContainer.innerHTML += getHighLevelButton();
   folderButtonContainer.innerHTML += getRefreshButton();
   // ДОБАВЛЯЕМ ПЕРВЫЕ ДВЕ ГЛАВНЫЕ ПАПКИ В ТАБЛИЦУ ОКНА FOLDER //
-  for(let i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     folderTableBody.innerHTML += getArchiveFolderTable();
   };
   // ФУНКЦИЯ ДЛЯ РАБОТЫ С ПАПКАМИ //
@@ -115,12 +177,6 @@ const getHighInterfase = () => {
   // ФУНКЦИЯ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
   getRequiredWindowForFileWork();
 };
-
-// ОКНО ПОИСКА //
-// searchOfDateRegButton.addEventListener('click', () => {
-//   archiveContainerFileSearchOfElementWrapper.classList.add('archive__container-file-search-of-element-wrapper--active');
-//   searchOfDateRegButton.style = 'display: none';
-// });
 
 // БЕЗОПАСНОСТЬ //
 document.addEventListener('keydown', (event) => {

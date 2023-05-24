@@ -57,15 +57,151 @@ const getScrollTableBodyRow = () => `
   <td>Силенко И.П.</td>
 </tr>
 `;
+const getArchiveContainerOfCreateNewDocument = () => `
+<section class="archive__container-of-create-new-document">
+  <img class="archive__create-new-document-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
+  <div class="archive__wrapper-of-id-document">
+    <span class="archive__document-of-text">Карточка абонентского дела №</span>
+    <span class="archive__document-of-id"></span>
+  </div>
+  <form class="archive__create-new-document-of-form" action="" method="">
+    <div class="archive__create-new-document-input-of-container-elements">
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Регистрационный номер:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Дата:</span>
+        <input class="archive__create-new-document-of-input" type="datetime-local" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Номер абонентского дела:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Тип документа:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">ФИО:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Город:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Улица:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Номер договара:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Дом:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Корпус:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+      <div class="archive__create-new-document-of-element-form">
+        <span class="archive__create-new-document-of-text">Квартира:</span>
+        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+      </div>
+    </div>
+    <textarea class="archive__create-new-document-of-textarea" name="" id="" placeholder="Комментарий"></textarea>
+    <table class="archive__create-new-document-of-table">
+      <thead>
+        <tr>
+          <th><img class="archive__create-new-document-of-table-thead-img-for-list-del" src="./img/file/task.svg" alt="" srcset=""></th>
+          <th>Имя файла</th>
+          <th>Тип</th>
+          <th>Автор</th>
+          <th>Дата публикации</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
+          <td>4123124</td>
+          <td>4124</td>
+          <td>124</td>
+          <td>1527</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <input class="archive__create-new-document-of-input-file" type="file">
+    <button class="archive__create-new-document-of-button-add-new-file">Добавить файл</button>
+    <button class="archive__create-new-document-of-button-create" type="submit">Создать документ</button>
+    <div class="archive__create-new-document-wrapper-of-info">
+      <div class="archive__create-new-document-element-of-info">
+        <span class="archive__create-new-document-element-of-text">Создатель документа:</span>
+        <span class="archive__create-new-document-element-of-info" id="idNewDocument"></span>
+      </div>
+      <div class="archive__create-new-document-element-of-info">
+        <span class="archive__create-new-document-element-of-text">Дата последнего изменения:</span>
+        <span class="archive__create-new-document-element-of-info" id="dateOfChangeDocument"></span>
+      </div>
+      <div class="archive__create-new-document-element-of-info">
+        <span class="archive__create-new-document-element-of-text">Папка:</span>
+        <span class="archive__create-new-document-element-of-info" id="folderOfDocument"></span>
+      </div>
+    </div>
+  </form>
+</section>
+`;
+const getAchiveContainerFileSearch = () => `<section class="achive__container-file-search">
+  <h2 class="archive__container-file-search-title">Поиск</h2>
+  <div class="archive__container-file-search-of-element">
+    <select class="archive__container-file-search-of-element-select" name="" id="" aria-placeholder="Поиск по типу файла">
+      <option class="archive__container-file-search-of-element-option" value="-">Выбор типа</option>
+      <option class="archive__container-file-search-of-element-option" value="Правовые документы">Правовые документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Заявления">Заявления</option>
+      <option class="archive__container-file-search-of-element-option" value="Акты">Акты</option>
+      <option class="archive__container-file-search-of-element-option" value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+      <option class="archive__container-file-search-of-element-option" value="Технический паспорт объекта">Технический паспорт объекта</option>
+      <option class="archive__container-file-search-of-element-option" value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+      <option class="archive__container-file-search-of-element-option" value="Договор">Договор</option>
+      <option class="archive__container-file-search-of-element-option" value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+      <option class="archive__container-file-search-of-element-option" value="Прочие документы">Прочие документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Проектно-техническая документация">Проектно-техническая документация</option>
+      <option class="archive__container-file-search-of-element-option" value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+    </select>
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Номер абон. дела">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="ФИО">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Комментарий">
+  </div>
+  <div class="archive__container-file-search-of-element">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Город">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Дом">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Улица">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Квартира">
+  </div>
+  <div class="archive__container-file-search-of-element">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Номер договора">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Имя файла">
+    <button class="" id="searchOfDateReg">Поиск по дате регистрации</button>
+    <div class="archive__container-file-search-of-element-wrapper">
+      <span class="archive__container-file-search-of-element-text">C</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
+      <span class="archive__container-file-search-of-element-text">По</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
+    </div>
+  </div>
+  <button class="archive__container-file-search-of-element-button">Поиск</button>
+  <img class="archive__container-file-search-of-element-button-out" src="./img/file/out.svg" alt="" srcset="">
+</section>`;
 
 // импорт элементов блока окна с папками //
 // импорт элементов файлового блока //
+// импорт всплывающих окон для блока работающего с файлами //
 // ПЕРЕМЕННЫЕ //
+const windowThisFile = document.querySelector('.archive__file');
+const windowThisFolder = document.querySelector('.archive__folder');
 const buttonOfOpenFolderWindow = document.querySelector('.archive__filder-menu-img');
 const buttonOfCloseFolderWindow = document.querySelector('.archive__filder-menu-img--rotate');
-const windowThisFolder = document.querySelector('.archive__folder');
-const searchOfDateRegButton = document.getElementById('searchOfDateReg');
-const archiveContainerFileSearchOfElementWrapper = document.querySelector('.archive__container-file-search-of-element-wrapper');
 const archiveFolrmFolder = document.querySelector('.archive__folder-menu-form');
 const archiveFolderInputSearch = document.querySelector('.archive__folder-input');
 const folderButtonContainer = document.querySelector('.archive__folder-button-container');
@@ -85,11 +221,56 @@ const getListnersOfWindowFolders = () => {
   });
 };
 
-// ФУНКЦИЯ СОБЫТИЫЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ПОИСКА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getWorkWithTheSearchWindow = () => {
+  windowThisFile.innerHTML += getAchiveContainerFileSearch();
+  const searchOfDateRegButton = document.getElementById('searchOfDateReg');
+  const archiveButtonOutSearch = document.querySelector('.archive__container-file-search-of-element-button-out');
+  searchOfDateRegButton.addEventListener('click', () => {
+    const archiveContainerFileSearchOfElementWrapper = document.querySelector('.archive__container-file-search-of-element-wrapper');
+    archiveContainerFileSearchOfElementWrapper.classList.add('archive__container-file-search-of-element-wrapper--active');
+    searchOfDateRegButton.style = 'display: none';
+  });
+  archiveButtonOutSearch.addEventListener('click', () => {
+    Array.from(windowThisFile.children).forEach(element => {
+      if (element.className === 'achive__container-file-search') {
+        windowThisFile.removeChild(element);
+      }
+    });
+  });
+};
+
+// ФУНКЦИЯ ОКНА СОЗДАНИЯ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+const getWorkWithTheWindowOfCrateDocument = () => {
+  windowThisFile.innerHTML += getArchiveContainerOfCreateNewDocument();
+};
+
+// ФУНКЦИЯ ОКНА ВЫРЕЗКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ВСТАВКИ ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+// ФУНКЦИЯ ОКНА ОБНОВЛЕНИЯ ТАБЛИЦЫ\СОРОСА ПОИСКА ДОКУМЕНТА ДЛЯ РАБОТЫ С ФАЙЛАМИ //
+
+// СБОРКА ФУНКЦИЙ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
 const getRequiredWindowForFileWork = () => {
   // СОЗДАЕМ СЛУШАТЕЛИ //
   Array.from(fileMenu.children).forEach(item => {
-    item.addEventListener('click', () => console.log(item));
+    item.addEventListener('click', () => {
+      switch (item.title) {
+        case 'Создать документ':
+          getWorkWithTheWindowOfCrateDocument();
+          break;
+        case 'Удалить документ':
+          break;
+        case 'Вставить':
+          break;
+        case 'Вырезать':
+          break;
+        case 'Поиск':
+          getWorkWithTheSearchWindow();
+          break;
+        case 'Обновить таблицу & Сбросить поиск':
+          break;
+      }
+    });
   });
 };
 
@@ -127,12 +308,6 @@ const getHighInterfase = () => {
   // ФУНКЦИЯ ДЛЯ РАБОТЫ С ФАЙЛАМИ //
   getRequiredWindowForFileWork();
 };
-
-// ОКНО ПОИСКА //
-// searchOfDateRegButton.addEventListener('click', () => {
-//   archiveContainerFileSearchOfElementWrapper.classList.add('archive__container-file-search-of-element-wrapper--active');
-//   searchOfDateRegButton.style = 'display: none';
-// });
 
 // БЕЗОПАСНОСТЬ //
 document.addEventListener('keydown', event => {

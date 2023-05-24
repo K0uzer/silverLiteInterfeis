@@ -1,6 +1,6 @@
-export const archiveContainerOfOpenedDocument = () => `
+export const getArchiveContainerOfOpenedDocument = () => `
 <section class="archive__container-of-opened-document">
-  <img class="archive__opened-document-of-button-out" src="./img/out.svg" alt="Кпонка выхода">
+  <img class="archive__opened-document-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
   <div class="archive__wrapper-of-id-document">
     <span class="archive__document-of-text">Карточка абонентского дела №</span>
     <span class="archive__document-of-id"></span>
@@ -56,7 +56,7 @@ export const archiveContainerOfOpenedDocument = () => `
     <table class="archive__opened-document-of-table">
       <thead>
         <tr>
-          <th><img class="archive__opened-document-of-table-thead-img-for-list-del" src="./img/task.svg" alt="" srcset=""></th>
+          <th><img class="archive__opened-document-of-table-thead-img-for-list-del" src="./img/file/task.svg" alt="" srcset=""></th>
           <th>Имя файла</th>
           <th>Тип</th>
           <th>Размер</th>

@@ -1,4 +1,4 @@
-export const achiveContainerFileSearch = () => `<section class="achive__container-file-search">
+export const getAchiveContainerFileSearch = () => `<section class="achive__container-file-search">
   <h2 class="archive__container-file-search-title">Поиск</h2>
   <div class="archive__container-file-search-of-element">
     <select class="archive__container-file-search-of-element-select" name="" id="" aria-placeholder="Поиск по типу файла">
@@ -36,5 +36,5 @@ export const achiveContainerFileSearch = () => `<section class="achive__containe
     </div>
   </div>
   <button class="archive__container-file-search-of-element-button">Поиск</button>
-  <img class="archive__container-file-search-of-element-button-out" src="./img/out.svg" alt="" srcset="">
+  <img class="archive__container-file-search-of-element-button-out" src="./img/file/out.svg" alt="" srcset="">
 </section>`;
