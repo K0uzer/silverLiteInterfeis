@@ -43,11 +43,11 @@
                 </ul>
                 <div class="page" id="p1">
                   <section class="menu__icon archive fa fa-bolt">
-                    <span class="title">Электронный архив</span><span class="hint">Добро пожаловать, Александр</span>
+                    <h1 class="title">Электронный архив</h1><span class="hint">Добро пожаловать, Александр</span>
                   </section>
                 </div>
                 <div class="page archive" id="p2">
-                  <span class="title">Абонентские дела</span>
+                  <h1 class="title">Абонентские дела</h1>
                   <img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
                   <section class="archive__folder">
                     <div class="archive__filder-menu-container-img">
@@ -111,7 +111,7 @@
                   </section>
                 </div>
                 <div class="page sittings" id="p3">
-                  <span class="sittings__title">Настройки</span>
+                  <h1 class="sittings__title">Настройки</h1>
                   <div class="sittings__wrapper">
                     <span class="sittings__type">Сменить пароль</span>
                     <input class="sittings__password-current" type="password" placeholder="Текущий пароль">
@@ -122,7 +122,7 @@
                 </div>
                 <div class="page" id="p4">
                   <div class="fa fa-dribbble">
-                    <span class="title">Помощь</span>
+                    <h1 class="title">Помощь</h1>
                     <p class="hint">
                       <a href="https://dribbble.com/hrtzt" target="_blank"><span class="hint line-trough"></span></a>
                     </p>
@@ -133,28 +133,28 @@
                   </section>
                 </div>
                 <div class="page" id="p5">
-                  <div class="fa fa-plus-circle administation">
-                    <span class="title administation__title">Администрирование</span>
-                    <section class="administation__wrapper-block-employees">
-                      <h2 class="administation__employees-title">Сотрудники преприятия</h2>
-                      <div class="administation__wrapper-navigation">
-                        <nav class="administation__navigation">
-                          <ul class="administation__navigation-list">
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Список пользователей без должности"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Сохранить изменения"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Показать информацию"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Обновить таблицу"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Добавить подразделение"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Добавить должность"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Добавить сотрудника"></button></li>
-                            <li class="administation__navigation-element"><button class="administation__navigation-button" title="Удалить"></button></li>
+                  <div class="fa fa-plus-circle administration">
+                    <h1 class="title administration__title">Администрирование</h1>
+                    <section class="employees-company" style="display: none;">
+                      <h2 class="employees-company__employees-title">Сотрудники преприятия</h2>
+                      <div class="employees-company__wrapper-content">
+                        <nav class="employees-company__navigation">
+                          <ul class="employees-company__navigation-list">
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Список пользователей без должности"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Сохранить изменения"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Показать информацию"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Обновить таблицу"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Добавить подразделение"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Добавить должность"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Добавить сотрудника"></button></li>
+                            <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Удалить"></button></li>
                           </ul>
                         </nav>
-                        <input class="administation__input-search" type="text" placeholder="Быстрый поиск">
-                        <table class="administation__folder">
+                        <input class="employees-company__input-search" type="text" placeholder="Быстрый поиск">
+                        <table class="employees-company__folder">
 
                         </table>
-                        <table class="administation__users">
+                        <table class="employees-company__users">
 
                         </table>
                       </div>
@@ -179,25 +179,29 @@
                         <h2>Настройки пользователей</h2>
                       </div>
                     </section>
-                    <section class="">
+
+                    <section class="group-access">
+                      <h2 class="group-access__title">Группы доступа</h2>
+                      <div class="group-access__content-wrapper">
+                        <nav class="group-access__navifation">
+                          <ul class="group-access__navigation-list">
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Сохранить изменения"></button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Добавить группу"></button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Удалить группу"></button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Редактировать название группы"></button></li>
+                          </ul>
+                        </nav>
+                        <table class="group-access__table">
+
+                        </table>
+                      </div>
+                    </section>
 
                     </section>
-                    <section class="">
+                    <section class="file-storage">
 
                     </section>
-                    <section class="">
-
-                    </section>
-                    <section class="">
-
-                    </section>
-                    <section class="">
-
-                    </section>
-                    <section class="">
-
-                    </section>
-                    <section class="">
+                    <section class="protocols">
 
                     </section>
                   </div1
