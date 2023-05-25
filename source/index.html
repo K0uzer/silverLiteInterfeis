@@ -111,7 +111,7 @@
                   </section>
                 </div>
                 <div class="page sittings" id="p3">
-                  <h1 class="sittings__title">Настройки</h1>
+                  <h1 class="title">Настройки</h1>
                   <div class="sittings__wrapper">
                     <span class="sittings__type">Сменить пароль</span>
                     <input class="sittings__password-current" type="password" placeholder="Текущий пароль">
@@ -179,7 +179,6 @@
                         <h2>Настройки пользователей</h2>
                       </div>
                     </section>
-
                     <section class="group-access" style="display: none;">
                       <h2 class="group-access__title">Группы доступа</h2>
                       <div class="group-access__content-wrapper">
@@ -210,8 +209,93 @@
                         <input class="file-storage__input" type="password" title="Пароль">
                       </form>
                     </section>
-                    <section class="protocols">
-                      
+                    <section class="protocols" style="display: none;">
+                      <h2 class="protocols__title">Протоколы</h2>
+                      <nav class="protocols__navigations">
+                        <ul class="protocols__navigations-list">
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Архивные протоколы</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Протоколы действий</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Настройки протоколов</button></li>
+                        </ul>
+                      </nav>
+                      <div class="archived-protocols">
+                        <nav class="archived-protocols__navigations">
+                          <ul class="archived-protocols__navigations-list">
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Обновить"></button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Сохранить в файл"></button></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Период с"><input type="text" placeholder="Период по"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Комментарий"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Пользователь"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Количество отображений"></li>
+                          </ul>
+                        </nav>
+                        <table class="archived-protocols__table">
+                          <thead></thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                      <div class="protocols-action">
+                        <nav class="protocols-action__navigations">
+                          <ul class="protocols-action__navigations-list">
+                            <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Обновить"></button></li>
+                            <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Сохранить в файл"></button></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Период с"><input type="text" placeholder="Период по"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Комментарий"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Пользователь"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Количество отображений"></li>
+                          </ul>
+                        </nav>
+                        <table>
+                          <thead></thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                      <div class="protocols__sittings">
+                        <form class="protocols__sittings-form" action="" method="post">
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings">Действия с документами</lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание документа</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Перемещение документа</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Взятие документа на редактирование</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Измерение присоединенных файлов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Просмотр документов</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings">Пользовательские действия</lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Вход и выход из системы</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Печать содержимого PKK</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Печать присоединенных файлов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отправка документоа по почте</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings">Административные действия</lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Созданение пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение профиля пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отключение пользователей/span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание групп</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление групп</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение настроек системы</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление протоколов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение прав пользователям</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings">Действия с папками</lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение свойств папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Перемещение папки</span></li>
+                            </ul>
+                          </div>
+                        </form>
+                      </div>
                     </section>
                   </div>
                 </div>

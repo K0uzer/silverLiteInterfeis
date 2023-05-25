@@ -13,7 +13,7 @@
   align-items: center;
   max-width: calc(var(--pixel) * 1000);
   width: calc(var(--pixel) * 600);
-  padding: calc(var(--pixel) * 15) 0;
+  padding: 0 0 calc(var(--pixel) * 15) 0;
   margin-left: calc(var(--pixel) * 350);
 
   &:hover {
@@ -60,8 +60,8 @@
 }
 
 .archive__file-button {
-  width: calc(var(--pixel) * 50);
-  height: calc(var(--pixel) * 50);
+  width: calc(var(--pixel) * 45);
+  height: calc(var(--pixel) * 45);
   padding: 0 calc(var(--pixel) * 10);
   cursor: pointer;
 }
