@@ -144,29 +144,30 @@ const getUpdateTableWithDocument = () => {
 };
 
 // СБОРКА ФУНКЦИЙ ДЛЯ РАБОТЫ С ДОКУМЕНТАМИ //
-function getRequiredWindowForFileWork () {
+function getRequiredWindowForFileWork() {
   // СОЗДАЕМ СЛУШАТЕЛИ //
   Array.from(fileMenu.children).forEach((item) => {
     item.addEventListener('click', () => {
       switch (item.title) {
         case 'Создать документ':
           getWorkWithTheWindowOfCrateDocument();
+          console.log(item);
           break;
         case 'Удалить документ':
-
+          console.log(item);
           break;
         case 'Вставить':
-
+          console.log(item);
           break;
         case 'Вырезать':
-
+          console.log(item);
           break;
         case 'Поиск':
           getWorkWithTheSearchWindow();
+          console.log(item);
           break;
         case 'Обновить таблицу & Сбросить поиск':
 
-          break;
       }
     });
   });
