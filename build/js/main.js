@@ -333,24 +333,20 @@ const getHighInterfase = () => {
 
 const administrationsButtonOfOpenMenu = document.querySelector('.administration__button-open-menu');
 const administratinsMenu = document.querySelector('.administration__menu');
-const administratinsMenuList = document.querySelector('.employees-company__navigation-list');
-const administrationManuButton = document.querySelector('.administration__element-button');
-console.log(administratinsMenuList.children);
+const administratinsMenuList = document.querySelector('.administration__menu-list');
+
 // ФУНКЦИИ ОТВЕЧАЮЩИЕ ЗА ПОЯВЛЕНИЕ ГЛАВНОГО МЕНЮ АДМИНА //
 administrationsButtonOfOpenMenu.addEventListener('click', () => {
   if (administratinsMenu.classList.contains('administration__menu--closed')) {
     administratinsMenu.classList.remove('administration__menu--closed');
     administratinsMenu.classList.add('administration__menu--opened');
-    console.log(1);
   } else {
     administratinsMenu.classList.add('administration__menu--closed');
     administratinsMenu.classList.remove('administration__menu--opened');
-    console.log(2);
   }
 });
 Array.from(administratinsMenuList.children).forEach(item => {
-  item.addEventListener('click', () => {
-    console.log(3);
+  item.children[0].addEventListener('click', () => {
     administratinsMenu.classList.remove('administration__menu--opened');
     administratinsMenu.classList.add('administration__menu--closed');
   });
