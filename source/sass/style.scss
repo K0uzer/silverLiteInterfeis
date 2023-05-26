@@ -6,16 +6,17 @@
 @import "global/global.scss";
 @import "global/preloader.scss";
 @import "global/index.scss";
+@import "global/mixins.scss";
+
+// Blocks
+
+@import "global/archivePage.scss";
 @import "global/authorizationPage.scss";
+@import "global/administrationPage.scss";
+@import "global/sittingsPage.scss";
 @import "global/archiveWindowSearch.scss";
 @import "global/archiveWindowCreateDocument.scss";
 @import "global/archivetablefile.scss";
 @import "global/archivetablefolder.scss";
-@import "global/archivemain.scss";
 @import "global/archiveWorkWithFile.scss";
 @import "global/archiveOpenedDocument.scss";
-@import "global/administration.scss";
-@import "global/sittingsPage.scss";
-@import "global/mixins.scss";
-
-// Blocks

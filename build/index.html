@@ -112,12 +112,12 @@
                 </div>
                 <div class="page sittings" id="p3">
                   <h1 class="title">Настройки</h1>
-                  <form class="sittings__form">
+                  <form class="sittings__form" method="post">
                     <span class="sittings__type">Сменить пароль</span>
-                    <input class="sittings__password-current" type="password" placeholder="Текущий пароль">
-                    <input class="sittings__password-new" type="password" placeholder="Новый пароль">
-                    <input class="sittings__password-new-confirmation" type="password" placeholder="Подтвердите пароль">
-                    <button class="sittings__password-save">Сохранить</button>
+                    <input class="sittings__input sittings__password-current" type="password" placeholder="Текущий пароль">
+                    <input class="sittings__input sittings__password-new" type="password" placeholder="Новый пароль">
+                    <input class="sittings__input sittings__password-new-confirmation" type="password" placeholder="Подтвердите пароль">
+                    <button class="sittings__password-button">Сохранить</button>
                   </form>
                 </div>
                 <div class="page" id="p4">
@@ -135,7 +135,7 @@
                 <div class="page" id="p5">
                   <div class="fa fa-plus-circle administration">
                     <h1 class="title administration__title">Администрирование</h1>
-                    <section class="employees-company" style="display: none;">
+                    <section class="employees-company">
                       <h2 class="employees-company__employees-title">Сотрудники преприятия</h2>
                       <div class="employees-company__wrapper-content">
                         <nav class="employees-company__navigation">
@@ -148,35 +148,96 @@
                             <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Добавить должность"></button></li>
                             <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Добавить сотрудника"></button></li>
                             <li class="employees-company__navigation-element"><button class="employees-company__navigation-button" title="Удалить"></button></li>
+                            <li class="employees-company__navigation-element"><input class="employees-company__navigation-input-search" type="text" placeholder="Быстрый поиск по имени"></li>
                           </ul>
                         </nav>
-                        <input class="employees-company__input-search" type="text" placeholder="Быстрый поиск">
-                        <table class="employees-company__folder">
+                        <div class="employees-company__tables-container">
+                          <table class="employees-company__folder">
 
-                        </table>
-                        <table class="employees-company__users">
-
-                        </table>
+                          </table>
+                          <table class="employees-company__users">
+                            <thead>
+                              <tr>
+                                <th>Пользователь</th>
+                                <th>Должность</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                       <div class="">
-                        <h2>Работающие сотрубники</h2>
-                        <nav>
-                          <ul>
-                            <li><button></button></li>
-                            <li><button></button></li>
+                        <h2 class="">Работающие сотрубники</h2>
+                        <nav class="">
+                          <ul class="">
+                            <li class=""><button class=""></button></li>
+                            <li class=""><button class=""></button></li>
                           </ul>
                         </nav>
-                        <table>
+                        <table class="">
                           <thead>
-
+                            <tr>
+                              <th></th>
+                              <th>Логин</th>
+                              <th>Имя</th>
+                              <th></th>
+                            </tr>
                           </thead>
                           <tbody>
-
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
                           </tbody>
                         </table>
+                        <div class="">
+                          <h3 class="">Сообщение пользователю</h3>
+                          <div class="">
+                            <span class=""></span>
+                            <span class=""></span>
+                            <button class=""></button>
+                          </div>
+                          <textarea class="" name="" id="" cols="30" rows="10">
+
+                          </textarea>
+                          <form class="">
+                            <button class="">Отправить</button>
+                            <button class="">Отменить</button>
+                          </form>
+                        </div>
                       </div>
-                      <div>
-                        <h2>Настройки пользователей</h2>
+                      <div class="sittings-of-users" style="display: none;">
+                        <h2 class="sittings-of-users__title">Настройки пользователей</h2>
+                        <button class="sittings-of-users__button-save-change"></button>
+                        <div class="sittings-of-users__container-content">
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Проверять сложность пароля</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input class="class="sittings-of-users__element-input" type="text">
+                            <span class="class="sittings-of-users__element-text">Минимальная длина пароля</span>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__container-element-text">Пароль должен содержать буквы</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Пароль должен содержать цифры</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Проль должен содержать специпальные символы</lable>
+                          </div>
+                        </div>
                       </div>
                     </section>
                     <section class="group-access" style="display: none;">
