@@ -208,7 +208,40 @@ const getHighInterfase = () => {
   getRequiredWindowForFileWork();
 };
 
+//                   //
+// АДМИНИСТРИРОВАНИЕ //
+//                   //
+
+const administrationsButtonOfOpenMenu = document.querySelector('.administration__button-open-menu');
+const administratinsMenu = document.querySelector('.administration__menu');
+const administratinsMenuList = document.querySelector('.employees-company__navigation-list');
+const administrationManuButton = document.querySelector('.administration__element-button');
+console.log(administratinsMenuList.children);
+// ФУНКЦИИ ОТВЕЧАЮЩИЕ ЗА ПОЯВЛЕНИЕ ГЛАВНОГО МЕНЮ АДМИНА //
+administrationsButtonOfOpenMenu.addEventListener('click', () => {
+  if(administratinsMenu.classList.contains('administration__menu--closed')) {
+    administratinsMenu.classList.remove('administration__menu--closed');
+    administratinsMenu.classList.add('administration__menu--opened');
+    console.log(1);
+  } else {
+    administratinsMenu.classList.add('administration__menu--closed');
+    administratinsMenu.classList.remove('administration__menu--opened');
+    console.log(2);
+  }
+});
+
+Array.from(administratinsMenuList.children).forEach((item) => {
+  item.addEventListener('click', () => {
+    console.log(3);
+    administratinsMenu.classList.remove('administration__menu--opened');
+    administratinsMenu.classList.add('administration__menu--closed');
+  });
+});
+
+//              //
 // БЕЗОПАСНОСТЬ //
+//              //
+
 document.addEventListener('keydown', (event) => {
   if (event.shiftKey && event.ctrlKey && event.key === 'c') {
     console.log('You pressed Shift + Ctrl + C!');

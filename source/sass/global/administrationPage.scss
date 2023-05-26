@@ -1,0 +1,71 @@
+.administration {
+  position: relative;
+  height: 100%;
+}
+.administration__title {
+}
+.administration__button-open-menu {
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  top: 50px;
+  left: 0;
+}
+.administration__menu {
+  position: absolute;
+  height: 50px;
+  top: 85px;
+  &--closed {
+    width: 0px;
+    transition: .9s;
+    transition-delay: .15s;
+    transform: scale(0);
+    opacity: 0;
+  }
+  &--opened {
+    width: 750px;
+    transition: .9s;
+    transition-delay: .15s;
+    transform: scale(1);
+  }
+}
+.administration__menu-list {
+  z-index: 9;
+  position: absolute;
+  display: flex;
+  width: 750px;
+  height: 40px;
+  list-style: none;
+}
+.administration__menu-element {
+
+}
+.administration__element-button {
+  width: 150px;
+  height: 40px;
+}
+.employees-company {
+}
+.employees-company__employees-title {
+}
+.employees-company__wrapper-content {
+}
+.employees-company__navigation {
+}
+.employees-company__navigation-list {
+}
+.employees-company__navigation > .employees-company__navigation-list {
+  position: initial;
+}
+.employees-company__navigation-element {
+}
+.employees-company__navigation-button {
+}
+.employees-company__navigation-input-search {
+}
+.employees-company__tables-container {
+}
+.employees-company__folder {
+}
+.employees-company__users {
+}
