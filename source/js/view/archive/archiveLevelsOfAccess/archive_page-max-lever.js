@@ -1,6 +1,4 @@
-"use strict";
-
-const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
+export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
 <section class="archive__folder">
   <div class="archive__filder-menu-container-img">
     <img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img--rotate" alt="Бургер">
@@ -181,19 +179,3 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
     </div>
   </div>
 `;
-
-//            //
-// КОДНСТАНТЫ //
-//            //
-const acrchivePage = document.querySelector('.archive');
-acrchivePage.innerHTML = archivePageMaxLever();
-
-// ПРОВЕРЯЕМ ТЕКУЩЕЕ МЕСТОПОЛОЖЕНИЕ ПОЛЬЗОВАТЕЛЯ //
-switch (window.location.href) {
-  case 'http://localhost:3000/index.html':
-    console.log(1);
-    break;
-  case 'http://localhost:3000/authorization.html':
-    console.log(2);
-    break;
-}

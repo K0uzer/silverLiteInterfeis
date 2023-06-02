@@ -40,23 +40,23 @@ body,
 }
 
 #p1 {
-  background: rgb(118, 101, 224);
+  background: #3d769b;
 }
 
 #p2 {
-  background: #d7dbbd;
+  background: linear-gradient(#00aca9, #239694, #477473,#353535);
 }
 
 #p3 {
-  background: #8a7c05;
+  background: linear-gradient(#00aca9, #008582,#353535);
 }
 
 #p4 {
-  background: rgb(0, 81, 148);
+  background: linear-gradient(#00aca9, #008582,#353535);
 }
 
 #p5 {
-  background: rgb(95, 88, 134);
+  background: linear-gradient(#00aca9, #008582,#353535);
 }
 
 #t2:target #p2,
@@ -146,13 +146,15 @@ a {
 
 .title,
 .hint {
-  display: inline;
+  display: block;
   color: black;
 }
 
 .title {
   font-size: calc(var(--pixel) * 36);
   width: calc(var(--pixel) * 500);
+  margin: 0;
+  padding: 0;
 }
 
 .hint {

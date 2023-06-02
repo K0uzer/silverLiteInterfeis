@@ -56,7 +56,7 @@
   font-size: calc(var(--pixel) * 14);
   font-weight: calc(var(--pixel) * 700);
   text-align: center;
-  background: #0000008e;
+  background: #222222;
   border: calc(var(--pixel) * 1) solid black;
   border-top: none;
   border-left: calc(var(--pixel) * 1) solid #000000;
@@ -64,7 +64,7 @@
   &:nth-child(1) {
     width: calc(var(--pixel) * 54);
     border: none !important;
-    background: rgba(0, 0, 0, 0.557);
+    background: #222222;
   }
 
   &:nth-child(2),
@@ -89,7 +89,7 @@
   text-align: center;
   border-left: calc(var(--pixel) * 1) solid #000000;
   border-right: calc(var(--pixel) * 1) solid #000000;
-  background: #0000003a;
+  background: #1f1f1f3a;
 }
 
 .scroll-table tbody tr:nth-child(even) {
