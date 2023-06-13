@@ -56,24 +56,40 @@ const getCloseBlokWithFolder = () => {
   });
 };
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
-const getCloseBlockForNewDocument = () => {
-  const archiveFile = document.querySelector('.archive__file');
-  const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
-  archiveButtonOutWithCreateNewDocument.addEventListener('click', () => {
-    Array.from(archiveFile.children).forEach((item) => {
-      if(item.classList.contains('archive__container-of-create-new-document')) archiveFile.removeChild(item);
-    });
-  });
-};
-
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
 const getCreateBlockForNewDocument = () => {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOfCraeteDoc = document.getElementById('archiveCreateDoc');
-  archiveButtonOfCraeteDoc.addEventListener('click', () => {
+  const createChildElementInParent = () => {
     archiveFile.innerHTML += getArchiveContainerOfCreateNewDocument();
     getCloseBlockForNewDocument();
+  } 
+  archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
+const getCloseBlockForNewDocument = () => {
+  const archiveFile = document.querySelector('.archive__file');
+  const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
+  // функция для удаления дочернего элемента //
+  const removeElementOfChild = (classOfChild) => {
+    Array.from(archiveFile.children).forEach((item) => {
+      if(item.classList.contains(classOfChild)) archiveFile.removeChild(item);
+    });
+  }
+  archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
+  getCreateBlockForNewDocument();
+};
+
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ЭЛЕМЕНТА(ДОКУМЕНТА) ИЗ ТАБЛИЦЫ //
+const getTableElementOFromArchiveDocuments = () => {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  const removeTalbeElement = () => {
+    console.log(1);      
+  }
+  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+    const elementArchiveTable = item.children[0];
+    elementArchiveTable.children[0].addEventListener('change', removeTalbeElement);
   });
 };
 
@@ -129,6 +145,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
   getCreateBlockForNewDocument();
+  getTableElementOFromArchiveDocuments();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
