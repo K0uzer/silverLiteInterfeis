@@ -1,9 +1,9 @@
 export const getArchiveContainerOfCreateNewDocument = () => `
 <section class="archive__container-of-create-new-document">
-  <img class="archive__create-new-document-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
   <div class="archive__wrapper-of-id-document">
     <span class="archive__document-of-text">Карточка абонентского дела №</span>
     <span class="archive__document-of-id"></span>
+    <img class="archive__create-new-document-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
   </div>
   <form class="archive__create-new-document-of-form" action="" method="">
     <div class="archive__create-new-document-input-of-container-elements">
@@ -71,7 +71,34 @@ export const getArchiveContainerOfCreateNewDocument = () => `
           <td>124</td>
           <td>1527</td>
         </tr>
-
+        <tr>
+          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
+          <td>4123124</td>
+          <td>4124</td>
+          <td>124</td>
+          <td>1527</td>
+        </tr>
+        <tr>
+          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
+          <td>4123124</td>
+          <td>4124</td>
+          <td>124</td>
+          <td>1527</td>
+        </tr>
+        <tr>
+          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
+          <td>4123124</td>
+          <td>4124</td>
+          <td>124</td>
+          <td>1527</td>
+        </tr>
+        <tr>
+          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
+          <td>4123124</td>
+          <td>4124</td>
+          <td>124</td>
+          <td>1527</td>
+        </tr>
       </tbody>
     </table>
     <input class="archive__create-new-document-of-input-file" type="file">
@@ -94,3 +121,4 @@ export const getArchiveContainerOfCreateNewDocument = () => `
   </form>
 </section>
 `;
+

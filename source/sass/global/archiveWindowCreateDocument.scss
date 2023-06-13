@@ -1,23 +1,22 @@
 // CRAETE DOCUMENT IN BLOCK OF FILE //
 
 .archive__container-of-create-new-document {
-  z-index: 99;
   position: absolute;
   width: 80%;
   height: 100%;
   line-height: calc(var(--pixel) * 15);
   color: #000000;
-  background-color: rgb(179 138 109 / 80%);
+  background-color: rgb(179 138 109 / 92%);
   border-radius: 0.8%;
   overflow: hidden;
 }
 
 .archive__create-new-document-of-button-out {
   position: absolute;
-  width: calc(var(--pixel) * 25);
-  height: calc(var(--pixel) * 25);
-  top: calc(var(--pixel) * 15);
-  right: calc(var(--pixel) * 15);
+  width: calc(var(--pixel)*25);
+  height: calc(var(--pixel)*25);
+  top: calc(var(--pixel)*10);
+  right: calc(var(--pixel)*10);
 
   &:hover {
     transition: 0.3s;
@@ -35,7 +34,9 @@
   color: white;
 }
 
-.archive__document-of-id {}
+.archive__document-of-id {
+
+}
 
 .archive__create-new-document-of-form {
   display: flex;
@@ -94,8 +95,8 @@
 }
 
 .archive__create-new-document-of-table {
-  font-size: calc(var(--pixel) * 15);
-  width: 100%;
+  display: inline-block;
+  font-size: calc(var(--pixel)*19);
   height: calc(var(--pixel) * 100);
   text-align: center;
   border: calc(var(--pixel) * 1) solid black;
@@ -104,9 +105,24 @@
 }
 
 .archive__create-new-document-of-table tbody tr td {
+  width: 100%;
   height: calc(var(--pixel) * 30);
   border: calc(var(--pixel) * 1) solid black;
-  overflow-y: scroll;
+  &:nth-child(1) {
+    width: 50px;
+  }
+  &:nth-child(2) {
+    width: 30%;
+  }
+  &:nth-child(3) {
+    width: 10%;
+  }
+  &:nth-child(4) {
+    width: 20%;
+  }
+  &:nth-child(5) {
+    width: 20%;
+  }
 }
 
 .archive__create-new-document-of-table-thead-img-for-list-del {

@@ -48,12 +48,12 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
 </section>
 <section class="archive__file">
   <div class="archive__file-menu">
-    <img src="./img/file/add-square.svg" class="archive__file-button" title="Создать документ" alt="">
-    <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" alt="">
-    <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" alt="">
-    <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" alt="">
-    <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" alt="">
-    <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" alt="">
+    <img src="./img/file/add-square.svg" class="archive__file-button" title="Создать документ" id="archiveCreateDoc" alt="">
+    <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" id="archiveDeleteDoc" alt="">
+    <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" id="archiveCutOut" alt="">
+    <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" id="archivePutIn" alt="">
+    <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
+    <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" id="archiveSearch" alt="">
     <div class="archive__file-menu-under-line"></div>
   </div>
   <div class="scroll-table">
