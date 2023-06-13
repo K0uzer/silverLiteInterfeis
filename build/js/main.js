@@ -304,6 +304,46 @@ const getArchiveContainerOfCreateNewDocument = () => `
   </form>
 </section>
 `;
+const getAchiveContainerFileSearch = () => `<section class="achive__container-file-search">
+  <h2 class="archive__container-file-search-title">Поиск</h2>
+  <div class="archive__container-file-search-of-element">
+    <select class="archive__container-file-search-of-element-select" name="" id="" aria-placeholder="Поиск по типу файла">
+      <option class="archive__container-file-search-of-element-option" value="-">Выбор типа</option>
+      <option class="archive__container-file-search-of-element-option" value="Правовые документы">Правовые документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Заявления">Заявления</option>
+      <option class="archive__container-file-search-of-element-option" value="Акты">Акты</option>
+      <option class="archive__container-file-search-of-element-option" value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+      <option class="archive__container-file-search-of-element-option" value="Технический паспорт объекта">Технический паспорт объекта</option>
+      <option class="archive__container-file-search-of-element-option" value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+      <option class="archive__container-file-search-of-element-option" value="Договор">Договор</option>
+      <option class="archive__container-file-search-of-element-option" value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+      <option class="archive__container-file-search-of-element-option" value="Прочие документы">Прочие документы</option>
+      <option class="archive__container-file-search-of-element-option" value="Проектно-техническая документация">Проектно-техническая документация</option>
+      <option class="archive__container-file-search-of-element-option" value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+    </select>
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Номер абон. дела">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="ФИО">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Комментарий">
+  </div>
+  <div class="archive__container-file-search-of-element">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Город">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Дом">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Улица">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Квартира">
+  </div>
+  <div class="archive__container-file-search-of-element">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Номер договора">
+    <input type="text" class="archive__container-file-search-of-element-input" placeholder="Имя файла">
+    <button class="" id="searchOfDateReg">Поиск по дате регистрации</button>
+    <div class="archive__container-file-search-of-element-wrapper">
+      <span class="archive__container-file-search-of-element-text">C</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
+      <span class="archive__container-file-search-of-element-text">По</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
+    </div>
+  </div>
+  <button class="archive__container-file-search-of-element-button">Поиск</button>
+  <img class="archive__container-file-search-of-element-button-out" src="./img/file/out.svg" alt="" srcset="">
+</section>`;
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -320,6 +360,7 @@ const acrchivePage = document.getElementById('p2');
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
+let cutteddOutElement = '';
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 const levelAcceptOfUser = 1;
@@ -363,12 +404,13 @@ const getCreateBlockForNewDocument = () => {
   const createChildElementInParent = () => {
     archiveFile.innerHTML += getArchiveContainerOfCreateNewDocument();
     getCloseBlockForNewDocument();
+    assemblingListeners();
   };
   archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
-const getCloseBlockForNewDocument = () => {
+function getCloseBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
   // функция для удаления дочернего элемента //
@@ -376,22 +418,88 @@ const getCloseBlockForNewDocument = () => {
     Array.from(archiveFile.children).forEach(item => {
       if (item.classList.contains(classOfChild)) archiveFile.removeChild(item);
     });
+    getCreateBlockForNewDocument();
+    assemblingListeners();
   };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
-  getCreateBlockForNewDocument();
+}
+
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ДОКУМЕНТА ИЗ ТАБЛИЦЫ //
+const getTableElementFromArchiveDocuments = () => {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  const buttonDeleteOfElement = document.getElementById('archiveDeleteDoc');
+  const onButtonDelete = () => {
+    Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
+      const elementArchiveTable = item.children[0];
+      if (elementArchiveTable.children[0].checked) elementArchiveTable.parentNode.remove();
+    });
+    assemblingListeners();
+  };
+  buttonDeleteOfElement.addEventListener('click', onButtonDelete);
 };
 
-// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ЭЛЕМЕНТА(ДОКУМЕНТА) ИЗ ТАБЛИЦЫ //
-const getTableElementOFromArchiveDocuments = () => {
+// ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ДОКУМЕНТА //
+const cutOutDocument = () => {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  const removeTalbeElement = () => {
-    console.log(1);
+  const bittonOfCutOutDocument = document.getElementById('archiveCutOut');
+  const cutOutElement = () => {
+    Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
+      const elementArchiveTable = item.children[0];
+      if (elementArchiveTable.children[0].checked) {
+        cutteddOutElement += item.outerHTML;
+        elementArchiveTable.parentNode.remove();
+      }
+    });
+    assemblingListeners();
   };
-  Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
-    const elementArchiveTable = item.children[0];
-    elementArchiveTable.children[0].addEventListener('change', removeTalbeElement);
-  });
+  bittonOfCutOutDocument.addEventListener('click', cutOutElement);
 };
+
+// ФУНКЦИЯ ДЛЯ ВСТАВКИ ВЫРЕЗАННОГО ЭЛЕМЕНТА В ТАБЛИЦУ //
+const putInElementInTable = () => {
+  const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
+  const putInButton = document.getElementById('archivePutIn');
+  const putInElement = () => {
+    if (cutteddOutElement !== '') {
+      rowInTalbeBodyOfFile.insertAdjacentHTML('beforeend', cutteddOutElement);
+      cutteddOutElement = '';
+    }
+    assemblingListeners();
+  };
+  putInButton.addEventListener('click', putInElement);
+};
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+const openWindowForFilterOfDocument = () => {
+  const archiveFile = document.querySelector('.archive__file');
+  const buttonOfFilter = document.getElementById('archiveSearch');
+  const getWindowOfFilter = () => {
+    archiveFile.innerHTML += getAchiveContainerFileSearch;
+    closeWindowForFilterOfDocument();
+    assemblingListeners();
+  };
+  buttonOfFilter.addEventListener('click', getWindowOfFilter);
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+function closeWindowForFilterOfDocument() {
+  const archiveFile = document.querySelector('.archive__file');
+  const buttonOutForWindowFilterDocument = document.querySelector('.archive__container-file-search-of-element-button-out');
+  const removeWindowOfFilter = () => {
+    archiveFile.children[2].remove();
+    assemblingListeners();
+  };
+  buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
+}
+
+// ФУНКЦИЯ-СБОРЩИК СЛУШАТЕЛЕЙ СОБЫТИЙ КНОПОК ДЛЯ РАБОТЫ С ДОКУМЕНТАМИ //
+function assemblingListeners() {
+  getCreateBlockForNewDocument();
+  getTableElementFromArchiveDocuments();
+  openWindowForFilterOfDocument();
+  cutOutDocument();
+  putInElementInTable();
+}
 
 // Создаем новый экземпляр MutationObserver
 const observer = new MutationObserver(mutations => {
@@ -411,9 +519,7 @@ const observer = new MutationObserver(mutations => {
     mutation.removedNodes.forEach(node => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         // Если удаленный элемент является нашим элементом, удаляем слушатель
-        if (node.id === 'archiveCreateDoc') {
-          node.removeEventListener('click', handleClick);
-        }
+        if (node.id === 'archiveCreateDoc') node.removeEventListener('click', handleClick);
       }
     });
   });
@@ -448,7 +554,10 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
   getCreateBlockForNewDocument();
-  getTableElementOFromArchiveDocuments();
+  getTableElementFromArchiveDocuments();
+  cutOutDocument();
+  putInElementInTable();
+  openWindowForFilterOfDocument();
 };
 
 //                                         //

@@ -4,6 +4,9 @@ import {
 import {
   getArchiveContainerOfCreateNewDocument
 } from './view/archive/archive__container-of-create-new-document.js';
+import {
+  getAchiveContainerFileSearch
+} from './view/archive/achive__container-file-search.js';
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -20,6 +23,7 @@ const acrchivePage = document.getElementById('p2');
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
+let cutteddOutElement = '';
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 const levelAcceptOfUser = 1;
@@ -63,12 +67,13 @@ const getCreateBlockForNewDocument = () => {
   const createChildElementInParent = () => {
     archiveFile.innerHTML += getArchiveContainerOfCreateNewDocument();
     getCloseBlockForNewDocument();
-  } 
+    assemblingListeners();
+  };
   archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
-const getCloseBlockForNewDocument = () => {
+function getCloseBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
   // функция для удаления дочернего элемента //
@@ -76,21 +81,87 @@ const getCloseBlockForNewDocument = () => {
     Array.from(archiveFile.children).forEach((item) => {
       if(item.classList.contains(classOfChild)) archiveFile.removeChild(item);
     });
-  }
+    getCreateBlockForNewDocument();
+    assemblingListeners();
+  };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
-  getCreateBlockForNewDocument();
 };
 
-// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ЭЛЕМЕНТА(ДОКУМЕНТА) ИЗ ТАБЛИЦЫ //
-const getTableElementOFromArchiveDocuments = () => {
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ДОКУМЕНТА ИЗ ТАБЛИЦЫ //
+const getTableElementFromArchiveDocuments = () => {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  const removeTalbeElement = () => {
-    console.log(1);      
-  }
-  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
-    const elementArchiveTable = item.children[0];
-    elementArchiveTable.children[0].addEventListener('change', removeTalbeElement);
-  });
+  const buttonDeleteOfElement = document.getElementById('archiveDeleteDoc');
+  const onButtonDelete = () => {
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+      const elementArchiveTable = item.children[0];
+      if(elementArchiveTable.children[0].checked) elementArchiveTable.parentNode.remove();
+    });
+    assemblingListeners();
+  };
+  buttonDeleteOfElement.addEventListener('click', onButtonDelete);
+};
+
+// ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ДОКУМЕНТА //
+const cutOutDocument = () => {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  const bittonOfCutOutDocument = document.getElementById('archiveCutOut');
+  const cutOutElement = () => {
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+      const elementArchiveTable = item.children[0];
+      if(elementArchiveTable.children[0].checked) {
+        cutteddOutElement += item.outerHTML;
+        elementArchiveTable.parentNode.remove();
+      };
+    });
+    assemblingListeners();
+  };
+  bittonOfCutOutDocument.addEventListener('click', cutOutElement);
+};
+
+// ФУНКЦИЯ ДЛЯ ВСТАВКИ ВЫРЕЗАННОГО ЭЛЕМЕНТА В ТАБЛИЦУ //
+const putInElementInTable = () => {
+  const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
+  const putInButton = document.getElementById('archivePutIn');
+  const putInElement = () => {
+    if(cutteddOutElement !== '') {
+      rowInTalbeBodyOfFile.insertAdjacentHTML('beforeend', cutteddOutElement);
+      cutteddOutElement = '';
+    }
+    assemblingListeners();
+  };
+  putInButton.addEventListener('click', putInElement);
+};
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+const openWindowForFilterOfDocument = () => {
+  const archiveFile = document.querySelector('.archive__file');
+  const buttonOfFilter = document.getElementById('archiveSearch');
+  const getWindowOfFilter = () => {
+    archiveFile.innerHTML += getAchiveContainerFileSearch;
+    closeWindowForFilterOfDocument();
+    assemblingListeners();
+  };
+  buttonOfFilter.addEventListener('click', getWindowOfFilter);
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+function closeWindowForFilterOfDocument () {
+  const archiveFile = document.querySelector('.archive__file');
+  const buttonOutForWindowFilterDocument = document.querySelector('.archive__container-file-search-of-element-button-out');
+  const removeWindowOfFilter = () => {
+    archiveFile.children[2].remove();
+    assemblingListeners();
+  };
+  buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
+};
+
+// ФУНКЦИЯ-СБОРЩИК СЛУШАТЕЛЕЙ СОБЫТИЙ КНОПОК ДЛЯ РАБОТЫ С ДОКУМЕНТАМИ //
+function assemblingListeners() {
+  getCreateBlockForNewDocument();
+  getTableElementFromArchiveDocuments();
+  openWindowForFilterOfDocument();
+  cutOutDocument();
+  putInElementInTable();
 };
 
 // Создаем новый экземпляр MutationObserver
@@ -111,9 +182,7 @@ const observer = new MutationObserver((mutations) => {
     mutation.removedNodes.forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         // Если удаленный элемент является нашим элементом, удаляем слушатель
-        if (node.id === 'archiveCreateDoc') {
-          node.removeEventListener('click', handleClick);
-        }
+        if (node.id === 'archiveCreateDoc') node.removeEventListener('click', handleClick);
       }
     });
   });
@@ -145,7 +214,10 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
   getCreateBlockForNewDocument();
-  getTableElementOFromArchiveDocuments();
+  getTableElementFromArchiveDocuments();
+  cutOutDocument();
+  putInElementInTable();
+  openWindowForFilterOfDocument();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
