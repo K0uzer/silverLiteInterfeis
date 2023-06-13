@@ -365,14 +365,6 @@ let cutteddOutElement = '';
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 const levelAcceptOfUser = 1;
 
-// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
-
-// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
-
-//                         //
-//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
-//                         //
-
 //            //
 //  ФУНКЦИИ   //
 //            //
@@ -479,6 +471,8 @@ const openWindowForFilterOfDocument = () => {
     assemblingListeners();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
+  const listeners = getEventListeners(buttonOfFilter);
+  console.log(listeners);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //

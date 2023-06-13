@@ -36,6 +36,11 @@ const levelAcceptOfUser = 1;
 //  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
 //                         //
 
+// ФУНКЦИЯ ОТЧИСТКИ СПИСКА СЛУШАТЕЛЕЙ СОБЫТИЙ //
+const clearOfEventListenersList = (elementOfListening, functionElementOfListening) => {
+  elementOfListening.removeEventListener(functionElementOfListening);
+};
+
 //            //
 //  ФУНКЦИИ   //
 //            //
@@ -142,6 +147,8 @@ const openWindowForFilterOfDocument = () => {
     assemblingListeners();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
+  const listeners = getEventListeners(buttonOfFilter);
+  console.log(listeners);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
