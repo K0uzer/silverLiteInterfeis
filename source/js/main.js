@@ -37,8 +37,8 @@ const levelAcceptOfUser = 1;
 //                         //
 
 // ФУНКЦИЯ ОТЧИСТКИ СПИСКА СЛУШАТЕЛЕЙ СОБЫТИЙ //
-const clearOfEventListenersList = (elementOfListening, functionElementOfListening) => {
-  elementOfListening.removeEventListener(functionElementOfListening);
+const clearOfEventListenersList = (typeEvent, elementOfListening, functionElementOfListening) => {
+  elementOfListening.removeEventListener(typeEvent, functionElementOfListening);
 };
 
 //            //
@@ -147,8 +147,6 @@ const openWindowForFilterOfDocument = () => {
     assemblingListeners();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
-  const listeners = getEventListeners(buttonOfFilter);
-  console.log(listeners);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //

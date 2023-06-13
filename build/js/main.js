@@ -471,8 +471,6 @@ const openWindowForFilterOfDocument = () => {
     assemblingListeners();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
-  const listeners = getEventListeners(buttonOfFilter);
-  console.log(listeners);
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
