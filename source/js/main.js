@@ -147,6 +147,8 @@ function openWindowForFilterOfDocument() {
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
+    const buttonFilterDocumentInTheTable = document.querySelector('.archive__container-file-search-of-element-button');
+    getFilteredTalbe(buttonFilterDocumentInTheTable);
     closeWindowForFilterOfDocument();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
@@ -166,6 +168,15 @@ function closeWindowForFilterOfDocument() {
     getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
+};
+
+// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕНТОВ //
+function getFilteredTalbe(buttonFilter) {
+  const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
+  const filterDocument = () => {
+    console.log(rowInTalbeBodyOfFile);
+  };
+  buttonFilter.addEventListener('click', filterDocument);
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //

@@ -335,7 +335,6 @@ const getAchiveContainerFileSearch = () => `<section class="achive__container-fi
   <div class="archive__container-file-search-of-element">
     <input type="text" class="archive__container-file-search-of-element-input" placeholder="Номер договора">
     <input type="text" class="archive__container-file-search-of-element-input" placeholder="Имя файла">
-    <button class="" id="searchOfDateReg">Поиск по дате регистрации</button>
     <div class="archive__container-file-search-of-element-wrapper">
       <span class="archive__container-file-search-of-element-text">C</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
       <span class="archive__container-file-search-of-element-text">По</span><input type="date" class="archive__container-file-search-of-element-input archive__container-file-search-of-element-input-date">
@@ -573,6 +572,8 @@ function openWindowForFilterOfDocument() {
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
+    const buttonFilterDocumentInTheTable = document.querySelector('.archive__container-file-search-of-element-button');
+    getFilteredTalbe(buttonFilterDocumentInTheTable);
     closeWindowForFilterOfDocument();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
@@ -592,6 +593,15 @@ function closeWindowForFilterOfDocument() {
     getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
+}
+
+// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕНТОВ //
+function getFilteredTalbe(buttonFilter) {
+  const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
+  const filterDocument = () => {
+    console.log(rowInTalbeBodyOfFile);
+  };
+  buttonFilter.addEventListener('click', filterDocument);
 }
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
