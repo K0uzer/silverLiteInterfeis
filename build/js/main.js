@@ -633,6 +633,17 @@ function editOfDocument() {
   const checkBoxOfDocument = document.querySelector('.archive__opened-document-of-table-button-for-delete');
   const tableWithTheFile = document.querySelector('.archive__opened-document-of-table');
   const inputOfTheTableFile = document.querySelector('.archive__opened-document-of-table-button-for-delete');
+
+  // Функция для добавления файла //
+  const addFile = () => {
+    console.log('Присоеденить');
+  };
+
+  // функция для просмотр файлов //
+  const showFile = () => {
+    console.log('Показать');
+  };
+
   // функция для удаления выбранного файла //
   const deleteFile = () => {
     Array.from(tableWithTheFile.children).forEach(tableElement => {
@@ -640,19 +651,14 @@ function editOfDocument() {
     });
   };
 
-  // функция для вывода протоколов печати //
-  const showProtocols = () => {
-    console.log('Протоколы печати');
-  };
-
   // Функция для печати файла //
   const printFile = () => {
-    console.log('Печать файла');
+    console.log('Печать');
   };
 
-  // функция для просмотр файлов //
-  const showFile = () => {
-    console.log('Вывод файла');
+  // Функция для вывода протоколов печати //
+  const showProtocols = () => {
+    console.log('Протоколы печати');
   };
 
   // Функция для сохранения изменений в документе //
@@ -662,20 +668,28 @@ function editOfDocument() {
     inputsOfDocument.forEach(item => item.disabled = true);
     textAreaOfDocument.disabled = true;
     checkBoxOfDocument.disabled = true;
+    editButton.removeEventListener('click', saveFile);
+    editButton.addEventListener('click', edit);
   };
 
-  // функция-сборщик для работы с данными документа и редактирования //
-  const edit = () => {
+  // Функция-сборщик для работы с данными документа и его редактированием //
+  function edit() {
     editButton.textContent = 'Сохранить';
     editButton.type = 'submit';
     buttonsOfControlsDocument.forEach(item => {
       item.disabled = false;
-      item.textContent === 'Удалить' ? item.addEventListener('click', deleteFile) : item.textContent === 'Показать' ? item.addEventListener('click', showFile) : item.textContent === 'Печать файла' ? item.addEventListener('click', printFile) : item.textContent === 'Протоколы печати' ? item.addEventListener('click', showProtocols) : item.textContent === 'Сохранить' ? item.addEventListener('click', saveFile) : console.log(Error);
+      if (item.textContent === 'Присоеденить') item.addEventListener('click', addFile);
+      if (item.textContent === 'Показать') item.addEventListener('click', showFile);
+      if (item.textContent === 'Удалить') item.addEventListener('click', deleteFile);
+      if (item.textContent === 'Печать') item.addEventListener('click', printFile);
+      if (item.textContent === 'Протоколы печати') item.addEventListener('click', showProtocols);
     });
     inputsOfDocument.forEach(item => item.disabled = false);
     textAreaOfDocument.disabled = false;
     checkBoxOfDocument.disabled = false;
-  };
+    editButton.removeEventListener('click', edit);
+    editButton.addEventListener('click', saveFile);
+  }
   editButton.addEventListener('click', edit);
 }
 
