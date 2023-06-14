@@ -54,7 +54,7 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
     <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" id="archiveDeleteDoc" alt="">
     <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" id="archiveCutOut" alt="">
     <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" id="archivePutIn" alt="">
-    <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
+    <img src="./img/file/refresh.svg" class="archive__file-button" onclick="location.reload(); return false;" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
     <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" id="archiveSearch" alt="">
     <div class="archive__file-menu-under-line"></div>
   </div>
