@@ -640,15 +640,17 @@ function editOfDocument() {
     });
   };
   // просмотр файлов //
-  const showFile = () => {};
+  const showFile = () => {
+    console.log(1);
+  };
   // сохранение изменений //
   const saveFile = () => {
     editButton.textContent = 'Редактировать';
-    inputsOfDocument.forEach(item => item.disabled = true);
-    textAreaOfDocument.disabled = true;
-    checkBoxOfDocument.disabled = true;
+    // inputsOfDocument.forEach((item) => item.disabled = true);
+    // textAreaOfDocument.disabled = true;
+    // checkBoxOfDocument.disabled = true;    
   };
-  // функция-сборщик для работы с данными документа //
+  // функция-сборщик для работы с данными документа и редактирования //
   const edit = () => {
     editButton.textContent = 'Сохранить';
     editButton.type = 'submit';
@@ -661,6 +663,7 @@ function editOfDocument() {
         item.addEventListener('click', showFile);
       }
       if (item.textContent === 'Сохранить') {
+        console.log(item.textContent);
         item.addEventListener('click', saveFile);
       }
     });
