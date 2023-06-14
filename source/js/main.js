@@ -146,7 +146,7 @@ function openWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
-    archiveFile.innerHTML += getAchiveContainerFileSearch;
+    archiveFile.innerHTML += getAchiveContainerFileSearch();
     closeWindowForFilterOfDocument();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
@@ -173,7 +173,7 @@ function getOpenedDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const openDocument = () => {
-    archiveFile.innerHTML += getArchiveContainerOfOpenedDocument;
+    archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
     editOfDocument();
     closeDocument();
   };
@@ -213,33 +213,43 @@ function editOfDocument() {
       tableElement.children[0].contains(inputOfTheTableFile) && inputOfTheTableFile.checked ? tableElement.children[0].remove() : console.log('Элемент не подлежит удалению ' + tableElement.children[0]);
     });
   };
-  // просмотр файлов //
+
+  // функция для вывода протоколов печати //
+  const showProtocols = () => {
+    console.log('Протоколы печати');
+  };
+
+  // Функция для печати файла //
+  const printFile = () => {
+    console.log('Печать файла');
+  };
+
+  // функция для просмотр файлов //
   const showFile = () => {
-    console.log(1);
-  }
-  // сохранение изменений //
+    console.log('Вывод файла');
+  };
+
+  // Функция для сохранения изменений в документе //
   const saveFile = () => {
+    console.log('Изменения в документе сохранены');
     editButton.textContent = 'Редактировать';
-    // inputsOfDocument.forEach((item) => item.disabled = true);
-    // textAreaOfDocument.disabled = true;
-    // checkBoxOfDocument.disabled = true;    
-  }
+    inputsOfDocument.forEach((item) => item.disabled = true);
+    textAreaOfDocument.disabled = true;
+    checkBoxOfDocument.disabled = true;
+  };
+
   // функция-сборщик для работы с данными документа и редактирования //
   const edit = () => {
     editButton.textContent = 'Сохранить';
     editButton.type = 'submit';
     buttonsOfControlsDocument.forEach((item) => {
       item.disabled = false;
-      if(item.textContent === 'Удалить') {
-        item.addEventListener('click', deleteFile);
-      } 
-      if (item.textContent === 'Показать') {
-        item.addEventListener('click', showFile);
-      } 
-      if (item.textContent === 'Сохранить') {
-        console.log(item.textContent);
-        item.addEventListener('click', saveFile);
-      }
+      item.textContent === 'Удалить' ? item.addEventListener('click', deleteFile)
+        : item.textContent === 'Показать' ? item.addEventListener('click', showFile)
+        : item.textContent === 'Печать файла' ? item.addEventListener('click', printFile)
+        : item.textContent === 'Протоколы печати' ? item.addEventListener('click', showProtocols)
+        : item.textContent === 'Сохранить' ? item.addEventListener('click', saveFile)
+        : console.log(Error);
     });
     inputsOfDocument.forEach((item) => item.disabled = false);
     textAreaOfDocument.disabled = false;
