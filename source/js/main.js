@@ -7,6 +7,9 @@ import {
 import {
   getAchiveContainerFileSearch
 } from './view/archive/achive__container-file-search.js';
+import {
+  getArchiveContainerOfOpenedDocument
+} from './view/archive/archive__container-of-opened-document.js';
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -36,7 +39,7 @@ const levelAcceptOfUser = 1;
 //  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
 //                         //
 
-// ФУНКЦИЯ ОТЧИСТКИ СПИСКА СЛУШАТЕЛЕЙ СОБЫТИЙ //
+// ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 const clearOfEventListenersList = (typeEvent, elementOfListening, functionElementOfListening) => {
   elementOfListening.removeEventListener(typeEvent, functionElementOfListening);
 };
@@ -90,6 +93,7 @@ function getCloseBlockForNewDocument() {
     cutOutDocument();
     putInElementInTable();
     openWindowForFilterOfDocument();
+    getOpenedDocument();
   };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
 };
@@ -159,9 +163,37 @@ function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
+    getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 };
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
+function getOpenedDocument() {
+  const archiveFile = document.querySelector('.archive__file');
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  const openDocument = () => {
+    archiveFile.innerHTML += getArchiveContainerOfOpenedDocument;
+    closeDocument();
+  };
+  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.addEventListener('click', openDocument));
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ДОКУМЕНТА //
+function closeDocument() {
+  const archiveFile = document.querySelector('.archive__file');
+  const buttonOutWithOpenedDocument = document.querySelector('.archive__opened-document-of-button-out');
+  const outWithOpenedDocument = () => {
+    Array.from(archiveFile.getElementsByClassName('archive__container-of-opened-document'))[0].remove();
+    openWindowForFilterOfDocument();
+    getCreateBlockForNewDocument();
+    getTableElementFromArchiveDocuments();
+    cutOutDocument();
+    putInElementInTable();
+    getOpenedDocument();
+  };
+  buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
+}
 
 // Создаем новый экземпляр MutationObserver
 const observer = new MutationObserver((mutations) => {
@@ -220,6 +252,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   cutOutDocument();
   putInElementInTable();
   openWindowForFilterOfDocument();
+  getOpenedDocument();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

@@ -92,6 +92,15 @@
   background: #1f1f1f3a;
 }
 
+.scroll-table-body table tbody tr {
+  transition: .3s;
+  &:hover {
+    background: #326460;
+    transition: .3s;
+    cursor: pointer;
+  }
+}
+
 .scroll-table tbody tr:nth-child(even) {
   background: #303030;
 }
