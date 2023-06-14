@@ -174,9 +174,12 @@ function getOpenedDocument() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const openDocument = () => {
     archiveFile.innerHTML += getArchiveContainerOfOpenedDocument;
+    editOfDocument();
     closeDocument();
   };
-  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.addEventListener('click', openDocument));
+  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+    item.addEventListener('click', openDocument);
+  });
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ДОКУМЕНТА //
@@ -193,6 +196,37 @@ function closeDocument() {
     getOpenedDocument();
   };
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
+}
+
+// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ РАЗРЕШЕНИЯ НА РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
+function editOfDocument() {
+  const editButton = document.querySelector('.archive__opened-document-of-button-create');
+  const buttonsOfControlsDocument = document.querySelectorAll('.archive__opened-document-of-button-add-new-file');
+  const inputsOfDocument = document.querySelectorAll('.archive__opened-document-of-input');
+  const textAreaOfDocument = document.querySelector('.archive__opened-document-of-textarea');
+  const checkBoxOfDocument = document.querySelector('.archive__opened-document-of-table-button-for-delete');
+  // функция для удаления выбранного файла //
+  const deleteFile = () => {
+
+  };
+  const edit = () => {
+    editButton.textContent = 'Сохранить';
+    editButton.type = 'submit';
+    buttonsOfControlsDocument.forEach((item) => {
+      item.disabled = false;
+      if(item.textContent === 'Удалить') {
+        item.addEventListener('click', deleteFile);
+      } else if (item.textContent === 'Показать') {
+
+      } else if (item.textContent === 'Сохранить') {
+
+      }
+    });
+    inputsOfDocument.forEach((item) => item.disabled = false);
+    textAreaOfDocument.disabled = false;
+    checkBoxOfDocument.disabled = false;
+  };
+  editButton.addEventListener('click', edit);
 }
 
 // Создаем новый экземпляр MutationObserver

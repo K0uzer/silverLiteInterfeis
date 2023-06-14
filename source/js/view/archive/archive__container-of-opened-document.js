@@ -9,50 +9,50 @@ export const getArchiveContainerOfOpenedDocument = () => `
     <div class="archive__opened-document-input-of-container-elements">
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Регистрационный номер:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Дата:</span>
-        <input class="archive__opened-document-of-input" type="datetime-local" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="datetime-local" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Номер абонентского дела:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Тип документа:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">ФИО:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Город:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Улица:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Номер договара:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Дом:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Корпус:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
       <div class="archive__opened-document-of-element-form">
         <span class="archive__opened-document-of-text">Квартира:</span>
-        <input class="archive__opened-document-of-input" type="text" name="" id="">
+        <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
       </div>
     </div>
-    <textarea class="archive__opened-document-of-textarea" name="" id="" placeholder="Комментарий"></textarea>
+    <textarea class="archive__opened-document-of-textarea" disabled name="" id="" placeholder="Комментарий"></textarea>
     <table class="archive__opened-document-of-table">
       <thead>
         <tr>
@@ -66,7 +66,7 @@ export const getArchiveContainerOfOpenedDocument = () => `
       </thead>
       <tbody>
         <tr>
-          <td><input type="checkbox" class="archive__opened-document-of-table-button-for-delete"></td>
+          <td><input type="checkbox" class="archive__opened-document-of-table-button-for-delete" disabled></td>
           <td>4123124</td>
           <td>4124</td>
           <td>4124</td>
@@ -76,14 +76,14 @@ export const getArchiveContainerOfOpenedDocument = () => `
       </tbody>
     </table>
     <div class="archive__opened-document-of-button-add-new-file-wrapper">
-      <button class="archive__opened-document-of-button-add-new-file">Присоеденить</button>
-      <button class="archive__opened-document-of-button-add-new-file">Показать</button>
-      <button class="archive__opened-document-of-button-add-new-file">Удалить</button>
+      <button class="archive__opened-document-of-button-add-new-file" disabled>Присоеденить</button>
+      <button class="archive__opened-document-of-button-add-new-file" disabled>Показать</button>
+      <button class="archive__opened-document-of-button-add-new-file" disabled>Удалить</button>
     </div>
     <div class="archive__opened-document-of-button-add-new-file-wrapper">
-      <button class="archive__opened-document-of-button-add-new-file">Печать</button>
-      <button class="archive__opened-document-of-button-add-new-file">Протоколы печати</button>
-      <button class="archive__opened-document-of-button-create" type="submit">Редактировать</button>
+      <button class="archive__opened-document-of-button-add-new-file" disabled>Печать</button>
+      <button class="archive__opened-document-of-button-add-new-file" disabled>Протоколы печати</button>
+      <button class="archive__opened-document-of-button-create" type="">Редактировать</button>
     </div>
     <div class="archive__opened-document-wrapper-of-info">
       <div class="archive__opened-document-element-of-info">
