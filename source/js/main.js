@@ -198,17 +198,23 @@ function closeDocument() {
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
 }
 
-// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ РАЗРЕШЕНИЯ НА РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
+// ФУНКЦИЯ ДЛЯ РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
 function editOfDocument() {
   const editButton = document.querySelector('.archive__opened-document-of-button-create');
   const buttonsOfControlsDocument = document.querySelectorAll('.archive__opened-document-of-button-add-new-file');
   const inputsOfDocument = document.querySelectorAll('.archive__opened-document-of-input');
   const textAreaOfDocument = document.querySelector('.archive__opened-document-of-textarea');
   const checkBoxOfDocument = document.querySelector('.archive__opened-document-of-table-button-for-delete');
+  const tableWithTheFile = document.querySelector('.archive__opened-document-of-table');
+  const inputOfTheTableFile = document.querySelector('.archive__opened-document-of-table-button-for-delete');
   // функция для удаления выбранного файла //
   const deleteFile = () => {
-
+    Array.from(tableWithTheFile.children).forEach((tableElement) => {
+      tableElement.children[0].contains(inputOfTheTableFile) && inputOfTheTableFile.checked ? tableElement.children[0].remove()
+        : console.log('Элемент не подлежит удалению ' + tableElement.children[0]);
+    });
   };
+  // функция-сборщик для работы с данными документа //
   const edit = () => {
     editButton.textContent = 'Сохранить';
     editButton.type = 'submit';
@@ -217,9 +223,9 @@ function editOfDocument() {
       if(item.textContent === 'Удалить') {
         item.addEventListener('click', deleteFile);
       } else if (item.textContent === 'Показать') {
-
+        item.addEventListener('click', showFile);
       } else if (item.textContent === 'Сохранить') {
-
+        item.addEventListener('click', saveFile);
       }
     });
     inputsOfDocument.forEach((item) => item.disabled = false);
