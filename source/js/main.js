@@ -210,10 +210,20 @@ function editOfDocument() {
   // функция для удаления выбранного файла //
   const deleteFile = () => {
     Array.from(tableWithTheFile.children).forEach((tableElement) => {
-      tableElement.children[0].contains(inputOfTheTableFile) && inputOfTheTableFile.checked ? tableElement.children[0].remove()
-        : console.log('Элемент не подлежит удалению ' + tableElement.children[0]);
+      tableElement.children[0].contains(inputOfTheTableFile) && inputOfTheTableFile.checked ? tableElement.children[0].remove() : console.log('Элемент не подлежит удалению ' + tableElement.children[0]);
     });
   };
+  // просмотр файлов //
+  const showFile = () => {
+
+  }
+  // сохранение изменений //
+  const saveFile = () => {
+    editButton.textContent = 'Редактировать';
+    inputsOfDocument.forEach((item) => item.disabled = true);
+    textAreaOfDocument.disabled = true;
+    checkBoxOfDocument.disabled = true;    
+  }
   // функция-сборщик для работы с данными документа //
   const edit = () => {
     editButton.textContent = 'Сохранить';
@@ -222,9 +232,11 @@ function editOfDocument() {
       item.disabled = false;
       if(item.textContent === 'Удалить') {
         item.addEventListener('click', deleteFile);
-      } else if (item.textContent === 'Показать') {
+      } 
+      if (item.textContent === 'Показать') {
         item.addEventListener('click', showFile);
-      } else if (item.textContent === 'Сохранить') {
+      } 
+      if (item.textContent === 'Сохранить') {
         item.addEventListener('click', saveFile);
       }
     });
