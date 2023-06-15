@@ -73,18 +73,7 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
     </table>
     <div class="scroll-table-body">
       <table>
-        <tbody id="fileTalbeBody">
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>340</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-        </tbody>
+        <tbody id="fileTalbeBody"></tbody>
       </table>
     </div>
   </div>

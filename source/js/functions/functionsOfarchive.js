@@ -264,11 +264,11 @@ export function editOfDocument() {
     editButton.type = 'submit';
     buttonsOfControlsDocument.forEach((item) => {
       item.disabled = false;
-      if(item.textContent === 'Присоеденить') item.addEventListener('click', addFile);
-      if(item.textContent === 'Показать') item.addEventListener('click', showFile);
-      if(item.textContent === 'Удалить') item.addEventListener('click', deleteFile);
-      if(item.textContent === 'Печать') item.addEventListener('click', printFile);
-      if(item.textContent === 'Протоколы печати') item.addEventListener('click', showProtocols);
+      if (item.textContent === 'Присоеденить') item.addEventListener('click', addFile);
+      if (item.textContent === 'Показать') item.addEventListener('click', showFile);
+      if (item.textContent === 'Удалить') item.addEventListener('click', deleteFile);
+      if (item.textContent === 'Печать') item.addEventListener('click', printFile);
+      if (item.textContent === 'Протоколы печати') item.addEventListener('click', showProtocols);
     });
     inputsOfDocument.forEach((item) => item.disabled = false);
     textAreaOfDocument.disabled = false;
@@ -279,17 +279,41 @@ export function editOfDocument() {
   editButton.addEventListener('click', edit);
 }
 
+
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
-export function createNewRowInTableForDocuments() {
+function createNewRowInTableForDocuments(indexChildrenm, elemI) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
-
+  tableBodyDocumentsOfArchive.children[elemI].id = indexChildrenm;
+  getOpenedDocument();
 }
 
-// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ИЗ СФОРМИРОВАННОГО МАССИВА //
+// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
 export function fillInInformations() {
-  for(let i = 0; date.length > i; i++) {
-    createNewRowInTableForDocuments();
-  }
-}
+  for (let i = 0; date.length > i; i++) {
+    createNewRowInTableForDocuments(date[i].id, i);
+  };
+  getInformationsForTable();
+};
 
+// ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ ДОКУМЕНТОВ //
+function getInformationsForTable() {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+    try {
+      for (let i = 0; i < 8; i++) {
+        if (Number(item.id) === Number(date[i].id)) {
+          item.children[1].textContent = date[i].id;
+          item.children[2].textContent = date[i].number_register;
+          item.children[3].textContent = date[i].id_subscriber;
+          item.children[4].textContent = date[i].type_document;
+          item.children[5].textContent = date[i].comments;
+          item.children[6].textContent = date[i].number__agreement;
+          item.children[7].textContent = date[i].name_object;
+        }
+      }
+    } catch(error) {
+      return;
+    }
+  });
+};

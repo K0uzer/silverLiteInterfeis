@@ -75,18 +75,7 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
     </table>
     <div class="scroll-table-body">
       <table>
-        <tbody id="fileTalbeBody">
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>340</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-        </tbody>
+        <tbody id="fileTalbeBody"></tbody>
       </table>
     </div>
   </div>
@@ -696,16 +685,42 @@ function editOfDocument() {
 }
 
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
-function createNewRowInTableForDocuments() {
+function createNewRowInTableForDocuments(indexChildrenm, elemI) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
+  tableBodyDocumentsOfArchive.children[elemI].id = indexChildrenm;
+  getOpenedDocument();
 }
 
-// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ИЗ СФОРМИРОВАННОГО МАССИВА //
+// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
 function fillInInformations() {
   for (let i = 0; date.length > i; i++) {
-    createNewRowInTableForDocuments();
+    createNewRowInTableForDocuments(date[i].id, i);
   }
+  getInformationsForTable();
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ ДОКУМЕНТОВ //
+function getInformationsForTable() {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
+    try {
+      for (let i = 0; i < 8; i++) {
+        // console.log(item.children[1].textContent = date[i].id);
+        if (Number(item.id) === Number(date[i].id)) {
+          item.children[1].textContent = date[i].id;
+          item.children[2].textContent = date[i].number_register;
+          item.children[3].textContent = date[i].id_subscriber;
+          item.children[4].textContent = date[i].type_document;
+          item.children[5].textContent = date[i].comments;
+          item.children[6].textContent = date[i].number__agreement;
+          item.children[7].textContent = date[i].name_object;
+        }
+      }
+    } catch (error) {
+      // console.log(item.children[1].textContent = date[i].id);
+    }
+  });
 }
 
 /*
