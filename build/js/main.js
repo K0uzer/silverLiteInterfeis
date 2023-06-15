@@ -366,7 +366,7 @@ const date = [{
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
-  'date_registration': '01.02.2025',
+  'date_registration': '2025-02-01 17:52',
   'name_sity': 'Ростов-На-Дону',
   'name_street': 'Льва Толстого',
   'number_home': 5,
@@ -382,7 +382,7 @@ const date = [{
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
-  'date_registration': '01.02.2025',
+  'date_registration': '2025-02-01',
   'name_sity': 'Ростов-На-Дону',
   'name_street': 'Льва Толстого',
   'number_home': 5,
@@ -398,7 +398,7 @@ const date = [{
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
-  'date_registration': '01.02.2025',
+  'date_registration': '2025-02-01',
   'name_sity': 'Ростов-На-Дону',
   'name_street': 'Льва Толстого',
   'number_home': 5,
@@ -414,7 +414,7 @@ const date = [{
   'comments': 'Заявление на опломбирование ',
   'number__agreement': 12,
   'name_object': 'Силенко И.П',
-  'date_registration': '01.02.2025',
+  'date_registration': '2025-02-01',
   'name_sity': 'Ростов-На-Дону',
   'name_street': 'Льва Толстого',
   'number_home': 5,
@@ -428,6 +428,7 @@ const date = [{
 // КОДНСТАНТЫ //
 //            //
 const acrchivePage = document.getElementById('p2');
+const lengthArrayElementOfDocument = 8;
 
 //            //
 // ПЕРЕМЕННЫЕ //
@@ -580,7 +581,7 @@ function closeWindowForFilterOfDocument() {
 function getFilteredTalbe(buttonFilter) {
   const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
   const filterDocument = () => {
-    console.log(rowInTalbeBodyOfFile);
+    // console.log(rowInTalbeBodyOfFile);
   };
   buttonFilter.addEventListener('click', filterDocument);
 }
@@ -589,13 +590,40 @@ function getFilteredTalbe(buttonFilter) {
 function getOpenedDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  const openDocument = () => {
+  // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
+  const openDocument = clickElement => function qq() {
     archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
+    const documentIdSubscriber = document.querySelector('.archive__document-of-id');
+    const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
+    const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
+    const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
+    console.log(documentInputs);
+    for (let i = 0; i < date.length; i++) {
+      if (Number(clickElement.id) === Number(date[i].id)) {
+        for (let n = 0; n < 11; n++) {
+          documentInputs[0].value = date[i].number_register;
+          documentInputs[1].value = date[i].date_registration;
+          documentInputs[2].value = date[i].id_subscriber;
+          documentInputs[3].value = date[i].type_document;
+          documentInputs[4].value = date[i].name_object;
+          documentInputs[5].value = date[i].name_sity;
+          documentInputs[6].value = date[i].name_street;
+          documentInputs[7].value = date[i].number__agreement;
+          documentInputs[8].value = date[i].number_home;
+          documentInputs[9].value = date[i].number_body;
+          documentInputs[10].value = date[i].number_flat;
+        }
+        documentTextArea.value = date[i].comments;
+        documentIdSubscriber.textContent = date[i].id_subscriber;
+        // documentTableOfFiles
+      }
+    }
+
     editOfDocument();
     closeDocument();
   };
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
-    item.addEventListener('click', openDocument);
+    item.addEventListener('click', openDocument(item));
   });
 }
 
@@ -705,8 +733,7 @@ function getInformationsForTable() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
     try {
-      for (let i = 0; i < 8; i++) {
-        // console.log(item.children[1].textContent = date[i].id);
+      for (let i = 0; i < lengthArrayElementOfDocument; i++) {
         if (Number(item.id) === Number(date[i].id)) {
           item.children[1].textContent = date[i].id;
           item.children[2].textContent = date[i].number_register;
@@ -718,7 +745,7 @@ function getInformationsForTable() {
         }
       }
     } catch (error) {
-      // console.log(item.children[1].textContent = date[i].id);
+      return;
     }
   });
 }
@@ -765,7 +792,7 @@ const levelAcceptOfUser = 1;
 
 //                                           //
 //  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ   //
-//                                           //
+//                                          //
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMaxLevelAccess = () => {

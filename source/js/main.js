@@ -55,7 +55,7 @@ const levelAcceptOfUser = 1;
 
 //                                           //
 //  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ   //
-//                                           //
+//                                          //
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMaxLevelAccess = () => {
