@@ -448,13 +448,6 @@ const getArchiveContainerOfOpenedDocument = () => `
 </section>
 `;
 
-/*
-ОСНОВНЫЕ ЭЛЕМЕНТЫ
-файл < документ < папка.
-таблица < окно.
-кнопка.
-*/
-
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -466,13 +459,25 @@ const acrchivePage = document.getElementById('p2');
 let cutteddOutElement = '';
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
-const levelAcceptOfUser = 1;
+
+// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
+
+//                         //
+//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
+//                         //
+
+// ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 
 //            //
 //  ФУНКЦИИ   //
 //            //
 
-/// АРХИВ ///
+// ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
+const createInterfeisOfArchiver = () => {
+  acrchivePage.innerHTML = archivePageMaxLever();
+};
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
 const getOpenBlokWithFolder = () => {
@@ -703,40 +708,37 @@ function editOfDocument() {
   editButton.addEventListener('click', edit);
 }
 
-// Создаем новый экземпляр MutationObserver
-const observer = new MutationObserver(mutations => {
-  // Перебираем все мутации (изменения) в DOM-дереве
-  mutations.forEach(mutation => {
-    // Перебираем все добавленные элементы в мутации
-    mutation.addedNodes.forEach(node => {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        // Если добавленный элемент является нашим элементом, добавляем слушатель
-        if (node.id === 'archiveCreateDoc') {
-          node.addEventListener('click', handleClick);
-        }
-      }
-    });
+/*
+ОСНОВНЫЕ ЭЛЕМЕНТЫ
+файл < документ < папка.
+таблица < окно.
+кнопка.
+*/
 
-    // Перебираем все удаленные элементы в мутации
-    mutation.removedNodes.forEach(node => {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        // Если удаленный элемент является нашим элементом, удаляем слушатель
-        if (node.id === 'archiveCreateDoc') node.removeEventListener('click', handleClick);
-      }
-    });
-  });
-});
+//            //
+// КОДНСТАНТЫ //
+//            //
 
-// Запускаем отслеживание изменений в DOM-дереве
-observer.observe(document.body, {
-  childList: true,
-  subtree: true
-});
+//            //
+// ПЕРЕМЕННЫЕ //
+//            //
+const levelAcceptOfUser = 1;
 
-// Обработчик события клика
-function handleClick() {
-  console.log('Клик по элементу');
-}
+// УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
+
+// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
+
+//                         //
+//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
+//                         //
+
+// ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
+
+//            //
+//  ФУНКЦИИ   //
+//            //
 
 // НАСТРОЙКА //
 
@@ -752,7 +754,7 @@ function handleClick() {
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMaxLevelAccess = () => {
-  acrchivePage.innerHTML = archivePageMaxLever();
+  createInterfeisOfArchiver();
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
   getCreateBlockForNewDocument();
