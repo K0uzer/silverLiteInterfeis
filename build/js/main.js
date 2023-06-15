@@ -422,13 +422,221 @@ const date = [{
   'number_flat': 5,
   'id_documents': [],
   'id_parent': 2
+}, {
+  'id': 345,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 346,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 347,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 348,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 349,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 350,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 351,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 352,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 353,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 354,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 355,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 356,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 357,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
 }];
 
 //            //
 // КОДНСТАНТЫ //
 //            //
 const acrchivePage = document.getElementById('p2');
-const lengthArrayElementOfDocument = 8;
+const countElementOfDocument = 11;
 
 //            //
 // ПЕРЕМЕННЫЕ //
@@ -554,6 +762,7 @@ function openWindowForFilterOfDocument() {
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
+    getFilteredDocuments();
     const buttonFilterDocumentInTheTable = document.querySelector('.archive__container-file-search-of-element-button');
     getFilteredTalbe(buttonFilterDocumentInTheTable);
     closeWindowForFilterOfDocument();
@@ -577,6 +786,30 @@ function closeWindowForFilterOfDocument() {
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 }
 
+// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
+function getFilteredDocuments() {
+  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
+  console.log(inputsSearch[0].value);
+  console.log(Number(date[0].id_subscriber));
+  console.log(Number(inputsSearch[0].value) === Number(date[0].id_subscriber));
+  for (let i = 0; i < inputsSearch.length; i++) {
+    if (Number(inputsSearch[i].value) === Number(date[0].id_subscriber)) {
+      const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+      console.log(Array.from(tableBodyDocumentsOfArchive.children)[0].id);
+      console.log(Number(date[0].id));
+      console.log(Array.from(tableBodyDocumentsOfArchive.children)[0].id) === Number(date[0].id);
+      if (Array.from(tableBodyDocumentsOfArchive.children)[0].id === Number(date[0].id)) {
+        console.log('remove');
+      }
+      // Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+      //   if(Number(item.textContent) !== inputsSearch[i].value) {
+      //     item.remove();
+      //   }
+      // });
+    }
+  }
+}
+
 // ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕНТОВ //
 function getFilteredTalbe(buttonFilter) {
   const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
@@ -586,42 +819,42 @@ function getFilteredTalbe(buttonFilter) {
   buttonFilter.addEventListener('click', filterDocument);
 }
 
+// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
+const openDocument = target => function qq() {
+  const archiveFile = document.querySelector('.archive__file');
+  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
+  const documentIdSubscriber = document.querySelector('.archive__document-of-id');
+  const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
+  const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
+  const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
+  for (let i = 0; i < date.length; i++) {
+    if (Number(target.id) === Number(date[i].id)) {
+      for (let n = 0; n < countElementOfDocument; n++) {
+        documentInputs[0].value = date[i].number_register;
+        documentInputs[1].value = date[i].date_registration;
+        documentInputs[2].value = date[i].id_subscriber;
+        documentInputs[3].value = date[i].type_document;
+        documentInputs[4].value = date[i].name_object;
+        documentInputs[5].value = date[i].name_sity;
+        documentInputs[6].value = date[i].name_street;
+        documentInputs[7].value = date[i].number__agreement;
+        documentInputs[8].value = date[i].number_home;
+        documentInputs[9].value = date[i].number_body;
+        documentInputs[10].value = date[i].number_flat;
+      }
+      documentTextArea.value = date[i].comments;
+      documentIdSubscriber.textContent = date[i].id_subscriber;
+      // documentTableOfFiles
+    }
+  }
+
+  editOfDocument();
+  closeDocument();
+};
+
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
 function getOpenedDocument() {
-  const archiveFile = document.querySelector('.archive__file');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
-  const openDocument = clickElement => function qq() {
-    archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
-    const documentIdSubscriber = document.querySelector('.archive__document-of-id');
-    const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
-    const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
-    const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
-    console.log(documentInputs);
-    for (let i = 0; i < date.length; i++) {
-      if (Number(clickElement.id) === Number(date[i].id)) {
-        for (let n = 0; n < 11; n++) {
-          documentInputs[0].value = date[i].number_register;
-          documentInputs[1].value = date[i].date_registration;
-          documentInputs[2].value = date[i].id_subscriber;
-          documentInputs[3].value = date[i].type_document;
-          documentInputs[4].value = date[i].name_object;
-          documentInputs[5].value = date[i].name_sity;
-          documentInputs[6].value = date[i].name_street;
-          documentInputs[7].value = date[i].number__agreement;
-          documentInputs[8].value = date[i].number_home;
-          documentInputs[9].value = date[i].number_body;
-          documentInputs[10].value = date[i].number_flat;
-        }
-        documentTextArea.value = date[i].comments;
-        documentIdSubscriber.textContent = date[i].id_subscriber;
-        // documentTableOfFiles
-      }
-    }
-
-    editOfDocument();
-    closeDocument();
-  };
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
     item.addEventListener('click', openDocument(item));
   });
@@ -733,7 +966,7 @@ function getInformationsForTable() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
     try {
-      for (let i = 0; i < lengthArrayElementOfDocument; i++) {
+      for (let i = 0; i < date.length; i++) {
         if (Number(item.id) === Number(date[i].id)) {
           item.children[1].textContent = date[i].id;
           item.children[2].textContent = date[i].number_register;
