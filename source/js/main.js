@@ -7,7 +7,8 @@ import {
   cutOutDocument,
   putInElementInTable,
   openWindowForFilterOfDocument,
-  getOpenedDocument
+  getOpenedDocument,
+  fillInInformations
 } from './functions/functionsOfarchive.js';
 
 
@@ -68,6 +69,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
+  fillInInformations();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

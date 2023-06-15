@@ -10,6 +10,12 @@ import {
 import {
   getArchiveContainerOfOpenedDocument
 } from '../view/archive/archive__container-of-opened-document.js';
+import {
+  rowTableDocument
+} from '../view/archive/archive_row-for-create-table-with-document.js';
+import {
+  date
+} from '../modal/arrayOfArchive.js';
 
 //            //
 // КОДНСТАНТЫ //
@@ -272,3 +278,18 @@ export function editOfDocument() {
   };
   editButton.addEventListener('click', edit);
 }
+
+// ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
+export function createNewRowInTableForDocuments() {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
+
+}
+
+// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ИЗ СФОРМИРОВАННОГО МАССИВА //
+export function fillInInformations() {
+  for(let i = 0; date.length > i; i++) {
+    createNewRowInTableForDocuments();
+  }
+}
+

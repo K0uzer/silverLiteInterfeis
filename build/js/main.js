@@ -78,97 +78,7 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
         <tbody id="fileTalbeBody">
           <tr>
             <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
-            <td>44</td>
-            <td>4</td>
-            <td>Правовые документы</td>
-            <td>Заявление на опломбирование</td>
-            <td>12</td>
-            <td>Силенко И.П.</td>
-          </tr>
-          <tr>
-            <td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
-            <td>341</td>
+            <td>340</td>
             <td>44</td>
             <td>4</td>
             <td>Правовые документы</td>
@@ -447,6 +357,83 @@ const getArchiveContainerOfOpenedDocument = () => `
   </form>
 </section>
 `;
+const rowTableDocument = () => `<tr>
+<td><input class="scroll-table-body__input-of-check-box" type="checkbox" name="" id=""></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>`;
+
+// JSON как объект //
+const date = [{
+  'id': 341,
+  'number_register': 4,
+  'id_subscriber': 4,
+  'type_document': 'Правовые документы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [3, 4],
+  'id_parent': 0
+}, {
+  'id': 342,
+  'number_register': 3,
+  'id_subscriber': 3,
+  'type_document': 'Баланс водопотребления и водоотведения',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [2],
+  'id_parent': 0
+}, {
+  'id': 343,
+  'number_register': 2,
+  'id_subscriber': 2,
+  'type_document': 'Служебные записи, рапорты',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [1],
+  'id_parent': 1
+}, {
+  'id': 344,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '01.02.2025',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}];
 
 //            //
 // КОДНСТАНТЫ //
@@ -708,6 +695,19 @@ function editOfDocument() {
   editButton.addEventListener('click', edit);
 }
 
+// ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
+function createNewRowInTableForDocuments() {
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
+}
+
+// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ИЗ СФОРМИРОВАННОГО МАССИВА //
+function fillInInformations() {
+  for (let i = 0; date.length > i; i++) {
+    createNewRowInTableForDocuments();
+  }
+}
+
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -763,6 +763,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
+  fillInInformations();
 };
 
 //                                         //
