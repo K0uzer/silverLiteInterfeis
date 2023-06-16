@@ -358,7 +358,7 @@ const rowTableDocument = () => `<tr>
 </tr>`;
 
 // JSON как объект //
-const date = [{
+const data = [{
   'id': 341,
   'number_register': 4,
   'id_subscriber': 4,
@@ -762,7 +762,7 @@ function openWindowForFilterOfDocument() {
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
-    getFilteredDocuments();
+    getFilteredDocuments(data);
     const buttonFilterDocumentInTheTable = document.querySelector('.archive__container-file-search-of-element-button');
     getFilteredTalbe(buttonFilterDocumentInTheTable);
     closeWindowForFilterOfDocument();
@@ -787,27 +787,14 @@ function closeWindowForFilterOfDocument() {
 }
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
-function getFilteredDocuments() {
+function getFilteredDocuments(array) {
   const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
-  console.log(inputsSearch[0].value);
-  console.log(Number(date[0].id_subscriber));
-  console.log(Number(inputsSearch[0].value) === Number(date[0].id_subscriber));
-  for (let i = 0; i < inputsSearch.length; i++) {
-    if (Number(inputsSearch[i].value) === Number(date[0].id_subscriber)) {
-      const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-      console.log(Array.from(tableBodyDocumentsOfArchive.children)[0].id);
-      console.log(Number(date[0].id));
-      console.log(Array.from(tableBodyDocumentsOfArchive.children)[0].id) === Number(date[0].id);
-      if (Array.from(tableBodyDocumentsOfArchive.children)[0].id === Number(date[0].id)) {
-        console.log('remove');
-      }
-      // Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
-      //   if(Number(item.textContent) !== inputsSearch[i].value) {
-      //     item.remove();
-      //   }
-      // });
-    }
-  }
+  const buttonFilter = document.querySelector('.archive__container-file-search-of-element-button');
+  buttonFilter.addEventListener('click', () => {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    const filteredArray = array.filter(item => item.number_register === inputsSearch[0].value);
+    console.log(filteredArray);
+  });
 }
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕНТОВ //
@@ -827,23 +814,23 @@ const openDocument = target => function qq() {
   const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
   const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
   const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
-  for (let i = 0; i < date.length; i++) {
-    if (Number(target.id) === Number(date[i].id)) {
+  for (let i = 0; i < data.length; i++) {
+    if (Number(target.id) === Number(data[i].id)) {
       for (let n = 0; n < countElementOfDocument; n++) {
-        documentInputs[0].value = date[i].number_register;
-        documentInputs[1].value = date[i].date_registration;
-        documentInputs[2].value = date[i].id_subscriber;
-        documentInputs[3].value = date[i].type_document;
-        documentInputs[4].value = date[i].name_object;
-        documentInputs[5].value = date[i].name_sity;
-        documentInputs[6].value = date[i].name_street;
-        documentInputs[7].value = date[i].number__agreement;
-        documentInputs[8].value = date[i].number_home;
-        documentInputs[9].value = date[i].number_body;
-        documentInputs[10].value = date[i].number_flat;
+        documentInputs[0].value = data[i].number_register;
+        documentInputs[1].value = data[i].data_registration;
+        documentInputs[2].value = data[i].id_subscriber;
+        documentInputs[3].value = data[i].type_document;
+        documentInputs[4].value = data[i].name_object;
+        documentInputs[5].value = data[i].name_sity;
+        documentInputs[6].value = data[i].name_street;
+        documentInputs[7].value = data[i].number__agreement;
+        documentInputs[8].value = data[i].number_home;
+        documentInputs[9].value = data[i].number_body;
+        documentInputs[10].value = data[i].number_flat;
       }
-      documentTextArea.value = date[i].comments;
-      documentIdSubscriber.textContent = date[i].id_subscriber;
+      documentTextArea.value = data[i].comments;
+      documentIdSubscriber.textContent = data[i].id_subscriber;
       // documentTableOfFiles
     }
   }
@@ -954,31 +941,31 @@ function createNewRowInTableForDocuments(indexChildrenm, elemI) {
 }
 
 // ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
-function fillInInformations() {
-  for (let i = 0; date.length > i; i++) {
-    createNewRowInTableForDocuments(date[i].id, i);
+function fillInInformations(array) {
+  for (let i = 0; array.length > i; i++) {
+    createNewRowInTableForDocuments(array[i].id, i);
   }
-  getInformationsForTable();
+  getInformationsForTable(array);
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ ДОКУМЕНТОВ //
-function getInformationsForTable() {
+function getInformationsForTable(array) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
     try {
-      for (let i = 0; i < date.length; i++) {
-        if (Number(item.id) === Number(date[i].id)) {
-          item.children[1].textContent = date[i].id;
-          item.children[2].textContent = date[i].number_register;
-          item.children[3].textContent = date[i].id_subscriber;
-          item.children[4].textContent = date[i].type_document;
-          item.children[5].textContent = date[i].comments;
-          item.children[6].textContent = date[i].number__agreement;
-          item.children[7].textContent = date[i].name_object;
+      for (let i = 0; i < array.length; i++) {
+        if (Number(item.id) === Number(array[i].id)) {
+          item.children[1].textContent = array[i].id;
+          item.children[2].textContent = array[i].number_register;
+          item.children[3].textContent = array[i].id_subscriber;
+          item.children[4].textContent = array[i].type_document;
+          item.children[5].textContent = array[i].comments;
+          item.children[6].textContent = array[i].number__agreement;
+          item.children[7].textContent = array[i].name_object;
         }
       }
     } catch (error) {
-      return;
+      console.log('Ошибка при заполнении данными таблицы');
     }
   });
 }
@@ -1038,7 +1025,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
-  fillInInformations();
+  fillInInformations(data);
 };
 
 //                                         //

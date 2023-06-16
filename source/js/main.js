@@ -10,7 +10,9 @@ import {
   getOpenedDocument,
   fillInInformations
 } from './functions/functionsOfarchive.js';
-
+import {
+  data
+} from './modal/arrayOfArchive.js';
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -68,7 +70,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
-  fillInInformations();
+  fillInInformations(data);
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

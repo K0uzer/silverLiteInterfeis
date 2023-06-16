@@ -1,5 +1,5 @@
 // JSON как объект //
-export const date = [
+export const data = [
   {
     'id': 341,
     'number_register': 4,
