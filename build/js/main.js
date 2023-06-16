@@ -763,8 +763,6 @@ function openWindowForFilterOfDocument() {
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
     getFilteredDocuments(data);
-    const buttonFilterDocumentInTheTable = document.querySelector('.archive__container-file-search-of-element-button');
-    getFilteredTalbe(buttonFilterDocumentInTheTable);
     closeWindowForFilterOfDocument();
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
@@ -784,26 +782,6 @@ function closeWindowForFilterOfDocument() {
     getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
-}
-
-// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
-function getFilteredDocuments(array) {
-  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
-  const buttonFilter = document.querySelector('.archive__container-file-search-of-element-button');
-  buttonFilter.addEventListener('click', () => {
-    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-    const filteredArray = array.filter(item => item.number_register === inputsSearch[0].value);
-    console.log(filteredArray);
-  });
-}
-
-// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕНТОВ //
-function getFilteredTalbe(buttonFilter) {
-  const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
-  const filterDocument = () => {
-    // console.log(rowInTalbeBodyOfFile);
-  };
-  buttonFilter.addEventListener('click', filterDocument);
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
@@ -967,6 +945,26 @@ function getInformationsForTable(array) {
     } catch (error) {
       console.log('Ошибка при заполнении данными таблицы');
     }
+  });
+}
+
+// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
+function getFilteredDocuments(dataOfArray) {
+  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
+  const buttonFilter = document.querySelector('.archive__container-file-search-of-element-button');
+  buttonFilter.addEventListener('click', () => {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    Array.from(tableBodyDocumentsOfArchive.children).forEach(item => item.remove());
+    const filteredArray = dataOfArray.filter(item => {
+      for (let i = 0; i < inputsSearch.length; i++) {
+        if (item.number_register !== Number(inputsSearch[i].value)) {
+          item.remove;
+        } else {
+          return item;
+        }
+      }
+    });
+    fillInInformations(filteredArray);
   });
 }
 
