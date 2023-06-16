@@ -333,27 +333,22 @@ function getInformationsForTable(array) {
   });
 };
 
-// ФУНКЦИЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
+// ФУНКЦИЯ СЛУШАТЕЛЬ СОБЫТИЙ ДЛЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
 function getFilteredDocuments(dataOfArray) {
-  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
   const buttonFilter = document.querySelector('.archive__container-file-search-of-element-button');
-  buttonFilter.addEventListener('click', () => {
-    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
-    const filteredArray = dataOfArray.filter((item) => {
-      for(let i = 0; i < inputsSearch.length; i++) {
-        if(item.number_register !== Number(inputsSearch[i].value)) {
-          item.remove;
-        } else {
-          return item;
-        }
-      }
-    });
-    fillInInformations(filteredArray);
-  });
+  buttonFilter.addEventListener('click', () => filterOfArray(dataOfArray));
 };
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВА //
 function filterOfArray() {
-  
+  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
+  const filteredArray = dataOfArray.filter((item) => {
+    for(let i = 0; i < inputsSearch.length; i++) {
+      if(item.number_register !== Number(inputsSearch[i].value) || item.number__agreement !== Number(inputsSearch[i].value)) item.remove;
+      else return item;
+    }
+  });
+  fillInInformations(filteredArray);
 };
