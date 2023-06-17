@@ -343,24 +343,9 @@ function getFilteredDocuments(dataOfArray) {
 function filterOfArray(array) {
   const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  let countInputs = 0;
   Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
-  for(let i = 0; i < inputsSearch.length; i++) {
-    if(inputsSearch[i].value !== '') {
-      countInputs++;
-    }
-  }
   const filteredArray = array.filter((item) => {
-    getTypeFilterOfTalbeWithDocument(countInputs, item);
-  });
-  fillInInformations(filteredArray);
-};
-
-// ФУНКЦИЯ ВКЛЮЧАЮЩАЯ ТРЕБУЕМЫЕ ТИПЫ ФИЛЬТРАЦИИ //
-function getTypeFilterOfTalbeWithDocument(count, item) {
-  const inputsSearch = document.querySelectorAll('.archive__container-file-search-of-element-input');
-  const selectSearch = document.querySelector('.archive__container-file-search-of-element-select');
-  if (count === 1) {
+    const selectSearch = document.querySelector('.archive__container-file-search-of-element-select');
     for(let i = 0; i < inputsSearch.length; i++) {
       if(item.type_document !== selectSearch.value && selectSearch.value !== '-') {
         item.remove;
@@ -386,5 +371,7 @@ function getTypeFilterOfTalbeWithDocument(count, item) {
         return item;
       }
     }
-  }
+  });
+  fillInInformations(filteredArray);
 };
+
