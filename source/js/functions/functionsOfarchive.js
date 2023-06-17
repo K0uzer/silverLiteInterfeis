@@ -62,11 +62,11 @@ export const getOpenBlokWithFolder = () => {
   const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
   const archiveFolder = document.querySelector('.archive__folder');
   buttonOfOpenBlockWithFolder.addEventListener('click', () => {
-    archiveFolder.style = 'display: block;';
+    archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
   });
 };
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+// // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
 export const getCloseBlokWithFolder = () => {
   const archiveFolder = document.querySelector('.archive__folder');
   const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
@@ -150,7 +150,6 @@ export function putInElementInTable() {
 
 // ФУНКЦИЯ ДЛЯ СБРОСА ФИЛЬТРОВ //
 export function clearFilters() {
-  console.log(1);
   const buttonOfUpdateTable = document.getElementById('archiveUpdateTable');
   const getOldTalbe = () => {
     const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
@@ -319,7 +318,6 @@ function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
   tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
-  getOpenedDocument();
 }
 
 // ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
