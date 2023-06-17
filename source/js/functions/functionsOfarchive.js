@@ -334,9 +334,9 @@ function getInformationsForTable(array) {
 };
 
 // ФУНКЦИЯ СЛУШАТЕЛЬ СОБЫТИЙ ДЛЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
-function getFilteredDocuments(dataOfArray) {
+function getFilteredDocuments(array) {
   const buttonFilter = document.querySelector('.archive__container-file-search-of-element-button');
-  buttonFilter.addEventListener('click', () => filterOfArray(dataOfArray));
+  buttonFilter.addEventListener('click', () => filterOfArray(array));
 };
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВА //
@@ -346,32 +346,29 @@ function filterOfArray(array) {
   Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
   const filteredArray = array.filter((item) => {
     const selectSearch = document.querySelector('.archive__container-file-search-of-element-select');
-    for(let i = 0; i < inputsSearch.length; i++) {
-      if(item.type_document !== selectSearch.value && selectSearch.value !== '-') {
-        item.remove;
-      } else if(item.number_register !== Number(inputsSearch[0].value) && inputsSearch[0].value !== '') {
-        item.remove;
-      } else if(item.name_object !== Number(inputsSearch[1].value) && inputsSearch[1].value !== '') {
-        item.remove;
-      } else if(item.comments !== Number(inputsSearch[2].value) && inputsSearch[2].value !== '') {
-        item.remove;
-      } else if(item.name_sity !== Number(inputsSearch[3].value) && inputsSearch[3].value !== '') {
-        item.remove;
-      } else if(item.number_home !== Number(inputsSearch[4].value) && inputsSearch[4].value !== '') {
-        item.remove;
-      } else if(item.name_street !== Number(inputsSearch[5].value) && inputsSearch[5].value !== '') {
-        item.remove;
-      } else if(item.number_flat !== Number(inputsSearch[6].value) && inputsSearch[6].value !== '') {
-        item.remove;
-      } else if(item.number__agreement !== Number(inputsSearch[7].value) && inputsSearch[7].value !== '') {
-        item.remove;
-      } else if(item.id !== Number(inputsSearch[8].value) && inputsSearch[8].value !== '') {
-        item.remove;
-      } else {
-        return item;
-      }
+    if(item.type_document !== selectSearch.value && selectSearch.value !== '-') {
+      item.remove;
+    } else if(item.number_register !== Number(inputsSearch[0].value) && inputsSearch[0].value !== '') {
+      item.remove;
+    } else if(item.name_object !== Number(inputsSearch[1].value) && inputsSearch[1].value !== '') {
+      item.remove;
+    } else if(item.comments !== Number(inputsSearch[2].value) && inputsSearch[2].value !== '') {
+      item.remove;
+    } else if(item.name_sity !== Number(inputsSearch[3].value) && inputsSearch[3].value !== '') {
+      item.remove;
+    } else if(item.number_home !== Number(inputsSearch[4].value) && inputsSearch[4].value !== '') {
+      item.remove;
+    } else if(item.name_street !== Number(inputsSearch[5].value) && inputsSearch[5].value !== '') {
+      item.remove;
+    } else if(item.number_flat !== Number(inputsSearch[6].value) && inputsSearch[6].value !== '') {
+      item.remove;
+    } else if(item.number__agreement !== Number(inputsSearch[7].value) && inputsSearch[7].value !== '') {
+      item.remove;
+    } else if(item.id !== Number(inputsSearch[8].value) && inputsSearch[8].value !== '') {
+      item.remove;
+    } else {
+      return item;
     }
   });
   fillInInformations(filteredArray);
 };
-
