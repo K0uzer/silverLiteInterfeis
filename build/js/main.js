@@ -54,7 +54,7 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
     <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" id="archiveDeleteDoc" alt="">
     <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" id="archiveCutOut" alt="">
     <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" id="archivePutIn" alt="">
-    <img src="./img/file/refresh.svg" class="archive__file-button" onclick="location.reload(); return false;" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
+    <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
     <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" id="archiveSearch" alt="">
     <div class="archive__file-menu-under-line"></div>
   </div>
@@ -655,10 +655,6 @@ let cutteddOutElement = '';
 
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 
-//            //
-//  ФУНКЦИИ   //
-//            //
-
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
@@ -756,6 +752,17 @@ function putInElementInTable() {
   putInButton.addEventListener('click', putInElement);
 }
 
+// ФУНКЦИЯ ДЛЯ СБРОСА ФИЛЬТРОВ //
+function clearFilters() {
+  console.log(1);
+  const buttonOfUpdateTable = document.getElementById('archiveUpdateTable');
+  const getOldTalbe = () => {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    Array.from(tableBodyDocumentsOfArchive.children).forEach(item => item.remove());
+  };
+  buttonOfUpdateTable.addEventListener('click', getOldTalbe);
+}
+
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 function openWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
@@ -796,7 +803,7 @@ const openDocument = target => function qq() {
     if (Number(target.id) === Number(data[i].id)) {
       for (let n = 0; n < countElementOfDocument; n++) {
         documentInputs[0].value = data[i].number_register;
-        documentInputs[1].value = data[i].data_registration;
+        documentInputs[1].value = data[i].date_registration;
         documentInputs[2].value = data[i].id_subscriber;
         documentInputs[3].value = data[i].type_document;
         documentInputs[4].value = data[i].name_object;
@@ -871,6 +878,7 @@ function editOfDocument() {
   // Функция для печати файла //
   const printFile = () => {
     console.log('Печать');
+    window.print();
   };
 
   // Функция для вывода протоколов печати //
@@ -911,10 +919,10 @@ function editOfDocument() {
 }
 
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
-function createNewRowInTableForDocuments(indexChildrenm, elemI) {
+function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
-  tableBodyDocumentsOfArchive.children[elemI].id = indexChildrenm;
+  tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
   getOpenedDocument();
 }
 
@@ -1016,9 +1024,9 @@ const levelAcceptOfUser = 1;
 
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 
-//            //
-//  ФУНКЦИИ   //
-//            //
+//           //
+//  ФУНКЦИИ  //
+//           //
 
 // НАСТРОЙКА //
 
@@ -1044,6 +1052,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   openWindowForFilterOfDocument();
   getOpenedDocument();
   fillInInformations(data);
+  clearFilters();
 };
 
 //                                         //

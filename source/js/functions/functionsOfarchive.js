@@ -47,6 +47,11 @@ export const clearOfEventListenersList = (typeEvent, elementOfListening, functio
 //  ФУНКЦИИ   //
 //            //
 
+// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ТРЕБУЕМЫХ ПЕРЕМЕННЫХ И КОНСТАНТ //
+function getConstants() {
+
+};
+
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 export const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
@@ -143,6 +148,17 @@ export function putInElementInTable() {
   putInButton.addEventListener('click', putInElement);
 };
 
+// ФУНКЦИЯ ДЛЯ СБРОСА ФИЛЬТРОВ //
+export function clearFilters() {
+  console.log(1);
+  const buttonOfUpdateTable = document.getElementById('archiveUpdateTable');
+  const getOldTalbe = () => {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
+  };
+  buttonOfUpdateTable.addEventListener('click', getOldTalbe);
+};
+
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 export function openWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
@@ -183,7 +199,7 @@ const openDocument = (target) => function qq() {
     if(Number(target.id) === Number(data[i].id)) {
       for(let n = 0; n < countElementOfDocument; n++) {
         documentInputs[0].value = data[i].number_register;
-        documentInputs[1].value = data[i].data_registration;
+        documentInputs[1].value = data[i].date_registration;
         documentInputs[2].value = data[i].id_subscriber;
         documentInputs[3].value = data[i].type_document;
         documentInputs[4].value = data[i].name_object;
@@ -257,6 +273,7 @@ export function editOfDocument() {
   // Функция для печати файла //
   const printFile = () => {
     console.log('Печать');
+    window.print();
   };
 
   // Функция для вывода протоколов печати //
@@ -298,10 +315,10 @@ export function editOfDocument() {
 
 
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
-function createNewRowInTableForDocuments(indexChildrenm, elemI) {
+function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
-  tableBodyDocumentsOfArchive.children[elemI].id = indexChildrenm;
+  tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
   getOpenedDocument();
 }
 

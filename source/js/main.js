@@ -8,7 +8,8 @@ import {
   putInElementInTable,
   openWindowForFilterOfDocument,
   getOpenedDocument,
-  fillInInformations
+  fillInInformations,
+  clearFilters
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -43,9 +44,9 @@ const levelAcceptOfUser = 1;
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 
 
-//            //
-//  ФУНКЦИИ   //
-//            //
+//           //
+//  ФУНКЦИИ  //
+//           //
 
 // НАСТРОЙКА //
 
@@ -71,6 +72,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   openWindowForFilterOfDocument();
   getOpenedDocument();
   fillInInformations(data);
+  clearFilters();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
