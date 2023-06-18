@@ -768,8 +768,8 @@ function openWindowForFilterOfDocument() {
   const buttonOfFilter = document.getElementById('archiveSearch');
   const getWindowOfFilter = () => {
     archiveFile.innerHTML += getAchiveContainerFileSearch();
-    getFilteredDocuments(data);
     closeWindowForFilterOfDocument();
+    getFilteredDocuments(data);
   };
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
 }
@@ -785,8 +785,9 @@ function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
-    getOpenedDocument();
+    // getOpenedDocument();
   };
+
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 }
 
@@ -952,7 +953,7 @@ function getInformationsForTable(array) {
       console.log('Ошибка при заполнении данными таблицы');
     }
   });
-  // getOpenedDocument();
+  getOpenedDocument();
 }
 
 // ФУНКЦИЯ СЛУШАТЕЛЬ СОБЫТИЙ ДЛЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
