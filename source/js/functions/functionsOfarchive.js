@@ -181,7 +181,7 @@ export function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
-    getOpenedDocument();
+    // getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 };
@@ -346,6 +346,7 @@ function getInformationsForTable(array) {
       }
     } catch (error) { console.log('Ошибка при заполнении данными таблицы'); }
   });
+  getOpenedDocument();
 };
 
 // ФУНКЦИЯ СЛУШАТЕЛЬ СОБЫТИЙ ДЛЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
