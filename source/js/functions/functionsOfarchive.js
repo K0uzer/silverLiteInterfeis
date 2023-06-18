@@ -47,11 +47,6 @@ export const clearOfEventListenersList = (typeEvent, elementOfListening, functio
 //  ФУНКЦИИ   //
 //            //
 
-// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ТРЕБУЕМЫХ ПЕРЕМЕННЫХ И КОНСТАНТ //
-function getConstants() {
-
-};
-
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 export const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
@@ -101,6 +96,7 @@ export function getCloseBlockForNewDocument() {
     putInElementInTable();
     openWindowForFilterOfDocument();
     getOpenedDocument();
+    clearFilters();
   };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
 };
@@ -154,6 +150,7 @@ export function clearFilters() {
   const getOldTalbe = () => {
     const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
     Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
+    fillInInformations(data);
   };
   buttonOfUpdateTable.addEventListener('click', getOldTalbe);
 };
@@ -181,7 +178,8 @@ export function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
-    // getOpenedDocument();
+    getOpenedDocument();
+    clearFilters();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 };
@@ -238,6 +236,7 @@ export function closeDocument() {
     cutOutDocument();
     putInElementInTable();
     getOpenedDocument();
+    clearFilters();
   };
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
 }

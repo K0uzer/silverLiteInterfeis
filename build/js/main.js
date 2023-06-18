@@ -655,6 +655,10 @@ let cutteddOutElement = '';
 
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 
+//            //
+//  ФУНКЦИИ   //
+//            //
+
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
@@ -704,6 +708,7 @@ function getCloseBlockForNewDocument() {
     putInElementInTable();
     openWindowForFilterOfDocument();
     getOpenedDocument();
+    clearFilters();
   };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
 }
@@ -758,6 +763,7 @@ function clearFilters() {
   const getOldTalbe = () => {
     const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
     Array.from(tableBodyDocumentsOfArchive.children).forEach(item => item.remove());
+    fillInInformations(data);
   };
   buttonOfUpdateTable.addEventListener('click', getOldTalbe);
 }
@@ -785,9 +791,9 @@ function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
-    // getOpenedDocument();
+    getOpenedDocument();
+    clearFilters();
   };
-
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 }
 
@@ -844,6 +850,7 @@ function closeDocument() {
     cutOutDocument();
     putInElementInTable();
     getOpenedDocument();
+    clearFilters();
   };
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
 }
