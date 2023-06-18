@@ -181,7 +181,7 @@ export function closeWindowForFilterOfDocument() {
     getTableElementFromArchiveDocuments();
     cutOutDocument();
     putInElementInTable();
-    // getOpenedDocument();
+    getOpenedDocument();
   };
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 };
@@ -312,7 +312,6 @@ export function editOfDocument() {
   editButton.addEventListener('click', edit);
 }
 
-
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
 function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
@@ -346,7 +345,7 @@ function getInformationsForTable(array) {
       }
     } catch (error) { console.log('Ошибка при заполнении данными таблицы'); }
   });
-  getOpenedDocument();
+  // getOpenedDocument();
 };
 
 // ФУНКЦИЯ СЛУШАТЕЛЬ СОБЫТИЙ ДЛЯ ФИЛЬТРАЦИИ ТАБЛИЦЫ ДОКУМЕТОВ //
