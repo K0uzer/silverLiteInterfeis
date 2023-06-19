@@ -22,11 +22,11 @@ import {
 //            //
 const acrchivePage = document.getElementById('p2');
 const countElementOfDocument = 11;
-
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
 let cutteddOutElement = '';
+let nameUser = 'Ганин А.В';
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 
@@ -37,6 +37,21 @@ let cutteddOutElement = '';
 //                         //
 //  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
 //                         //
+
+// ФУНКЦИЯ ДЛЯ ОПРЕДЕЛЕНИЯ ВРЕМЕНИ //
+const getCurrentTime = (item) => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  item.value = `${formattedDate}T${formattedTime}`;
+  item.disabled = 'true';
+};
+
 
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 export const clearOfEventListenersList = (typeEvent, elementOfListening, functionElementOfListening) => {
@@ -77,6 +92,7 @@ export function getCreateBlockForNewDocument() {
   const createChildElementInParent = () => {
     archiveFile.innerHTML += getArchiveContainerOfCreateNewDocument();
     getCloseBlockForNewDocument();
+    createDocument();
   };
   archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
 };
@@ -99,6 +115,44 @@ export function getCloseBlockForNewDocument() {
     clearFilters();
   };
   archiveButtonOutWithCreateNewDocument.addEventListener('click', removeElementOfChild.bind(null, 'archive__container-of-create-new-document'));
+};
+
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ДОКУМЕНТА В ТАБЛИЦУ //
+const addDocumentInTable = () => function arrayInputsOfCreateDocument(array)  {
+  const arrayForNewElementOfTalbe = [{}];
+  fillInInformations(arrayForNewElementOfTalbe);
+  const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
+  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  for(const elementArrayInputs of array) {
+    // elementArrayInputs.value =
+  };
+  addElementInArrayOfDocument();
+};
+
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
+function addNewFile() {
+
+};
+
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
+function addElementInArrayOfDocument() {
+
+};
+
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОКУМЕНТА //
+function createDocument() {
+  const arrayInputsOfCreateDocument = document.querySelectorAll('.archive__create-new-document-of-input');
+  const nameUserOfCreatedDocument = document.getElementById('idNewDocument');
+  const dateLastChangeDocument = document.getElementById('dateOfChangeDocument');
+  const buttonOfAddDocument = document.querySelector('.archive__create-new-document-of-button-add-new-file');
+  const buttonOfCreateDocument = document.querySelector('.archive__create-new-document-of-button-create');
+  const doucmentId = document.querySelector('.archive__document-of-id');
+  getCurrentTime(arrayInputsOfCreateDocument[1]);
+  doucmentId.textContent = data[data.length - 1].id_subscriber + 1;
+  dateLastChangeDocument.textContent = arrayInputsOfCreateDocument[1].value;
+  nameUserOfCreatedDocument.textContent = nameUser;
+  buttonOfAddDocument.addEventListener('click', addNewFile);
+  buttonOfCreateDocument.addEventListener('click', addDocumentInTable(arrayInputsOfCreateDocument));
 };
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ДОКУМЕНТА ИЗ ТАБЛИЦЫ //
@@ -270,8 +324,9 @@ export function editOfDocument() {
 
   // Функция для печати файла //
   const printFile = () => {
+    const el = document.querySelector('.archive__container-of-opened-document');
     console.log('Печать');
-    window.print();
+    window.print(el.innerHTML);
   };
 
   // Функция для вывода протоколов печати //
@@ -386,3 +441,4 @@ function filterOfArray(array) {
   });
   fillInInformations(filteredArray);
 };
+

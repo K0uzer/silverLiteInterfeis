@@ -9,7 +9,7 @@ export const getArchiveContainerOfCreateNewDocument = () => `
     <div class="archive__create-new-document-input-of-container-elements">
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Регистрационный номер:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <input class="archive__create-new-document-of-input" type="number" name="" id="">
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Дата:</span>
@@ -17,7 +17,7 @@ export const getArchiveContainerOfCreateNewDocument = () => `
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Номер абонентского дела:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <input class="archive__create-new-document-of-input" type="number" name="" id="">
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Тип документа:</span>
@@ -37,7 +37,7 @@ export const getArchiveContainerOfCreateNewDocument = () => `
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Номер договара:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <input class="archive__create-new-document-of-input" type="number" name="" id="">
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Дом:</span>
@@ -45,11 +45,11 @@ export const getArchiveContainerOfCreateNewDocument = () => `
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Корпус:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <input class="archive__create-new-document-of-input" type="number" name="" id="">
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Квартира:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <input class="archive__create-new-document-of-input" type="number" name="" id="">
       </div>
     </div>
     <textarea class="archive__create-new-document-of-textarea" name="" id="" placeholder="Комментарий"></textarea>
