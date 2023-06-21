@@ -746,15 +746,24 @@ function getCloseBlockForNewDocument() {
 }
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ДОКУМЕНТА В ТАБЛИЦУ //
-const addDocumentInTable = () => function arrayInputsOfCreateDocument(array) {
+const addDocumentInTable = () => function arrayInputsOfCreateDocument(arrayInputs) {
   const arrayForNewElementOfTalbe = [{}];
   fillInInformations(arrayForNewElementOfTalbe);
   const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+  addElementInArrayOfDocument(arrayInputs);
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
 function addNewFile() {}
+
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
+function addElementInArrayOfDocument(arrayInputs) {
+  console.log(arrayInputs);
+  for (let i = 0; i < arrayInputs.length; i++) {
+    console.log(arrayInputs[i].value);
+  }
+}
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОКУМЕНТА //
 function createDocument() {

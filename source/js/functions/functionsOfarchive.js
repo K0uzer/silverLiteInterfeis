@@ -118,15 +118,13 @@ export function getCloseBlockForNewDocument() {
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ДОКУМЕНТА В ТАБЛИЦУ //
-const addDocumentInTable = () => function arrayInputsOfCreateDocument(array)  {
+const addDocumentInTable = (arrayInputs) => function arrayInputsOfCreateDocument()  {
   const arrayForNewElementOfTalbe = [{}];
   fillInInformations(arrayForNewElementOfTalbe);
   const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  for(const elementArrayInputs of array) {
-    // elementArrayInputs.value =
-  };
-  addElementInArrayOfDocument();
+
+  addElementInArrayOfDocument(arrayInputs);
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
@@ -135,8 +133,28 @@ function addNewFile() {
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
-function addElementInArrayOfDocument() {
-
+function addElementInArrayOfDocument(arrayInputs) {
+  console.log(arrayInputs);
+  for(let i = 0; i < arrayInputs.length; i++) {
+    console.log(arrayInputs[i].value);
+  };
+  const newDocuemnt = {
+    'id': 341,
+    'number_register': 4,
+    'id_subscriber': 4,
+    'type_document': 'Правовые документы',
+    'comments': 'Заявление на опломбирование ',
+    'number__agreement': 12,
+    'name_object': 'Силенко И.П',
+    'date_registration': '2025-02-01 17:52',
+    'name_sity': 'Ростов-На-Дону',
+    'name_street': 'Льва Толстого',
+    'number_home': 5,
+    'number_body': 5,
+    'number_flat': 5,
+    'id_documents': [3, 4],
+    'id_parent': 0,
+  };
 };
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОКУМЕНТА //
