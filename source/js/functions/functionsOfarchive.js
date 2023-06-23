@@ -473,27 +473,46 @@ function createTableFolderRow() {
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
+function fillInRowOfFolderTalbe() {
 
+}
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
+function deleteFolder() {
 
+}
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ //
+function goUpToTheFolderToTheHigherLevel() {
 
+}
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
+function goUpToTheFolderToTheTopLevel() {
 
+}
 
 // ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ //
+function insertAFolder() {
 
+}
 
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАТЬ ПАПКУ //
+function cutTheFolder() {
 
+}
 
-// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ ОБНОВИТЬ ТАБЛИЦУ //
+// ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ //
+function updateTheTable() {
 
+}
 
 // ФУНКЦИЯ ПОИСКА ПО НОМЕРУ ПАПКИ //
+function searchFolderByNumber() {
 
+}
 
 // ФУНКЦИЯ ПОИСКА ПО ИМЕНИ ПАПКИ //
+function searchFolderByName() {
+  
+}
