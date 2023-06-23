@@ -34,3 +34,10 @@ table.archive__folder-table th {
   background: #6161614d;
   color: #000000;
 }
+
+#folderTalbeBody tr {
+  &:hover {
+    background-color: #b7b7b7;
+    cursor: pointer;
+  }
+}

@@ -746,7 +746,7 @@ function getCloseBlockForNewDocument() {
 }
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ДОКУМЕНТА В ТАБЛИЦУ //
-const addDocumentInTable = () => function arrayInputsOfCreateDocument(arrayInputs) {
+const addDocumentInTable = arrayInputs => function arrayInputsOfCreateDocument() {
   const arrayForNewElementOfTalbe = [{}];
   fillInInformations(arrayForNewElementOfTalbe);
   const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
@@ -1072,6 +1072,30 @@ function filterOfArray(array) {
   fillInInformations(filteredArray);
 }
 
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
+function createFolder() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  console.log(folderTableBody.children);
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
+
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
+
+// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ //
+
+// ФУНКЦИЯ ДЛЯ ВЫРЕЗАТЬ ПАПКУ //
+
+// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ ОБНОВИТЬ ТАБЛИЦУ //
+
+// ФУНКЦИЯ ПОИСКА ПО НОМЕРУ ПАПКИ //
+
+// ФУНКЦИЯ ПОИСКА ПО ИМЕНИ ПАПКИ //
+
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -1129,6 +1153,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenedDocument();
   fillInInformations(data);
   clearFilters();
+  createFolder();
 };
 
 //                                         //
