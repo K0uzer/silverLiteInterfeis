@@ -5,13 +5,13 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
     <span class="archive__filder-title">Тукущая папка: Верхняя</span>
   </div>
   <div class="archive__folder-button-container">
-    <img src="./img/folder/create-button.svg" class="archive__folder-button" title="Создать папку" alt="">
-    <img src="./img/folder/delete-button.svg" class="archive__folder-button" title="Удалить папку" alt="">
-    <img src="./img/folder/document-upload.svg" class="archive__folder-button" title="Папка на уровень выше" alt="">
-    <img src="./img/folder/high-level-button.svg" class="archive__folder-button" title="Папка верхнего уровня" alt="">
-    <img src="./img/folder/insert-button.svg" class="archive__folder-button" title="Вставить" alt="">
-    <img src="./img/folder/refresh-button.svg" class="archive__folder-button" title="Обновить таблицу & сбросить поиск" alt="">
-    <img src="./img/folder/scissor-button.svg" class="archive__folder-button" title="Вырезать" alt="">
+    <img src="./img/folder/create-button.svg" class="archive__folder-button" id="createFolder" title="Создать папку" alt="">
+    <img src="./img/folder/delete-button.svg" class="archive__folder-button" id="deleteFolder" title="Удалить папку" alt="">
+    <img src="./img/folder/document-upload.svg" class="archive__folder-button" id="upLevelFolder" title="Папка на уровень выше" alt="">
+    <img src="./img/folder/high-level-button.svg" class="archive__folder-button" id="upMaxLevelFolder" title="Папка верхнего уровня" alt="">
+    <img src="./img/folder/insert-button.svg" class="archive__folder-button" id="putFolder" title="Вставить" alt="">
+    <img src="./img/folder/refresh-button.svg" class="archive__folder-button" id="updateTableFolder" title="Обновить таблицу & сбросить поиск" alt="">
+    <img src="./img/folder/scissor-button.svg" class="archive__folder-button" id="cutOutFolder" title="Вырезать" alt="">
   </div>
   <form action="" method="post" class="archive__folder-menu-form">
     <input class="archive__folder-input" type="text" title="Быстрый поиск" placeholder="Поиск">

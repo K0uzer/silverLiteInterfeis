@@ -16,6 +16,15 @@ import {
 import {
   data
 } from '../modal/arrayOfArchive.js';
+import {
+  archiveFolderTableRow
+} from '../view/archive/acrive__folder-talbe-row.js';
+import {
+  arrayChildrenOfFilderThree
+} from '../modal/arrayOfFolderChidren.js';
+import {
+  getContainerForCreateNewFolder
+} from '../view/archive/archive__create-new-folder.js';
 
 //            //
 // КОДНСТАНТЫ //
@@ -462,14 +471,17 @@ function filterOfArray(array) {
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
 export function createFolder() {
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  console.log(folderTableBody.children);
-
+  const buttonOfCreateFolder = document.getElementById('createFolder');
+  buttonOfCreateFolder.addEventListener('click', createTableFolderRow);
 };
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
-  
+  const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
+  archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
+
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
@@ -514,5 +526,5 @@ function searchFolderByNumber() {
 
 // ФУНКЦИЯ ПОИСКА ПО ИМЕНИ ПАПКИ //
 function searchFolderByName() {
-  
-}
+
+};

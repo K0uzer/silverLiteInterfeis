@@ -7,13 +7,13 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
     <span class="archive__filder-title">Тукущая папка: Верхняя</span>
   </div>
   <div class="archive__folder-button-container">
-    <img src="./img/folder/create-button.svg" class="archive__folder-button" title="Создать папку" alt="">
-    <img src="./img/folder/delete-button.svg" class="archive__folder-button" title="Удалить папку" alt="">
-    <img src="./img/folder/document-upload.svg" class="archive__folder-button" title="Папка на уровень выше" alt="">
-    <img src="./img/folder/high-level-button.svg" class="archive__folder-button" title="Папка верхнего уровня" alt="">
-    <img src="./img/folder/insert-button.svg" class="archive__folder-button" title="Вставить" alt="">
-    <img src="./img/folder/refresh-button.svg" class="archive__folder-button" title="Обновить таблицу & сбросить поиск" alt="">
-    <img src="./img/folder/scissor-button.svg" class="archive__folder-button" title="Вырезать" alt="">
+    <img src="./img/folder/create-button.svg" class="archive__folder-button" id="createFolder" title="Создать папку" alt="">
+    <img src="./img/folder/delete-button.svg" class="archive__folder-button" id="deleteFolder" title="Удалить папку" alt="">
+    <img src="./img/folder/document-upload.svg" class="archive__folder-button" id="upLevelFolder" title="Папка на уровень выше" alt="">
+    <img src="./img/folder/high-level-button.svg" class="archive__folder-button" id="upMaxLevelFolder" title="Папка верхнего уровня" alt="">
+    <img src="./img/folder/insert-button.svg" class="archive__folder-button" id="putFolder" title="Вставить" alt="">
+    <img src="./img/folder/refresh-button.svg" class="archive__folder-button" id="updateTableFolder" title="Обновить таблицу & сбросить поиск" alt="">
+    <img src="./img/folder/scissor-button.svg" class="archive__folder-button" id="cutOutFolder" title="Вырезать" alt="">
   </div>
   <form action="" method="post" class="archive__folder-menu-form">
     <input class="archive__folder-input" type="text" title="Быстрый поиск" placeholder="Поиск">
@@ -649,6 +649,44 @@ const data = [{
 // },
 ];
 
+const archiveFolderTableRow = array => `<tr>
+<td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
+<td>${array.length}</td>
+<td>Новая папка</td>
+</tr>`;
+const arrayChildrenOfFilderThree = [{
+  'idFolter': 0,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 1,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 2,
+  'idParent': 1,
+  'nameFolder': 'Абонентское дело',
+  'numberFolder': 2,
+  'folderLevel': 1
+}];
+const getContainerForCreateNewFolder = () => `
+<section class="archive__create-new-folder">
+  <h3 class="archive__create-new-folder-preview">Новая папка</h3>
+  <div class="archive__create-new-folder-of-form">
+    <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Номер договора">
+    <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Абоненткий номер">
+    <input class="archive__create-new-folder-of-input" type="text" id="comment" class="text" placeholder="Комментарий">
+    <button class="archive__create-new-folder-of-button-create" id="buttonSaveFolder">Создать</button>
+    <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
+    </div>
+  </div>
+</section>
+`;
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -1074,27 +1112,17 @@ function filterOfArray(array) {
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
 function createFolder() {
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  console.log(folderTableBody.children);
+  const buttonOfCreateFolder = document.getElementById('createFolder');
+  buttonOfCreateFolder.addEventListener('click', createTableFolderRow);
 }
 
-// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
-
-// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
-
-// ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ //
-
-// ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
-
-// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ //
-
-// ФУНКЦИЯ ДЛЯ ВЫРЕЗАТЬ ПАПКУ //
-
-// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ ОБНОВИТЬ ТАБЛИЦУ //
-
-// ФУНКЦИЯ ПОИСКА ПО НОМЕРУ ПАПКИ //
-
-// ФУНКЦИЯ ПОИСКА ПО ИМЕНИ ПАПКИ //
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
+function createTableFolderRow() {
+  const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
+  archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
+}
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
