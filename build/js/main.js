@@ -649,30 +649,6 @@ const data = [{
 // },
 ];
 
-const archiveFolderTableRow = array => `<tr>
-<td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
-<td>${array.length}</td>
-<td>Новая папка</td>
-</tr>`;
-const arrayChildrenOfFilderThree = [{
-  'idFolter': 0,
-  'idParent': 0,
-  'nameFolder': 'Новая папка абонентских дел',
-  'numberFolder': 1,
-  'folderLevel': 1
-}, {
-  'idFolter': 1,
-  'idParent': 0,
-  'nameFolder': 'Новая папка абонентских дел',
-  'numberFolder': 1,
-  'folderLevel': 1
-}, {
-  'idFolter': 2,
-  'idParent': 1,
-  'nameFolder': 'Абонентское дело',
-  'numberFolder': 2,
-  'folderLevel': 1
-}];
 const getContainerForCreateNewFolder = () => `
 <section class="archive__create-new-folder">
   <h3 class="archive__create-new-folder-preview">Новая папка</h3>
@@ -1120,8 +1096,6 @@ function createFolder() {
 function createTableFolderRow() {
   const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
   archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
 }
 
 /*

@@ -469,6 +469,26 @@ function filterOfArray(array) {
   fillInInformations(filteredArray);
 };
 
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
+function openWindowForCreateFolder() {
+  
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
+  closeWindowForCreateFolder();
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
+function closeWindowForCreateFolder() {
+  const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
+  buttonOfLeaveWindowForCreateFolder.addEventListener('click', removeWindowForCreateFolder);
+}
+
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
+function removeWindowForCreateFolder() {
+  const folderContentContainer = document.querySelector('.archive__folder-content-container');
+  console.log(folderContentContainer);
+}
+
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
 export function createFolder() {
   const buttonOfCreateFolder = document.getElementById('createFolder');
@@ -479,9 +499,6 @@ export function createFolder() {
 function createTableFolderRow() {
   const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
   archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
-
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //

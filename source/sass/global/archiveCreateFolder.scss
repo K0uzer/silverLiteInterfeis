@@ -3,15 +3,19 @@
   position: absolute;
   display: flex;
   padding: 5px;
-  top: 10%;
+  top: 15%;
   background: #d2691edb;
 }
 .archive__create-new-folder-preview {
   font-size: 20px;
   padding: 10px;
+  text-align: center;
 }
 .archive__create-new-folder-of-form {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-right: 45px;
 }
 .archive__create-new-folder-of-input {
 }
@@ -21,5 +25,11 @@
   position: absolute;
   top: 5px;
   right: 5px;
+
+  &:hover {
+    transition: 0.3s;
+    rotate: 360deg;
+    cursor: pointer;
+  }
 }
 
