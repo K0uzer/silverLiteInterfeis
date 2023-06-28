@@ -42,7 +42,7 @@ const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-
         <tr>
           <td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
           <td>2</td>
-          <td>Дела</td>
+          <td>Проектно-техническая документация</td>
         </tr>
       </tbody>
     </table>
@@ -652,7 +652,7 @@ const data = [{
 const archiveFolderTableRow = array => `<tr>
 <td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
 <td>${array.length}</td>
-<td>Новая папка</td>
+<td></td>
 </tr>`;
 const arrayChildrenOfFilderThree = [{
   'idFolter': 0,
@@ -1142,8 +1142,23 @@ function createFolder(button) {
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
+  const inputOfNumberAgreement = document.getElementById('numberAgreement');
+  const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
+  const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
-  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
+  if (inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+    folderTableBody.innerHTML += archiveFolderTableRow(folderTableBody, arrayChildrenOfFilderThree);
+    fillInRowOfFolderTalbe(folderTableBody, inputOfNumberSubscriber);
+  } else {
+    return alert('Ошибка создания папки');
+  }
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
+function fillInRowOfFolderTalbe(table, input) {
+  const childrenElement = Array.from(table.children);
+  childrenElement[childrenElement.length - 1].children[1].textContent = arrayChildrenOfFilderThree.length;
+  childrenElement[childrenElement.length - 1].children[2].textContent = input.value;
 }
 
 /*

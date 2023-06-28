@@ -502,17 +502,23 @@ function createFolder(button) {
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
-  fillInRowOfFolderTalbe();
-}
-
-// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
-function fillInRowOfFolderTalbe() {
   const inputOfNumberAgreement = document.getElementById('numberAgreement');
   const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
   const inputOfComment = document.getElementById('comment');
-  
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  if(inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+    folderTableBody.innerHTML += archiveFolderTableRow(folderTableBody, arrayChildrenOfFilderThree);
+    fillInRowOfFolderTalbe(folderTableBody, inputOfNumberSubscriber);
+  } else {
+    return alert('Ошибка создания папки');
+  }
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
+function fillInRowOfFolderTalbe(table, input) {
+  const childrenElement = Array.from(table.children);
+  childrenElement[childrenElement.length - 1].children[1].textContent = arrayChildrenOfFilderThree.length;
+  childrenElement[childrenElement.length - 1].children[2].textContent = input.value;
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //

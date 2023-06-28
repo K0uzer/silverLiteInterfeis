@@ -40,7 +40,7 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
         <tr>
           <td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
           <td>2</td>
-          <td>Дела</td>
+          <td>Проектно-техническая документация</td>
         </tr>
       </tbody>
     </table>
