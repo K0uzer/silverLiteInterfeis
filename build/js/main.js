@@ -651,15 +651,15 @@ const data = [{
 
 const getContainerForCreateNewFolder = () => `
 <section class="archive__create-new-folder">
-  <h3 class="archive__create-new-folder-preview">Новая папка</h3>
+  <h1 class="archive__create-new-folder-preview">Новая папка</h1>
   <div class="archive__create-new-folder-of-form">
     <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Номер договора">
     <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Абоненткий номер">
     <input class="archive__create-new-folder-of-input" type="text" id="comment" class="text" placeholder="Комментарий">
     <button class="archive__create-new-folder-of-button-create" id="buttonSaveFolder">Создать</button>
-    <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
     </div>
   </div>
+  <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
 </section>
 `;
 
@@ -1086,16 +1086,30 @@ function filterOfArray(array) {
   fillInInformations(filteredArray);
 }
 
-// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
-function createFolder() {
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
+function openWindowForCreateFolder() {
+  // ПЕРЕМЕННЫЕ //
   const buttonOfCreateFolder = document.getElementById('createFolder');
-  buttonOfCreateFolder.addEventListener('click', createTableFolderRow);
+  const folderContentContainer = document.querySelector('.archive__folder-content-container');
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  function getWindowForCreateFolder() {
+    const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
+    archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+    const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
+    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder, folderContentContainer);
+  }
+  buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
-// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
-function createTableFolderRow() {
-  const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
-  archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
+const removeWindowForCreateFolder = () => function removeContainer(contentContainer) {
+  const folderContentContainer = document.querySelector('.archive__folder-content-container');
+  folderContentContainer.children[1].remove();
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
+function closeWindowForCreateFolder(buttonClose, contentContainer) {
+  buttonClose.addEventListener('click', removeWindowForCreateFolder(contentContainer));
 }
 
 /*
@@ -1155,7 +1169,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenedDocument();
   fillInInformations(data);
   clearFilters();
-  createFolder();
+  openWindowForCreateFolder();
 };
 
 //                                         //

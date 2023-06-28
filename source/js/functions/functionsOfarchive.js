@@ -470,35 +470,40 @@ function filterOfArray(array) {
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
-function openWindowForCreateFolder() {
-  
+export function openWindowForCreateFolder() {
+  // ПЕРЕМЕННЫЕ //
+  const buttonOfCreateFolder = document.getElementById('createFolder');
+  const folderContentContainer = document.querySelector('.archive__folder-content-container');
   const folderTableBody = document.getElementById('folderTalbeBody');
-  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
-  closeWindowForCreateFolder();
-}
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
-function closeWindowForCreateFolder() {
-  const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
-  buttonOfLeaveWindowForCreateFolder.addEventListener('click', removeWindowForCreateFolder);
+  function getWindowForCreateFolder() {
+    const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
+    archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+    const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
+    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder, folderContentContainer);
+  }
+  buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
-function removeWindowForCreateFolder() {
+const removeWindowForCreateFolder = () => function removeContainer(contentContainer) {
   const folderContentContainer = document.querySelector('.archive__folder-content-container');
-  console.log(folderContentContainer);
+  folderContentContainer.children[1].remove();
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
+function closeWindowForCreateFolder(buttonClose, contentContainer) {
+  buttonClose.addEventListener('click', removeWindowForCreateFolder(contentContainer));
 }
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
-export function createFolder() {
-  const buttonOfCreateFolder = document.getElementById('createFolder');
-  buttonOfCreateFolder.addEventListener('click', createTableFolderRow);
+function createFolder() {
+
 };
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
-  const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
-  archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
+  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
