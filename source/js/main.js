@@ -10,7 +10,8 @@ import {
   getOpenedDocument,
   fillInInformations,
   clearFilters,
-  openWindowForCreateFolder
+  openWindowForCreateFolder,
+  deleteFolder
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -75,6 +76,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   fillInInformations(data);
   clearFilters();
   openWindowForCreateFolder();
+  deleteFolder();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

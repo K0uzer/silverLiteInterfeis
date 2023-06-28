@@ -1161,6 +1161,25 @@ function fillInRowOfFolderTalbe(table, input) {
   childrenElement[childrenElement.length - 1].children[2].textContent = input.value;
 }
 
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
+function deleteFolder() {
+  const buttonForDeleteFolder = document.getElementById('deleteFolder');
+  buttonForDeleteFolder.addEventListener('click', searchCheckedInputs);
+}
+
+// ФУНКЦИЯ ДЛЯ ПОИСКА ВЫБРАННЫХ ИНПУТОВ //
+function searchCheckedInputs() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+  for (let element of arrayChildrenOfTableBody) {
+    const firstTdElement = element.children[0];
+    if (firstTdElement.children[0].checked === true) {
+      element.remove();
+    }
+  }
+  // console.log(arrayChildrenOfTableBody[0]);
+}
+
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -1219,6 +1238,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   fillInInformations(data);
   clearFilters();
   openWindowForCreateFolder();
+  deleteFolder();
 };
 
 //                                         //
