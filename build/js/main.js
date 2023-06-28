@@ -649,14 +649,38 @@ const data = [{
 // },
 ];
 
+const archiveFolderTableRow = array => `<tr>
+<td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
+<td>${array.length}</td>
+<td>Новая папка</td>
+</tr>`;
+const arrayChildrenOfFilderThree = [{
+  'idFolter': 0,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 1,
+  'idParent': 0,
+  'nameFolder': 'Новая папка абонентских дел',
+  'numberFolder': 1,
+  'folderLevel': 1
+}, {
+  'idFolter': 2,
+  'idParent': 1,
+  'nameFolder': 'Абонентское дело',
+  'numberFolder': 2,
+  'folderLevel': 1
+}];
 const getContainerForCreateNewFolder = () => `
 <section class="archive__create-new-folder">
   <h1 class="archive__create-new-folder-preview">Новая папка</h1>
   <div class="archive__create-new-folder-of-form">
-    <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Номер договора">
-    <input class="archive__create-new-folder-of-input" type="text" id="number" class="number" placeholder="Абоненткий номер">
-    <input class="archive__create-new-folder-of-input" type="text" id="comment" class="text" placeholder="Комментарий">
-    <button class="archive__create-new-folder-of-button-create" id="buttonSaveFolder">Создать</button>
+    <input class="archive__create-new-folder-of-input" type="number" id="numberAgreement" placeholder="Номер договора" required>
+    <input class="archive__create-new-folder-of-input" type="number" id="numberSubscriber" placeholder="Абоненткий номер" required>
+    <input class="archive__create-new-folder-of-input" type="text" id="comment" placeholder="Комментарий" required>
+    <button class="archive__create-new-folder-of-button-create" type="submit" id="buttonSaveFolder">Создать</button>
     </div>
   </div>
   <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
@@ -1088,28 +1112,38 @@ function filterOfArray(array) {
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 function openWindowForCreateFolder() {
-  // ПЕРЕМЕННЫЕ //
   const buttonOfCreateFolder = document.getElementById('createFolder');
-  const folderContentContainer = document.querySelector('.archive__folder-content-container');
-  const folderTableBody = document.getElementById('folderTalbeBody');
   function getWindowForCreateFolder() {
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
     archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
     const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
-    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder, folderContentContainer);
+    const buttonForCreateNewFolder = document.getElementById('buttonSaveFolder');
+    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder);
+    createFolder(buttonForCreateNewFolder);
   }
   buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
-const removeWindowForCreateFolder = () => function removeContainer(contentContainer) {
+const removeWindowForCreateFolder = () => function removeContainer() {
   const folderContentContainer = document.querySelector('.archive__folder-content-container');
   folderContentContainer.children[1].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
-function closeWindowForCreateFolder(buttonClose, contentContainer) {
-  buttonClose.addEventListener('click', removeWindowForCreateFolder(contentContainer));
+function closeWindowForCreateFolder(button) {
+  button.addEventListener('click', removeWindowForCreateFolder());
+}
+
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
+function createFolder(button) {
+  button.addEventListener('click', createTableFolderRow);
+}
+
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
+function createTableFolderRow() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
 }
 
 /*

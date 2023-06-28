@@ -471,44 +471,48 @@ function filterOfArray(array) {
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 export function openWindowForCreateFolder() {
-  // ПЕРЕМЕННЫЕ //
   const buttonOfCreateFolder = document.getElementById('createFolder');
-  const folderContentContainer = document.querySelector('.archive__folder-content-container');
-  const folderTableBody = document.getElementById('folderTalbeBody');
 
   function getWindowForCreateFolder() {
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
     archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
     const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
-    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder, folderContentContainer);
+    const buttonForCreateNewFolder = document.getElementById('buttonSaveFolder');
+    closeWindowForCreateFolder(buttonOfLeaveWindowForCreateFolder);
+    createFolder(buttonForCreateNewFolder);
   }
   buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
-const removeWindowForCreateFolder = () => function removeContainer(contentContainer) {
+const removeWindowForCreateFolder = () => function removeContainer() {
   const folderContentContainer = document.querySelector('.archive__folder-content-container');
   folderContentContainer.children[1].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
-function closeWindowForCreateFolder(buttonClose, contentContainer) {
-  buttonClose.addEventListener('click', removeWindowForCreateFolder(contentContainer));
+function closeWindowForCreateFolder(button) {
+  button.addEventListener('click', removeWindowForCreateFolder());
 }
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
-function createFolder() {
-
+function createFolder(button) {
+  button.addEventListener('click', createTableFolderRow);
 };
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
   folderTableBody.innerHTML += archiveFolderTableRow(arrayChildrenOfFilderThree);
+  fillInRowOfFolderTalbe();
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
 function fillInRowOfFolderTalbe() {
-
+  const inputOfNumberAgreement = document.getElementById('numberAgreement');
+  const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
+  const inputOfComment = document.getElementById('comment');
+  
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
