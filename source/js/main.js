@@ -4,14 +4,15 @@ import {
   getCloseBlokWithFolder,
   getCreateBlockForNewDocument,
   getTableElementFromArchiveDocuments,
-  cutOutDocument,
+  cutOutDocumentOfTable,
   putInElementInTable,
   openWindowForFilterOfDocument,
   getOpenedDocument,
   fillInInformations,
   clearFilters,
   openWindowForCreateFolder,
-  deleteFolder
+  deleteFolder,
+  cutTheFolder
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -69,7 +70,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getCloseBlokWithFolder();
   getCreateBlockForNewDocument();
   getTableElementFromArchiveDocuments();
-  cutOutDocument();
+  cutOutDocumentOfTable();
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
@@ -77,6 +78,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   clearFilters();
   openWindowForCreateFolder();
   deleteFolder();
+  cutTheFolder();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

@@ -34,7 +34,9 @@ const countElementOfDocument = 11;
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
-let cutteddOutElement = '';
+
+let cutOutFolder = '';
+let cutOutDocument = '';
 let nameUser = 'Ганин А.В';
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
@@ -117,7 +119,7 @@ export function getCloseBlockForNewDocument() {
     });
     getCreateBlockForNewDocument();
     getTableElementFromArchiveDocuments();
-    cutOutDocument();
+    cutOutDocumentOfTable();
     putInElementInTable();
     openWindowForFilterOfDocument();
     getOpenedDocument();
@@ -197,14 +199,14 @@ export function getTableElementFromArchiveDocuments() {
 };
 
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ДОКУМЕНТА //
-export function cutOutDocument() {
+export function cutOutDocumentOfTable() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const bittonOfCutOutDocument = document.getElementById('archiveCutOut');
   const cutOutElement = () => {
     Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
       const elementArchiveTable = item.children[0];
       if (elementArchiveTable.children[0].checked) {
-        cutteddOutElement += item.outerHTML;
+        cutOutDocument += item.outerHTML;
         elementArchiveTable.parentNode.remove();
       };
     });
@@ -217,9 +219,9 @@ export function putInElementInTable() {
   const rowInTalbeBodyOfFile = document.getElementById('fileTalbeBody');
   const putInButton = document.getElementById('archivePutIn');
   const putInElement = () => {
-    if (cutteddOutElement !== '') {
-      rowInTalbeBodyOfFile.insertAdjacentHTML('beforeend', cutteddOutElement);
-      cutteddOutElement = '';
+    if (cutOutDocument !== '') {
+      rowInTalbeBodyOfFile.insertAdjacentHTML('beforeend', cutOutDocument);
+      cutOutDocument = '';
     }
   };
   putInButton.addEventListener('click', putInElement);
@@ -257,7 +259,7 @@ export function closeWindowForFilterOfDocument() {
     openWindowForFilterOfDocument();
     getCreateBlockForNewDocument();
     getTableElementFromArchiveDocuments();
-    cutOutDocument();
+    cutOutDocumentOfTable();
     putInElementInTable();
     getOpenedDocument();
     clearFilters();
@@ -314,7 +316,7 @@ export function closeDocument() {
     openWindowForFilterOfDocument();
     getCreateBlockForNewDocument();
     getTableElementFromArchiveDocuments();
-    cutOutDocument();
+    cutOutDocumentOfTable();
     putInElementInTable();
     getOpenedDocument();
     clearFilters();
@@ -527,23 +529,31 @@ export function deleteFolder() {
   buttonForDeleteFolder.addEventListener('click', searchCheckedInputs);
 }
 
-// ФУНКЦИЯ ДЛЯ ПОИСКА ВЫБРАННЫХ ИНПУТОВ //
+// ФУНКЦИЯ ДЛЯ ПОИСКА ВЫБРАННЫХ ДОРОЖЕК //
 function searchCheckedInputs() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   for(let element of arrayChildrenOfTableBody) {
-    const firstTdElement = element.children[0];
-    if(firstTdElement.children[0].checked === true) {
-      element.remove();
-    }
+    deleteCheckedRowInTableFolder(element);
   }
-  // console.log(arrayChildrenOfTableBody[0]);
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ВЫБРАННОЙ ДОРОЖКИ ТАБЛИЦЫ //
-function deleteCheckedRowInTableFolder() {
+function deleteCheckedRowInTableFolder(element) {
+  const firstTdElement = element.children[0];
+  if(firstTdElement.children[0].checked === true) {
+    cutOutFolder += element.outerHTML;
+    element.remove();
+  }
+}
+
+// ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ НА УРОВЕНЬ НИЖЕ //
+function getDownInFolderLevelBelow() {
 
 }
+
+// ФУНКЦИЯ ДЛЯ ПОИСКА ВЫБРАННОЙ ПАПКИ //
+// function
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ //
 function goUpToTheFolderToTheHigherLevel() {
@@ -555,18 +565,32 @@ function goUpToTheFolderToTheTopLevel() {
 
 }
 
-// ФУНКЦИЯ ДЛЯ ВСТАВИТЬ ПАПКУ //
+// ФУНКЦИЯ ДЛЯ ВСТАВКИ ПАПКИ //
 function insertAFolder() {
-
+  const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
+  const buttonPutInOfFolder = document.getElementById('putFolder');
+  const putInElement = () => {
+    if (cutOutFolder !== '') {
+      talbeBodyOfFolder.insertAdjacentHTML('beforeend', cutOutFolder);
+      cutOutFolder = '';
+    }
+  };
+  buttonPutInOfFolder.addEventListener('click', putInElement);
 }
 
-// ФУНКЦИЯ ДЛЯ ВЫРЕЗАТЬ ПАПКУ //
-function cutTheFolder() {
-
+// ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ПАПКИ //
+export function cutTheFolder() {
+  const buttonOfCutOutFolder = document.getElementById('cutOutFolder');
+  function cutOutRow() {
+    searchCheckedInputs();
+    insertAFolder();
+  }
+  buttonOfCutOutFolder.addEventListener('click', cutOutRow);
 }
 
-// ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ //
+// ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ //
 function updateTheTable() {
+
 
 }
 
