@@ -23,6 +23,9 @@ import {
   arrayChildrenOfFilderThree
 } from '../modal/arrayOfFolderChidren.js';
 import {
+  folderThree
+} from '../modal/arrayOfFolderTree.js';
+import {
   getContainerForCreateNewFolder
 } from '../view/archive/archive__create-new-folder.js';
 
@@ -471,10 +474,23 @@ function filterOfArray(array) {
   fillInInformations(filteredArray);
 };
 
+// ФУНУНКЦИЯ ДЛЯ ЗАГРУЗКИ РОДИТЕЛЬСКИХ ПАПОК В ТАБЛИЦУ //
+export function loadFolderParentInTable() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  for(let i = 0; i < folderThree.length; i++) {
+    folderTableBody.innerHTML += archiveFolderTableRow();
+    if(folderThree[i].idFolter === i) {
+      fillInRowOfFolderTalbe(folderTableBody, folderThree[i].numberSubscriber, folderThree[i].numberAgreement);
+    }
+    console.log(folderThree[i].idFolter);
+  }
+  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+
+};
+
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 export function openWindowForCreateFolder() {
   const buttonOfCreateFolder = document.getElementById('createFolder');
-
   function getWindowForCreateFolder() {
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
     archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
@@ -509,18 +525,18 @@ function createTableFolderRow() {
   const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
   if(inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
-    folderTableBody.innerHTML += archiveFolderTableRow(folderTableBody, arrayChildrenOfFilderThree);
-    fillInRowOfFolderTalbe(folderTableBody, inputOfNumberSubscriber);
+    folderTableBody.innerHTML += archiveFolderTableRow();
+    fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
   } else {
     return alert('Ошибка создания папки');
   }
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
-function fillInRowOfFolderTalbe(table, input) {
+function fillInRowOfFolderTalbe(table, inputOfNumberAgreement, inputOfNumberSubscriber) {
   const childrenElement = Array.from(table.children);
-  childrenElement[childrenElement.length - 1].children[1].textContent = arrayChildrenOfFilderThree.length;
-  childrenElement[childrenElement.length - 1].children[2].textContent = input.value;
+  childrenElement[childrenElement.length - 1].children[1].textContent = inputOfNumberAgreement;
+  childrenElement[childrenElement.length - 1].children[2].textContent = inputOfNumberSubscriber;
 }
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ПАПКИ //
@@ -548,8 +564,17 @@ function deleteCheckedRowInTableFolder(element) {
 }
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ НА УРОВЕНЬ НИЖЕ //
-function getDownInFolderLevelBelow() {
-
+export function getDownInFolderLevelBelow() {
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+  console.log(arrayChildrenOfTableBody);
+  for(let element of arrayChildrenOfTableBody) {
+    function getDown() {
+      console.log(arrayChildrenOfFilderThree);
+      console.log(folderThree);
+    }
+    element.addEventListener('click', getDown);
+  }
 }
 
 // ФУНКЦИЯ ДЛЯ ПОИСКА ВЫБРАННОЙ ПАПКИ //
@@ -591,7 +616,6 @@ export function cutTheFolder() {
 // ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ //
 function updateTheTable() {
 
-
 }
 
 // ФУНКЦИЯ ПОИСКА ПО НОМЕРУ ПАПКИ //
@@ -602,4 +626,4 @@ function searchFolderByNumber() {
 // ФУНКЦИЯ ПОИСКА ПО ИМЕНИ ПАПКИ //
 function searchFolderByName() {
 
-};
+}

@@ -12,7 +12,9 @@ import {
   clearFilters,
   openWindowForCreateFolder,
   deleteFolder,
-  cutTheFolder
+  cutTheFolder,
+  getDownInFolderLevelBelow,
+  loadFolderParentInTable
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -79,6 +81,8 @@ const getCreateInterfasForMaxLevelAccess = () => {
   openWindowForCreateFolder();
   deleteFolder();
   cutTheFolder();
+  getDownInFolderLevelBelow();
+  loadFolderParentInTable();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
