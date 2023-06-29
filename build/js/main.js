@@ -362,7 +362,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [3, 4],
-  'id_parent': 0
+  'id_parent': 2
 }, {
   'id': 342,
   'number_register': 3,
@@ -378,7 +378,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [2],
-  'id_parent': 0
+  'id_parent': 2
 }, {
   'id': 343,
   'number_register': 2,
@@ -394,7 +394,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [1],
-  'id_parent': 1
+  'id_parent': 3
 }, {
   'id': 344,
   'number_register': 1,
@@ -410,7 +410,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 4
 }, {
   'id': 345,
   'number_register': 1,
@@ -426,7 +426,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 3
 }, {
   'id': 346,
   'number_register': 1,
@@ -442,7 +442,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 2
 }, {
   'id': 347,
   'number_register': 1,
@@ -458,7 +458,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 4
 }, {
   'id': 348,
   'number_register': 1,
@@ -474,7 +474,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 2
 }, {
   'id': 349,
   'number_register': 1,
@@ -490,7 +490,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 2
 }, {
   'id': 350,
   'number_register': 1,
@@ -506,7 +506,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 3
 }, {
   'id': 351,
   'number_register': 1,
@@ -522,7 +522,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 3
 }, {
   'id': 352,
   'number_register': 1,
@@ -538,7 +538,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 1
+  'id_parent': 3
 }, {
   'id': 353,
   'number_register': 1,
@@ -554,7 +554,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 4
 }, {
   'id': 354,
   'number_register': 1,
@@ -570,7 +570,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 0
 }, {
   'id': 355,
   'number_register': 1,
@@ -586,7 +586,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 0
 }, {
   'id': 356,
   'number_register': 1,
@@ -602,7 +602,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 0
 }, {
   'id': 357,
   'number_register': 1,
@@ -618,7 +618,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 0
 }];
 const archiveFolderTableRow = () => `<tr>
 <td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
@@ -626,19 +626,19 @@ const archiveFolderTableRow = () => `<tr>
 <td></td>
 </tr>`;
 const arrayChildrenOfFilderThree = [{
-  'idFolter': 0,
+  'idFolter': 2,
   'idParent': 0,
   'numberAgreement': 'Абонентское дело 1',
   'numberSubscriber': 1,
   'folderLevel': 1
 }, {
-  'idFolter': 1,
+  'idFolter': 3,
   'idParent': 0,
   'numberAgreement': 'Абонентское дело 2',
   'numberSubscriber': 1,
   'folderLevel': 1
 }, {
-  'idFolter': 2,
+  'idFolter': 4,
   'idParent': 1,
   'numberAgreement': 'Абонентское дело 3',
   'numberSubscriber': 2,
@@ -1104,7 +1104,6 @@ function loadFolderParentInTable() {
     if (folderThree[i].idFolter === i) {
       fillInRowOfFolderTalbe(folderTableBody, folderThree[i].numberSubscriber, folderThree[i].numberAgreement);
     }
-    console.log(folderThree[i].idFolter);
   }
 }
 
@@ -1187,11 +1186,27 @@ function deleteCheckedRowInTableFolder(element) {
 function getDownInFolderLevelBelow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  console.log(arrayChildrenOfTableBody);
+  document.addEventListener('click', event => {
+    const elementText = event.target.children[0];
+    if (elementText) {
+      console.log('Текст элемента:', elementText);
+    }
+  });
   for (let element of arrayChildrenOfTableBody) {
+    console.log(element.children);
     function getDown() {
-      console.log(arrayChildrenOfFilderThree);
-      console.log(folderThree);
+      folderThree.forEach(item => {
+        if (Array.from(element.children)[2].textContent === item.numberAgreement) {
+          const parentId = item.idFolter;
+          arrayChildrenOfFilderThree.forEach(childrenFolder => {
+            if (childrenFolder.idParent === parentId) {
+              console.log(childrenFolder);
+              folderTableBody.innerHTML += archiveFolderTableRow();
+              console.log(event);
+            }
+          });
+        }
+      });
     }
     element.addEventListener('click', getDown);
   }
@@ -1277,11 +1292,11 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenedDocument();
   fillInInformations(data);
   clearFilters();
+  loadFolderParentInTable();
   openWindowForCreateFolder();
   deleteFolder();
   cutTheFolder();
   getDownInFolderLevelBelow();
-  loadFolderParentInTable();
 };
 
 //                                         //

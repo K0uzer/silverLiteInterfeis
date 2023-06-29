@@ -482,10 +482,7 @@ export function loadFolderParentInTable() {
     if(folderThree[i].idFolter === i) {
       fillInRowOfFolderTalbe(folderTableBody, folderThree[i].numberSubscriber, folderThree[i].numberAgreement);
     }
-    console.log(folderThree[i].idFolter);
   }
-  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
@@ -567,12 +564,28 @@ function deleteCheckedRowInTableFolder(element) {
 export function getDownInFolderLevelBelow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  console.log(arrayChildrenOfTableBody);
-  for(let element of arrayChildrenOfTableBody) {
-    function getDown() {
-      console.log(arrayChildrenOfFilderThree);
-      console.log(folderThree);
+  document.addEventListener('click', (event) => {
+    const elementText = event.target.children[0];
+    if(elementText) {
+      console.log('Текст элемента:', elementText);
     }
+  });
+  for(let element of arrayChildrenOfTableBody) {
+    console.log(element.children);
+    function getDown() {
+      folderThree.forEach((item) => {
+        if(Array.from(element.children)[2].textContent === item.numberAgreement) {
+          const parentId = item.idFolter;
+          arrayChildrenOfFilderThree.forEach((childrenFolder) => {
+            if(childrenFolder.idParent === parentId) {
+              console.log(childrenFolder);
+              folderTableBody.innerHTML += archiveFolderTableRow();
+              console.log(event);
+            };
+          });
+        }
+      });
+    };
     element.addEventListener('click', getDown);
   }
 }

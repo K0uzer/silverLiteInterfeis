@@ -78,11 +78,11 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getOpenedDocument();
   fillInInformations(data);
   clearFilters();
+  loadFolderParentInTable();
   openWindowForCreateFolder();
   deleteFolder();
   cutTheFolder();
   getDownInFolderLevelBelow();
-  loadFolderParentInTable();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
