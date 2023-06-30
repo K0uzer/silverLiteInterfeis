@@ -14,7 +14,8 @@ import {
   deleteFolder,
   cutTheFolder,
   getDownInFolderLevelBelow,
-  loadFolderParentInTable
+  loadFolderParentInTable,
+  goUpToTheFolderToTheTopLevel
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -83,6 +84,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   deleteFolder();
   cutTheFolder();
   getDownInFolderLevelBelow();
+  goUpToTheFolderToTheTopLevel();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

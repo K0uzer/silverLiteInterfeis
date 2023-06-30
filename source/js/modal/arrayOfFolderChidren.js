@@ -1,4 +1,4 @@
-export const arrayChildrenOfFilderThree = [
+export const arrayChildrenOfFolderThree = [
   {
     'idFolter': 2,
     'idParent': 0,
@@ -16,7 +16,7 @@ export const arrayChildrenOfFilderThree = [
   {
     'idFolter': 4,
     'idParent': 1,
-    'numberAgreement': 'Абонентское дело 3',
+    'numberAgreement': 'Проектно-техническая документация 1',
     'numberSubscriber': 2,
     'folderLevel': 1,
   },

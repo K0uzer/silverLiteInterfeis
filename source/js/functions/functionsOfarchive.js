@@ -20,7 +20,7 @@ import {
   archiveFolderTableRow
 } from '../view/archive/acrive__folder-talbe-row.js';
 import {
-  arrayChildrenOfFilderThree
+  arrayChildrenOfFolderThree
 } from '../modal/arrayOfFolderChidren.js';
 import {
   folderThree
@@ -132,7 +132,7 @@ export function getCloseBlockForNewDocument() {
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ДОКУМЕНТА В ТАБЛИЦУ //
-const addDocumentInTable = (arrayInputs) => function arrayInputsOfCreateDocument()  {
+const addDocumentInTable = (arrayInputs) => function arrayInputsOfCreateDocument() {
   const arrayForNewElementOfTalbe = [{}];
   fillInInformations(arrayForNewElementOfTalbe);
   const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
@@ -149,7 +149,7 @@ function addNewFile() {
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
 function addElementInArrayOfDocument(arrayInputs) {
   console.log(arrayInputs);
-  for(let i = 0; i < arrayInputs.length; i++) {
+  for (let i = 0; i < arrayInputs.length; i++) {
     console.log(arrayInputs[i].value);
   };
   const newDocuemnt = {
@@ -279,8 +279,8 @@ const openDocument = (target) => function qq() {
   const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
   const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
   for (let i = 0; i < data.length; i++) {
-    if(Number(target.id) === Number(data[i].id)) {
-      for(let n = 0; n < countElementOfDocument; n++) {
+    if (Number(target.id) === Number(data[i].id)) {
+      for (let n = 0; n < countElementOfDocument; n++) {
         documentInputs[0].value = data[i].number_register;
         documentInputs[1].value = data[i].date_registration;
         documentInputs[2].value = data[i].id_subscriber;
@@ -429,7 +429,9 @@ function getInformationsForTable(array) {
           item.children[7].textContent = array[i].name_object;
         }
       }
-    } catch (error) { console.log('Ошибка при заполнении данными таблицы'); }
+    } catch (error) {
+      console.log('Ошибка при заполнении данными таблицы');
+    }
   });
   getOpenedDocument();
 };
@@ -447,25 +449,25 @@ function filterOfArray(array) {
   Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => item.remove());
   const filteredArray = array.filter((item) => {
     const selectSearch = document.querySelector('.archive__container-file-search-of-element-select');
-    if(item.type_document !== selectSearch.value && selectSearch.value !== '-') {
+    if (item.type_document !== selectSearch.value && selectSearch.value !== '-') {
       item.remove;
-    } else if(item.number_register !== Number(inputsSearch[0].value) && inputsSearch[0].value !== '') {
+    } else if (item.number_register !== Number(inputsSearch[0].value) && inputsSearch[0].value !== '') {
       item.remove;
-    } else if(item.name_object !== Number(inputsSearch[1].value) && inputsSearch[1].value !== '') {
+    } else if (item.name_object !== Number(inputsSearch[1].value) && inputsSearch[1].value !== '') {
       item.remove;
-    } else if(item.comments !== Number(inputsSearch[2].value) && inputsSearch[2].value !== '') {
+    } else if (item.comments !== Number(inputsSearch[2].value) && inputsSearch[2].value !== '') {
       item.remove;
-    } else if(item.name_sity !== Number(inputsSearch[3].value) && inputsSearch[3].value !== '') {
+    } else if (item.name_sity !== Number(inputsSearch[3].value) && inputsSearch[3].value !== '') {
       item.remove;
-    } else if(item.number_home !== Number(inputsSearch[4].value) && inputsSearch[4].value !== '') {
+    } else if (item.number_home !== Number(inputsSearch[4].value) && inputsSearch[4].value !== '') {
       item.remove;
-    } else if(item.name_street !== Number(inputsSearch[5].value) && inputsSearch[5].value !== '') {
+    } else if (item.name_street !== Number(inputsSearch[5].value) && inputsSearch[5].value !== '') {
       item.remove;
-    } else if(item.number_flat !== Number(inputsSearch[6].value) && inputsSearch[6].value !== '') {
+    } else if (item.number_flat !== Number(inputsSearch[6].value) && inputsSearch[6].value !== '') {
       item.remove;
-    } else if(item.number__agreement !== Number(inputsSearch[7].value) && inputsSearch[7].value !== '') {
+    } else if (item.number__agreement !== Number(inputsSearch[7].value) && inputsSearch[7].value !== '') {
       item.remove;
-    } else if(item.id !== Number(inputsSearch[8].value) && inputsSearch[8].value !== '') {
+    } else if (item.id !== Number(inputsSearch[8].value) && inputsSearch[8].value !== '') {
       item.remove;
     } else {
       return item;
@@ -477,9 +479,9 @@ function filterOfArray(array) {
 // ФУНУНКЦИЯ ДЛЯ ЗАГРУЗКИ РОДИТЕЛЬСКИХ ПАПОК В ТАБЛИЦУ //
 export function loadFolderParentInTable() {
   const folderTableBody = document.getElementById('folderTalbeBody');
-  for(let i = 0; i < folderThree.length; i++) {
+  for (let i = 0; i < folderThree.length; i++) {
     folderTableBody.innerHTML += archiveFolderTableRow();
-    if(folderThree[i].idFolter === i) {
+    if (folderThree[i].idFolter === i) {
       fillInRowOfFolderTalbe(folderTableBody, folderThree[i].numberSubscriber, folderThree[i].numberAgreement);
     }
   }
@@ -488,6 +490,7 @@ export function loadFolderParentInTable() {
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 export function openWindowForCreateFolder() {
   const buttonOfCreateFolder = document.getElementById('createFolder');
+
   function getWindowForCreateFolder() {
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
     archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
@@ -521,7 +524,7 @@ function createTableFolderRow() {
   const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
   const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
-  if(inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+  if (inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
   } else {
@@ -546,7 +549,7 @@ export function deleteFolder() {
 function searchCheckedInputs() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  for(let element of arrayChildrenOfTableBody) {
+  for (let element of arrayChildrenOfTableBody) {
     deleteCheckedRowInTableFolder(element);
   }
 }
@@ -554,7 +557,7 @@ function searchCheckedInputs() {
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ВЫБРАННОЙ ДОРОЖКИ ТАБЛИЦЫ //
 function deleteCheckedRowInTableFolder(element) {
   const firstTdElement = element.children[0];
-  if(firstTdElement.children[0].checked === true) {
+  if (firstTdElement.children[0].checked === true) {
     cutOutFolder += element.outerHTML;
     element.remove();
   }
@@ -562,25 +565,30 @@ function deleteCheckedRowInTableFolder(element) {
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ НА УРОВЕНЬ НИЖЕ //
 export function getDownInFolderLevelBelow() {
+  const currentFodler = document.querySelector('.archive__filder-title');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  document.addEventListener('click', (event) => {
-    const elementText = event.target.children[0];
-    if(elementText) {
-      console.log('Текст элемента:', elementText);
-    }
-  });
-  for(let element of arrayChildrenOfTableBody) {
-    console.log(element.children);
+  for (let element of arrayChildrenOfTableBody) {
+    // console.log(element.children);
     function getDown() {
-      folderThree.forEach((item) => {
-        if(Array.from(element.children)[2].textContent === item.numberAgreement) {
-          const parentId = item.idFolter;
-          arrayChildrenOfFilderThree.forEach((childrenFolder) => {
-            if(childrenFolder.idParent === parentId) {
-              console.log(childrenFolder);
-              folderTableBody.innerHTML += archiveFolderTableRow();
-              console.log(event);
+      folderTableBody.addEventListener('click', (event) => {
+        const elementInput = event.target.children[0];
+        if (elementInput) {
+          elementText.checked !== true ? elementText.checked = true : elementText.checked = false;
+          // console.log('Текст элемента:', elementText);
+          // console.log(event);
+        } else {
+          folderThree.forEach((item) => {
+            if (Array.from(element.children)[2].textContent === item.numberAgreement) {
+              currentFodler.textContent = `Текущая папка: ${Array.from(element.children)[2].textContent}`;
+              const parentId = item.idFolter;
+              arrayChildrenOfFolderThree.forEach((childrenFolder) => {
+                if (childrenFolder.idParent === parentId) {
+                  folderTableBody.innerHTML += archiveFolderTableRow();
+                  fillInRowOfFolderTalbe(folderTableBody, childrenFolder.numberSubscriber, childrenFolder.numberAgreement);
+                  goUpToTheFolderToTheTopLevel();
+                };
+              });
             };
           });
         }
@@ -599,8 +607,15 @@ function goUpToTheFolderToTheHigherLevel() {
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
-function goUpToTheFolderToTheTopLevel() {
-
+export function goUpToTheFolderToTheTopLevel() {
+  const buttonOfUpOnFolderMaxLevel = document.getElementById('upMaxLevelFolder');
+  function climbToTheMaximumLevelFolder() {
+    const folderTableBody = document.getElementById('folderTalbeBody');
+    folderTableBody.innerHTML = '';
+    console.log(1);
+    loadFolderParentInTable();
+  }
+  buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ ВСТАВКИ ПАПКИ //
@@ -619,6 +634,7 @@ function insertAFolder() {
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ПАПКИ //
 export function cutTheFolder() {
   const buttonOfCutOutFolder = document.getElementById('cutOutFolder');
+
   function cutOutRow() {
     searchCheckedInputs();
     insertAFolder();

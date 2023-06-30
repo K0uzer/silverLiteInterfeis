@@ -625,7 +625,7 @@ const archiveFolderTableRow = () => `<tr>
 <td></td>
 <td></td>
 </tr>`;
-const arrayChildrenOfFilderThree = [{
+const arrayChildrenOfFolderThree = [{
   'idFolter': 2,
   'idParent': 0,
   'numberAgreement': 'Абонентское дело 1',
@@ -640,7 +640,7 @@ const arrayChildrenOfFilderThree = [{
 }, {
   'idFolter': 4,
   'idParent': 1,
-  'numberAgreement': 'Абонентское дело 3',
+  'numberAgreement': 'Проектно-техническая документация 1',
   'numberSubscriber': 2,
   'folderLevel': 1
 }];
@@ -1184,25 +1184,31 @@ function deleteCheckedRowInTableFolder(element) {
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ НА УРОВЕНЬ НИЖЕ //
 function getDownInFolderLevelBelow() {
+  const currentFodler = document.querySelector('.archive__filder-title');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  document.addEventListener('click', event => {
-    const elementText = event.target.children[0];
-    if (elementText) {
-      console.log('Текст элемента:', elementText);
-    }
-  });
   for (let element of arrayChildrenOfTableBody) {
-    console.log(element.children);
+    // console.log(element.children);
     function getDown() {
-      folderThree.forEach(item => {
-        if (Array.from(element.children)[2].textContent === item.numberAgreement) {
-          const parentId = item.idFolter;
-          arrayChildrenOfFilderThree.forEach(childrenFolder => {
-            if (childrenFolder.idParent === parentId) {
-              console.log(childrenFolder);
-              folderTableBody.innerHTML += archiveFolderTableRow();
-              console.log(event);
+      folderTableBody.addEventListener('click', event => {
+        const elementText = event.target.children[0];
+        console.log(elementText);
+        if (elementText) {
+          elementText.checked !== true ? elementText.checked = true : elementText.checked = false;
+          // console.log('Текст элемента:', elementText);
+          // console.log(event);
+        } else {
+          folderThree.forEach(item => {
+            if (Array.from(element.children)[2].textContent === item.numberAgreement) {
+              currentFodler.textContent = `Тукущая папка: ${Array.from(element.children)[2].textContent}`;
+              const parentId = item.idFolter;
+              arrayChildrenOfFolderThree.forEach(childrenFolder => {
+                if (childrenFolder.idParent === parentId) {
+                  folderTableBody.innerHTML += archiveFolderTableRow();
+                  fillInRowOfFolderTalbe(folderTableBody, childrenFolder.numberSubscriber, childrenFolder.numberAgreement);
+                  goUpToTheFolderToTheTopLevel();
+                }
+              });
             }
           });
         }
@@ -1210,6 +1216,18 @@ function getDownInFolderLevelBelow() {
     }
     element.addEventListener('click', getDown);
   }
+}
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
+function goUpToTheFolderToTheTopLevel() {
+  const buttonOfUpOnFolderMaxLevel = document.getElementById('upMaxLevelFolder');
+  function climbToTheMaximumLevelFolder() {
+    const folderTableBody = document.getElementById('folderTalbeBody');
+    folderTableBody.innerHTML = '';
+    console.log(1);
+    loadFolderParentInTable();
+  }
+  buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ ВСТАВКИ ПАПКИ //
@@ -1297,6 +1315,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   deleteFolder();
   cutTheFolder();
   getDownInFolderLevelBelow();
+  goUpToTheFolderToTheTopLevel();
 };
 
 //                                         //
