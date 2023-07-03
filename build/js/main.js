@@ -1193,21 +1193,28 @@ function getDownInFolderLevelBelow() {
       currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
       folderTableBody.innerHTML = '';
       const filteredArrayOfChilderFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === 0);
-      for (let i = 0; i < filteredArrayOfChilderFolder.length; i++) {
-        folderTableBody.innerHTML += archiveFolderTableRow();
-      }
-      for (let i = 0; i < filteredArrayOfChilderFolder.length; i++) {
-        for (let n = 0; n < arrayChildrenOfTableBody.length; n++) {
-          console.log(arrayChildrenOfTableBody);
-          // console.log(filteredArrayOfChilderFolder[n]);
-          arrayChildrenOfTableBody[n].children[2].textContent = filteredArrayOfChilderFolder[i].numberAgreement;
-          arrayChildrenOfTableBody[n].children[1].textContent = filteredArrayOfChilderFolder[i].numberSubscriber;
-        }
-      }
+      console.log(filteredArrayOfChilderFolder);
+      folderTableBody.innerHTML += archiveFolderTableRow();
+      const arrayChildrenOfTableBody1 = Array.from(folderTableBody.children).map(item => item);
+      console.log(arrayChildrenOfTableBody1[0]);
+      console.log(arrayChildrenOfTableBody1[0].children[2]);
+      console.log(arrayChildrenOfTableBody1[0].children[2].textContent);
+      console.log(filteredArrayOfChilderFolder[0]);
+      console.log(filteredArrayOfChilderFolder[0].numberAgreement);
+      arrayChildrenOfTableBody1[0].children[2].textContent = filteredArrayOfChilderFolder[0].numberAgreement;
+      // arrayChildrenOfTableBody[0].children[1].textContent = filteredArrayOfChilderFolder[0].numberSubscriber;
+      // for(let i = 0; i < filteredArrayOfChilderFolder.length; i++) {
+      // };
+      // for(let i = 0; i < filteredArrayOfChilderFolder.length; i++) {
+      // for(let n = 1; n < arrayChildrenOfTableBody.length; n++) {
+      // console.log(this);
+      // console.log(filteredArrayOfChilderFolder[n]);
+      // };
+      // };
     } else if (event.target.textContent === 'Проектно-техническая документация') {
-      // console.log(event.target.textContent);
+      console.log(event.target.textContent);
     } else if (event.target.textContent === '-') {
-      // console.log(event.target.textContent);
+      console.log(event.target.textContent);
     }
 
     // folderTableBody.addEventListener('click', (event) => {
@@ -1231,13 +1238,12 @@ function getDownInFolderLevelBelow() {
     // });
     goUpToTheFolderToTheTopLevel();
   };
-  for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
-    for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
-      arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow(event));
-      console.log(arrayChildrenOfTableBody[i].children[n]);
-      console.log(1);
-    }
-  }
+  // for(let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+  // for(let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
+  arrayChildrenOfTableBody[0].children[2].addEventListener('click', getFolderLevelBelow(event));
+  // console.log('Повесил слушатель на ячейку');
+  // }
+  // }
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ МАКСИМАЛЬНОГО УРОВЕНЯ //
