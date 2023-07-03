@@ -1,13 +1,13 @@
 export const folderThree = [
   {
-    'idFolter': 0,
+    'idFolder': 0,
     'idParent': null,
     'numberAgreement': 'Абонентские дела',
     'numberSubscriber': '-',
     'folderLevel': 0,
   },
   {
-    'idFolter': 1,
+    'idFolder': 1,
     'idParent': null,
     'numberAgreement': 'Проектно-техническая документация',
     'numberSubscriber': '-',
