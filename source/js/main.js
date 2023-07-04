@@ -15,7 +15,8 @@ import {
   cutTheFolder,
   getDownInFolderLevelBelow,
   loadFolderParentInTable,
-  goUpToTheFolderToTheTopLevel
+  goUpToTheFolderToTheTopLevel,
+  goUpToTheFolderToTheHigherLevel
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -77,7 +78,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
-  fillInInformations(data);
+  // fillInInformations(data);
   clearFilters();
   loadFolderParentInTable();
   openWindowForCreateFolder();
@@ -85,6 +86,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   cutTheFolder();
   getDownInFolderLevelBelow();
   goUpToTheFolderToTheTopLevel();
+  goUpToTheFolderToTheHigherLevel();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
