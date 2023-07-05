@@ -16,7 +16,9 @@ import {
   getDownInFolderLevelBelow,
   loadFolderParentInTable,
   goUpToTheFolderToTheTopLevel,
-  goUpToTheFolderToTheHigherLevel
+  goUpToTheFolderToTheHigherLevel,
+  updateTheTable,
+  searchFolderByNumber
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -27,6 +29,8 @@ import {
 файл < документ < папка.
 таблица < окно.
 кнопка.
+ФУНКЦИЯ - обычная функция;
+ФУНКЦИЯ-СБОРЩИК - функция содержащая две или более функций для полной реализации одного события;
 */
 
 //            //
@@ -87,6 +91,8 @@ const getCreateInterfasForMaxLevelAccess = () => {
   getDownInFolderLevelBelow();
   goUpToTheFolderToTheTopLevel();
   goUpToTheFolderToTheHigherLevel();
+  updateTheTable();
+  searchFolderByNumber();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

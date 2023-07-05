@@ -2,7 +2,7 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
 <section class="archive__folder">
   <div class="archive__filder-menu-container-img">
     <img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img--rotate" alt="Бургер">
-    <span class="archive__filder-title">Текущая папка: Верхняя</span>
+    <span class="archive__filder-title">Текущая папка: Верхнего уровня</span>
   </div>
   <div class="archive__folder-button-container">
     <img src="./img/folder/create-button.svg" class="archive__folder-button" id="createFolder" title="Создать папку" alt="">
