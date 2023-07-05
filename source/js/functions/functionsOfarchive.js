@@ -691,19 +691,31 @@ export function searchFolder() {
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getListFolders = (item) => function getFolder() {
     if(item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
-      const newFilteredArrayChildrenOfFolderThree = arrayChildrenOfFolderThree.filter((element) => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
-      console.log(newFilteredArrayChildrenOfFolderThree);
+      const filteredArrayOfNumberSubscriber = arrayChildrenOfFolderThree.filter((element) => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
       checkboxForSearchOfNumber.checked === true;
       item.style = 'border: 1px solid black';
       folderTableBody.innerHTML = '';
-      createRow(folderTableBody, newFilteredArrayChildrenOfFolderThree, archiveFolderTableRow);
+      createRow(folderTableBody, filteredArrayOfNumberSubscriber, archiveFolderTableRow);
+      const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((el) => el);
+      for(let n = 0; n < filteredArrayOfNumberSubscriber.length; n++) {
+        for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
+          newArrayChildrenOfTableBody[i].children[2].textContent = filteredArrayOfNumberSubscriber[n].numberAgreement;
+          newArrayChildrenOfTableBody[i].children[1].textContent = filteredArrayOfNumberSubscriber[n].numberSubscriber;
+        };
+      };
     } else if(item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
-      const newFilteredArrayChildrenOfFolderThree = arrayChildrenOfFolderThree.filter((element) => Number(element.numberAgreement) === Number(inputForTheSearchFolder.value));
-      console.log(newFilteredArrayChildrenOfFolderThree);
+      const filteredArrayOfNumberAgreement = arrayChildrenOfFolderThree.filter((element) => Number(element.numberAgreement) === Number(inputForTheSearchFolder.value));
       checkboxForSearchOfName.checked === true;
       item.style = 'border: 1px solid black';
       folderTableBody.innerHTML = '';
-      createRow(folderTableBody, newFilteredArrayChildrenOfFolderThree, archiveFolderTableRow);
+      createRow(folderTableBody, filteredArrayOfNumberAgreement, archiveFolderTableRow);
+      const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((el) => el);
+      for(let n = 0; n < filteredArrayOfNumberAgreement.length; n++) {
+        for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
+          newArrayChildrenOfTableBody[i].children[2].textContent = filteredArrayOfNumberSubscriber[n].numberAgreement;
+          newArrayChildrenOfTableBody[i].children[1].textContent = filteredArrayOfNumberSubscriber[n].numberSubscriber;
+        };
+      };
     }
   };
   buttonsForSearchToTheFolder.forEach((item) => {
