@@ -18,7 +18,7 @@ import {
   goUpToTheFolderToTheTopLevel,
   goUpToTheFolderToTheHigherLevel,
   updateTheTable,
-  searchFolderByNumber
+  searchFolder
 } from './functions/functionsOfarchive.js';
 import {
   data
@@ -92,7 +92,7 @@ const getCreateInterfasForMaxLevelAccess = () => {
   goUpToTheFolderToTheTopLevel();
   goUpToTheFolderToTheHigherLevel();
   updateTheTable();
-  searchFolderByNumber();
+  searchFolder();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //

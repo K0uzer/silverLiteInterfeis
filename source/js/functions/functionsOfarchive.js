@@ -34,13 +34,14 @@ import {
 //            //
 const acrchivePage = document.getElementById('p2');
 const countElementOfDocument = 11;
+const nameUser = 'Ганин А.В';
+
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
 
 let cutOutFolder = '';
 let cutOutDocument = '';
-const nameUser = 'Ганин А.В';
 let levelOfFolder = 0;
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
@@ -63,15 +64,21 @@ const getCurrentTime = (item) => {
   const minutes = now.getMinutes();
   const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  item.value = `${formattedDate}T${formattedTime}`;
+  item.value = `${formattedDate} ${formattedTime}`;
   item.disabled = 'true';
 };
-
 
 // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ СЛУШАТЕЛЕЙ СОБЫТИЙ //
 export const clearOfEventListenersList = (typeEvent, elementOfListening, functionElementOfListening) => {
   elementOfListening.removeEventListener(typeEvent, functionElementOfListening);
 };
+
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ //
+function createRow(talbe, array, getHtmlCode) {
+  for(let i = 0; i < array.length; i++) {
+    talbe.innerHTML += getHtmlCode();
+  }
+}
 
 //            //
 //  ФУНКЦИИ   //
@@ -272,7 +279,7 @@ export function closeWindowForFilterOfDocument() {
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
-const openDocument = (target) => function qq() {
+const openDocument = (target) => function getDoc() {
   const archiveFile = document.querySelector('.archive__file');
   archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
   const documentIdSubscriber = document.querySelector('.archive__document-of-id');
@@ -477,7 +484,7 @@ function filterOfArray(array) {
   fillInInformations(filteredArray);
 };
 
-// ФУНУНКЦИЯ ДЛЯ ЗАГРУЗКИ РОДИТЕЛЬСКИХ ПАПОК В ТАБЛИЦУ //
+// ФУНУКЦИЯ ДЛЯ ЗАГРУЗКИ РОДИТЕЛЬСКИХ ПАПОК В ТАБЛИЦУ //
 export function loadFolderParentInTable() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   for (let i = 0; i < folderThree.length; i++) {
@@ -595,9 +602,7 @@ function submergence(numberSubs, currentFodler, folderTableBody, numberRowInTabl
   }
   folderTableBody.innerHTML = '';
   const filteredArrayOfChilderFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === numberRowInTable);
-  for(let i = 0; i < filteredArrayOfChilderFolder.length; i++) {
-    folderTableBody.innerHTML += archiveFolderTableRow();
-  }
+  createRow(folderTableBody, filteredArrayOfChilderFolder, archiveFolderTableRow);
   const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((item) => item);
   for(let n = 0; n < filteredArrayOfChilderFolder.length; n++) {
     for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
@@ -677,27 +682,31 @@ export function updateTheTable() {
 }
 
 // ФУНКЦИЯ ПОИСКА ПАПКИ //
-export function searchFolderByNumber() {
+export function searchFolder() {
   const inputForTheSearchFolder = document.querySelector('.archive__folder-input');
   const checkboxForSearchOfNumber = document.getElementById('type-folder-search-of-number');
   const checkboxForSearchOfName = document.getElementById('type-folder-search-of-name');
-  const buttonsForTheSearchFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
+  const buttonsForSearchToTheFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getListFolders = (item) => function getFolder() {
     if(item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
-      console.log(arrayChildrenOfTableBody[0].children[1].textContent);
-      // inputForTheSearchFolder.value
-      console.log(item);
+      const newFilteredArrayChildrenOfFolderThree = arrayChildrenOfFolderThree.filter((element) => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
+      console.log(newFilteredArrayChildrenOfFolderThree);
       checkboxForSearchOfNumber.checked === true;
       item.style = 'border: 1px solid black';
+      folderTableBody.innerHTML = '';
+      createRow(folderTableBody, newFilteredArrayChildrenOfFolderThree, archiveFolderTableRow);
     } else if(item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
-      console.log(item);
-      checkboxForSearchOfName.checked = true;
+      const newFilteredArrayChildrenOfFolderThree = arrayChildrenOfFolderThree.filter((element) => Number(element.numberAgreement) === Number(inputForTheSearchFolder.value));
+      console.log(newFilteredArrayChildrenOfFolderThree);
+      checkboxForSearchOfName.checked === true;
       item.style = 'border: 1px solid black';
+      folderTableBody.innerHTML = '';
+      createRow(folderTableBody, newFilteredArrayChildrenOfFolderThree, archiveFolderTableRow);
     }
   };
-  buttonsForTheSearchFolder.forEach((item) => {
+  buttonsForSearchToTheFolder.forEach((item) => {
     item.addEventListener('click', getListFolders(item));
   });
 }

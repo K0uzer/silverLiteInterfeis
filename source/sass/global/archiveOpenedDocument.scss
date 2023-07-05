@@ -7,7 +7,7 @@
   padding: 5px;
   line-height: calc(var(--pixel) * 15);
   color: #000000;
-  background-color: rgba(179, 138, 109, 0.915);
+  background-color: #9e948ceb;
   border-radius: 0.8%;
   overflow: scroll;
 }
@@ -101,7 +101,7 @@
   }
   &:not(:hover) {
     transition: .3s;
-    background-color: rgba(179,138,109,.8);
+    background-color: #5f5751cc;
   }
 }
 
