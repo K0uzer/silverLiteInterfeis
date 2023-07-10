@@ -75,7 +75,7 @@ export const clearOfEventListenersList = (typeEvent, elementOfListening, functio
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ //
 function createRow(talbe, array, getHtmlCode) {
-  for(let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     talbe.innerHTML += getHtmlCode();
   }
 }
@@ -577,16 +577,18 @@ export function getDownInFolderLevelBelow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getFolderLevelBelow = () => function getDown(event) {
-    if(event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
+    if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
       submergence('Абонентские дела', currentFodler, folderTableBody, 0);
-    } else if(event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
+    } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
       submergence('Проектно-техническая документация', currentFodler, folderTableBody, 1);
-    };
+    } else if() {
+
+    }
     goUpToTheFolderToTheTopLevel();
     goUpToTheFolderToTheHigherLevel();
   };
-  for(let i = 0; i < arrayChildrenOfTableBody.length; i++) {
-    for(let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
+  for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+    for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
       arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
     }
   }
@@ -595,21 +597,15 @@ export function getDownInFolderLevelBelow() {
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubs, currentFodler, folderTableBody, numberRowInTable) {
   levelOfFolder++;
-  if(event.target.textContent === numberSubs) {
+  if (event.target.textContent === numberSubs) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
-  } else if(event.target.parentNode.children[2].textContent === numberSubs) {
+  } else if (event.target.parentNode.children[2].textContent === numberSubs) {
     currentFodler.textContent = `Текущая папка: ${event.target.parentNode.children[2].textContent}`;
   }
   folderTableBody.innerHTML = '';
   const filteredArrayOfChilderFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === numberRowInTable);
   createRow(folderTableBody, filteredArrayOfChilderFolder, archiveFolderTableRow);
-  const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((item) => item);
-  for(let n = 0; n < filteredArrayOfChilderFolder.length; n++) {
-    for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
-      newArrayChildrenOfTableBody[i].children[2].textContent = filteredArrayOfChilderFolder[n].numberAgreement;
-      newArrayChildrenOfTableBody[i].children[1].textContent = filteredArrayOfChilderFolder[n].numberSubscriber;
-    };
-  };
+  getContentOfFolder(folderTableBody, filteredArrayOfChilderFolder);
   fillInInformations(data);
 }
 
@@ -619,9 +615,10 @@ export function goUpToTheFolderToTheHigherLevel() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const currentFodler = document.querySelector('.archive__filder-title');
+
   function goUpToTheFolder() {
     levelOfFolder--;
-    if(levelOfFolder === 0) {
+    if (levelOfFolder === 0) {
       folderTableBody.innerHTML = '';
       tableBodyDocumentsOfArchive.innerHTML = '';
       currentFodler.textContent = 'Текущая папка: Верхнего уровня';
@@ -663,12 +660,21 @@ function insertAFolder() {
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ПАПКИ //
 export function cutTheFolder() {
   const buttonOfCutOutFolder = document.getElementById('cutOutFolder');
+
   function cutOutRow() {
     searchCheckedInputs();
     insertAFolder();
   }
   buttonOfCutOutFolder.addEventListener('click', cutOutRow);
 }
+
+// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ОТСОРТИРОВАННЫМ КОНТЕНТОМ //
+function getContentOfFolder(tableBody, filteredArray) {
+  const newArrayChildrenOfTableBody = Array.from(tableBody.children).map((element, id) => {
+    element.children[1].textContent = filteredArray[id].numberSubscriber;
+    element.children[2].textContent = filteredArray[id].numberAgreement;
+  });
+};
 
 // ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ //
 export function updateTheTable() {
@@ -688,37 +694,37 @@ export function searchFolder() {
   const checkboxForSearchOfName = document.getElementById('type-folder-search-of-name');
   const buttonsForSearchToTheFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
   const folderTableBody = document.getElementById('folderTalbeBody');
-  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getListFolders = (item) => function getFolder() {
-    if(item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
+    sortingOfFolder(item);
+  };
+
+  // ФУНКЦИЯ-СБОРЩИК ДЛЯ СОРТИРОВКИ //
+  function sortingOfFolder(item) {
+    // const buttonsOfSettingFilterFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
+    // buttonsOfSettingFilterFolder.forEach((element) => element.style = 'border: none')
+    // checkboxForSearchOfName.checked === false;
+    if (item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberSubscriber = arrayChildrenOfFolderThree.filter((element) => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
-      checkboxForSearchOfNumber.checked === true;
-      item.style = 'border: 1px solid black';
+      settingUpButtonsOfFolder(checkboxForSearchOfNumber, item);
       folderTableBody.innerHTML = '';
       createRow(folderTableBody, filteredArrayOfNumberSubscriber, archiveFolderTableRow);
-      const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((el) => el);
-      for(let n = 0; n < filteredArrayOfNumberSubscriber.length; n++) {
-        for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
-          newArrayChildrenOfTableBody[i].children[2].textContent = filteredArrayOfNumberSubscriber[n].numberAgreement;
-          newArrayChildrenOfTableBody[i].children[1].textContent = filteredArrayOfNumberSubscriber[n].numberSubscriber;
-        };
-      };
-    } else if(item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
-      const filteredArrayOfNumberAgreement = arrayChildrenOfFolderThree.filter((element) => Number(element.numberAgreement) === Number(inputForTheSearchFolder.value));
-      checkboxForSearchOfName.checked === true;
-      item.style = 'border: 1px solid black';
+      getContentOfFolder(folderTableBody, filteredArrayOfNumberSubscriber);
+    } else if (item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
+      const filteredArrayOfNumberAgreement = arrayChildrenOfFolderThree.filter((element) => element.numberAgreement == inputForTheSearchFolder.value);
+      settingUpButtonsOfFolder(checkboxForSearchOfName, item);
       folderTableBody.innerHTML = '';
       createRow(folderTableBody, filteredArrayOfNumberAgreement, archiveFolderTableRow);
-      const newArrayChildrenOfTableBody = Array.from(folderTableBody.children).map((el) => el);
-      for(let n = 0; n < filteredArrayOfNumberAgreement.length; n++) {
-        for(let i = 0; i < newArrayChildrenOfTableBody.length; i++) {
-          newArrayChildrenOfTableBody[i].children[2].textContent = filteredArrayOfNumberSubscriber[n].numberAgreement;
-          newArrayChildrenOfTableBody[i].children[1].textContent = filteredArrayOfNumberSubscriber[n].numberSubscriber;
-        };
-      };
+      getContentOfFolder(folderTableBody, filteredArrayOfNumberAgreement);
     }
   };
+
+  // ФУНКЦИЯ ДЛЯ НАСТРОЙКИ КПОНОК //
+  function settingUpButtonsOfFolder(checkbox, item) {
+    checkbox.checked === true;
+    item.style = 'border: 1px solid black';
+  }
+
   buttonsForSearchToTheFolder.forEach((item) => {
     item.addEventListener('click', getListFolders(item));
   });
-}
+};
