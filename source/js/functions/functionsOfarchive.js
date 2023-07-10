@@ -581,8 +581,6 @@ export function getDownInFolderLevelBelow() {
       submergence('Абонентские дела', currentFodler, folderTableBody, 0);
     } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
       submergence('Проектно-техническая документация', currentFodler, folderTableBody, 1);
-    } else if() {
-
     }
     goUpToTheFolderToTheTopLevel();
     goUpToTheFolderToTheHigherLevel();
@@ -695,14 +693,12 @@ export function searchFolder() {
   const buttonsForSearchToTheFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const getListFolders = (item) => function getFolder() {
+    resetFolderEffects();
     sortingOfFolder(item);
   };
 
   // ФУНКЦИЯ-СБОРЩИК ДЛЯ СОРТИРОВКИ //
   function sortingOfFolder(item) {
-    // const buttonsOfSettingFilterFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
-    // buttonsOfSettingFilterFolder.forEach((element) => element.style = 'border: none')
-    // checkboxForSearchOfName.checked === false;
     if (item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberSubscriber = arrayChildrenOfFolderThree.filter((element) => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
       settingUpButtonsOfFolder(checkboxForSearchOfNumber, item);
@@ -715,8 +711,17 @@ export function searchFolder() {
       folderTableBody.innerHTML = '';
       createRow(folderTableBody, filteredArrayOfNumberAgreement, archiveFolderTableRow);
       getContentOfFolder(folderTableBody, filteredArrayOfNumberAgreement);
+    } else {
+      console.log(1);
     }
   };
+
+  // ФУНКЦИЯ ДЛЯ СБРОСА ЭФФЕКТОВ НА КНОПКАХ ПОИСКА //
+  function resetFolderEffects() {
+    const buttonsOfSettingFilterFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
+    buttonsOfSettingFilterFolder.forEach((element) => element.style = 'border: none');
+    checkboxForSearchOfName.checked === false;
+  }
 
   // ФУНКЦИЯ ДЛЯ НАСТРОЙКИ КПОНОК //
   function settingUpButtonsOfFolder(checkbox, item) {
