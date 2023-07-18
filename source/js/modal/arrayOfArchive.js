@@ -236,7 +236,7 @@ export const data = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
-    'id_parent': 0,
+    'id_parent': 2,
   },
   {
     'id': 355,
@@ -253,7 +253,7 @@ export const data = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
-    'id_parent': 0,
+    'id_parent': 2,
   },
   {
     'id': 356,
@@ -270,7 +270,7 @@ export const data = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
-    'id_parent': 0,
+    'id_parent': 2,
   },
   {
     'id': 357,
@@ -287,6 +287,6 @@ export const data = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
-    'id_parent': 0,
+    'id_parent': 2,
   },
 ];

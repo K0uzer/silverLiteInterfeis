@@ -21,9 +21,11 @@ import {
   searchFolder
 } from './functions/functionsOfarchive.js';
 import {
+  getByttonList
+} from './functions/functionsOfAdm.js';
+import {
   data
 } from './modal/arrayOfArchive.js';
-
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -32,7 +34,7 @@ import {
 ФУНКЦИЯ - обычная функция;
 ФУНКЦИЯ-СБОРЩИК - функция содержащая две или более функций для полной реализации одного события;
 */
-
+getByttonList();
 //            //
 // КОДНСТАНТЫ //
 //            //

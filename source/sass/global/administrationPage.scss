@@ -3,57 +3,54 @@
   height: 100%;
 }
 
-.administration__title {}
-
-.administration__button-open-menu {
+.administration__title {
   position: absolute;
-  width: 150px;
-  height: 40px;
-  top: 50px;
-  left: 0;
+  height: 30px;
+  visibility: hidden;
+  user-select: none;
 }
 
-.administration__menu {
+.page__button-open-menu {
+  // width: calc(var(--pixel) * 125);
+  // height: calc(var(--pixel) * 30);
+  position: absolute;
+  width: calc(var(--pixel)*25);
+  height: calc(var(--pixel)*25);
+  top: calc(var(--pixel)* 10);
+  left: calc(var(--pixel)* -3);
+  rotate: 90deg;
+  cursor: pointer;
+}
+
+.page__menu {
+  display: none;
+  position: absolute;
+  // height: calc(var(--pixel) * 50);
+  top: calc(var(--pixel) * 25);
+}
+
+.page__menu-list {
+  z-index: 9;
+  display: flex;
   position: absolute;
   height: 50px;
-  top: 85px;
-
-  &--closed {
-    width: 0px;
-    transition: .9s;
-    transition-delay: .15s;
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  &--opened {
-    width: 750px;
-    transition: .9s;
-    transition-delay: .15s;
-    transform: scale(1);
-  }
-}
-
-.administration__menu-list {
-  z-index: 9;
-  position: absolute;
-  display: flex;
-  width: 750px;
-  height: 40px;
   list-style: none;
 }
 
-.administration__menu-element {}
+.page__menu-element {}
 
-.administration__element-button {
-  width: 150px;
-  height: 40px;
+.page__element-button {
+  width: calc(var(--pixel) * 100);
+  height: calc(var(--pixel) * 35);
+  cursor: pointer;
 }
 
-.employees-company {}
+.employees-company {
+  width: calc(var(--pixel) * 1024);
+}
 
 .employees-company__employees-title {
-  margin: 20px 0 20px 210px;
+  margin: calc(var(--pixel) * 20) 0 calc(var(--pixel) * 20) calc(var(--pixel) * 0);
 }
 
 .employees-company__wrapper-content {
@@ -61,54 +58,120 @@
 }
 
 .employees-company__navigation {
-  height: 50px;
-  width: 500px;
+  // height: calc(var(--pixel) * 50);
+  display: flex;
 }
 
 .employees-company__navigation-list {
-  display: flex;
+  display: contents;
   list-style: none;
 }
 
 .employees-company__navigation>.employees-company__navigation-list {
-  position: initial;
+  position: inherit;
 }
 
-.employees-company__navigation-element {}
+.employees-company__navigation-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--pixel) * 125);
+  height: calc(var(--pixel) * 40);
+  margin: 0;
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
 
-.employees-company__navigation-button {
-  width: 150px;
-  height: 50px;
+  &:nth-last-of-type(1) {
+    border: none;
+    cursor: auto;
+  }
 }
 
-.employees-company__navigation-input-search {}
+// .employees-company__navigation-button {
+//   width: calc(var(--pixel) * 125);
+//   height: calc(var(--pixel) * 40);
+// }
+
+.employees-company__navigation-input-search {
+  width: 120px;
+  margin: 5px;
+}
 
 .employees-company__tables-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: calc(var(--pixel) * 1024);
+  margin-top: 10px;
   text-align: center;
+  user-select: none;
 }
 
 .employees-company__folder {
+  display: table;
+  max-height: 700px;
+  border: calc(var(--pixel) * 1) solid black;
   border-collapse: collapse;
 
   th {
-    border: 1px solid black;
+    height: 10px;
+    border: calc(var(--pixel) * 1) solid black;
   }
 
-  td {
-    border: 1px solid black;
+  &>tbody {
+    display: block;
+    height: 500px;
+    overflow-y: scroll;
   }
+
+  &>tbody>tr>td {
+    height: 40px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+
+  &>thead {
+    background-color: rgb(101, 105, 105);
+  }
+
 }
 
 .employees-company__users {
+  display: table;
+  height: 500px;
   border-collapse: collapse;
+  white-space: nowrap;
 
   th {
-    border: 1px solid black;
+    height: 10px;
+    border: calc(var(--pixel) * 1) solid black;
   }
 
   td {
-    border: 1px solid black;
+    border: calc(var(--pixel) * 1) solid black;
+  }
+
+  &>tbody {
+    display: block;
+    height: 500px;
+    overflow-y: scroll;
+  }
+
+  &>tbody>tr>td {
+    height: 40px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+
+  &>thead {
+    background-color: rgb(101, 105, 105);
   }
 }

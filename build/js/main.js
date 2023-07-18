@@ -570,7 +570,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 0
+  'id_parent': 2
 }, {
   'id': 355,
   'number_register': 1,
@@ -586,7 +586,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 0
+  'id_parent': 2
 }, {
   'id': 356,
   'number_register': 1,
@@ -602,7 +602,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 0
+  'id_parent': 2
 }, {
   'id': 357,
   'number_register': 1,
@@ -618,7 +618,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 0
+  'id_parent': 2
 }];
 const archiveFolderTableRow = () => `<tr>
 <td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
@@ -1237,17 +1237,17 @@ function getDownInFolderLevelBelow() {
 }
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
-function submergence(numberSubs, currentFodler, folderTableBody, numberRowInTable) {
+function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder) {
   levelOfFolder++;
-  if (event.target.textContent === numberSubs) {
+  if (event.target.textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
-  } else if (event.target.parentNode.children[2].textContent === numberSubs) {
+  } else if (event.target.parentNode.children[2].textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.parentNode.children[2].textContent}`;
   }
   folderTableBody.innerHTML = '';
-  const filteredArrayOfChilderFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === numberRowInTable);
-  createRow(folderTableBody, filteredArrayOfChilderFolder, archiveFolderTableRow);
-  getContentOfFolder(folderTableBody, filteredArrayOfChilderFolder);
+  const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === idFolder);
+  createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
+  getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
   fillInInformations(data);
 }
 
@@ -1347,16 +1347,20 @@ function searchFolder() {
       folderTableBody.innerHTML = '';
       createRow(folderTableBody, filteredArrayOfNumberSubscriber, archiveFolderTableRow);
       getContentOfFolder(folderTableBody, filteredArrayOfNumberSubscriber);
+      clearOfInputForSearch(inputForTheSearchFolder);
     } else if (item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberAgreement = arrayChildrenOfFolderThree.filter(element => element.numberAgreement == inputForTheSearchFolder.value);
       settingUpButtonsOfFolder(checkboxForSearchOfName, item);
       folderTableBody.innerHTML = '';
       createRow(folderTableBody, filteredArrayOfNumberAgreement, archiveFolderTableRow);
       getContentOfFolder(folderTableBody, filteredArrayOfNumberAgreement);
-      console.log(1);
-    } else {
-      console.log(1);
+      clearOfInputForSearch(inputForTheSearchFolder);
     }
+  }
+
+  // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ INPUT //
+  function clearOfInputForSearch(input) {
+    input.value = '';
   }
 
   // ФУНКЦИЯ ДЛЯ СБРОСА ЭФФЕКТОВ НА КНОПКАХ ПОИСКА //
@@ -1375,6 +1379,30 @@ function searchFolder() {
     item.addEventListener('click', getListFolders(item));
   });
 }
+function getByttonList() {
+  const buttonOfOpenMenu = document.querySelector('.page__button-open-menu');
+  const menuBlock = document.querySelector('.page__menu');
+  function openMenu() {}
+  buttonOfOpenMenu.addEventListener('click', openMenu);
+}
+
+// // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+// export const getOpenBlokWithFolder = () => {
+//   const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
+//   const archiveFolder = document.querySelector('.archive__folder');
+//   buttonOfOpenBlockWithFolder.addEventListener('click', () => {
+//     archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
+//   });
+// };
+
+// // // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+// export const getCloseBlokWithFolder = () => {
+//   const archiveFolder = document.querySelector('.archive__folder');
+//   const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
+//   buttonOfcloseBlockWithFolder.addEventListener('click', () => {
+//     archiveFolder.style = 'display: none;';
+//   });
+// };
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -1384,7 +1412,7 @@ function searchFolder() {
 ФУНКЦИЯ - обычная функция;
 ФУНКЦИЯ-СБОРЩИК - функция содержащая две или более функций для полной реализации одного события;
 */
-
+getByttonList();
 //            //
 // КОДНСТАНТЫ //
 //            //
