@@ -15,7 +15,7 @@
   width: calc(var(--pixel)*25);
   height: calc(var(--pixel)*25);
   top: calc(var(--pixel)* 10);
-  left: calc(var(--pixel)* -3);
+  left: calc(var(--pixel)* 0);
   rotate: 90deg;
   cursor: pointer;
 }
@@ -27,7 +27,7 @@
 .page__admin-menu {
   display: none;
   position: absolute;
-  top: calc(var(--pixel) * 20);
+  top: calc(var(--pixel) * -3);
 }
 
 .page__admin-menu--open {
@@ -37,8 +37,6 @@
 .page__menu-list {
   z-index: 9;
   display: flex;
-  position: absolute;
-  height: 50px;
   list-style: none;
 }
 
@@ -62,44 +60,68 @@
   display: inline;
 }
 
-.employees-company__navigation {
+.employees-company__navigation-between-tables {
+}
+.employees-company__navigation-list-tables {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+.employees-company__navigation-table {
+  margin-left: 5px;
+  padding: 10px;
+  border: calc(var(--pixel) * 1) solid black;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    transition: .3s;
+    background-color: rgb(101, 105, 105);
+  }
+}
+
+.employees-company__work-with-content {
   display: flex;
 }
 
-.employees-company__navigation-list {
+.employees-company__work-with-content-list {
   display: contents;
   list-style: none;
 }
 
-.employees-company__navigation>.employees-company__navigation-list {
+.employees-company__work-with-content>.employees-company__navigation-list {
   position: inherit;
 }
 
-.employees-company__navigation-element {
+.employees-company__work-with-content-element {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: calc(var(--pixel) * 125);
   height: calc(var(--pixel) * 40);
   margin: 0;
   padding: 5px;
   border: 1px solid black;
-  text-align: center;
+  transition: .3s;
   cursor: pointer;
   user-select: none;
-
+  &:hover {
+    transition: .3s;
+    background-color: rgb(101, 105, 105);
+  }
   &:nth-last-of-type(1) {
     border: none;
     cursor: auto;
   }
 }
 
-.employees-company__navigation-button {
+.employees-company__work-with-content-button {
   width: calc(var(--pixel) * 125);
   height: calc(var(--pixel) * 40);
 }
 
-.employees-company__navigation-input-search {
+.employees-company__work-with-content-input-search {
   font-size: initial;
   width: 130px;
   height: 30px;
