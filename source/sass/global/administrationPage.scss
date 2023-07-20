@@ -20,10 +20,18 @@
   cursor: pointer;
 }
 
+.page__admin-button-open-menu--cliked {
+  rotate: 270deg;
+}
+
 .page__admin-menu {
   display: none;
   position: absolute;
-  top: calc(var(--pixel) * 25);
+  top: calc(var(--pixel) * 20);
+}
+
+.page__admin-menu--open {
+  display: block;
 }
 
 .page__menu-list {

@@ -1,12 +1,14 @@
-export function getByttonList() {
-  const buttonOfOpenMenu = document.querySelector('.page__button-open-menu');
-  const menuBlock = document.querySelector('.page__menu');
-  function openMenu() {
 
-  }
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ И ЗАКРЫТИЯ ВСПЛЫВАЮЩЕГО МЕНЮ //
+export function getByttonList() {
+  const buttonOfOpenMenu = document.querySelector('.page__admin-button-open-menu');
+  const menuBlock = document.querySelector('.page__admin-menu');
+  const openMenu = () => {
+    menuBlock.classList.toggle('page__admin-menu--open');
+    buttonOfOpenMenu.classList.toggle('page__admin-button-open-menu--cliked');
+  };
   buttonOfOpenMenu.addEventListener('click', openMenu);
 };
-
 
 // // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
 // export const getOpenBlokWithFolder = () => {

@@ -1380,9 +1380,12 @@ function searchFolder() {
   });
 }
 function getByttonList() {
-  const buttonOfOpenMenu = document.querySelector('.page__button-open-menu');
-  const menuBlock = document.querySelector('.page__menu');
-  function openMenu() {}
+  const buttonOfOpenMenu = document.querySelector('.page__admin-button-open-menu');
+  const menuBlock = document.querySelector('.page__admin-menu');
+  const openMenu = () => {
+    menuBlock.classList.toggle('page__admin-menu--open');
+    buttonOfOpenMenu.classList.toggle('page__admin-button-open-menu--cliked');
+  };
   buttonOfOpenMenu.addEventListener('click', openMenu);
 }
 
