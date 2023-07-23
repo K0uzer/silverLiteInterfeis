@@ -1379,6 +1379,13 @@ function searchFolder() {
     item.addEventListener('click', getListFolders(item));
   });
 }
+
+// ФУНКЦИЯ ДЛЯ НАЛОЖЕНИЯ ТРЕБУЕМОГО СТИЛЯ НА ЭЛЕМЕНТ //
+function applyInvisabilityOnElement(item, property, meaning) {
+  item.style = `${property}: ${meaning}`;
+}
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ И ЗАКРЫТИЯ ВСПЛЫВАЮЩЕГО МЕНЮ //
 function getByttonList() {
   const buttonOfOpenMenu = document.querySelector('.page__admin-button-open-menu');
   const menuBlock = document.querySelector('.page__admin-menu');
@@ -1389,23 +1396,26 @@ function getByttonList() {
   buttonOfOpenMenu.addEventListener('click', openMenu);
 }
 
-// // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
-// export const getOpenBlokWithFolder = () => {
-//   const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
-//   const archiveFolder = document.querySelector('.archive__folder');
-//   buttonOfOpenBlockWithFolder.addEventListener('click', () => {
-//     archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
-//   });
-// };
+// ФУНКЦИЯ ДЛЯ ВЫВОДА НОВОГО БЛОКА КОГДА И СКРЫТИЯ СТАРОГО  //
+const showNewBlock = (item, array) => function getBlock() {
+  console.log(item);
+  Array.from(array).forEach(e => applyInvisabilityOnElement(e, 'display', 'none'));
+  console.log(Array.from(array).filter(e => {
+    e.classList.contains('employees-company__wrapper-content') == true;
+  }));
+};
 
-// // // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
-// export const getCloseBlokWithFolder = () => {
-//   const archiveFolder = document.querySelector('.archive__folder');
-//   const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
-//   buttonOfcloseBlockWithFolder.addEventListener('click', () => {
-//     archiveFolder.style = 'display: none;';
-//   });
-// };
+// ФУНКЦИЯ ДЛЯ СМЕНЫ ТАБЛИЦ В "employees-company"  //
+function changeTable() {
+  const employeesCompany = document.querySelector('.employees-company__wrapper-content');
+  const worckingEmloyees = document.querySelector('.worcking-emloyees');
+  const sittingsUsers = document.querySelector('.sittings-of-users');
+  const arrayOfTables = [employeesCompany, sittingsUsers, worckingEmloyees];
+  const listButtonsOfGetTable = document.querySelectorAll('.employees-company__navigation-table');
+  Array.from(listButtonsOfGetTable).forEach(item => {
+    item.addEventListener('click', showNewBlock(item, arrayOfTables));
+  });
+}
 
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -1415,7 +1425,7 @@ function getByttonList() {
 ФУНКЦИЯ - обычная функция;
 ФУНКЦИЯ-СБОРЩИК - функция содержащая две или более функций для полной реализации одного события;
 */
-getByttonList();
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -1455,6 +1465,7 @@ const levelAcceptOfUser = 1;
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMaxLevelAccess = () => {
+  // archive //
   createInterfeisOfArchiver();
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
@@ -1464,7 +1475,6 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
-  // fillInInformations(data);
   clearFilters();
   loadFolderParentInTable();
   openWindowForCreateFolder();
@@ -1475,6 +1485,9 @@ const getCreateInterfasForMaxLevelAccess = () => {
   goUpToTheFolderToTheHigherLevel();
   updateTheTable();
   searchFolder();
+  // admine //
+  getByttonList();
+  changeTable();
 };
 
 //                                         //

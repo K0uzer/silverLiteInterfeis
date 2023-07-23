@@ -8,7 +8,6 @@ import {
   putInElementInTable,
   openWindowForFilterOfDocument,
   getOpenedDocument,
-  fillInInformations,
   clearFilters,
   openWindowForCreateFolder,
   deleteFolder,
@@ -21,11 +20,9 @@ import {
   searchFolder
 } from './functions/functionsOfarchive.js';
 import {
-  getByttonList
+  getByttonList,
+  changeTable
 } from './functions/functionsOfAdm.js';
-import {
-  data
-} from './modal/arrayOfArchive.js';
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -34,7 +31,7 @@ import {
 ФУНКЦИЯ - обычная функция;
 ФУНКЦИЯ-СБОРЩИК - функция содержащая две или более функций для полной реализации одного события;
 */
-getByttonList();
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -75,6 +72,7 @@ const levelAcceptOfUser = 1;
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMaxLevelAccess = () => {
+  // archive //
   createInterfeisOfArchiver();
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
@@ -84,7 +82,6 @@ const getCreateInterfasForMaxLevelAccess = () => {
   putInElementInTable();
   openWindowForFilterOfDocument();
   getOpenedDocument();
-  // fillInInformations(data);
   clearFilters();
   loadFolderParentInTable();
   openWindowForCreateFolder();
@@ -95,6 +92,9 @@ const getCreateInterfasForMaxLevelAccess = () => {
   goUpToTheFolderToTheHigherLevel();
   updateTheTable();
   searchFolder();
+  // admine //
+  getByttonList();
+  changeTable();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
