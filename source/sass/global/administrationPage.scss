@@ -27,7 +27,7 @@
 .page__admin-menu {
   display: none;
   position: absolute;
-  top: calc(var(--pixel) * -3);
+  top: calc(var(--pixel) * 5);
 }
 
 .page__admin-menu--open {
@@ -37,6 +37,8 @@
 .page__menu-list {
   z-index: 9;
   display: flex;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -219,4 +221,91 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.group-access {
+}
+.group-access__title {
+}
+.group-access__content-wrapper {
+}
+.group-access__navifation {
+}
+.group-access__navigation-list {
+}
+.group-access__navigation-element {
+}
+.group-access__navigation-button {
+}
+.group-access__table {
+}
+.file-storage {
+}
+.file-storage__title {
+}
+.file-storage__form-content {
+}
+.file-storage__navigation {
+}
+.file-storage__navigation-list {
+}
+.file-storage__navigation-element {
+}
+.file-storage__navigation-button {
+}
+.file-storage__input {
+}
+.protocols {
+}
+.protocols__title {
+}
+.protocols__navigations {
+}
+.protocols__navigations-list {
+}
+.protocols__navigations-element {
+}
+.protocols__navigations-button {
+}
+.archived-protocols {
+}
+.archived-protocols__navigations {
+}
+.archived-protocols__navigations-list {
+}
+.archived-protocols__navigations-element {
+}
+.archived-protocols__navigations-button {
+}
+.archived-protocols__navigations-input {
+}
+.archived-protocols__table {
+}
+.protocols-action {
+}
+.protocols-action__navigations {
+}
+.protocols-action__navigations-list {
+}
+.protocols-action__navigations-element {
+}
+.protocols-action__navigations-button {
+}
+.protocols-action__navigations-input {
+}
+.protocols__sittings {
+}
+.protocols__sittings-form {
+}
+.protocols__content-container {
+}
+.protocols__title-sittings {
+}
+.protocols__sittings-list {
+}
+.protocols_sittings-element {
+}
+.protocols__checkbox {
+}
+.protocols__sittings-text {
 }

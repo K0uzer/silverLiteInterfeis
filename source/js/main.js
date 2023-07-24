@@ -21,7 +21,8 @@ import {
 } from './functions/functionsOfarchive.js';
 import {
   getByttonList,
-  changeTable
+  changeTable,
+  switchingBetweenAdminPanels
 } from './functions/functionsOfAdm.js';
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -35,11 +36,11 @@ import {
 //            //
 // КОДНСТАНТЫ //
 //            //
+const levelAcceptOfUser = 1;
 
 //            //
 // ПЕРЕМЕННЫЕ //
 //            //
-const levelAcceptOfUser = 1;
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 
@@ -70,9 +71,8 @@ const levelAcceptOfUser = 1;
 //  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ   //
 //                                          //
 
-// ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МАКСИМАЛЬНОГО ДОСТУПА //
-const getCreateInterfasForMaxLevelAccess = () => {
-  // archive //
+// ФУНКЦИЯ-СБОРЩИК ФОРМИРОВАНИЯ ИНТЕРФЕЙСА ДЛЯ РАБОТЫ С АРХИВОМ //
+const getCreateInterfasForWorkWithArchive = () => {
   createInterfeisOfArchiver();
   getOpenBlokWithFolder();
   getCloseBlokWithFolder();
@@ -92,9 +92,13 @@ const getCreateInterfasForMaxLevelAccess = () => {
   goUpToTheFolderToTheHigherLevel();
   updateTheTable();
   searchFolder();
-  // admine //
+};
+
+// ФУНКЦИЯ-СБОРЩИК ФОРМИРОВАНИЯ ИНТЕРФЕЙСА ДЛЯ РАБОТЫ С ПАНЕЛЯМИ АДМИНИСТРАТОРА //
+const getCreateInterfasForWorkWithAdminPanel = () => {
   getByttonList();
   changeTable();
+  switchingBetweenAdminPanels();
 };
 
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
@@ -108,5 +112,6 @@ const getCreateInterfasForMinimLevelAccess = () => {
 
 // ВНОСИМ ЭЛЕМЕНТЫ ИНТЕРФЕЙСА ОТ УРОВНЯ ДОСТУПА ПОЛЬЗОВАТЕЛЯ //
 if (levelAcceptOfUser === 1) {
-  getCreateInterfasForMaxLevelAccess();
+  getCreateInterfasForWorkWithArchive();
+  getCreateInterfasForWorkWithAdminPanel();
 };
