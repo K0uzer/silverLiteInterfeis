@@ -17,11 +17,14 @@ export function getByttonList() {
 
 // ФУНКЦИЯ ДЛЯ ВЫВОДА НОВОГО БЛОКА КОГДА И СКРЫТИЯ СТАРОГО  //
 const showNewBlock = (item, array) => function getBlock() {
-  console.log(item);
   Array.from(array).forEach((e) => applyInvisabilityOnElement(e, 'display', 'none'));
-  console.log(Array.from(array).filter((e) => {
-    e.classList.contains('employees-company__wrapper-content') == true;
-  }));
+  if(item.id === 'employeesCompany') {
+    Array.from(array)[0].style = 'display: block';
+  } else if(item.id === 'worckingEmloyees') {
+    Array.from(array)[1].style = 'display: block';
+  } else if(item.id === 'sittingsUsers') {
+    Array.from(array)[2].style = 'display: block';
+  }
 };
 
 // ФУНКЦИЯ ДЛЯ СМЕНЫ ТАБЛИЦ В "employees-company"  //
