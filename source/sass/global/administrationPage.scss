@@ -304,6 +304,7 @@
 }
 .protocols__navigations-list {
   display: flex;
+  padding: 0;
   list-style-type: none;
 }
 .protocols__navigations-element {
@@ -342,16 +343,35 @@
 
 }
 .protocols-action {
+
 }
 .protocols-action__navigations {
 }
 .protocols-action__navigations-list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
 }
 .protocols-action__navigations-element {
 }
 .protocols-action__navigations-button {
 }
 .protocols-action__navigations-input {
+}
+.protocols-action__table {
+  display: block;
+  width: 1024px;
+  height: 500px;
+  border: 1px solid black;
+  overflow: scroll;
+  &>thead {
+    width: auto;
+    height: auto;
+  }
+  &>tbody {
+    width: auto;
+    height: auto;
+  }
 }
 .protocols__sittings {
 }
