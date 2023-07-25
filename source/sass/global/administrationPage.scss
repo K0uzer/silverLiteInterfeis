@@ -47,7 +47,16 @@
 .page__element-button {
   width: calc(var(--pixel) * 100);
   height: calc(var(--pixel) * 35);
+  color: white;
+  background-color: #0085838e;
+  border: 1px solid black;
   cursor: pointer;
+  transition: .3s;
+  &:hover {
+    background-color: #017977cc;
+    border: 1px solid white;
+    transition: .3s;
+  }
 }
 
 .employees-company {
@@ -55,7 +64,9 @@
 }
 
 .employees-company__employees-title {
+  padding: 10px;
   margin: calc(var(--pixel) * 20) 0 calc(var(--pixel) * 20) calc(var(--pixel) * 0);
+  background-color: #008582;
 }
 
 .employees-company__wrapper-content {
@@ -226,28 +237,58 @@
 .group-access {
 }
 .group-access__title {
+  padding: 10px;
+  background-color: #008582;
 }
 .group-access__content-wrapper {
+  width: 1000px;
 }
 .group-access__navifation {
 }
 .group-access__navigation-list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
 }
 .group-access__navigation-element {
 }
 .group-access__navigation-button {
 }
 .group-access__table {
+  & > tbody {
+    display: block;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    overflow-y: scroll;
+  }
+}
+.group-access__table-row {
+  display: flex;
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 5px;
+  &:hover {
+    background-color: rgb(113, 115, 117);
+    cursor: pointer;
+  }
 }
 .file-storage {
+  width: 1024px;
 }
 .file-storage__title {
 }
 .file-storage__form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .file-storage__navigation {
 }
 .file-storage__navigation-list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
 }
 .file-storage__navigation-element {
 }
@@ -262,6 +303,8 @@
 .protocols__navigations {
 }
 .protocols__navigations-list {
+  display: flex;
+  list-style-type: none;
 }
 .protocols__navigations-element {
 }
@@ -272,6 +315,8 @@
 .archived-protocols__navigations {
 }
 .archived-protocols__navigations-list {
+  display: flex;
+  list-style-type: none;
 }
 .archived-protocols__navigations-element {
 }
@@ -280,6 +325,21 @@
 .archived-protocols__navigations-input {
 }
 .archived-protocols__table {
+  display: block;
+  width: 1024px;
+  height: 500px;
+  text-align: center;
+  border: 1px solid black;
+  overflow: scroll;
+  &>thead {
+    width: auto;
+    height: auto;
+  }
+  &>tbody {
+    width: auto;
+    height: auto;
+  }
+
 }
 .protocols-action {
 }

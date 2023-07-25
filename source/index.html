@@ -266,7 +266,13 @@
                           </ul>
                         </nav>
                         <table class="group-access__table">
-
+                          <tr class="group-access__table-row">
+                            <td>></td>
+                            <td>
+                              <img src="" alt="Иконка" title="Иконка" sizes="" srcset="">
+                              <strong>Все</strong>
+                            </td>
+                          </tr>
                         </table>
                       </div>
                     </section>
@@ -275,8 +281,8 @@
                       <form class="file-storage__form-content" action="" method="post">
                         <nav class="file-storage__navigation">
                           <ul class="file-storage__navigation-list">
-                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Сохранить изменения"></button></li>
-                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Проверить соединение"></button></li>
+                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Сохранить изменения">Сохранить</button></li>
+                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Проверить соединение">Проверить соединение</button></li>
                           </ul>
                         </nav>
                         <input class="file-storage__input" type="number" title="Адрес FTP-сервера">
@@ -293,11 +299,12 @@
                           <li class="protocols__navigations-element"><button class="protocols__navigations-button">Настройки протоколов</button></li>
                         </ul>
                       </nav>
-                      <div class="archived-protocols">
+                      <div class="archived-protocols" style="display: none;">
                         <nav class="archived-protocols__navigations">
                           <ul class="archived-protocols__navigations-list">
-                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Обновить"></button></li>
-                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Сохранить в файл"></button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Обновить">Обновить</button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Печать">Печать</button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Сохранить">Сохранить</button></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Период с"><input type="text" placeholder="Период по"></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Комментарий"></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Пользователь"></li>
@@ -305,8 +312,22 @@
                           </ul>
                         </nav>
                         <table class="archived-protocols__table">
-                          <thead></thead>
-                          <tbody></tbody>
+                          <thead>
+                            <tr>
+                              <th>Дата и время</th>
+                              <th>Тип</th>
+                              <th>Пользователь</th>
+                              <th>Комментарий</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </div>
                       <div class="protocols-action">

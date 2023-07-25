@@ -609,7 +609,25 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
 function getDownInFolderNotTopLevel() {
+  const currentFodler = document.querySelector('.archive__filder-title');
+  const folderTableBody = document.getElementById('folderTalbeBody');
+  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+  levelOfFolder++;
+  if (event.target.textContent === numberSubscriber) {
+    currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
+  } else if (event.target.parentNode.children[2].textContent === numberSubscriber) {
+    currentFodler.textContent = `Текущая папка: ${event.target.parentNode.children[2].textContent}`;
+  }
+  folderTableBody.innerHTML = '';
+  createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
+  getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
+  fillInInformations(data);
 
+  for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+    for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
+      arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
+    }
+  }
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //

@@ -1215,7 +1215,7 @@ function deleteCheckedRowInTableFolder(element) {
   }
 }
 
-// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ НА УРОВЕНЬ НИЖЕ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ //
 function getDownInFolderLevelBelow() {
   const currentFodler = document.querySelector('.archive__filder-title');
   const folderTableBody = document.getElementById('folderTalbeBody');
@@ -1380,10 +1380,32 @@ function searchFolder() {
   });
 }
 
+//            //
+// КОДНСТАНТЫ //
+//            //
+
+//            //
+// ПЕРЕМЕННЫЕ //
+//            //
+
+// УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
+
+// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
+
+//                         //
+//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
+//                         //
+
 // ФУНКЦИЯ ДЛЯ НАЛОЖЕНИЯ ТРЕБУЕМОГО СТИЛЯ НА ЭЛЕМЕНТ //
 function applyInvisabilityOnElement(item, property, meaning) {
   item.style = `${property}: ${meaning}`;
 }
+
+//            //
+//  ФУНКЦИИ   //
+//            //
 
 // ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ПАНЕЛИ АДМИНА //
 const getAdminPanels = (item, array) => function getPanel() {
