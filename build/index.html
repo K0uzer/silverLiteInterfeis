@@ -186,16 +186,16 @@
                         </div>
                       </div>
                       <div class="worcking-emloyees" style="display: none;">
-                        <h2 class="">Работающие сотрубники</h2>
-                        <nav class="">
-                          <ul class="">
-                            <li class=""><button class="">Послать сообщение всем пользователям</button></li>
-                            <li class=""><button class="">Отключить всех пользователей</button></li>
+                        <h2 class="worcking-emloyees__title">Работающие сотрубники</h2>
+                        <nav class="worcking-emloyees__navigation">
+                          <ul class="worcking-emloyees__list">
+                            <li class=""><button class="worcking-emloyees__element">Послать сообщение всем пользователям</button></li>
+                            <li class=""><button class="worcking-emloyees__element">Отключить всех пользователей</button></li>
                           </ul>
                         </nav>
-                        <table class="">
+                        <table class="worcking-emloyees__table">
                           <thead>
-                            <tr>
+                            <tr class="worcking-emloyees__table-head-row">
                               <th></th>
                               <th>Логин</th>
                               <th>Имя</th>
@@ -203,27 +203,24 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                            <tr class="worcking-emloyees__table-body-row">
+                              <td><button class="worcking-emloyees__button-of-work-with-content-in-table">Отключить</button></td>
+                              <td>ganin</td>
+                              <td>Ганин/Специальст ИТ</td>
+                              <td><button class="worcking-emloyees__button-of-work-with-content-in-table">Написать</button></td>
                             </tr>
                           </tbody>
                         </table>
-                        <div class="">
-                          <h3 class="">Сообщение пользователю</h3>
-                          <div class="">
-                            <span class=""></span>
-                            <span class=""></span>
-                            <button class=""></button>
+                        <div class="worcking-emloyees__massage-user">
+                          <h3 class="worcking-emloyees__title">Сообщение пользователю:</h3>
+                          <div class="worcking-emloyees__massage-container">
+                            <span class="worcking-emloyees__massage">Сообщение</span>
+                            <button class="worcking-emloyees__massage-button-close"><strong>Закрыть</strong></button>
                           </div>
-                          <textarea class="" name="" id="" cols="30" rows="10">
-
-                          </textarea>
-                          <form class="">
-                            <button class="">Отправить</button>
-                            <button class="">Отменить</button>
+                          <form class="worcking-emloyees__massage-for-user">
+                            <textarea class="worcking-emloyees__text-massage" name="" id="" cols="30" rows="10"></textarea>
+                            <button class="worcking-emloyees__button-send">Отправить</button>
+                            <button class="worcking-emloyees__button-cancellation">Отменить</button>
                           </form>
                         </div>
                       </div>
@@ -294,18 +291,18 @@
                       <h2 class="protocols__title">Протоколы</h2>
                       <nav class="protocols__navigations">
                         <ul class="protocols__navigations-list">
-                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Архивные протоколы</button></li>
-                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Протоколы действий</button></li>
-                          <li class="protocols__navigations-element"><button class="protocols__navigations-button">Настройки протоколов</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="archivedProtocols">Архивные протоколы</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="protocolsAction">Протоколы действий</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="protocolsSittings">Настройки протоколов</button></li>
                         </ul>
                       </nav>
-                      <div class="archived-protocols" style="display: none;">
+                      <div class="archived-protocols" style="display: block;">
                         <nav class="archived-protocols__navigations">
                           <ul class="archived-protocols__navigations-list">
                             <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Обновить">Обновить</button></li>
                             <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Печать">Печать</button></li>
                             <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Сохранить">Сохранить</button></li>
-                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Период с"><input type="text" placeholder="Период по"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="datetime-local" placeholder="Период с"><input type="datetime-local" placeholder="Период по"></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Комментарий"></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Пользователь"></li>
                             <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Количество отображений"></li>
@@ -336,7 +333,7 @@
                             <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Обновить">Обновить</button></li>
                             <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Печать">Печать</button></li>
                             <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Сохранить в файл">Сохранить</button></li>
-                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="date" placeholder="Период с"><input type="date" placeholder="Период по"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="datetime-local" placeholder="Период с"><input type="datetime-local" placeholder="Период по"></li>
                             <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Комментарий"></li>
                             <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Пользователь"></li>
                             <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Количество отображений"></li>
@@ -359,10 +356,10 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="protocols__sittings">
+                      <div class="protocols__sittings" style="display: none">
                         <form class="protocols__sittings-form" action="" method="post">
                           <div class="protocols__content-container">
-                            <lable class="protocols__title-sittings">Действия с документами</lable>
+                            <lable class="protocols__title-sittings"><strong> Действия с документами</strong></lable>
                             <ul class="protocols__sittings-list">
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание документа</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Перемещение документа</span></li>
@@ -372,7 +369,7 @@
                             </ul>
                           </div>
                           <div class="protocols__content-container">
-                            <lable class="protocols__title-sittings">Пользовательские действия</lable>
+                            <lable class="protocols__title-sittings"><strong> Пользовательские действия</strong></lable>
                             <ul class="protocols__sittings-list">
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Вход и выход из системы</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Печать содержимого PKK</span></li>
@@ -381,12 +378,12 @@
                             </ul>
                           </div>
                           <div class="protocols__content-container">
-                            <lable class="protocols__title-sittings">Административные действия</lable>
+                            <lable class="protocols__title-sittings"><strong> Административные действия</strong></lable>
                             <ul class="protocols__sittings-list">
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Созданение пользователя</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление пользователя</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение профиля пользователя</span></li>
-                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отключение пользователей/span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отключение пользователей</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание групп</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление групп</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение настроек системы</span></li>
@@ -395,7 +392,7 @@
                             </ul>
                           </div>
                           <div class="protocols__content-container">
-                            <lable class="protocols__title-sittings">Действия с папками</lable>
+                            <lable class="protocols__title-sittings"><strong> Действия с папками</strong></lable>
                             <ul class="protocols__sittings-list">
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание папки</span></li>
                               <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление папки</span></li>

@@ -22,7 +22,8 @@ import {
 import {
   getByttonList,
   changeTable,
-  switchingBetweenAdminPanels
+  switchingBetweenAdminPanels,
+  getTabsInProtocols
 } from './functions/functionsOfAdm.js';
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
@@ -67,8 +68,8 @@ const levelAcceptOfUser = 1;
 
 // ВЫХОД //
 
-//                                         //
-//  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ   //
+//                                          //
+//  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ  //
 //                                          //
 
 // ФУНКЦИЯ-СБОРЩИК ФОРМИРОВАНИЯ ИНТЕРФЕЙСА ДЛЯ РАБОТЫ С АРХИВОМ //
@@ -99,8 +100,8 @@ const getCreateInterfasForWorkWithAdminPanel = () => {
   getByttonList();
   changeTable();
   switchingBetweenAdminPanels();
+  getTabsInProtocols();
 };
-
 // ФУНКЦИЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСА МИНИМАЛЬНОГО ДОСТУПА //
 const getCreateInterfasForMinimLevelAccess = () => {
 

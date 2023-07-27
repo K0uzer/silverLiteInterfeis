@@ -1388,8 +1388,6 @@ function searchFolder() {
 // ПЕРЕМЕННЫЕ //
 //            //
 
-// УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
-
 // УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
@@ -1469,6 +1467,30 @@ function changeTable() {
   });
 }
 
+// ФУНКЦИЯ ДЛЯ ВЫВОДА НОВОЙ ВКЛАДКИ В ПРОТОКОЛАХ //
+const getTab = (item, array) => function changeStyleTabs() {
+  Array.from(array).forEach(e => applyInvisabilityOnElement(e, 'display', 'none'));
+  if (item.id === 'archivedProtocols') {
+    Array.from(array)[0].style = 'display: block';
+  } else if (item.id === 'protocolsAction') {
+    Array.from(array)[1].style = 'display: block';
+  } else if (item.id === 'protocolsSittings') {
+    Array.from(array)[2].style = 'display: block';
+  }
+};
+
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ СМЕНЫ ВКЛАДОК В ПРОТОКОЛАХ //
+function getTabsInProtocols() {
+  const panelOfArchiveProtocols = document.querySelector('.archived-protocols');
+  const panelOfActionProtocols = document.querySelector('.protocols-action');
+  const panelOfSittingsProtocols = document.querySelector('.protocols__sittings');
+  const arrayOfProtocolPanels = [panelOfArchiveProtocols, panelOfActionProtocols, panelOfSittingsProtocols];
+  const buttonsOfProtocolsNavigation = document.querySelectorAll('.protocols__navigations-button');
+  Array.from(buttonsOfProtocolsNavigation).forEach(item => {
+    item.addEventListener('click', getTab(item, arrayOfProtocolPanels));
+  });
+}
+
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
@@ -1511,8 +1533,8 @@ const levelAcceptOfUser = 1;
 
 // ВЫХОД //
 
-//                                         //
-//  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ   //
+//                                          //
+//  ОБЩИЕ ФУНКЦИИ ДЛЯ СОЗДАНИЯ ИНТЕРФЕЙСОВ  //
 //                                          //
 
 // ФУНКЦИЯ-СБОРЩИК ФОРМИРОВАНИЯ ИНТЕРФЕЙСА ДЛЯ РАБОТЫ С АРХИВОМ //
@@ -1543,8 +1565,8 @@ const getCreateInterfasForWorkWithAdminPanel = () => {
   getByttonList();
   changeTable();
   switchingBetweenAdminPanels();
+  getTabsInProtocols();
 };
-
 //                                         //
 //  УСЛОВИЯ ДЛЯ ФОРМИРОВАНИЯ ИНТЕРФЕЙСОВ   //
 //                                         //
