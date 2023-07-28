@@ -1,3 +1,7 @@
+import {
+  applyInvisabilityOnElement
+} from '../universalFunctions.js';
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -9,15 +13,6 @@
 // УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
-
-//                         //
-//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
-//                         //
-
-// ФУНКЦИЯ ДЛЯ НАЛОЖЕНИЯ ТРЕБУЕМОГО СТИЛЯ НА ЭЛЕМЕНТ //
-function applyInvisabilityOnElement(item, property, meaning) {
-  item.style = `${property}: ${meaning}`;
-}
 
 //            //
 //  ФУНКЦИИ   //

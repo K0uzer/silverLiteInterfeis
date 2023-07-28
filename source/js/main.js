@@ -1,14 +1,16 @@
 import {
   createInterfeisOfArchiver,
-  getOpenBlokWithFolder,
-  getCloseBlokWithFolder,
   getCreateBlockForNewDocument,
   getTableElementFromArchiveDocuments,
   cutOutDocumentOfTable,
   putInElementInTable,
-  openWindowForFilterOfDocument,
-  getOpenedDocument,
   clearFilters,
+  openWindowForFilterOfDocument,
+  getOpenedDocument
+} from './functions/archive/functionsForWorkWithDocument.js';
+import {
+  getOpenBlokWithFolder,
+  getCloseBlokWithFolder,
   openWindowForCreateFolder,
   deleteFolder,
   cutTheFolder,
@@ -18,13 +20,14 @@ import {
   goUpToTheFolderToTheHigherLevel,
   updateTheTable,
   searchFolder
-} from './functions/functionsOfarchive.js';
+} from './functions/archive/functionsOfArchive.js';
 import {
   getByttonList,
   changeTable,
   switchingBetweenAdminPanels,
   getTabsInProtocols
-} from './functions/functionsOfAdm.js';
+} from './functions/administration/workWithAdminPanels.js';
+
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.

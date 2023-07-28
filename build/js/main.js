@@ -1,5 +1,279 @@
 "use strict";
 
+// JSON как объект //
+const data = [{
+  'id': 341,
+  'number_register': 4,
+  'id_subscriber': 4,
+  'type_document': 'Правовые документы',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01 17:52',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [3, 4],
+  'id_parent': 2
+}, {
+  'id': 342,
+  'number_register': 3,
+  'id_subscriber': 3,
+  'type_document': 'Баланс водопотребления и водоотведения',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [2],
+  'id_parent': 2
+}, {
+  'id': 343,
+  'number_register': 2,
+  'id_subscriber': 2,
+  'type_document': 'Служебные записи, рапорты',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [1],
+  'id_parent': 3
+}, {
+  'id': 344,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 4
+}, {
+  'id': 345,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 3
+}, {
+  'id': 346,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 347,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 4
+}, {
+  'id': 348,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 349,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 350,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 3
+}, {
+  'id': 351,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 3
+}, {
+  'id': 352,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 3
+}, {
+  'id': 353,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 4
+}, {
+  'id': 354,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 355,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 356,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}, {
+  'id': 357,
+  'number_register': 1,
+  'id_subscriber': 1,
+  'type_document': 'Проектно-техническая документация',
+  'comments': 'Заявление на опломбирование ',
+  'number__agreement': 12,
+  'name_object': 'Силенко И.П',
+  'date_registration': '2025-02-01',
+  'name_sity': 'Ростов-На-Дону',
+  'name_street': 'Льва Толстого',
+  'number_home': 5,
+  'number_body': 5,
+  'number_flat': 5,
+  'id_documents': [],
+  'id_parent': 2
+}];
 const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
 <section class="archive__folder">
   <div class="archive__filder-menu-container-img">
@@ -346,376 +620,6 @@ const rowTableDocument = () => `<tr>
 <td></td>
 </tr>`;
 
-// JSON как объект //
-const data = [{
-  'id': 341,
-  'number_register': 4,
-  'id_subscriber': 4,
-  'type_document': 'Правовые документы',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01 17:52',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [3, 4],
-  'id_parent': 2
-}, {
-  'id': 342,
-  'number_register': 3,
-  'id_subscriber': 3,
-  'type_document': 'Баланс водопотребления и водоотведения',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [2],
-  'id_parent': 2
-}, {
-  'id': 343,
-  'number_register': 2,
-  'id_subscriber': 2,
-  'type_document': 'Служебные записи, рапорты',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [1],
-  'id_parent': 3
-}, {
-  'id': 344,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 4
-}, {
-  'id': 345,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 3
-}, {
-  'id': 346,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 347,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 4
-}, {
-  'id': 348,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 349,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 350,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 3
-}, {
-  'id': 351,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 3
-}, {
-  'id': 352,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 3
-}, {
-  'id': 353,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 4
-}, {
-  'id': 354,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 355,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 356,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}, {
-  'id': 357,
-  'number_register': 1,
-  'id_subscriber': 1,
-  'type_document': 'Проектно-техническая документация',
-  'comments': 'Заявление на опломбирование ',
-  'number__agreement': 12,
-  'name_object': 'Силенко И.П',
-  'date_registration': '2025-02-01',
-  'name_sity': 'Ростов-На-Дону',
-  'name_street': 'Льва Толстого',
-  'number_home': 5,
-  'number_body': 5,
-  'number_flat': 5,
-  'id_documents': [],
-  'id_parent': 2
-}];
-const archiveFolderTableRow = () => `<tr>
-<td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
-<td></td>
-<td></td>
-</tr>`;
-const arrayChildrenOfFolderThree = [{
-  'idFolder': 2,
-  'idParent': 0,
-  'numberAgreement': 'Абонентское дело 1',
-  'numberSubscriber': 1,
-  'folderLevel': 1,
-  'comments': 'level1'
-}, {
-  'idFolder': 3,
-  'idParent': 0,
-  'numberAgreement': 'Абонентское дело 2',
-  'numberSubscriber': 2,
-  'folderLevel': 1,
-  'comments': 'level1'
-}, {
-  'idFolder': 3,
-  'idParent': 0,
-  'numberAgreement': 'Абонентское дело 3',
-  'numberSubscriber': 3,
-  'folderLevel': 1,
-  'comments': 'level1'
-}, {
-  'idFolder': 3,
-  'idParent': 3,
-  'numberAgreement': 'Абонентское дело 3.1',
-  'numberSubscriber': 5,
-  'folderLevel': 2,
-  'comments': 'level2'
-}, {
-  'idFolder': 3,
-  'idParent': 3,
-  'numberAgreement': 'Абонентское дело 3.2',
-  'numberSubscriber': 6,
-  'folderLevel': 2,
-  'comments': 'level2'
-}, {
-  'idFolder': 4,
-  'idParent': 1,
-  'numberAgreement': 'Проектно-техническая документация 1',
-  'numberSubscriber': 4,
-  'folderLevel': 1,
-  'comments': 'level1'
-}];
-const folderThree = [{
-  'idFolder': 0,
-  'idParent': null,
-  'numberAgreement': 'Абонентские дела',
-  'numberSubscriber': '-',
-  'folderLevel': 0
-}, {
-  'idFolder': 1,
-  'idParent': null,
-  'numberAgreement': 'Проектно-техническая документация',
-  'numberSubscriber': '-',
-  'folderLevel': 0
-}];
-const getContainerForCreateNewFolder = () => `
-<section class="archive__create-new-folder">
-  <h1 class="archive__create-new-folder-preview">Новая папка</h1>
-  <div class="archive__create-new-folder-of-form">
-    <input class="archive__create-new-folder-of-input" type="number" id="numberAgreement" placeholder="Номер договора" required>
-    <input class="archive__create-new-folder-of-input" type="number" id="numberSubscriber" placeholder="Абоненткий номер" required>
-    <input class="archive__create-new-folder-of-input" type="text" id="comment" placeholder="Комментарий" required>
-    <button class="archive__create-new-folder-of-button-create" type="submit" id="buttonSaveFolder">Создать</button>
-    </div>
-  </div>
-  <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
-</section>
-`;
-
-//            //
-// КОДНСТАНТЫ //
-//            //
-const acrchivePage = document.getElementById('p2');
-const countElementOfDocument = 11;
-const nameUser = 'Ганин А.В';
-
-//            //
-// ПЕРЕМЕННЫЕ //
-//            //
-
-let cutOutFolder = '';
-let cutOutDocument = '';
-let levelOfFolder = 0;
-
-// УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
-
-// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
-
-// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
-
 //                         //
 //  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
 //                         //
@@ -743,31 +647,36 @@ function createRow(talbe, array, getHtmlCode) {
   }
 }
 
+// ФУНКЦИЯ ДЛЯ НАЛОЖЕНИЯ ТРЕБУЕМОГО СТИЛЯ НА ЭЛЕМЕНТ //
+function applyInvisabilityOnElement(item, property, meaning) {
+  item.style = `${property}: ${meaning}`;
+}
+
+// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
+function fillInInformations(array) {
+  for (let i = 0; array.length > i; i++) {
+    createNewRowInTableForDocuments(array[i].id, i);
+  }
+  getInformationsForTable(array);
+}
+
 //            //
-//  ФУНКЦИИ   //
+// КОДНСТАНТЫ //
 //            //
+
+const acrchivePage = document.getElementById('p2');
+const countElementOfDocument = 11;
+const nameUser = 'Ганин А.В';
+
+//            //
+// ПЕРЕМЕННЫЕ //
+//            //
+
+let cutOutDocument = '';
 
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
-};
-
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
-const getOpenBlokWithFolder = () => {
-  const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
-  const archiveFolder = document.querySelector('.archive__folder');
-  buttonOfOpenBlockWithFolder.addEventListener('click', () => {
-    archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
-  });
-};
-
-// // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
-const getCloseBlokWithFolder = () => {
-  const archiveFolder = document.querySelector('.archive__folder');
-  const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
-  buttonOfcloseBlockWithFolder.addEventListener('click', () => {
-    archiveFolder.style = 'display: none;';
-  });
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
@@ -1051,22 +960,14 @@ function editOfDocument() {
   editButton.addEventListener('click', edit);
 }
 
-// ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ ДОКУМЕНТОВ //
+// ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ //
 function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
   tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
 }
 
-// ФУНЦИЯ ДЛЯ ЗАПОЛНЕНИЯ КОЛИЧЕСТВОМ ТРЕБУЕМЫХ ДОРОЖЕК В ТАБЛИЦУ К ЧИСЛУ ЭЛЕМЕНТОВ СФОРМИРОВАННОГО МАССИВА //
-function fillInInformations(array) {
-  for (let i = 0; array.length > i; i++) {
-    createNewRowInTableForDocuments(array[i].id, i);
-  }
-  getInformationsForTable(array);
-}
-
-// ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ ДОКУМЕНТОВ //
+// ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ //
 function getInformationsForTable(array) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   Array.from(tableBodyDocumentsOfArchive.children).forEach(item => {
@@ -1128,6 +1029,119 @@ function filterOfArray(array) {
   });
   fillInInformations(filteredArray);
 }
+const archiveFolderTableRow = () => `<tr>
+<td><input type="checkbox" class="archive__folder-table-of-checkbox" name="" id=""></td>
+<td></td>
+<td></td>
+</tr>`;
+const arrayChildrenOfFolderThree = [{
+  'idFolder': 2,
+  'idParent': 0,
+  'numberAgreement': 'Абонентское дело 1',
+  'numberSubscriber': 1,
+  'folderLevel': 1,
+  'comments': 'level1'
+}, {
+  'idFolder': 3,
+  'idParent': 0,
+  'numberAgreement': 'Абонентское дело 2',
+  'numberSubscriber': 2,
+  'folderLevel': 1,
+  'comments': 'level1'
+}, {
+  'idFolder': 3,
+  'idParent': 0,
+  'numberAgreement': 'Абонентское дело 3',
+  'numberSubscriber': 3,
+  'folderLevel': 1,
+  'comments': 'level1'
+}, {
+  'idFolder': 3,
+  'idParent': 3,
+  'numberAgreement': 'Абонентское дело 3.1',
+  'numberSubscriber': 5,
+  'folderLevel': 2,
+  'comments': 'level2'
+}, {
+  'idFolder': 3,
+  'idParent': 3,
+  'numberAgreement': 'Абонентское дело 3.2',
+  'numberSubscriber': 6,
+  'folderLevel': 2,
+  'comments': 'level2'
+}, {
+  'idFolder': 4,
+  'idParent': 1,
+  'numberAgreement': 'Проектно-техническая документация 1',
+  'numberSubscriber': 4,
+  'folderLevel': 1,
+  'comments': 'level1'
+}];
+const folderThree = [{
+  'idFolder': 0,
+  'idParent': null,
+  'numberAgreement': 'Абонентские дела',
+  'numberSubscriber': '-',
+  'folderLevel': 0
+}, {
+  'idFolder': 1,
+  'idParent': null,
+  'numberAgreement': 'Проектно-техническая документация',
+  'numberSubscriber': '-',
+  'folderLevel': 0
+}];
+const getContainerForCreateNewFolder = () => `
+<section class="archive__create-new-folder">
+  <h1 class="archive__create-new-folder-preview">Новая папка</h1>
+  <div class="archive__create-new-folder-of-form">
+    <input class="archive__create-new-folder-of-input" type="number" id="numberAgreement" placeholder="Номер договора" required>
+    <input class="archive__create-new-folder-of-input" type="number" id="numberSubscriber" placeholder="Абоненткий номер" required>
+    <input class="archive__create-new-folder-of-input" type="text" id="comment" placeholder="Комментарий" required>
+    <button class="archive__create-new-folder-of-button-create" type="submit" id="buttonSaveFolder">Создать</button>
+    </div>
+  </div>
+  <img class="archive__create-new-folder-of-button-out" src="./img/file/out.svg" alt="Кпонка выхода">
+</section>
+`;
+
+//            //
+// КОДНСТАНТЫ //
+//            //
+
+//            //
+// ПЕРЕМЕННЫЕ //
+//            //
+
+let cutOutFolder = '';
+let levelOfFolder = 0;
+
+// УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
+
+// УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
+
+// ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
+
+//            //
+//  ФУНКЦИИ   //
+//            //
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+const getOpenBlokWithFolder = () => {
+  const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
+  const archiveFolder = document.querySelector('.archive__folder');
+  buttonOfOpenBlockWithFolder.addEventListener('click', () => {
+    archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
+  });
+};
+
+// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+const getCloseBlokWithFolder = () => {
+  const archiveFolder = document.querySelector('.archive__folder');
+  const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
+  buttonOfcloseBlockWithFolder.addEventListener('click', () => {
+    archiveFolder.style = 'display: none;';
+  });
+};
 
 // ФУНУКЦИЯ ДЛЯ ЗАГРУЗКИ РОДИТЕЛЬСКИХ ПАПОК В ТАБЛИЦУ //
 function loadFolderParentInTable() {
@@ -1391,15 +1405,6 @@ function searchFolder() {
 // УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПЕРЕМЕННЫХ //
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕНОСА ПЕРЕМЕННЫХ //
-
-//                         //
-//  ФУНКЦИИ УНИВЕРСАЛЬНЫЕ  //
-//                         //
-
-// ФУНКЦИЯ ДЛЯ НАЛОЖЕНИЯ ТРЕБУЕМОГО СТИЛЯ НА ЭЛЕМЕНТ //
-function applyInvisabilityOnElement(item, property, meaning) {
-  item.style = `${property}: ${meaning}`;
-}
 
 //            //
 //  ФУНКЦИИ   //
