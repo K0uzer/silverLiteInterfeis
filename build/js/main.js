@@ -660,6 +660,20 @@ function fillInInformations(array) {
   getInformationsForTable(array);
 }
 
+// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ О ЗАГРУЖЕННОМ ФАЙЛЕ В INPUT //
+function getInfoFromFileInInput() {
+  const inputInWindowCreateDocument = document.querySelector('.archive__create-new-document-of-input-file');
+  const fileList = inputInWindowCreateDocument.files;
+  console.log(fileList);
+  if (fileList !== undefined) {
+    const file = fileList[0];
+    console.log('Имя файла: ' + file.name);
+    console.log('Тип файла: ' + file.type);
+    console.log('Размер файла: ' + file.size + ' байт');
+    console.log('Последнее изменение: ' + file.lastModifiedDate);
+  }
+}
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -721,7 +735,9 @@ const addDocumentInTable = arrayInputs => function arrayInputsOfCreateDocument()
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
-function addNewFile() {}
+function addNewFile() {
+  getInfoFromFileInInput();
+}
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
 function addElementInArrayOfDocument(arrayInputs) {
@@ -1253,6 +1269,7 @@ function getDownInFolderLevelBelow() {
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
 const getDownInFolderNotTopLevel = array => function () {
   console.log(array.filter(item => item.idParent === idFolder));
+  levelOfFolder++;
 };
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //

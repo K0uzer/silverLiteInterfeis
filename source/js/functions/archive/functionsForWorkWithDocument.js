@@ -22,6 +22,9 @@ import {
 import {
   fillInInformations
 } from '../universalFunctions.js';
+import {
+  getInfoFromFileInInput
+} from './funcrionsForWorkWithFile.js';
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -85,7 +88,7 @@ const addDocumentInTable = (arrayInputs) => function arrayInputsOfCreateDocument
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
 function addNewFile() {
-
+  getInfoFromFileInInput();
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
