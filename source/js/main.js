@@ -20,7 +20,7 @@ import {
   goUpToTheFolderToTheHigherLevel,
   updateTheTable,
   searchFolder
-} from './functions/archive/functionsOfArchive.js';
+} from './functions/archive/functionsForWorkWithFolder.js';
 import {
   getByttonList,
   changeTable,

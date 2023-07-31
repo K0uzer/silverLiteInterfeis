@@ -1250,6 +1250,11 @@ function getDownInFolderLevelBelow() {
   }
 }
 
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
+const getDownInFolderNotTopLevel = array => function () {
+  console.log(array.filter(item => item.idParent === idFolder));
+};
+
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder) {
   levelOfFolder++;
@@ -1263,6 +1268,14 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
   fillInInformations(data);
+  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+  if (arrayChildrenOfTableBody.length > 1) {
+    for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+      for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder));
+      }
+    }
+  }
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
