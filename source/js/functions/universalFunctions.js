@@ -50,3 +50,10 @@ export function fillInInformations(array) {
 export function getButtonDisableOrEnable(button, type) {
   button.disabled = `${type}`;
 };
+
+// ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ДОРОЖКИ ТАБЛИЦЫ //
+export const deleteFile = (item) => function getProsessOfRemove() {
+  const parentElement = item.parentNode;
+  const mainParent = parentElement.parentNode;
+  mainParent.remove();
+};

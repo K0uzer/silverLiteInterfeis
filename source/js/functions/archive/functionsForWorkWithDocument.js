@@ -119,11 +119,14 @@ function createDocument() {
   const buttonOfAddDocument = document.querySelector('.archive__create-new-document-of-button-add-new-file');
   const buttonOfCreateDocument = document.querySelector('.archive__create-new-document-of-button-create');
   const doucmentId = document.querySelector('.archive__document-of-id');
+  const inputInWindowCreateDocument = document.querySelector('.archive__create-new-document-of-input-file');
+  const infoListElements = document.querySelectorAll('.archive__create-new-document-element-of-info');
+  const tableBodyOfTableFiles = document.querySelector('.archive__create-new-document-of-table-body');
   getCurrentTime(arrayInputsOfCreateDocument[1]);
   doucmentId.textContent = data[data.length - 1].id_subscriber + 1;
   dateLastChangeDocument.textContent = arrayInputsOfCreateDocument[1].value;
   nameUserOfCreatedDocument.textContent = nameUser;
-  buttonOfAddDocument.addEventListener('click', addNewFile);
+  buttonOfAddDocument.addEventListener('click', addNewFile(inputInWindowCreateDocument, infoListElements[3].textContent), tableBodyOfTableFiles);
   buttonOfCreateDocument.addEventListener('click', addDocumentInTable(arrayInputsOfCreateDocument));
 };
 
@@ -213,7 +216,7 @@ export function closeWindowForFilterOfDocument() {
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
 const openDocument = (target) => function getDoc() {
   const archiveFile = document.querySelector('.archive__file');
-  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument();
+  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, `10.01.2022`, `Абонентские дела`);
   const documentIdSubscriber = document.querySelector('.archive__document-of-id');
   const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
   const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
