@@ -6,8 +6,8 @@ import {
   deleteFile
 } from '../universalFunctions.js';
 
-// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ О ЗАГРУЖЕННОМ ФАЙЛЕ В INPUT //
-const getInfoFromFileInInput = (input, infoOfFolder, tableBody) => {
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
+export const addNewFile = (input, infoList, tableBody) => function addFile() {
   const fileList = input.files;
   if(fileList !== undefined) {
     const file = fileList[0];
@@ -15,11 +15,6 @@ const getInfoFromFileInInput = (input, infoOfFolder, tableBody) => {
     tableBody.innerHTML += archiveCreateFileRowOfTable(file.name, `${file.size/8} кб`, nameUser, infoOfFolder);
   }
   deleteFileFromTable();
-};
-
-// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
-export const addNewFile = (input, infoList, tableBody) => function addFile() {
-  getInfoFromFileInInput(input, infoList, tableBody);
 };
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ФАЙЛА ИЗ ТАБЛИЦЫ //
