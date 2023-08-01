@@ -23,8 +23,9 @@ import {
   fillInInformations
 } from '../universalFunctions.js';
 import {
-  getInfoFromFileInInput
+  addNewFile
 } from './funcrionsForWorkWithFile.js';
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -82,13 +83,7 @@ const addDocumentInTable = (arrayInputs) => function arrayInputsOfCreateDocument
   fillInInformations(arrayForNewElementOfTalbe);
   const textAreaOfCreateDocument = document.querySelector('.archive__create-new-document-of-textarea');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-
   addElementInArrayOfDocument(arrayInputs);
-};
-
-// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
-function addNewFile() {
-  getInfoFromFileInInput();
 };
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА В ГЛАВНЫЙ МАССИВ ДОКУМЕТНОВ //
@@ -116,7 +111,7 @@ function addElementInArrayOfDocument(arrayInputs) {
   };
 };
 
-// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ СОЗДАНИЯ ДОКУМЕНТА //
 function createDocument() {
   const arrayInputsOfCreateDocument = document.querySelectorAll('.archive__create-new-document-of-input');
   const nameUserOfCreatedDocument = document.getElementById('idNewDocument');

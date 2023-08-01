@@ -1,3 +1,4 @@
+
 export const getArchiveContainerOfCreateNewDocument = () => `
 <section class="archive__container-of-create-new-document">
   <div class="archive__wrapper-of-id-document">
@@ -21,7 +22,21 @@ export const getArchiveContainerOfCreateNewDocument = () => `
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">Тип документа:</span>
-        <input class="archive__create-new-document-of-input" type="text" name="" id="">
+        <select class="archive__create-new-document-of-input">
+          <option value="-">Выбор типа</option>
+          <option value="Правовые документы">Правовые документы</option>
+          <option value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+          <option value="Заявления">Заявления</option>
+          <option value="Акты">Акты</option>
+          <option value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+          <option value="Технический паспорт объекта">Технический паспорт объекта</option>
+          <option value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+          <option value="Договор">Договор</option>
+          <option value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+          <option value="Прочие документы">Прочие документы</option>
+          <option value="Проектно-техническая документация">Проектно-техническая документация</option>
+          <option value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+        </select>
       </div>
       <div class="archive__create-new-document-of-element-form">
         <span class="archive__create-new-document-of-text">ФИО:</span>
@@ -59,58 +74,25 @@ export const getArchiveContainerOfCreateNewDocument = () => `
           <th><img class="archive__create-new-document-of-table-thead-img-for-list-del" src="./img/file/task.svg" alt="" srcset=""></th>
           <th>Имя файла</th>
           <th>Тип</th>
+          <th>Размер</th>
           <th>Автор</th>
           <th>Дата публикации</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
-          <td>4123124</td>
-          <td>4124</td>
-          <td>124</td>
-          <td>1527</td>
-        </tr>
-        <tr>
-          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
-          <td>4123124</td>
-          <td>4124</td>
-          <td>124</td>
-          <td>1527</td>
-        </tr>
-        <tr>
-          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
-          <td>4123124</td>
-          <td>4124</td>
-          <td>124</td>
-          <td>1527</td>
-        </tr>
-        <tr>
-          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
-          <td>4123124</td>
-          <td>4124</td>
-          <td>124</td>
-          <td>1527</td>
-        </tr>
-        <tr>
-          <td><button class="archive__create-new-document-of-table-button-for-delete">Удалить</button></td>
-          <td>4123124</td>
-          <td>4124</td>
-          <td>124</td>
-          <td>1527</td>
-        </tr>
+      <tbody class="archive__create-new-document-of-table-body">
+
       </tbody>
     </table>
     <input class="archive__create-new-document-of-input-file" type="file">
     <button class="archive__create-new-document-of-button-add-new-file">Добавить файл</button>
-    <button class="archive__create-new-document-of-button-create" type="submit">Создать документ</button>
+    <button class="archive__create-new-document-of-button-create">Создать документ</button>
     <div class="archive__create-new-document-wrapper-of-info">
       <div class="archive__create-new-document-element-of-info">
         <span class="archive__create-new-document-element-of-text">Создатель документа:</span>
         <span class="archive__create-new-document-element-of-info" id="idNewDocument"></span>
       </div>
       <div class="archive__create-new-document-element-of-info">
-        <span class="archive__create-new-document-element-of-text">Дата последнего изменения:</span>
+        <span class="archive__create-new-document-element-of-text">Дата создания:</span>
         <span class="archive__create-new-document-element-of-info" id="dateOfChangeDocument"></span>
       </div>
       <div class="archive__create-new-document-element-of-info">

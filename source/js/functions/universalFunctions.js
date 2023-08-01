@@ -45,3 +45,8 @@ export function fillInInformations(array) {
   };
   getInformationsForTable(array);
 };
+
+// ФУНКЦИЯ ДЛЯ ОТКЛЮЧЕНИЯ И ВЫКЛЮЧЕНИЯ КНОПКИ //
+export function getButtonDisableOrEnable(button, type) {
+  button.disabled = `${type}`;
+};
