@@ -1,18 +1,20 @@
 import {
   archiveCreateFileRowOfTable
 } from '../../view/archive/archive__create-file-row-of-table.js';
-import { nameUser } from './functionsForWorkWithDocument.js';
+import {
+  nameUser
+} from './functionsForWorkWithDocument.js';
 import {
   deleteFile
 } from '../universalFunctions.js';
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
-export const addNewFile = (input, infoList, tableBody) => function addFile() {
+export const addNewFile = (input, infoList, tableBody) => function add() {
   const fileList = input.files;
   if(fileList !== undefined) {
     const file = fileList[0];
     // ЗАЛИВАЕМ ГОТОВЫЙ HTML КОД ИЗ ФУНКЦИИ С ДОБАВЛЕНИЕМ ДАННЫХ ОБ ЗАГРУЖЕННОМ ФАЙЛЕ //
-    tableBody.innerHTML += archiveCreateFileRowOfTable(file.name, `${file.size/8} кб`, nameUser, infoOfFolder);
+    tableBody.innerHTML += archiveCreateFileRowOfTable(file.name, `${file.size/8} кб`, nameUser, infoList);
   }
   deleteFileFromTable();
 };

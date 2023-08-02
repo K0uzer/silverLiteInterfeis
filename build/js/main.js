@@ -675,21 +675,15 @@ const archiveCreateFileRowOfTable = (fileName, fileSize, fileCreator, fileDateCr
 <td>${fileDateCrate}</td>
 </tr>`;
 
-// ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ О ЗАГРУЖЕННОМ ФАЙЛЕ В INPUT //
-const getInfoFromFileInInput = (input, infoOfFolder) => {
+// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
+const addNewFile = (input, infoList, tableBody) => function add() {
   const fileList = input.files;
-  const tableBodyOfTableFiles = document.querySelector('.archive__create-new-document-of-table-body');
   if (fileList !== undefined) {
     const file = fileList[0];
     // ЗАЛИВАЕМ ГОТОВЫЙ HTML КОД ИЗ ФУНКЦИИ С ДОБАВЛЕНИЕМ ДАННЫХ ОБ ЗАГРУЖЕННОМ ФАЙЛЕ //
-    tableBodyOfTableFiles.innerHTML += archiveCreateFileRowOfTable(file.name, `${file.size / 8} кб`, nameUser, infoOfFolder);
+    tableBody.innerHTML += archiveCreateFileRowOfTable(file.name, `${file.size / 8} кб`, nameUser, infoList);
   }
   deleteFileFromTable();
-};
-
-// ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
-const addNewFile = (input, infoList) => function addFile() {
-  getInfoFromFileInInput(input, infoList);
 };
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ФАЙЛА ИЗ ТАБЛИЦЫ //
@@ -777,11 +771,12 @@ function createDocument() {
   const doucmentId = document.querySelector('.archive__document-of-id');
   const inputInWindowCreateDocument = document.querySelector('.archive__create-new-document-of-input-file');
   const infoListElements = document.querySelectorAll('.archive__create-new-document-element-of-info');
+  const tableBodyOfTableFiles = document.querySelector('.archive__create-new-document-of-table-body');
   getCurrentTime(arrayInputsOfCreateDocument[1]);
   doucmentId.textContent = data[data.length - 1].id_subscriber + 1;
   dateLastChangeDocument.textContent = arrayInputsOfCreateDocument[1].value;
   nameUserOfCreatedDocument.textContent = nameUser;
-  buttonOfAddDocument.addEventListener('click', addNewFile(inputInWindowCreateDocument, infoListElements[3].textContent));
+  buttonOfAddDocument.addEventListener('click', addNewFile(inputInWindowCreateDocument, infoListElements[3].textContent, tableBodyOfTableFiles));
   buttonOfCreateDocument.addEventListener('click', addDocumentInTable(arrayInputsOfCreateDocument));
 }
 
@@ -869,7 +864,7 @@ function closeWindowForFilterOfDocument() {
   buttonOutForWindowFilterDocument.addEventListener('click', removeWindowOfFilter);
 }
 
-// ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
 const openDocument = target => function getDoc() {
   const archiveFile = document.querySelector('.archive__file');
   archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, `10.01.2022`, `Абонентские дела`);
@@ -936,10 +931,12 @@ function editOfDocument() {
   const checkBoxOfDocument = document.querySelector('.archive__opened-document-of-table-button-for-delete');
   const tableWithTheFile = document.querySelector('.archive__opened-document-of-table');
   const inputOfTheTableFile = document.querySelector('.archive__opened-document-of-table-button-for-delete');
+  const infoListCreatedElements = document.querySelectorAll('.archive__opened-document-element-of-info');
+  const inputOfOpendDocument = document.querySelector('.archive__opened-document-of-input-add-new-file');
 
   // Функция для добавления файла //
   const addFile = () => {
-    console.log('Присоеденить');
+    buttonsOfControlsDocument[0].addEventListener('click', addNewFile(inputOfOpendDocument, infoListCreatedElements[3].textContent, tableWithTheFile.children[1]));
   };
 
   // функция для просмотр файлов //
@@ -956,10 +953,32 @@ function editOfDocument() {
 
   // Функция для печати файла //
   const printFile = () => {
-    const el = document.querySelector('.archive__container-of-opened-document');
+    const windowForPrint = document.createElement('section');
+    const containerForImg = document.createElement('div');
+    const imgForPrint = document.createElement('img');
+    document.body.append(windowForPrint);
+    windowForPrint.append(containerForImg);
+    containerForImg.append(imgForPrint);
+    windowForPrint.classList.add('container-for-print-file');
+    imgForPrint.style = 'display: block; width: 200px; height: auto;';
+    imgForPrint.src = '../../../doc/photo_2023-05-23_10-20-03.jpg';
+    windowForPrint.style = 'display: flex; position: absolute; justify-content: center; align-items: center; z-index: 5; width: 100%; height: 100%; background-color: white;';
+    windowForPrint.children.style = 'display: block; width: 70%; height: 70%;';
+    const el = document.querySelector('.container-for-print-file');
     console.log('Печать');
     window.print(el.innerHTML);
+    const containerForPrint = document.querySelector('.container-for-print-file');
+    closeWindowForPrint(containerForPrint);
   };
+
+  // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА С ДОКУМЕНТОМ //
+  function closeWindowForPrint(container) {
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        container.remove();
+      }
+    });
+  }
 
   // Функция для вывода протоколов печати //
   const showProtocols = () => {
