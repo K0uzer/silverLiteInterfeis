@@ -677,6 +677,7 @@ const archiveCreateFileRowOfTable = (fileName, fileSize, fileCreator, fileDateCr
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
 const addNewFile = (input, infoList, tableBody) => function add() {
+  console.log(2);
   const fileList = input.files;
   if (fileList !== undefined) {
     const file = fileList[0];
@@ -693,6 +694,9 @@ function deleteFileFromTable() {
   buttonsOfDeleteFile.forEach(item => item.addEventListener('click', deleteFile(item)));
 }
 
+// import {
+//   Sane
+// } from '/node_modules/sane/index.js';
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -867,7 +871,7 @@ function closeWindowForFilterOfDocument() {
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
 const openDocument = target => function getDoc() {
   const archiveFile = document.querySelector('.archive__file');
-  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, `10.01.2022`, `Абонентские дела`);
+  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, '10.01.2022', 'Абонентские дела');
   const documentIdSubscriber = document.querySelector('.archive__document-of-id');
   const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
   const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
@@ -935,24 +939,25 @@ function editOfDocument() {
   const inputOfOpendDocument = document.querySelector('.archive__opened-document-of-input-add-new-file');
 
   // Функция для добавления файла //
-  const addFile = () => {
-    buttonsOfControlsDocument[0].addEventListener('click', addNewFile(inputOfOpendDocument, infoListCreatedElements[3].textContent, tableWithTheFile.children[1]));
-  };
+  const addFile = () => buttonsOfControlsDocument[0].addEventListener('click', addNewFile(inputOfOpendDocument, infoListCreatedElements[3].textContent, tableWithTheFile.children[1]));
 
-  // функция для просмотр файлов //
+  // Функция-сборщик для просмотр файлов //
   const showFile = () => {
+    // Функция для просмотр файлов (НЕ PDF) //
+    // createWindowForPrintFile();
+    // Функция для просмотра файла (PDF) //
     console.log('Показать');
   };
 
-  // функция для удаления выбранного файла //
+  // Функция для просмотра файла (PDF) //
   const deleteFile$$1 = () => {
     Array.from(tableWithTheFile.children).forEach(tableElement => {
       tableElement.children[0].contains(inputOfTheTableFile) && inputOfTheTableFile.checked ? tableElement.children[0].remove() : console.log('Элемент не подлежит удалению ' + tableElement.children[0]);
     });
   };
 
-  // Функция для печати файла //
-  const printFile = () => {
+  // Функция для создания окна печати //
+  function createWindowForPrintFile() {
     const windowForPrint = document.createElement('section');
     const containerForImg = document.createElement('div');
     const imgForPrint = document.createElement('img');
@@ -960,16 +965,33 @@ function editOfDocument() {
     windowForPrint.append(containerForImg);
     containerForImg.append(imgForPrint);
     windowForPrint.classList.add('container-for-print-file');
-    imgForPrint.style = 'display: block; width: 200px; height: auto;';
-    imgForPrint.src = '../../../doc/photo_2023-05-23_10-20-03.jpg';
+    imgForPrint.onload = function () {
+      imgForPrint.style = 'display: block; width: 200px; height: auto;';
+      imgForPrint.src = '/photo_2023-05-23_10-20-03.jpg';
+    }();
     windowForPrint.style = 'display: flex; position: absolute; justify-content: center; align-items: center; z-index: 5; width: 100%; height: 100%; background-color: white;';
     windowForPrint.children.style = 'display: block; width: 70%; height: 70%;';
+    const containerForPrint = document.querySelector('.container-for-print-file');
+    closeWindowForPrint(containerForPrint);
+  }
+
+  // Функция для печати файла //
+  const printFile = () => {
+    createWindowForPrintFile();
     const el = document.querySelector('.container-for-print-file');
     console.log('Печать');
     window.print(el.innerHTML);
-    const containerForPrint = document.querySelector('.container-for-print-file');
-    closeWindowForPrint(containerForPrint);
   };
+
+  // Функция для вывода требуемого изображения //
+  // addImageProcess(src){
+  //   return new Promise((resolve, reject) => {
+  //     let img = new Image()
+  //     img.onload = () => resolve(img.height)
+  //     img.onerror = reject
+  //     img.src = src
+  //   })
+  // }
 
   // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА С ДОКУМЕНТОМ //
   function closeWindowForPrint(container) {
@@ -999,10 +1021,10 @@ function editOfDocument() {
   // Функция-сборщик для работы с данными документа и его редактированием //
   function edit() {
     editButton.textContent = 'Сохранить';
-    editButton.type = 'submit';
+    editButton.type = '';
     buttonsOfControlsDocument.forEach(item => {
       item.disabled = false;
-      if (item.textContent === 'Присоеденить') item.addEventListener('click', addFile);
+      if (item.textContent === 'Присоеденить') item.addEventListener('click', addFile());
       if (item.textContent === 'Показать') item.addEventListener('click', showFile);
       if (item.textContent === 'Удалить') item.addEventListener('click', deleteFile$$1);
       if (item.textContent === 'Печать') item.addEventListener('click', printFile);
@@ -1567,6 +1589,7 @@ function getTabsInProtocols() {
   });
 }
 
+// import Dynamsoft from 'dwt';
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.

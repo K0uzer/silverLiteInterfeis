@@ -10,6 +10,7 @@ import {
 
 // ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ НОВОГО ФАЙЛА //
 export const addNewFile = (input, infoList, tableBody) => function add() {
+  console.log(2);
   const fileList = input.files;
   if(fileList !== undefined) {
     const file = fileList[0];

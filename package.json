@@ -60,5 +60,9 @@
     "source/js/**/*.js",
     "source/img/**/*.svg",
     "source/sass/**/*.scss"
-  ]
+  ],
+  "dependencies": {
+    "dwt": "^18.3.0",
+    "sane": "^5.0.1"
+  }
 }

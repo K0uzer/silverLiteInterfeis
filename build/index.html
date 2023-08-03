@@ -22,7 +22,7 @@
         <div class="ct" id="t2">
           <div class="ct" id="t3">
             <div class="ct" id="t4">
-              <div class="ct" id="t5">
+              < class="ct" id="t5">
                 <ul id="menu">
                   <a href="#t1">
                     <li class="menu__icon fa fa-bolt" id="uno">Главная</li>
@@ -46,9 +46,9 @@
                     <h1 class="title">Электронный архив</h1><span class="hint">Добро пожаловать, Александр</span>
                   </section>
                 </div>
+
                 <div class="page archive" id="p2">
                   <h1 class="title">Абонентские дела</h1>
-
                 </div>
                 <div class="page sittings" id="p3">
                   <h1 class="title">Настройки</h1>
@@ -69,7 +69,48 @@
                     <p class="hint"><a href="http://www.dribbble.com/mrpeters" target="_blank"></a></p>
                   </div>
                   <section>
+                    <script src="../node_modules/sane/index.js"></script>
+                    <button id="scanButton" style="display: block; position: absolute; width: 100%; height: 100%; z-index: 10;">Scan</button>
+                    <script>
 
+                      // Обработчик нажатия кнопки "Scan"
+                      document.getElementById('scanButton').addEventListener('click', async function() {
+                        try {
+                          // Получение доступных сканеров
+                          const devices = await SANE.getDevices();
+
+                          if (devices.length === 0) {
+                            console.log('Сканеры не найдены');
+                            return;
+                          }
+
+                          // Выбор первого сканера
+                          const scanner = new SANE.Scanner(devices[0]);
+
+                          // Установка параметров сканирования
+                          scanner.setOption('resolution', 300);
+                          scanner.setOption('mode', 'color');
+
+                          // Сканирование документа
+                          const { data } = await scanner.scan();
+
+                          // Создание ссылки для загрузки сканированного документа
+                          const blob = new Blob([data], { type: 'application/pdf' });
+                          const url = URL.createObjectURL(blob);
+
+                          // Создание ссылки для загрузки сканированного документа
+                          const link = document.createElement('a');
+                          link.href = url;
+                          link.download = 'scanned_document.pdf';
+                          link.click();
+
+                          // Освобождение ресурсов
+                          URL.revokeObjectURL(url);
+                        } catch (error) {
+                          console.error('Ошибка сканирования:', error);
+                        }
+                      });
+                    </script>
                   </section>
                 </div>
                 <div class="page" id="p5">
@@ -415,6 +456,8 @@
   <footer class="footer">
 
   </footer>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js" integrity="sha512-9jr6up7aOKJkN7JmtsxSdU+QibDjV6m6gL+I76JdpX1qQy8Y5nxAWVjvKMaBkETDC3TP3V2zvIk+zG7734WqPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sane@5.0.1/index.min.js"></script> -->
   <script src="./js/main.js" type="module"></script>
 </body>
 </html>

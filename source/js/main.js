@@ -27,7 +27,7 @@ import {
   switchingBetweenAdminPanels,
   getTabsInProtocols
 } from './functions/administration/workWithAdminPanels.js';
-
+// import Dynamsoft from 'dwt';
 /*
 ОСНОВНЫЕ ЭЛЕМЕНТЫ
 файл < документ < папка.
