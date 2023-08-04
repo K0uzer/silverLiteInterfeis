@@ -25,6 +25,9 @@ import {
 import {
   addNewFile
 } from './funcrionsForWorkWithFile.js';
+import {
+  protocolsOfPrint
+} from '../../view/archive/archive__protocols-of-print.js';
 // import {
 //   Sane
 // } from '/node_modules/sane/index.js';
@@ -358,11 +361,19 @@ export function editOfDocument() {
         container.remove();
       }
     });
-  }
+  };
+
+  // Функция закрытия окна протоколов печати //
+  const closeWindowProtocolsOfPrint = (parent) => function removeWindowProtocols() {
+    parent.children[3].remove();
+  };
 
   // Функция для вывода протоколов печати //
   const showProtocols = () => {
-    console.log('Протоколы печати');
+    const archiveFile = document.querySelector('.archive__file');
+    archiveFile.innerHTML += protocolsOfPrint();
+    const buttonCloseWindowProtocolsOfPrint = document.querySelector('.protocols-of-print__button-close');
+    buttonCloseWindowProtocolsOfPrint.addEventListener('click', closeWindowProtocolsOfPrint(archiveFile));
   };
 
   // Функция для сохранения изменений в документе //
