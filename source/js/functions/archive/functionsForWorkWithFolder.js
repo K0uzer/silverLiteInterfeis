@@ -198,7 +198,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
 // ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ //
 function getDocumentsFromFolder(event, level) {
   let parentFolter;
-  if(level < 2) {
+  if(level !== 0) {
     parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
   } else {
     parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
