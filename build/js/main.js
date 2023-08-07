@@ -144,7 +144,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 0
 }, {
   'id': 350,
   'number_register': 1,
@@ -1175,21 +1175,21 @@ const arrayChildrenOfFolderThree = [{
   'folderLevel': 1,
   'comments': 'level1'
 }, {
-  'idFolder': 3,
+  'idFolder': 4,
   'idParent': 3,
   'numberAgreement': 'Абонентское дело 3.1',
   'numberSubscriber': 5,
   'folderLevel': 2,
   'comments': 'level2'
 }, {
-  'idFolder': 3,
+  'idFolder': 5,
   'idParent': 3,
   'numberAgreement': 'Абонентское дело 3.2',
   'numberSubscriber': 6,
   'folderLevel': 2,
   'comments': 'level2'
 }, {
-  'idFolder': 4,
+  'idFolder': 6,
   'idParent': 1,
   'numberAgreement': 'Проектно-техническая документация 1',
   'numberSubscriber': 4,
@@ -1387,7 +1387,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === idFolder);
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-  fillInInformations(data);
+  getDocumentsFromFolder(event, levelOfFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   if (arrayChildrenOfTableBody.length > 1) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
@@ -1396,6 +1396,18 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
       }
     }
   }
+}
+
+// ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ //
+function getDocumentsFromFolder(event, level) {
+  let parentFolter;
+  if (level < 2) {
+    parentFolter = folderThree.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  } else {
+    parentFolter = folderThree.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  }
+  const filteredArrayOfDocument = data.filter(item => item.id_parent === parentFolter[0].idFolder);
+  fillInInformations(filteredArrayOfDocument);
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
@@ -1642,6 +1654,7 @@ function getTabsInProtocols() {
 //            //
 // КОДНСТАНТЫ //
 //            //
+
 const levelAcceptOfUser = 1;
 
 //            //

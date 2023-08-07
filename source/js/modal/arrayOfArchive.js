@@ -151,7 +151,7 @@ export const data = [
     'number_body': 5,
     'number_flat': 5,
     'id_documents': [],
-    'id_parent': 2,
+    'id_parent': 0,
   },
   {
     'id': 350,

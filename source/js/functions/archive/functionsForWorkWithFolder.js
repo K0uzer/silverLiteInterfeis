@@ -184,7 +184,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === idFolder);
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-  fillInInformations(data);
+  getDocumentsFromFolder(event, levelOfFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   if(arrayChildrenOfTableBody.length > 1) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
@@ -193,6 +193,18 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
       }
     }
   }
+}
+
+// ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ //
+function getDocumentsFromFolder(event, level) {
+  let parentFolter;
+  if(level < 2) {
+    parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  } else {
+    parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  }
+  const filteredArrayOfDocument = data.filter((item) => item.id_parent === parentFolter[0].idFolder);
+  fillInInformations(filteredArrayOfDocument);
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //

@@ -40,6 +40,7 @@ import {
 //            //
 // КОДНСТАНТЫ //
 //            //
+
 const levelAcceptOfUser = 1;
 
 //            //
