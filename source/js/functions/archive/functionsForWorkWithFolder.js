@@ -167,13 +167,17 @@ export function getDownInFolderLevelBelow() {
 }
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
-const getDownInFolderNotTopLevel = (array, folder, tableBody) => function () {
+const getDownInFolderNotTopLevel = (array, folder, folderTableBody, event, level) => function () {
+  const docTableBody = '.scroll-table-body';
   if(array.filter((item) => item.idParent === folder).length !== 0) {
-    tableBody.innerHTML = '';
+    folderTableBody.innerHTML = '';
+    docTableBody.innerHTML = '';
     console.log(array.filter((item) => item.idParent === folder));
     console.log(folder);
+    getContentOfFolder(folderTableBody, array.filter((item) => item.idParent === folder));
+    getDocumentsFromFolder(event, level);
   } else {
-    tableBody.innerHTML = '';
+    docTableBody.innerHTML = '';
     console.log(array.filter((item) => item.idParent === folder));
     console.log(folder);
   }
@@ -197,7 +201,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
   if(levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
-        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent));
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, event, levelOfFolder));
       }
     }
   }
