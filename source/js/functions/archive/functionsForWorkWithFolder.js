@@ -183,6 +183,7 @@ const getDownInFolderNotTopLevel = (array, folder, folderTableBody, event, curre
     console.log(array.filter((item) => item.idParent === folder));
     console.log(folder);
   }
+  getDocumentsFromFolder(event, levelOfFolder);
   submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 3);
 };
 
@@ -198,7 +199,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === idFolder);
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-  getDocumentsFromFolder(event, levelOfFolder);
+  getDocumentsFromFolder(event, levelOfFolder, idFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   if(levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
@@ -210,12 +211,19 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
 }
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ ДЛЯ ОТРИСОВКИ ФАЙЛОВ //
-function getDocumentsFromFolder(event, level) {
+function getDocumentsFromFolder(event, level, idFolder) {
   let parentFolter;
-  if (level !== 0) parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
-  else parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
-  const filteredArrayOfDocument = data.filter((item) => item.id_parent === parentFolter[0].idFolder);
-  fillInInformations(filteredArrayOfDocument);
+  if (level !== 0) {
+    parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+    if(folderThree.length !== 0) {
+      console.log(1)
+      const filteredArrayOfDocument = data.filter((item) => item.id_parent === parentFolter[0].idFolder);
+      fillInInformations(filteredArrayOfDocument);
+    }
+  }
+  else {
+    parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  }
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
