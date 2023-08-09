@@ -1416,8 +1416,8 @@ function getDocumentsFromFolder(event, level, idFolder) {
   if (level !== 0) {
     parentFolter = folderThree.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
     if (folderThree.length !== 0) {
-      console.log(1);
-      const filteredArrayOfDocument = data.filter(item => item.id_parent === parentFolter[0].idFolder);
+      console.log('массив фильтрованный', parentFolter);
+      const filteredArrayOfDocument = data.filter(item => item.id_parent === idFolder);
       fillInInformations(filteredArrayOfDocument);
     }
   } else {
