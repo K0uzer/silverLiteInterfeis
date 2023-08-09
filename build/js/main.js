@@ -1355,9 +1355,9 @@ function getDownInFolderLevelBelow() {
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getFolderLevelBelow = () => function getDown(event) {
     if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
-      submergence('Абонентские дела', currentFodler, folderTableBody, 0);
+      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
     } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
-      submergence('Проектно-техническая документация', currentFodler, folderTableBody, 1);
+      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
     }
     goUpToTheFolderToTheTopLevel();
     goUpToTheFolderToTheHigherLevel();
@@ -1370,22 +1370,24 @@ function getDownInFolderLevelBelow() {
 }
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
-const getDownInFolderNotTopLevel = (array, folder, folderTableBody, event, level) => function () {
+const getDownInFolderNotTopLevel = (array, folder, folderTableBody, event, currentFodler) => function () {
   if (array.filter(item => item.idParent === folder).length !== 0) {
+    console.log(1);
     folderTableBody.innerHTML = '';
     console.log(array.filter(item => item.idParent === folder));
     console.log(folder);
     getContentOfFolder(folderTableBody, array.filter(item => item.idParent === folder));
     getDocumentsFromFolder(event, level);
   } else {
+    console.log(2);
     console.log(array.filter(item => item.idParent === folder));
     console.log(folder);
   }
-  levelOfFolder++;
+  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 3);
 };
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
-function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder) {
+function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
   levelOfFolder++;
   if (event.target.textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
@@ -1401,7 +1403,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder)
   if (levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
-        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, event, levelOfFolder));
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, event, currentFodler, level));
       }
     }
   }
