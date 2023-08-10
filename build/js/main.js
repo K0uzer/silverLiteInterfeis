@@ -272,7 +272,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 2
+  'id_parent': 6
 }];
 const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
 <section class="archive__folder">
@@ -1388,7 +1388,10 @@ const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodle
     // console.log(folder);
   }
   // getDocumentsFromFolder(event, levelOfFolder);
-  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 4);
+  const idElementFromOfFilteredArray = array.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  console.log(idElementFromOfFilteredArray);
+  console.log(event.target.parentNode.children[2].textContent);
+  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
 };
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //

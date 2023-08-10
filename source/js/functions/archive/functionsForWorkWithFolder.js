@@ -185,7 +185,10 @@ const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodle
     // console.log(folder);
   }
   // getDocumentsFromFolder(event, levelOfFolder);
-  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 4);
+  const idElementFromOfFilteredArray = array.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+  console.log(idElementFromOfFilteredArray);
+  console.log(event.target.parentNode.children[2].textContent)
+  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
 };
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
