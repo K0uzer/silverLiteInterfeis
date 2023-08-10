@@ -1369,21 +1369,25 @@ function getDownInFolderLevelBelow() {
   }
 }
 
-// ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
-const getDownInFolderNotTopLevel = (array, folder, folderTableBody, event, currentFodler) => function () {
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
+const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
+  const docTableBody = document.querySelector('.scroll-table-body');
+  event.stopPropagation();
   if (array.filter(item => item.idParent === folder).length !== 0) {
-    console.log(1);
-    folderTableBody.innerHTML = '';
-    console.log(array.filter(item => item.idParent === folder));
-    console.log(folder);
-    getContentOfFolder(folderTableBody, array.filter(item => item.idParent === folder));
-    getDocumentsFromFolder(event, level);
+    console.log('Длина фильтрованного массива равна нулю');
+    // folderTableBody.innerHTML = '';
+    // docTableBody.innerHTML = '';
+    // console.log(array.filter((item) => item.idParent === folder));
+    // console.log(folder);
+    // getContentOfFolder(folderTableBody, array.filter((item) => item.idParent === folder));
+    // getDocumentsFromFolder(event, level);
   } else {
-    console.log(2);
-    console.log(array.filter(item => item.idParent === folder));
-    console.log(folder);
+    console.log('Длина фильтрованного массива не равна нулю');
+    // docTableBody.innerHTML = '';
+    // console.log(array.filter((item) => item.idParent === folder));
+    // console.log(folder);
   }
-  getDocumentsFromFolder(event, levelOfFolder);
+  // getDocumentsFromFolder(event, levelOfFolder);
   submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 4);
 };
 
@@ -1404,7 +1408,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   if (levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
-        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, event, currentFodler, level));
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, currentFodler, level));
       }
     }
   }
