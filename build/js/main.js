@@ -748,7 +748,7 @@ const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
 };
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
 function getCreateBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOfCraeteDoc = document.getElementById('archiveCreateDoc');
@@ -760,7 +760,7 @@ function getCreateBlockForNewDocument() {
   archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
 }
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
 function getCloseBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
@@ -871,7 +871,7 @@ function clearFilters() {
   buttonOfUpdateTable.addEventListener('click', getOldTalbe);
 }
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 function openWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const buttonOfFilter = document.getElementById('archiveSearch');
@@ -883,7 +883,7 @@ function openWindowForFilterOfDocument() {
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
 }
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 function closeWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const buttonOutForWindowFilterDocument = document.querySelector('.archive__container-file-search-of-element-button-out');
@@ -958,7 +958,7 @@ function closeDocument() {
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
 }
 
-// ФУНКЦИЯ ДЛЯ РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
 function editOfDocument() {
   const editButton = document.querySelector('.archive__opened-document-of-button-create');
   const buttonsOfControlsDocument = document.querySelectorAll('.archive__opened-document-of-button-add-new-file');
@@ -1249,15 +1249,17 @@ const getOpenBlokWithFolder = () => {
   const buttonOfOpenBlockWithFolder = document.querySelector('.archive__filder-menu-img');
   const archiveFolder = document.querySelector('.archive__folder');
   buttonOfOpenBlockWithFolder.addEventListener('click', () => {
+    console.log('ОТКРЫТИЕ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ');
     archiveFolder ? archiveFolder.style = 'display: block;' : archiveFolder.style = 'display: none;';
   });
 };
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
+// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ //
 const getCloseBlokWithFolder = () => {
   const archiveFolder = document.querySelector('.archive__folder');
   const buttonOfcloseBlockWithFolder = document.querySelector('.archive__filder-menu-img--rotate');
   buttonOfcloseBlockWithFolder.addEventListener('click', () => {
+    console.log('ЗАКРЫТИЕ БЛОКА ИНТЕРФЕЙСА С ПАПКАМИ');
     archiveFolder.style = 'display: none;';
   });
 };
@@ -1269,6 +1271,7 @@ function loadFolderParentInTable() {
     folderTableBody.innerHTML += archiveFolderTableRow();
     if (folderThree[i].idFolder === i) {
       fillInRowOfFolderTalbe(folderTableBody, folderThree[i].numberSubscriber, folderThree[i].numberAgreement);
+      console.log('ЗАГРУЗКИ РОДИТЕЛЬСКОЙ ПАПОК В ТАБЛИЦУ');
     }
   }
 }
@@ -1277,6 +1280,7 @@ function loadFolderParentInTable() {
 function openWindowForCreateFolder() {
   const buttonOfCreateFolder = document.getElementById('createFolder');
   function getWindowForCreateFolder() {
+    console.log('ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ');
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
     archiveFolderContentContainer.innerHTML += getContainerForCreateNewFolder();
     const buttonOfLeaveWindowForCreateFolder = document.querySelector('.archive__create-new-folder-of-button-out');
@@ -1295,11 +1299,13 @@ const removeWindowForCreateFolder = () => function removeContainer() {
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 function closeWindowForCreateFolder(button) {
+  console.log('ЗАКРЫТИЕ ОКНА СОЗДАНИЯ ПАПКИ');
   button.addEventListener('click', removeWindowForCreateFolder());
 }
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
 function createFolder(button) {
+  console.log('СОЗДАНИЯ ПАПКИ');
   button.addEventListener('click', createTableFolderRow);
 }
 
@@ -1309,6 +1315,7 @@ function createTableFolderRow() {
   const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
   const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
+  console.log('СОЗДАНИЕ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК');
   if (inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
@@ -1319,6 +1326,7 @@ function createTableFolderRow() {
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
 function fillInRowOfFolderTalbe(table, inputOfNumberAgreement, inputOfNumberSubscriber) {
+  console.log('ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК');
   const childrenElement = Array.from(table.children);
   childrenElement[childrenElement.length - 1].children[1].textContent = inputOfNumberAgreement;
   childrenElement[childrenElement.length - 1].children[2].textContent = inputOfNumberSubscriber;
@@ -1341,6 +1349,7 @@ function searchCheckedInputs() {
 
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ВЫБРАННОЙ ДОРОЖКИ ТАБЛИЦЫ //
 function deleteCheckedRowInTableFolder(element) {
+  console.log('УДАЛЕНИЕ ВЫБРАННОЙ ДОРОЖКИ ТАБЛИЦЫ');
   const firstTdElement = element.children[0];
   if (firstTdElement.children[0].checked === true) {
     cutOutFolder += element.outerHTML;
@@ -1354,6 +1363,7 @@ function getDownInFolderLevelBelow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   const getFolderLevelBelow = () => function getDown(event) {
+    console.log('ПОГРУЖЕНИЕ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ');
     if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
       submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
     } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
@@ -1371,41 +1381,32 @@ function getDownInFolderLevelBelow() {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
 const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
-  const docTableBody = document.querySelector('.scroll-table-body');
-  event.stopPropagation();
-  if (array.filter(item => item.idParent === folder).length !== 0) {
-    console.log('Длина фильтрованного массива равна нулю');
-    // folderTableBody.innerHTML = '';
-    // docTableBody.innerHTML = '';
-    // console.log(array.filter((item) => item.idParent === folder));
-    // console.log(folder);
-    // getContentOfFolder(folderTableBody, array.filter((item) => item.idParent === folder));
-    // getDocumentsFromFolder(event, level);
-  } else {
-    console.log('Длина фильтрованного массива не равна нулю');
-    // docTableBody.innerHTML = '';
-    // console.log(array.filter((item) => item.idParent === folder));
-    // console.log(folder);
-  }
-  // getDocumentsFromFolder(event, levelOfFolder);
+  console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
   const idElementFromOfFilteredArray = array.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
-  console.log(idElementFromOfFilteredArray);
-  console.log(event.target.parentNode.children[2].textContent);
+  console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
   submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
 };
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
+  console.log('РАБОТА ГЛАВНОЙ ФУНКЦИИ ПОГРУЖЕНИЯ');
   levelOfFolder++;
   if (event.target.textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
   } else if (event.target.parentNode.children[2].textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.parentNode.children[2].textContent}`;
   }
+  console.log('ОТЧИСТКА СПИСКА ПАПОК');
   folderTableBody.innerHTML = '';
+  const newTableBodyOfDocuemnt = document.querySelector('.scroll-table-body');
+  console.log('ОТЧИСТКА СПИСКА ДОКУМЕНТОВ');
+  newTableBodyOfDocuemnt.innerHTML += '';
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === idFolder);
+  console.log('СОЗДАНИЕ ДОРОЖЕК В ТАБЛИЦЕ ПАПОК');
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
+  console.log('ЗАГРУЗКА КОНТЕНТА В ТАБЛИЦУ ПАПОК');
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
+  console.log('ЗАГРУЗКА ПРИВЯЗАННЫХ К ПАПКЕ ДОКУМЕНТОВ В ТАБЛИЦУ ДЛЯ ДОКУМЕНТОВ');
   getDocumentsFromFolder(event, levelOfFolder, idFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   if (levelOfFolder !== 0) {
@@ -1417,14 +1418,16 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   }
 }
 
-// ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ ДЛЯ ОТРИСОВКИ ФАЙЛОВ //
+// ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК, ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ ДЛЯ ОТРИСОВКИ ФАЙЛОВ //
 function getDocumentsFromFolder(event, level, idFolder) {
   let parentFolter;
   if (level !== 0) {
     parentFolter = folderThree.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
     if (folderThree.length !== 0) {
-      console.log('массив фильтрованный', parentFolter);
+      console.log('ПОЛУЧЕНИЕ ФИЛЬТРОВАННОГО МАССИВА ПАПОК', parentFolter);
       const filteredArrayOfDocument = data.filter(item => item.id_parent === idFolder);
+      console.log('ФИЛЬТРОВАННЫЙ МАССИВ ПАПОК', parentFolter);
+      console.log('ЗАГРУЗКА ДОКУМЕНТОВ В ТАБЛИЦУ ПО-ФИЛЬТРОВАННОМУ МАССИВУ');
       fillInInformations(filteredArrayOfDocument);
     }
   } else {
@@ -1439,6 +1442,7 @@ function goUpToTheFolderToTheHigherLevel() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const currentFodler = document.querySelector('.archive__filder-title');
   function goUpToTheFolder() {
+    console.log('Перемещение папки на уровень выше');
     levelOfFolder--;
     if (levelOfFolder === 0) {
       folderTableBody.innerHTML = '';
@@ -1457,6 +1461,7 @@ function goUpToTheFolderToTheTopLevel() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const currentFodler = document.querySelector('.archive__filder-title');
   const climbToTheMaximumLevelFolder = () => {
+    console.log('Перемещение папки на максивальный верхний уровень');
     folderTableBody.innerHTML = '';
     tableBodyDocumentsOfArchive.innerHTML = '';
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
@@ -1471,6 +1476,7 @@ function insertAFolder() {
   const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
   const buttonPutInOfFolder = document.getElementById('putFolder');
   const putInElement = () => {
+    console.log('ВСТАВКА ПАПКИ');
     if (cutOutFolder !== '') {
       talbeBodyOfFolder.insertAdjacentHTML('beforeend', cutOutFolder);
       cutOutFolder = '';
@@ -1483,6 +1489,7 @@ function insertAFolder() {
 function cutTheFolder() {
   const buttonOfCutOutFolder = document.getElementById('cutOutFolder');
   function cutOutRow() {
+    console.log('ВЫРЕЗАНИЯ ПАПКИ');
     searchCheckedInputs();
     insertAFolder();
   }
@@ -1491,6 +1498,7 @@ function cutTheFolder() {
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ОТСОРТИРОВАННЫМ КОНТЕНТОМ //
 function getContentOfFolder(tableBody, filteredArray) {
+  console.log('ЗАПОЛНЕНИЕ ТАБЛИЦЫ ОТСОРТИРОВАННЫМ КОНТЕНТОМ');
   const newArrayChildrenOfTableBody = Array.from(tableBody.children).map((element, id) => {
     element.children[1].textContent = filteredArray[id].numberSubscriber;
     element.children[2].textContent = filteredArray[id].numberAgreement;
@@ -1501,6 +1509,7 @@ function getContentOfFolder(tableBody, filteredArray) {
 function updateTheTable() {
   const buttonOfUpdateTheTable = document.getElementById('updateTableFolder');
   const updateAndThrowDownOfTheTableContent = () => {
+    console.log('ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ');
     const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
     talbeBodyOfFolder.innerHTML = '';
     loadFolderParentInTable();
@@ -1516,6 +1525,7 @@ function searchFolder() {
   const buttonsForSearchToTheFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const getListFolders = item => function getFolder() {
+    console.log('ПОИСК ПАПКИ');
     resetFolderEffects();
     sortingOfFolder(item);
   };
@@ -1541,11 +1551,13 @@ function searchFolder() {
 
   // ФУНКЦИЯ ДЛЯ ОТЧИСТКИ INPUT //
   function clearOfInputForSearch(input) {
+    console.log('ОТЧИСТКА INPUT');
     input.value = '';
   }
 
   // ФУНКЦИЯ ДЛЯ СБРОСА ЭФФЕКТОВ НА КНОПКАХ ПОИСКА //
   function resetFolderEffects() {
+    console.log('СБРОС ЭФФЕКТОВ НА КНОПКАХ ПОИСКА');
     const buttonsOfSettingFilterFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
     buttonsOfSettingFilterFolder.forEach(element => element.style = 'border: none');
     checkboxForSearchOfName.checked === false;
@@ -1553,6 +1565,7 @@ function searchFolder() {
 
   // ФУНКЦИЯ ДЛЯ НАСТРОЙКИ КПОНОК //
   function settingUpButtonsOfFolder(checkbox, item) {
+    console.log('НАСТРОЙКИ КПОНОК ПОИСКА');
     checkbox.checked === true;
     item.style = 'border: 1px solid black';
   }

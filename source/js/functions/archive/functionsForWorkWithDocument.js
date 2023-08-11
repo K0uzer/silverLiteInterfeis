@@ -50,7 +50,7 @@ export const createInterfeisOfArchiver = () => {
   acrchivePage.innerHTML = archivePageMaxLever();
 };
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
 export function getCreateBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOfCraeteDoc = document.getElementById('archiveCreateDoc');
@@ -62,7 +62,7 @@ export function getCreateBlockForNewDocument() {
   archiveButtonOfCraeteDoc.addEventListener('click', createChildElementInParent);
 };
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
 export function getCloseBlockForNewDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const archiveButtonOutWithCreateNewDocument = document.querySelector('.archive__create-new-document-of-button-out');
@@ -189,7 +189,7 @@ export function clearFilters() {
   buttonOfUpdateTable.addEventListener('click', getOldTalbe);
 };
 
-// ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ОТКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 export function openWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const buttonOfFilter = document.getElementById('archiveSearch');
@@ -201,7 +201,7 @@ export function openWindowForFilterOfDocument() {
   buttonOfFilter.addEventListener('click', getWindowOfFilter);
 };
 
-// ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАКРЫТИЯ ОКНА ФИЛЬТРАЦИИ ДОКУМЕНТОВ //
 export function closeWindowForFilterOfDocument() {
   const archiveFile = document.querySelector('.archive__file');
   const buttonOutForWindowFilterDocument = document.querySelector('.archive__container-file-search-of-element-button-out');
@@ -275,7 +275,7 @@ export function closeDocument() {
   buttonOutWithOpenedDocument.addEventListener('click', outWithOpenedDocument);
 }
 
-// ФУНКЦИЯ ДЛЯ РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ РЕДАКТИРОВАНИЕ ДОКУМЕНТА //
 export function editOfDocument() {
   const editButton = document.querySelector('.archive__opened-document-of-button-create');
   const buttonsOfControlsDocument = document.querySelectorAll('.archive__opened-document-of-button-add-new-file');
