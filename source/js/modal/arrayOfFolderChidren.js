@@ -16,7 +16,7 @@ export const arrayChildrenOfFolderThree = [
     'comments': 'level1',
   },
   {
-    'idFolder': 3,
+    'idFolder': 4,
     'idParent': 0,
     'numberAgreement': 'Абонентское дело 3',
     'numberSubscriber': 3,
@@ -24,7 +24,7 @@ export const arrayChildrenOfFolderThree = [
     'comments': 'level1',
   },
   {
-    'idFolder': 4,
+    'idFolder': 5,
     'idParent': 3,
     'numberAgreement': 'Абонентское дело 3.1',
     'numberSubscriber': 5,
@@ -32,7 +32,7 @@ export const arrayChildrenOfFolderThree = [
     'comments': 'level2',
   },
   {
-    'idFolder': 5,
+    'idFolder': 6,
     'idParent': 3,
     'numberAgreement': 'Абонентское дело 3.2',
     'numberSubscriber': 6,
@@ -40,7 +40,7 @@ export const arrayChildrenOfFolderThree = [
     'comments': 'level2',
   },
   {
-    'idFolder': 6,
+    'idFolder': 7,
     'idParent': 1,
     'numberAgreement': 'Проектно-техническая документация 1',
     'numberSubscriber': 4,

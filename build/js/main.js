@@ -272,7 +272,7 @@ const data = [{
   'number_body': 5,
   'number_flat': 5,
   'id_documents': [],
-  'id_parent': 6
+  'id_parent': 7
 }];
 const archivePageMaxLever = () => `<img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img" title="Открыть окно для работы с папками" alt="Бургер">
 <section class="archive__folder">
@@ -509,7 +509,21 @@ const getArchiveContainerOfOpenedDocument = (userName, dateCreatedDocument, fold
         </div>
         <div class="archive__opened-document-of-element-form">
           <span class="archive__opened-document-of-text">Тип документа:</span>
-          <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
+          <select class="archive__opened-document-of-input" disabled>
+            <option value="-">Выбор типа</option>
+            <option value="Правовые документы">Правовые документы</option>
+            <option value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+            <option value="Заявления">Заявления</option>
+            <option value="Акты">Акты</option>
+            <option value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+            <option value="Технический паспорт объекта">Технический паспорт объекта</option>
+            <option value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+            <option value="Договор">Договор</option>
+            <option value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+            <option value="Прочие документы">Прочие документы</option>
+            <option value="Проектно-техническая документация">Проектно-техническая документация</option>
+            <option value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+          </select>
         </div>
         <div class="archive__opened-document-of-element-form">
           <span class="archive__opened-document-of-text">ФИО:</span>
@@ -555,11 +569,27 @@ const getArchiveContainerOfOpenedDocument = (userName, dateCreatedDocument, fold
         <tbody>
           <tr>
             <td><input type="checkbox" class="archive__opened-document-of-table-button-for-delete" disabled></td>
-            <td>4123124</td>
-            <td>4124</td>
-            <td>4124</td>
-            <td>124</td>
-            <td>1527</td>
+            <td>Описание</td>
+            <td>
+              <select class="archive__opened-document-of-input" disabled>
+                <option value="-">Выбор типа</option>
+                <option value="Правовые документы">Правовые документы</option>
+                <option value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+                <option value="Заявления">Заявления</option>
+                <option value="Акты">Акты</option>
+                <option value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+                <option value="Технический паспорт объекта">Технический паспорт объекта</option>
+                <option value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+                <option value="Договор">Договор</option>
+                <option value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+                <option value="Прочие документы">Прочие документы</option>
+                <option value="Проектно-техническая документация">Проектно-техническая документация</option>
+                <option value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+              </select>
+            </td>
+            <td>30кб</td>
+            <td>Иван И.И.</td>
+            <td>20.12.2023</td>
           </tr>
         </tbody>
       </table>
@@ -931,6 +961,8 @@ const openDocument = target => function getDoc() {
 
   editOfDocument();
   closeDocument();
+  const arch = document.querySelector('.archive__file');
+  Array.from(arch.children)[3].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
@@ -1168,28 +1200,28 @@ const arrayChildrenOfFolderThree = [{
   'folderLevel': 1,
   'comments': 'level1'
 }, {
-  'idFolder': 3,
+  'idFolder': 4,
   'idParent': 0,
   'numberAgreement': 'Абонентское дело 3',
   'numberSubscriber': 3,
   'folderLevel': 1,
   'comments': 'level1'
 }, {
-  'idFolder': 4,
+  'idFolder': 5,
   'idParent': 3,
   'numberAgreement': 'Абонентское дело 3.1',
   'numberSubscriber': 5,
   'folderLevel': 2,
   'comments': 'level2'
 }, {
-  'idFolder': 5,
+  'idFolder': 6,
   'idParent': 3,
   'numberAgreement': 'Абонентское дело 3.2',
   'numberSubscriber': 6,
   'folderLevel': 2,
   'comments': 'level2'
 }, {
-  'idFolder': 6,
+  'idFolder': 7,
   'idParent': 1,
   'numberAgreement': 'Проектно-техническая документация 1',
   'numberSubscriber': 4,
@@ -1291,15 +1323,28 @@ function openWindowForCreateFolder() {
   buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
+const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
+  if (levelOfFolder !== 0) {
+    console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
+    const idElementFromOfFilteredArray = array.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
+    console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
+    submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
+  }
+};
+
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
 const removeWindowForCreateFolder = () => function removeContainer() {
   const folderContentContainer = document.querySelector('.archive__folder-content-container');
   folderContentContainer.children[1].remove();
+  console.log('ЗАКРЫТИЕ ОКНА СОЗДАНИЯ ПАПКИ');
+  if (levelOfFolder === 0) {
+    getDownInFolderLevelBelow();
+  }
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 function closeWindowForCreateFolder(button) {
-  console.log('ЗАКРЫТИЕ ОКНА СОЗДАНИЯ ПАПКИ');
   button.addEventListener('click', removeWindowForCreateFolder());
 }
 
@@ -1359,33 +1404,28 @@ function deleteCheckedRowInTableFolder(element) {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ //
 function getDownInFolderLevelBelow() {
-  const currentFodler = document.querySelector('.archive__filder-title');
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  const getFolderLevelBelow = () => function getDown(event) {
-    console.log('ПОГРУЖЕНИЕ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ');
-    if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
-      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
-    } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
-      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
-    }
-    goUpToTheFolderToTheTopLevel();
-    goUpToTheFolderToTheHigherLevel();
-  };
-  for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
-    for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
-      arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
+  if (levelOfFolder === 0) {
+    levelOfFolder++;
+    const currentFodler = document.querySelector('.archive__filder-title');
+    const folderTableBody = document.getElementById('folderTalbeBody');
+    const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+    const getFolderLevelBelow = () => function getDown(event) {
+      console.log('ПОГРУЖЕНИЕ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ');
+      if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
+        submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
+      } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
+        submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
+      }
+      goUpToTheFolderToTheTopLevel();
+      goUpToTheFolderToTheHigherLevel();
+    };
+    for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+      for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
+      }
     }
   }
 }
-
-// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
-const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
-  console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
-  const idElementFromOfFilteredArray = array.filter(item => item.numberAgreement === event.target.parentNode.children[2].textContent);
-  console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
-  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
-};
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
@@ -1449,6 +1489,10 @@ function goUpToTheFolderToTheHigherLevel() {
       tableBodyDocumentsOfArchive.innerHTML = '';
       currentFodler.textContent = 'Текущая папка: Верхнего уровня';
       loadFolderParentInTable();
+      getDownInFolderLevelBelow();
+    } else {
+      folderTableBody.innerHTML = '';
+      tableBodyDocumentsOfArchive.innerHTML = '';
     }
   }
   buttonOfLevelUp.addEventListener('click', goUpToTheFolder);
@@ -1467,6 +1511,7 @@ function goUpToTheFolderToTheTopLevel() {
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
     loadFolderParentInTable();
+    getDownInFolderLevelBelow();
   };
   buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }

@@ -21,7 +21,21 @@ export const getArchiveContainerOfOpenedDocument = (userName, dateCreatedDocumen
         </div>
         <div class="archive__opened-document-of-element-form">
           <span class="archive__opened-document-of-text">Тип документа:</span>
-          <input class="archive__opened-document-of-input" disabled type="text" name="" id="">
+          <select class="archive__opened-document-of-input" disabled>
+            <option value="-">Выбор типа</option>
+            <option value="Правовые документы">Правовые документы</option>
+            <option value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+            <option value="Заявления">Заявления</option>
+            <option value="Акты">Акты</option>
+            <option value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+            <option value="Технический паспорт объекта">Технический паспорт объекта</option>
+            <option value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+            <option value="Договор">Договор</option>
+            <option value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+            <option value="Прочие документы">Прочие документы</option>
+            <option value="Проектно-техническая документация">Проектно-техническая документация</option>
+            <option value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+          </select>
         </div>
         <div class="archive__opened-document-of-element-form">
           <span class="archive__opened-document-of-text">ФИО:</span>
@@ -67,11 +81,27 @@ export const getArchiveContainerOfOpenedDocument = (userName, dateCreatedDocumen
         <tbody>
           <tr>
             <td><input type="checkbox" class="archive__opened-document-of-table-button-for-delete" disabled></td>
-            <td>4123124</td>
-            <td>4124</td>
-            <td>4124</td>
-            <td>124</td>
-            <td>1527</td>
+            <td>Описание</td>
+            <td>
+              <select class="archive__opened-document-of-input" disabled>
+                <option value="-">Выбор типа</option>
+                <option value="Правовые документы">Правовые документы</option>
+                <option value="Учредительные и регистрационные документы">Учредительные и регистрационные документы</option>
+                <option value="Заявления">Заявления</option>
+                <option value="Акты">Акты</option>
+                <option value="Баланс водопотребления и водоотведения">Баланс водопотребления и водоотведения</option>
+                <option value="Технический паспорт объекта">Технический паспорт объекта</option>
+                <option value="Письма, заявления, жалобы абонентов и ответы на них">Письма, заявления, жалобы абонентов и ответы на них</option>
+                <option value="Договор">Договор</option>
+                <option value="Служебные записи, рапорты">Служебные записи, рапорты</option>
+                <option value="Прочие документы">Прочие документы</option>
+                <option value="Проектно-техническая документация">Проектно-техническая документация</option>
+                <option value="Акты контрольного обслудования">Акты контрольного обслудования</option>
+              </select>
+            </td>
+            <td>30кб</td>
+            <td>Иван И.И.</td>
+            <td>20.12.2023</td>
           </tr>
         </tbody>
       </table>

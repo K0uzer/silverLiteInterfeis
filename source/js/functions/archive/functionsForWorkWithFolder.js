@@ -87,15 +87,28 @@ export function openWindowForCreateFolder() {
   buttonOfCreateFolder.addEventListener('click', getWindowForCreateFolder);
 }
 
+// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
+const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
+  if(levelOfFolder !== 0) {
+    console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
+    const idElementFromOfFilteredArray = array.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
+    console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
+    submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
+  }
+};
+
 // ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ ОКНА СОЗДАНИЯ ПАПКИ ИЗ ДЕРЕВА //
 const removeWindowForCreateFolder = () => function removeContainer() {
   const folderContentContainer = document.querySelector('.archive__folder-content-container');
   folderContentContainer.children[1].remove();
+  console.log('ЗАКРЫТИЕ ОКНА СОЗДАНИЯ ПАПКИ');
+  if (levelOfFolder === 0) {
+    getDownInFolderLevelBelow();
+  }
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 function closeWindowForCreateFolder(button) {
-  console.log('ЗАКРЫТИЕ ОКНА СОЗДАНИЯ ПАПКИ');
   button.addEventListener('click', removeWindowForCreateFolder());
 }
 
@@ -155,33 +168,28 @@ function deleteCheckedRowInTableFolder(element) {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ //
 export function getDownInFolderLevelBelow() {
-  const currentFodler = document.querySelector('.archive__filder-title');
-  const folderTableBody = document.getElementById('folderTalbeBody');
-  const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
-  const getFolderLevelBelow = () => function getDown(event) {
-    console.log('ПОГРУЖЕНИЕ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ');
-    if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
-      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
-    } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
-      submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
-    }
-    goUpToTheFolderToTheTopLevel();
-    goUpToTheFolderToTheHigherLevel();
-  };
-  for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
-    for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
-      arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
+  if(levelOfFolder === 0) {
+    levelOfFolder++;
+    const currentFodler = document.querySelector('.archive__filder-title');
+    const folderTableBody = document.getElementById('folderTalbeBody');
+    const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+    const getFolderLevelBelow = () => function getDown(event) {
+      console.log('ПОГРУЖЕНИЕ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ');
+      if (event.target.textContent === 'Абонентские дела' || event.target.parentNode.children[2].textContent === 'Абонентские дела') {
+        submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 0);
+      } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
+        submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
+      }
+      goUpToTheFolderToTheTopLevel();
+      goUpToTheFolderToTheHigherLevel();
+    };
+    for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+      for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
+        arrayChildrenOfTableBody[i].children[n].addEventListener('click', getFolderLevelBelow());
+      }
     }
   }
 }
-
-// ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
-const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
-  console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
-  const idElementFromOfFilteredArray = array.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
-  console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
-  submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, idElementFromOfFilteredArray[0].idFolder);
-};
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
@@ -247,6 +255,10 @@ export function goUpToTheFolderToTheHigherLevel() {
       tableBodyDocumentsOfArchive.innerHTML = '';
       currentFodler.textContent = 'Текущая папка: Верхнего уровня';
       loadFolderParentInTable();
+      getDownInFolderLevelBelow();
+    } else {
+      folderTableBody.innerHTML = '';
+      tableBodyDocumentsOfArchive.innerHTML = '';
     }
   };
   buttonOfLevelUp.addEventListener('click', goUpToTheFolder);
@@ -265,6 +277,7 @@ export function goUpToTheFolderToTheTopLevel() {
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
     loadFolderParentInTable();
+    getDownInFolderLevelBelow();
   };
   buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }

@@ -248,6 +248,8 @@ const openDocument = (target) => function getDoc() {
   }
   editOfDocument();
   closeDocument();
+  const arch = document.querySelector('.archive__file');
+  Array.from(arch.children)[3].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
