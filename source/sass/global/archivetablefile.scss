@@ -57,7 +57,7 @@
   font-weight: calc(var(--pixel) * 700);
   text-align: center;
   background: #222222;
-  border: calc(var(--pixel) * 1) solid black;
+  border: calc(var(--pixel) * 1) solid rgb(0, 0, 0);
   border-top: none;
   border-left: calc(var(--pixel) * 1) solid #000000;
 
@@ -94,15 +94,16 @@
 
 .scroll-table-body table tbody tr {
   transition: .3s;
+  background: #e9e7e7;
   &:hover {
-    background: #326460;
+    background: #b1b1b1;
     transition: .3s;
     cursor: pointer;
   }
 }
 
 .scroll-table tbody tr:nth-child(even) {
-  background: #303030;
+  background: #e5e4e2;
 }
 
 /* Стили для скролла */

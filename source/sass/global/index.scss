@@ -40,23 +40,23 @@ body,
 }
 
 #p1 {
-  background: #3d769b;
+  background: #FAEBD7;
 }
 
 #p2 {
-  background: linear-gradient(#00aca9, #239694, #477473,#353535);
+  background: #E5E4E2;
 }
 
 #p3 {
-  background: linear-gradient(#00aca9, #008582,#353535);
+  background: #E5E4E2;
 }
 
 #p4 {
-  background: linear-gradient(#00aca9, #008582,#353535);
+  background: #E5E4E2;
 }
 
 #p5 {
-  background: linear-gradient(#00aca9, #008582,#353535);
+  background: #E5E4E2;
 }
 
 #t2:target #p2,
@@ -74,7 +74,7 @@ body,
 #t3:target #p1,
 #t4:target #p1,
 #t5:target #p1 {
-  background: black;
+  background: #faebd7;
 }
 
 #t2:target #p1 .menu__icon,
@@ -85,13 +85,13 @@ body,
 }
 
 .menu__icon {
-  color: #fff;
   font-size: calc(var(--pixel) * 23);
   display: block;
+  color: #000000;
 }
 
 ul .menu__icon:hover {
-  opacity: 0.5;
+  text-decoration: underline;
 }
 
 .page .menu__icon .title {
@@ -147,6 +147,7 @@ a {
 .title,
 .hint {
   display: block;
+  line-height: 1.2;
   color: black;
 }
 

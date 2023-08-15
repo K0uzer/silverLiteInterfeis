@@ -81,7 +81,8 @@
   left: calc(var(--pixel) * 0);
   width: calc(var(--pixel) * 400);
   height: 100%;
-  background-color: #FFF;
+  background-color: #faebd7;
+  border-left: 1px solid #bdbdbd;
 }
 
 .archive__folder-content-container table thead tr th:nth-child(1) {
