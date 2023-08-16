@@ -176,6 +176,10 @@
   @extend %mixin-for-buttons-of-interfase-under-table;
 }
 
+.archive__opened-document-of-input-add-new-file {
+  position: absolute;
+}
+
 .archive__opened-document-wrapper-of-info {
   position: relative;
   display: flex;

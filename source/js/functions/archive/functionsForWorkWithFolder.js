@@ -19,6 +19,7 @@ import {
 import {
   fillInInformations
 } from '../universalFunctions.js';
+
 //            //
 // КОДНСТАНТЫ //
 //            //
@@ -110,28 +111,64 @@ const removeWindowForCreateFolder = () => function removeContainer() {
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 function closeWindowForCreateFolder(button) {
   button.addEventListener('click', removeWindowForCreateFolder());
+  console.log('СОЗДАНИЯ ПАПКИ');
 }
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАПКИ //
 function createFolder(button) {
-  console.log('СОЗДАНИЯ ПАПКИ');
   button.addEventListener('click', createTableFolderRow);
 };
 
 // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК //
 function createTableFolderRow() {
+  const currentFodler = document.querySelector('.archive__filder-title');
   const inputOfNumberAgreement = document.getElementById('numberAgreement');
   const inputOfNumberSubscriber = document.getElementById('numberSubscriber');
   const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
   console.log('СОЗДАНИЕ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК');
-  if (inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+  if ( levelOfFolder !== 0 && inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+    createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, arrayChildrenOfFolderThree.length - 1);
+    createChildrenFolderList(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, arrayChildrenOfFolderThree.length - 1);
+    submergence(inputOfNumberSubscriber.value, currentFodler, folderTableBody, arrayChildrenOfFolderThree.length + 1, levelOfFolder);
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
-  } else {
+    console.log(arrayChildrenOfFolderThree)
+  }
+  else if(levelOfFolder === 0) {
+    return alert('Запрещено создание папок при нахождении в корневой папке');
+  }
+  else {
     return alert('Ошибка создания папки');
   }
 }
+
+// ФУНКЦИЯ ДЛЯ ЗАНЕСЕНИЯ НОВОЙ ПАПКИ В МАССИВ //
+function createNewFolder(array, numberSubscriber, numberAgreement, idParent) {
+  array.push({
+    'idFolder': array.length,
+    'idParent': idParent,
+    'numberAgreement': numberAgreement,
+    'numberSubscriber': numberSubscriber,
+    'folderLevel': levelOfFolder,
+    'comments': '',
+  });
+};
+
+// ФУНКЦИЯ ДЛЯ ЗАНЕСЕНИЯ СПИСКА ТРЕБУЕМЫХ ДОЧЕРНИХ ПАПОК В МАССИВ //
+function createChildrenFolderList(array, numberSubscriber, idParent) {
+  const listChidrenFolderNumberAgreement = ['проектно-техническая документация', 'учредительные и рег документы', 'акты ко', 'договор', 'письма-жалобы абонентов и ответы', 'служ записи, рапорты', 'прочие документы'];
+  listChidrenFolderNumberAgreement.forEach((item) => {
+    array.push({
+      'idFolder': arrayChildrenOfFolderThree.length,
+      'idParent': idParent,
+      'numberAgreement': item,
+      'numberSubscriber': numberSubscriber,
+      'folderLevel': levelOfFolder,
+      'comments': '',
+    });
+  });
+};
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ДОРОЖКИ ИНФОРМАЦИЕЙ ТАБЛИЦЫ ПАПОК //
 function fillInRowOfFolderTalbe(table, inputOfNumberAgreement, inputOfNumberSubscriber) {
@@ -169,7 +206,6 @@ function deleteCheckedRowInTableFolder(element) {
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ //
 export function getDownInFolderLevelBelow() {
   if(levelOfFolder === 0) {
-    levelOfFolder++;
     const currentFodler = document.querySelector('.archive__filder-title');
     const folderTableBody = document.getElementById('folderTalbeBody');
     const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
@@ -276,8 +312,8 @@ export function goUpToTheFolderToTheTopLevel() {
     tableBodyDocumentsOfArchive.innerHTML = '';
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
-    loadFolderParentInTable();
     getDownInFolderLevelBelow();
+    loadFolderParentInTable();
   };
   buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }
@@ -324,6 +360,7 @@ export function updateTheTable() {
     const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
     talbeBodyOfFolder.innerHTML = '';
     loadFolderParentInTable();
+    getDownInFolderLevelBelow();
   };
   buttonOfUpdateTheTable.addEventListener('click', updateAndThrowDownOfTheTableContent);
 }
