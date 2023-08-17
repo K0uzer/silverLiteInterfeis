@@ -127,8 +127,8 @@ function createTableFolderRow() {
   const inputOfComment = document.getElementById('comment');
   const folderTableBody = document.getElementById('folderTalbeBody');
   console.log('СОЗДАНИЕ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК');
-  if ( levelOfFolder !== 0 && inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
-    createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, arrayChildrenOfFolderThree.length - 1);
+  if (levelOfFolder !== 0 && inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
+    createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, 0);
     createChildrenFolderList(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, arrayChildrenOfFolderThree.length - 1);
     submergence(inputOfNumberSubscriber.value, currentFodler, folderTableBody, arrayChildrenOfFolderThree.length + 1, levelOfFolder);
     folderTableBody.innerHTML += archiveFolderTableRow();
@@ -216,8 +216,7 @@ export function getDownInFolderLevelBelow() {
       } else if (event.target.textContent === 'Проектно-техническая документация' || event.target.parentNode.children[2].textContent === 'Проектно-техническая документация') {
         submergence(event.target.parentNode.children[2].textContent, currentFodler, folderTableBody, 1);
       }
-      goUpToTheFolderToTheTopLevel();
-      goUpToTheFolderToTheHigherLevel();
+      console.log(levelOfFolder);
     };
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
@@ -249,6 +248,8 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   console.log('ЗАГРУЗКА ПРИВЯЗАННЫХ К ПАПКЕ ДОКУМЕНТОВ В ТАБЛИЦУ ДЛЯ ДОКУМЕНТОВ');
   getDocumentsFromFolder(event, levelOfFolder, idFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
+  goUpToTheFolderToTheTopLevel();
+  goUpToTheFolderToTheHigherLevel();
   if(levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
@@ -284,17 +285,21 @@ export function goUpToTheFolderToTheHigherLevel() {
   const currentFodler = document.querySelector('.archive__filder-title');
 
   function goUpToTheFolder() {
+    if(levelOfFolder > 0) levelOfFolder--;
     console.log('Перемещение папки на уровень выше')
-    levelOfFolder--;
-    if (levelOfFolder === 0) {
+    if (levelOfFolder === 1) {
+      console.log('Перемещение в папку уровня', levelOfFolder);
       folderTableBody.innerHTML = '';
       tableBodyDocumentsOfArchive.innerHTML = '';
       currentFodler.textContent = 'Текущая папка: Верхнего уровня';
+      levelOfFolder = 0;
       loadFolderParentInTable();
       getDownInFolderLevelBelow();
+    } else if(levelOfFolder === 0) {
+      console.log('Перемещение в папку уровня', levelOfFolder);
+      alert('Вы находитесь в папке верхнего уровня')
     } else {
-      folderTableBody.innerHTML = '';
-      tableBodyDocumentsOfArchive.innerHTML = '';
+      console.log('Перемещение в папку уровня', levelOfFolder);
     }
   };
   buttonOfLevelUp.addEventListener('click', goUpToTheFolder);
@@ -312,14 +317,14 @@ export function goUpToTheFolderToTheTopLevel() {
     tableBodyDocumentsOfArchive.innerHTML = '';
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
-    getDownInFolderLevelBelow();
     loadFolderParentInTable();
+    getDownInFolderLevelBelow();
   };
   buttonOfUpOnFolderMaxLevel.addEventListener('click', climbToTheMaximumLevelFolder);
 }
 
 // ФУНКЦИЯ ДЛЯ ВСТАВКИ ПАПКИ //
-function insertAFolder() {
+function insertFolder() {
   const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
   const buttonPutInOfFolder = document.getElementById('putFolder');
   const putInElement = () => {
@@ -338,7 +343,7 @@ export function cutTheFolder() {
   function cutOutRow() {
     console.log('ВЫРЕЗАНИЯ ПАПКИ')
     searchCheckedInputs();
-    insertAFolder();
+    insertFolder();
   }
   buttonOfCutOutFolder.addEventListener('click', cutOutRow);
 }
@@ -359,8 +364,9 @@ export function updateTheTable() {
     console.log('ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ')
     const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
     talbeBodyOfFolder.innerHTML = '';
-    loadFolderParentInTable();
+    levelOfFolder = 0;
     getDownInFolderLevelBelow();
+    loadFolderParentInTable();
   };
   buttonOfUpdateTheTable.addEventListener('click', updateAndThrowDownOfTheTableContent);
 }

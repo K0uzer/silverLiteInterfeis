@@ -95,7 +95,7 @@ const getCreateInterfasForWorkWithArchive = () => {
   cutTheFolder();
   getDownInFolderLevelBelow();
   goUpToTheFolderToTheTopLevel();
-  goUpToTheFolderToTheHigherLevel();
+  // goUpToTheFolderToTheHigherLevel();
   updateTheTable();
   searchFolder();
 };
