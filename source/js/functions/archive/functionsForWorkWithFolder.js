@@ -128,12 +128,15 @@ function createTableFolderRow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   console.log('СОЗДАНИЕ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК');
   if (levelOfFolder !== 0 && inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
-    createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, 0);
+    if(levelOfFolder === 1) {
+      createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent)[0].idFolder);
+    } else if(levelOfFolder > 1) {
+      createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, arrayChildrenOfFolderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent)[0].idFolder);
+    }
     createChildrenFolderList(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, arrayChildrenOfFolderThree.length - 1);
     submergence(inputOfNumberSubscriber.value, currentFodler, folderTableBody, arrayChildrenOfFolderThree.length + 1, levelOfFolder);
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
-    console.log(arrayChildrenOfFolderThree)
   }
   else if(levelOfFolder === 0) {
     return alert('Запрещено создание папок при нахождении в корневой папке');
