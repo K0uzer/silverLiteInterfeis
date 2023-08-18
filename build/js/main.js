@@ -1498,7 +1498,6 @@ function createTableFolderRow() {
     submergence(inputOfNumberSubscriber.value, currentFodler, folderTableBody, arrayChildrenOfFolderThree.length + 1, levelOfFolder);
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
-    console.log(arrayChildrenOfFolderThree);
   } else if (levelOfFolder === 0) {
     return alert('Запрещено создание папок при нахождении в корневой папке');
   } else {
