@@ -1597,17 +1597,12 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   } else if (event.target.parentNode.children[2].textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.parentNode.children[2].textContent}`;
   }
-  console.log('ОТЧИСТКА СПИСКА ПАПОК');
   folderTableBody.innerHTML = '';
-  console.log('ОТЧИСТКА СПИСКА ДОКУМЕНТОВ');
   const newTableBodyOfDocuemnt = document.querySelector('.scroll-table-body');
   newTableBodyOfDocuemnt.innerHTML += '';
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === idFolder);
-  console.log('СОЗДАНИЕ ДОРОЖЕК В ТАБЛИЦЕ ПАПОК');
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
-  console.log('ЗАГРУЗКА КОНТЕНТА В ТАБЛИЦУ ПАПОК');
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-  console.log('ЗАГРУЗКА ПРИВЯЗАННЫХ К ПАПКЕ ДОКУМЕНТОВ В ТАБЛИЦУ ДЛЯ ДОКУМЕНТОВ');
   getDocumentsFromFolder(event, levelOfFolder, idFolder);
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   goUpToTheFolderToTheTopLevel();
@@ -1645,7 +1640,7 @@ function goUpToTheFolderToTheHigherLevel() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   const currentFodler = document.querySelector('.archive__filder-title');
   function goUpToTheFolder() {
-    if (levelOfFolder > 0) levelOfFolder--;
+    // if(levelOfFolder > 0) levelOfFolder--;
     console.log('Перемещение папки на уровень выше');
     if (levelOfFolder === 1) {
       console.log('Перемещение в папку уровня', levelOfFolder);
@@ -1762,16 +1757,23 @@ function searchFolder() {
   const checkboxForSearchOfNumber = document.getElementById('type-folder-search-of-number');
   const checkboxForSearchOfName = document.getElementById('type-folder-search-of-name');
   const buttonsForSearchToTheFolder = document.querySelectorAll('.archive__folder-icon-of-checkbox');
-  const folderTableBody = document.getElementById('folderTalbeBody');
   const getListFolders = item => function getFolder() {
+    const folderTableBody = document.getElementById('folderTalbeBody');
+    const fileTalbeBody = document.getElementById('fileTalbeBody');
     console.log('ПОИСК ПАПКИ');
     resetFolderEffects();
     sortingOfFolder(item);
     updateTheTable();
+    // for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
+    //   for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
+    //     arrayChildrenOfTableBody[i].children[n].addEventListener('click', );
+    //   }
+    // }
   };
 
   // ФУНКЦИЯ-СБОРЩИК ДЛЯ СОРТИРОВКИ //
   function sortingOfFolder(item) {
+    const folderTableBody = document.getElementById('folderTalbeBody');
     const fileTalbeBody = document.getElementById('fileTalbeBody');
     if (item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberSubscriber = arrayChildrenOfFolderThree.filter(element => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
