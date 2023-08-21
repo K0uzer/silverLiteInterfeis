@@ -382,7 +382,7 @@ export function updateTheTable() {
       }
     } else {
       console.log(3, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ')
-      talbeBodyOfFolder.innerHTML = '';
+      Array.from(talbeBodyOfFolder.children).forEach((e) => e.remove());
       levelOfFolder = 0;
       loadFolderParentInTable();
       getDownInFolderLevelBelow();
