@@ -1722,43 +1722,36 @@ function updateTheTable() {
   const buttonOfUpdateTheTable = document.getElementById('updateTableFolder');
   const currentFodler = document.querySelector('.archive__filder-title');
   const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
-  const checkboxForSearchOfNumber = document.getElementById('type-folder-search-of-number');
-  const checkboxForSearchOfName = document.getElementById('type-folder-search-of-name');
   const updateAndThrowDownOfTheTableContent = () => {
     console.log('ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ');
-    console.log(levelOfFolder, 'Уровеьн погружения');
-    if (checkboxForSearchOfNumber.checked === true || checkboxForSearchOfName.checked === true) {
+    console.log(levelOfFolder, 'Уровень погружения');
+    if (levelOfFolder !== 0) {
+      if (levelOfFolder === 1) {
+        console.log(1, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
+        folderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+        const filteredArrayOfFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === folderThree[0].idFolder);
+        createRow(talbeBodyOfFolder, filteredArrayOfFolder, archiveFolderTableRow);
+        getContentOfFolder(talbeBodyOfFolder, filteredArrayOfFolder);
+        getDocumentsFromFolder(event, levelOfFolder, folderThree[0].idFolder);
+        submergence(folderThree[0].numberSubscriber, currentFodler, talbeBodyOfFolder, folderThree[0].idFolder, levelOfFolder);
+      } else {
+        console.log(2, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
+        arrayChildrenOfFolderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+        const filteredArrayOfChildren = arrayChildrenOfFolderThree.filter(item => item.idParent === arrayChildrenOfFolderThree[0].idFolder);
+        createRow(talbeBodyOfFolder, filteredArrayOfChildren, archiveFolderTableRow);
+        getContentOfFolder(talbeBodyOfFolder, filteredArrayOfChildren);
+        getDocumentsFromFolder(event, levelOfFolder, arrayChildrenOfFolderThree[0].idFolder);
+      }
+    } else {
+      console.log(3, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
       talbeBodyOfFolder.innerHTML = '';
       levelOfFolder = 0;
       loadFolderParentInTable();
       getDownInFolderLevelBelow();
-    } else {
-      if (levelOfFolder !== 0) {
-        if (levelOfFolder === 1) {
-          console.log(1, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
-          folderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
-          const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === folderThree[0].idFolder);
-          createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
-          getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-          getDocumentsFromFolder(event, levelOfFolder, folderThree[0].idFolder);
-        } else {
-          console.log(2, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
-          arrayChildrenOfFolderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
-          const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter(item => item.idParent === arrayChildrenOfFolderThree[0].idFolder);
-          createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
-          getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
-          getDocumentsFromFolder(event, levelOfFolder, arrayChildrenOfFolderThree[0].idFolder);
-        }
-      } else {
-        console.log(3, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ');
-        talbeBodyOfFolder.innerHTML = '';
-        levelOfFolder = 0;
-        loadFolderParentInTable();
-        getDownInFolderLevelBelow();
-      }
     }
     goUpToTheFolderToTheTopLevel();
     goUpToTheFolderToTheHigherLevel();
+    searchFolder();
   };
   buttonOfUpdateTheTable.addEventListener('click', updateAndThrowDownOfTheTableContent);
 }
@@ -1774,21 +1767,25 @@ function searchFolder() {
     console.log('ПОИСК ПАПКИ');
     resetFolderEffects();
     sortingOfFolder(item);
+    updateTheTable();
   };
 
   // ФУНКЦИЯ-СБОРЩИК ДЛЯ СОРТИРОВКИ //
   function sortingOfFolder(item) {
+    const fileTalbeBody = document.getElementById('fileTalbeBody');
     if (item.title === 'Поиск по номеру' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberSubscriber = arrayChildrenOfFolderThree.filter(element => Number(element.numberSubscriber) === Number(inputForTheSearchFolder.value));
       settingUpButtonsOfFolder(checkboxForSearchOfNumber, item);
-      folderTableBody.innerHTML = '';
+      Array.from(fileTalbeBody.children).forEach(e => e.remove());
+      Array.from(folderTableBody.children).forEach(e => e.remove());
       createRow(folderTableBody, filteredArrayOfNumberSubscriber, archiveFolderTableRow);
       getContentOfFolder(folderTableBody, filteredArrayOfNumberSubscriber);
       clearOfInputForSearch(inputForTheSearchFolder);
     } else if (item.title === 'Поиск по имени' && inputForTheSearchFolder.value !== '') {
       const filteredArrayOfNumberAgreement = arrayChildrenOfFolderThree.filter(element => element.numberAgreement == inputForTheSearchFolder.value);
       settingUpButtonsOfFolder(checkboxForSearchOfName, item);
-      folderTableBody.innerHTML = '';
+      Array.from(fileTalbeBody.children).forEach(e => e.remove());
+      Array.from(folderTableBody.children).forEach(e => e.remove());
       createRow(folderTableBody, filteredArrayOfNumberAgreement, archiveFolderTableRow);
       getContentOfFolder(folderTableBody, filteredArrayOfNumberAgreement);
       clearOfInputForSearch(inputForTheSearchFolder);
