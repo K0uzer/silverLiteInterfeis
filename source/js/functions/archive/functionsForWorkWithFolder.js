@@ -363,13 +363,38 @@ function getContentOfFolder(tableBody, filteredArray) {
 // ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ //
 export function updateTheTable() {
   const buttonOfUpdateTheTable = document.getElementById('updateTableFolder');
+  const currentFodler = document.querySelector('.archive__filder-title');
+  const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
   const updateAndThrowDownOfTheTableContent = () => {
     console.log('ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ')
-    const talbeBodyOfFolder = document.getElementById('folderTalbeBody');
-    talbeBodyOfFolder.innerHTML = '';
-    levelOfFolder = 0;
-    getDownInFolderLevelBelow();
-    loadFolderParentInTable();
+    console.log(levelOfFolder, 'Уровеьн погружения')
+    if(levelOfFolder !== 0) {
+      if(levelOfFolder === 1) {
+        console.log(1, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ')
+        folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+        const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === folderThree[0].idFolder);
+        createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
+        getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
+        getDocumentsFromFolder(event, levelOfFolder, folderThree[0].idFolder);
+        goUpToTheFolderToTheTopLevel();
+        goUpToTheFolderToTheHigherLevel();
+      } else {
+        console.log(2, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ')
+        arrayChildrenOfFolderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+        const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === arrayChildrenOfFolderThree[0].idFolder);
+        createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
+        getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
+        getDocumentsFromFolder(event, levelOfFolder, arrayChildrenOfFolderThree[0].idFolder);
+        goUpToTheFolderToTheTopLevel();
+        goUpToTheFolderToTheHigherLevel();
+      }
+    } else {
+      console.log(3, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ')
+      talbeBodyOfFolder.innerHTML = '';
+      levelOfFolder = 0;
+      loadFolderParentInTable();
+      getDownInFolderLevelBelow();
+    }
   };
   buttonOfUpdateTheTable.addEventListener('click', updateAndThrowDownOfTheTableContent);
 }
@@ -419,7 +444,6 @@ export function searchFolder() {
     buttonsOfSettingFilterFolder.forEach((element) => element.style = 'border: none');
     checkboxForSearchOfName.checked === false;
   }
-
   // ФУНКЦИЯ ДЛЯ НАСТРОЙКИ КПОНОК //
   function settingUpButtonsOfFolder(checkbox, item) {
     console.log('НАСТРОЙКИ КПОНОК ПОИСКА')
