@@ -32,6 +32,7 @@ export let cutOutFolder = '';
 export let levelOfFolder = 0;
 export let levelOfSubmerged = 0;
 export let counterSubmerged = 0;
+export const arrayOfImmersionPath = [];
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 
@@ -280,7 +281,7 @@ function getDocumentsFromFolder(event, level, idFolder) {
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
 const moveToTheFolderAbove = (button, arrayFoldersOfMain, arrayFoldersOfSecondary, current, body, level, buttonForRemoveListener) => {
   button.removeEventListener('click', buttonForRemoveListener);
-  
+  levelOfFolder = 1;
   const oldCurrentFodler = current.textContent;
   const oldFolderFromArrayChildrenOfFolderThree = arrayFoldersOfSecondary.filter((item) => `Текущая папка: ${item.numberAgreement}` === oldCurrentFodler);
   const newFolderFromArrayChildrenOfFolderThree = arrayFoldersOfMain.filter((item) => oldFolderFromArrayChildrenOfFolderThree[0].idParent === item.idFolder);
