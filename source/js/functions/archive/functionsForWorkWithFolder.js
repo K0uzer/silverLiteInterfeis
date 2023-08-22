@@ -30,6 +30,8 @@ import {
 
 export let cutOutFolder = '';
 export let levelOfFolder = 0;
+export let levelOfSubmerged = 0;
+export let counterSubmerged = 0;
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 
@@ -76,6 +78,7 @@ export function loadFolderParentInTable() {
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ //
 export function openWindowForCreateFolder() {
   const buttonOfCreateFolder = document.getElementById('createFolder');
+
   function getWindowForCreateFolder() {
     console.log('ОТКРЫТИЯ ОКНА СОЗДАНИЯ ПАПКИ');
     const archiveFolderContentContainer = document.querySelector('.archive__folder-content-container');
@@ -90,7 +93,7 @@ export function openWindowForCreateFolder() {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ //
 const getDownInFolderNotTopLevel = (array, folder, folderTableBody, currentFodler) => function () {
-  if(levelOfFolder !== 0) {
+  if (levelOfFolder !== 0) {
     console.log('ПОГРУЖЕНИЕ В ПАПКУ CО ВТОРОГО УРОВНЯ И НИЖЕ');
     const idElementFromOfFilteredArray = array.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
     console.log('ВЫЗОВ ФУНКЦИИ ПОГРУЖЕНИЯ');
@@ -128,20 +131,18 @@ function createTableFolderRow() {
   const folderTableBody = document.getElementById('folderTalbeBody');
   console.log('СОЗДАНИЕ ДОРОЖКИ В ТАБЛИЦЕ ПАПОК');
   if (levelOfFolder !== 0 && inputOfNumberAgreement.value !== '' && inputOfNumberSubscriber.value !== '' && inputOfComment.value !== '') {
-    if(levelOfFolder === 1) {
+    if (levelOfFolder === 1) {
       createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent)[0].idFolder);
-    } else if(levelOfFolder > 1) {
+    } else if (levelOfFolder > 1) {
       createNewFolder(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, inputOfNumberAgreement.value, arrayChildrenOfFolderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent)[0].idFolder);
     }
     createChildrenFolderList(arrayChildrenOfFolderThree, inputOfNumberSubscriber.value, arrayChildrenOfFolderThree.length - 1);
     submergence(inputOfNumberSubscriber.value, currentFodler, folderTableBody, arrayChildrenOfFolderThree.length + 1, levelOfFolder);
     folderTableBody.innerHTML += archiveFolderTableRow();
     fillInRowOfFolderTalbe(folderTableBody, inputOfNumberAgreement.value, inputOfNumberSubscriber.value);
-  }
-  else if(levelOfFolder === 0) {
+  } else if (levelOfFolder === 0) {
     return alert('Запрещено создание папок при нахождении в корневой папке');
-  }
-  else {
+  } else {
     return alert('Ошибка создания папки');
   }
 }
@@ -208,7 +209,7 @@ function deleteCheckedRowInTableFolder(element) {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ПОГРУЖЕНИЯ В ПАПКУ C ВЕРХНЕЙ НА УРОВЕНЬ НИЖЕ //
 export function getDownInFolderLevelBelow() {
-  if(levelOfFolder === 0) {
+  if (levelOfFolder === 0) {
     const currentFodler = document.querySelector('.archive__filder-title');
     const folderTableBody = document.getElementById('folderTalbeBody');
     const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
@@ -231,8 +232,10 @@ export function getDownInFolderLevelBelow() {
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
+  levelOfSubmerged++;
   console.log('РАБОТА ГЛАВНОЙ ФУНКЦИИ ПОГРУЖЕНИЯ');
   levelOfFolder++;
+  console.log('ПРИБАВЛЯЮ ЗНАЧЕНИЕ УРОВЕНЯ ПАПКИ НА 1', levelOfFolder);
   if (event.target.textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
   } else if (event.target.parentNode.children[2].textContent === numberSubscriber) {
@@ -248,7 +251,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   goUpToTheFolderToTheTopLevel();
   goUpToTheFolderToTheHigherLevel();
-  if(levelOfFolder !== 0) {
+  if (levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {
         arrayChildrenOfTableBody[i].children[n].addEventListener('click', getDownInFolderNotTopLevel(filteredArrayOfChildrenFolder, event.target.parentNode.children[2].textContent, folderTableBody, currentFodler, level));
@@ -262,42 +265,66 @@ function getDocumentsFromFolder(event, level, idFolder) {
   let parentFolter;
   if (level !== 0) {
     parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
-    if(folderThree.length !== 0) {
+    if (folderThree.length !== 0) {
       console.log('ПОЛУЧЕНИЕ ФИЛЬТРОВАННОГО МАССИВА ПАПОК', parentFolter)
       const filteredArrayOfDocument = data.filter((item) => item.id_parent === idFolder);
       console.log('ФИЛЬТРОВАННЫЙ МАССИВ ПАПОК', parentFolter)
       console.log('ЗАГРУЗКА ДОКУМЕНТОВ В ТАБЛИЦУ ПО-ФИЛЬТРОВАННОМУ МАССИВУ')
       fillInInformations(filteredArrayOfDocument);
     }
-  }
-  else {
+  } else {
     parentFolter = folderThree.filter((item) => item.numberAgreement === event.target.parentNode.children[2].textContent);
   }
 }
 
 // ФУНКЦИЯ ДЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
+const moveToTheFolderAbove = (button, arrayFoldersOfMain, arrayFoldersOfSecondary, current, body, level, buttonForRemoveListener) => {
+  button.removeEventListener('click', buttonForRemoveListener);
+  
+  const oldCurrentFodler = current.textContent;
+  const oldFolderFromArrayChildrenOfFolderThree = arrayFoldersOfSecondary.filter((item) => `Текущая папка: ${item.numberAgreement}` === oldCurrentFodler);
+  const newFolderFromArrayChildrenOfFolderThree = arrayFoldersOfMain.filter((item) => oldFolderFromArrayChildrenOfFolderThree[0].idParent === item.idFolder);
+  submergence(newFolderFromArrayChildrenOfFolderThree[0].numberSubscriber, current, body, newFolderFromArrayChildrenOfFolderThree[0].idFolder, level);
+  current.textContent = `Текущая папка: ${newFolderFromArrayChildrenOfFolderThree[0].numberAgreement}`;
+};
+
+// ФУНКЦИЯ ДЛЯ КОНТРОЛЯ ПЕРЕМЕЩЕНИЯ В ПАПКУ НА УРОВЕНЬ ВЫШЕ //
 export function goUpToTheFolderToTheHigherLevel() {
   const buttonOfLevelUp = document.getElementById('upLevelFolder');
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   const folderTableBody = document.getElementById('folderTalbeBody');
   const currentFodler = document.querySelector('.archive__filder-title');
 
-  function goUpToTheFolder() {
-    if(levelOfFolder > 0) levelOfFolder--;
-    console.log('Перемещение папки на уровень выше')
-    if (levelOfFolder === 1) {
-      console.log('Перемещение в папку уровня', levelOfFolder);
-      folderTableBody.innerHTML = '';
-      tableBodyDocumentsOfArchive.innerHTML = '';
-      currentFodler.textContent = 'Текущая папка: Верхнего уровня';
-      levelOfFolder = 0;
-      loadFolderParentInTable();
-      getDownInFolderLevelBelow();
-    } else if(levelOfFolder === 0) {
-      console.log('Перемещение в папку уровня', levelOfFolder);
-      alert('Вы находитесь в папке верхнего уровня')
-    } else {
-      console.log('Перемещение в папку уровня', levelOfFolder);
+  const goUpToTheFolder = (event) => {
+    if (counterSubmerged === 0) setTimeout(counterSubmerged++, 1);
+    else {
+      if (levelOfFolder === 1) {
+        buttonOfLevelUp.removeEventListener('click', goUpToTheFolder);
+        console.log(levelOfFolder, 'Уровень папки перед поднятием')
+        levelOfFolder = 0;
+        Array.from(folderTableBody.children).forEach((e) => e.remove());
+        Array.from(tableBodyDocumentsOfArchive.children).forEach((e) => e.remove());
+        currentFodler.textContent = 'Текущая папка: Верхнего уровня';
+        loadFolderParentInTable();
+        getDownInFolderLevelBelow();
+        console.log(`Перемещение в папку уровня ${levelOfFolder}`);
+        return event;
+      } else if (levelOfFolder === 2) {
+        moveToTheFolderAbove(buttonOfLevelUp, folderThree, arrayChildrenOfFolderThree, currentFodler, folderTableBody, levelOfFolder, goUpToTheFolder);
+      } else if (levelOfFolder === 3) {
+        moveToTheFolderAbove(buttonOfLevelUp, folderThree, arrayChildrenOfFolderThree, currentFodler, folderTableBody, levelOfFolder, goUpToTheFolder);
+      } else if (levelOfFolder === 4) {
+        buttonOfLevelUp.removeEventListener('click', goUpToTheFolder);
+        levelOfFolder = 3;
+        const oldCurrentFodler = currentFodler.textContent;
+        currentFodler.textContent = 'Текущая папка: Верхнего уровня';
+        console.log(oldCurrentFodler)
+        console.log(`Перемещение в папку уровня ${levelOfFolder}`);
+        return event;
+      } else {
+        return event;
+        alert('Error in raising a folder to the level of its parent');
+      }
     }
   };
   buttonOfLevelUp.addEventListener('click', goUpToTheFolder);
@@ -311,8 +338,8 @@ export function goUpToTheFolderToTheTopLevel() {
   const currentFodler = document.querySelector('.archive__filder-title');
   const climbToTheMaximumLevelFolder = () => {
     console.log('Перемещение папки на максивальный верхний уровень')
-    folderTableBody.innerHTML = '';
-    tableBodyDocumentsOfArchive.innerHTML = '';
+    Array.from(folderTableBody.children).forEach((e) => e.remove());
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((e) => e.remove());
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
     loadFolderParentInTable();
@@ -338,6 +365,7 @@ function insertFolder() {
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ПАПКИ //
 export function cutTheFolder() {
   const buttonOfCutOutFolder = document.getElementById('cutOutFolder');
+
   function cutOutRow() {
     console.log('ВЫРЕЗАНИЯ ПАПКИ')
     searchCheckedInputs();
@@ -349,7 +377,7 @@ export function cutTheFolder() {
 // ФУНКЦИЯ ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ОТСОРТИРОВАННЫМ КОНТЕНТОМ //
 function getContentOfFolder(tableBody, filteredArray) {
   console.log('ЗАПОЛНЕНИЕ ТАБЛИЦЫ ОТСОРТИРОВАННЫМ КОНТЕНТОМ')
-    const newArrayChildrenOfTableBody = Array.from(tableBody.children).map((element, id) => {
+  const newArrayChildrenOfTableBody = Array.from(tableBody.children).map((element, id) => {
     element.children[1].textContent = filteredArray[id].numberSubscriber;
     element.children[2].textContent = filteredArray[id].numberAgreement;
   });
@@ -363,8 +391,8 @@ export function updateTheTable() {
   const updateAndThrowDownOfTheTableContent = () => {
     console.log('ОБНОВЛЕНИЯ ТАБЛИЦЫ И СБРОСА ФИЛЬТРОВ')
     console.log(levelOfFolder, 'Уровень погружения')
-    if(levelOfFolder !== 0) {
-      if(levelOfFolder === 1) {
+    if (levelOfFolder !== 0) {
+      if (levelOfFolder === 1) {
         console.log(1, 'ОБНОВЛЕНИЯ ТАБЛИЦЫ')
         folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
         const filteredArrayOfFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === folderThree[0].idFolder);

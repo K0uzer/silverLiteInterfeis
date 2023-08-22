@@ -31,11 +31,12 @@ import {
 // import {
 //   Sane
 // } from '/node_modules/sane/index.js';
+
 //            //
 // КОДНСТАНТЫ //
 //            //
 
-export const acrchivePage = document.getElementById('p2');
+export const archivePage = document.getElementById('p2');
 export const countElementOfDocument = 11;
 export const nameUser = 'Ганин А.В';
 
@@ -47,7 +48,7 @@ export let cutOutDocument = '';
 
 // ФУНКЦИЯ ОТРИСОВКИ ИНТЕРФЕЙСА //
 export const createInterfeisOfArchiver = () => {
-  acrchivePage.innerHTML = archivePageMaxLever();
+  archivePage.innerHTML = archivePageMaxLever();
 };
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ОТКРЫТИЯ БЛОКА ИНТЕРФЕЙСА С СОЗДАНИЕМ ДОКУМЕНТА //
@@ -123,12 +124,12 @@ function createDocument() {
   const dateLastChangeDocument = document.getElementById('dateOfChangeDocument');
   const buttonOfAddDocument = document.querySelector('.archive__create-new-document-of-button-add-new-file');
   const buttonOfCreateDocument = document.querySelector('.archive__create-new-document-of-button-create');
-  const doucmentId = document.querySelector('.archive__document-of-id');
+  const documentId = document.querySelector('.archive__document-of-id');
   const inputInWindowCreateDocument = document.querySelector('.archive__create-new-document-of-input-file');
   const infoListElements = document.querySelectorAll('.archive__create-new-document-element-of-info');
   const tableBodyOfTableFiles = document.querySelector('.archive__create-new-document-of-table-body');
   getCurrentTime(arrayInputsOfCreateDocument[1]);
-  doucmentId.textContent = data[data.length - 1].id_subscriber + 1;
+  documentId.textContent = data[data.length - 1].id_subscriber + 1;
   dateLastChangeDocument.textContent = arrayInputsOfCreateDocument[1].value;
   nameUserOfCreatedDocument.textContent = nameUser;
   buttonOfAddDocument.addEventListener('click', addNewFile(inputInWindowCreateDocument, infoListElements[3].textContent, tableBodyOfTableFiles));
@@ -152,7 +153,7 @@ export function getTableElementFromArchiveDocuments() {
 // ФУНКЦИЯ ДЛЯ ВЫРЕЗАНИЯ ДОКУМЕНТА //
 export function cutOutDocumentOfTable() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  const bittonOfCutOutDocument = document.getElementById('archiveCutOut');
+  const buttonOfCutOutDocument = document.getElementById('archiveCutOut');
   const cutOutElement = () => {
     Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
       const elementArchiveTable = item.children[0];
@@ -162,7 +163,7 @@ export function cutOutDocumentOfTable() {
       };
     });
   };
-  bittonOfCutOutDocument.addEventListener('click', cutOutElement);
+  buttonOfCutOutDocument.addEventListener('click', cutOutElement);
 };
 
 // ФУНКЦИЯ ДЛЯ ВСТАВКИ ВЫРЕЗАННОГО ЭЛЕМЕНТА В ТАБЛИЦУ //
@@ -248,7 +249,7 @@ const openDocument = (target) => function getDoc() {
   }
   editOfDocument();
   closeDocument();
-  Array.from(archiveFile.children)[3].remove();
+  if(Array.from(archiveFile.children).length >= 4) Array.from(archiveFile.children)[3].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
@@ -286,10 +287,10 @@ export function editOfDocument() {
   const tableWithTheFile = document.querySelector('.archive__opened-document-of-table');
   const inputOfTheTableFile = document.querySelector('.archive__opened-document-of-table-button-for-delete');
   const infoListCreatedElements = document.querySelectorAll('.archive__opened-document-element-of-info');
-  const inputOfOpendDocument = document.querySelector('.archive__opened-document-of-input-add-new-file');
+  const inputOfOpenedDocument = document.querySelector('.archive__opened-document-of-input-add-new-file');
 
   // Функция для добавления файла //
-  const addFile = () => buttonsOfControlsDocument[0].addEventListener('click', addNewFile(inputOfOpendDocument, infoListCreatedElements[3].textContent, tableWithTheFile.children[1]));
+  const addFile = () => buttonsOfControlsDocument[0].addEventListener('click', addNewFile(inputOfOpenedDocument, infoListCreatedElements[3].textContent, tableWithTheFile.children[1]));
 
   // Функция-сборщик для просмотр файлов //
   const showFile = () => {
