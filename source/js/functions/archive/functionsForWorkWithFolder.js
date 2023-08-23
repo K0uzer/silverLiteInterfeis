@@ -246,6 +246,15 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   const newTableBodyOfDocuemnt = document.querySelector('.scroll-table-body');
   newTableBodyOfDocuemnt.innerHTML += '';
   const filteredArrayOfChildrenFolder = arrayChildrenOfFolderThree.filter((item) => item.idParent === idFolder);
+  if(levelOfFolder === 0) {
+    const folderAktual = folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+    arrayOfImmersionPath.push(folderAktual[0]);
+    console.log(arrayOfImmersionPath);
+  } else {
+    const folderAktual = arrayChildrenOfFolderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+    arrayOfImmersionPath.push(folderAktual[0]);
+    console.log(arrayOfImmersionPath);
+  }
   createRow(folderTableBody, filteredArrayOfChildrenFolder, archiveFolderTableRow);
   getContentOfFolder(folderTableBody, filteredArrayOfChildrenFolder);
   getDocumentsFromFolder(event, levelOfFolder, idFolder);
@@ -313,7 +322,11 @@ export function goUpToTheFolderToTheHigherLevel() {
       } else if (levelOfFolder === 2) {
         moveToTheFolderAbove(buttonOfLevelUp, folderThree, arrayChildrenOfFolderThree, currentFodler, folderTableBody, levelOfFolder, goUpToTheFolder);
       } else if (levelOfFolder === 3) {
-        moveToTheFolderAbove(buttonOfLevelUp, folderThree, arrayChildrenOfFolderThree, currentFodler, folderTableBody, levelOfFolder, goUpToTheFolder);
+        if (currentFodler === 'Текущая папка: проектно-техническая документация' || currentFodler === 'Текущая папка: учредительные и рег документы' || currentFodler === 'Текущая папка: акты ко' || currentFodler === 'Текущая папка: договор' || currentFodler === 'Текущая папка: письма-жалобы абонентов и ответы' || currentFodler === 'Текущая папка: служ записи, рапорты' || currentFodler === 'Текущая папка: прочие документы') {
+          console.log(1111);
+        } else {
+          moveToTheFolderAbove(buttonOfLevelUp, folderThree, arrayChildrenOfFolderThree, currentFodler, folderTableBody, levelOfFolder, goUpToTheFolder);
+        }
       } else if (levelOfFolder === 4) {
         buttonOfLevelUp.removeEventListener('click', goUpToTheFolder);
         levelOfFolder = 3;
@@ -343,6 +356,7 @@ export function goUpToTheFolderToTheTopLevel() {
     Array.from(tableBodyDocumentsOfArchive.children).forEach((e) => e.remove());
     currentFodler.textContent = 'Текущая папка: Верхнего уровня';
     levelOfFolder = 0;
+    arrayOfImmersionPath.forEach((item) => item.remove());
     loadFolderParentInTable();
     getDownInFolderLevelBelow();
   };
