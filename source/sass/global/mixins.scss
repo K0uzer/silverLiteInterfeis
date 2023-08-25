@@ -1,0 +1,51 @@
+%mixin-for-create-and-opened-doc-window-archive {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  line-height: calc(var(--pixel) * 15);
+  color: #000000;
+  background-color: rgb(179 138 109 / 80%);
+  border-radius: 0.8%;
+  overflow: scroll;
+}
+
+%mixin-for-buttons-of-interfase-under-table {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 40);
+  padding: calc(var(--pixel) * 5);
+  margin: calc(var(--pixel) * 5) 0;
+  border: calc(var(--pixel) * 1) solid black;
+  background-color: transparent;
+  color: white;
+
+  &:hover {
+    transition: 0.3s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+%mixin-for-input-of-all-opened-windows-archive {
+  font-size: calc(var(--pixel) * 20);
+  width: calc(var(--pixel) * 200);
+  height: calc(var(--pixel) * 30);
+  margin: 0 calc(var(--pixel) * 10);
+  border: calc(var(--pixel) * 1) solid black;
+}
+
+%mixin-for-button-close-of-all-opened-windows-archive {
+  position: absolute;
+  width: calc(var(--pixel)*25);
+  height: calc(var(--pixel)*25);
+  top: calc(var(--pixel)*15);
+  right: calc(var(--pixel)*15);
+}

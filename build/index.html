@@ -1,0 +1,411 @@
+ч<!DOCTYPE html>
+<html lang="ru" class="html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Электронный архив</title>
+  <link rel="preload" href="fonts/PT-Root-UI_Regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/PT-Root-UI_Bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/PT-Root-UI_Regular.woff" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/PT-Root-UI_Bold.woff" as="font" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="body">
+  <header class="header"></header>
+  <main class="main">
+    <section class="main__container-of-content-archive">
+      <div class="ct" id="t1">
+        <div class="ct" id="t2">
+          <div class="ct" id="t3">
+            <div class="ct" id="t4">
+              <div class="ct" id="t5">
+                <ul id="menu">
+                  <a href="#t1">
+                    <li class="menu__icon fa fa-bolt" id="uno">Главная</li>
+                  </a>
+                  <a href="#t2">
+                    <li class="menu__icon fa fa-keyboard-o" id="dos">Архив</li>
+                  </a>
+                  <a href="#t3">
+                    <li class="menu__icon fa fa-rocket" id="tres">Настройки</li>
+                  </a>
+                  <a href="#t4">
+                    <li class="menu__icon fa fa-dribbble" id="cuatro">Помощь</li>
+                  </a>
+                  <a href="#t5">
+                    <li class="menu__icon fa fa-plus-circle" id="">Админ</li>
+                  </a>
+                  <li class="menu__icon fa fa-bolt" style="cursor: pointer" id="">Выход</li>
+                </ul>
+                <div class="page" id="p1">
+                  <section class="menu__icon archive fa fa-bolt">
+                    <h1 class="title">Электронный архив</h1><span class="hint">Добро пожаловать, Александр</span>
+                  </section>
+                </div>
+                <div class="page archive" id="p2">
+                  <h1 class="title">Абонентские дела</h1>
+                </div>
+                <div class="page sittings" id="p3">
+                  <h1 class="title">Настройки</h1>
+                  <form class="sittings__form" method="post">
+                    <span class="sittings__type">Сменить пароль</span>
+                    <input class="sittings__input sittings__password-current" type="password" placeholder="Текущий пароль">
+                    <input class="sittings__input sittings__password-new" type="password" placeholder="Новый пароль">
+                    <input class="sittings__input sittings__password-new-confirmation" type="password" placeholder="Подтвердите пароль">
+                    <button class="sittings__password-button">Сохранить</button>
+                  </form>
+                </div>
+                <div class="page" id="p4">
+                  <div class="fa fa-dribbble">
+                    <h1 class="title">Помощь</h1>
+
+                  </div>
+                </div>
+                <div class="page" id="p5">
+                  <img src="./img/file/icons8-верхнее-меню-24.png" class="page__admin-button-open-menu"/>
+                  <nav class="page__admin-menu">
+                    <ul class="page__menu-list">
+                      <li class="page__menu-element"><button class="page__element-button" id="panelAdminOfEmployeesCompany" title="Сотрудники предприятия">Сотрудники предприятия</button></li>
+                      <li class="page__menu-element"><button class="page__element-button" id="panelAdminOfGroupAccess" title="Группы доступа">Группы доступа</button></li>
+                      <!-- <li class="page__menu-element"><button class="page__element-button" id="" title="Словари">Словари</button></li> -->
+                      <li class="page__menu-element"><button class="page__element-button" id="panelAdminOffileStorage" title="Храннение файлов">Храннение файлов</button></li>
+                      <li class="page__menu-element"><button class="page__element-button" id="panelAdminOfProtocols" title="Протоколы">Протоколы</button></li>
+                    </ul>
+                  </nav>
+                  <div class="fa fa-plus-circle administration">
+                    <h1 class="title administration__title">Администрирование</h1>
+                    <section class="employees-company">
+                      <h2 class="employees-company__employees-title">Сотрудники преприятия</h2>
+                      <nav class="employees-company__navigation-between-tables">
+                        <ul class="employees-company__navigation-list-tables">
+                          <li class="employees-company__navigation-table" id="employeesCompany">Структура предприятия</li>
+                          <li class="employees-company__navigation-table" id="worckingEmloyees">Работающие сотрудники</li>
+                          <li class="employees-company__navigation-table" id="sittingsUsers">Настройки пользователей</li>
+                        </ul>
+                      </nav>
+                      <div class="employees-company__wrapper-content">
+                        <nav class="employees-company__work-with-content">
+                          <ul class="employees-company__work-with-content-list">
+                            <li class="employees-company__work-with-content-element">Список пользователей без должности</li>
+                            <li class="employees-company__work-with-content-element">Сохранить изменения</li>
+                            <li class="employees-company__work-with-content-element">Показать информацию</li>
+                            <li class="employees-company__work-with-content-element">Обновить таблицу</li>
+                            <li class="employees-company__work-with-content-element">Добавить подразделение</li>
+                            <li class="employees-company__work-with-content-element">Добавить должность</li>
+                            <li class="employees-company__work-with-content-element">Добавить сотрудника</li>
+                            <li class="employees-company__work-with-content-element">Удалить</li>
+                            <li class="employees-company__work-with-content-element"><input class="employees-company__work-with-content-input-search" type="text" placeholder="Поиск по имени"></li>
+                          </ul>
+                        </nav>
+                        <div class="employees-company__tables-container">
+                          <table class="employees-company__folder">
+                            <thead>
+                              <tr>
+                                <th>
+                                  Имя папки
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  Имя папки
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Имя папки
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Имя папки
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Имя папки
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Имя папки
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="employees-company__users">
+                            <thead>
+                              <tr>
+                                <th>Пользователь</th>
+                                <th>Должность</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                              <tr>
+                                <td>Пользователь 1</td>
+                                <td>Должность 1</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="worcking-emloyees" style="display: none;">
+                        <h2 class="worcking-emloyees__title">Работающие сотрубники</h2>
+                        <nav class="worcking-emloyees__navigation">
+                          <ul class="worcking-emloyees__list">
+                            <li class=""><button class="worcking-emloyees__element">Послать сообщение всем пользователям</button></li>
+                            <li class=""><button class="worcking-emloyees__element">Отключить всех пользователей</button></li>
+                          </ul>
+                        </nav>
+                        <table class="worcking-emloyees__table">
+                          <thead>
+                            <tr class="worcking-emloyees__table-head-row">
+                              <th></th>
+                              <th>Логин</th>
+                              <th>Имя</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="worcking-emloyees__table-body-row">
+                              <td><button class="worcking-emloyees__button-of-work-with-content-in-table">Отключить</button></td>
+                              <td>ganin</td>
+                              <td>Ганин/Специальст ИТ</td>
+                              <td><button class="worcking-emloyees__button-of-work-with-content-in-table">Написать</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="worcking-emloyees__massage-user">
+                          <h3 class="worcking-emloyees__title">Сообщение пользователю:</h3>
+                          <div class="worcking-emloyees__massage-container">
+                            <span class="worcking-emloyees__massage">Сообщение</span>
+                            <button class="worcking-emloyees__massage-button-close"><strong>Закрыть</strong></button>
+                          </div>
+                          <form class="worcking-emloyees__massage-for-user">
+                            <textarea class="worcking-emloyees__text-massage" name="" id="" cols="30" rows="10"></textarea>
+                            <button class="worcking-emloyees__button-send">Отправить</button>
+                            <button class="worcking-emloyees__button-cancellation">Отменить</button>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="sittings-of-users" style="display: none;">
+                        <h2 class="sittings-of-users__title">Настройки пользователей</h2>
+                        <button class="sittings-of-users__button-save-change">Сохранить изменрения</button>
+                        <div class="sittings-of-users__container-content">
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Проверять сложность пароля</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input class="class="sittings-of-users__element-input" type="text">
+                            <span class="class="sittings-of-users__element-text">Минимальная длина пароля</span>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__container-element-text">Пароль должен содержать буквы</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Пароль должен содержать цифры</lable>
+                          </div>
+                          <div class="sittings-of-users__container-element">
+                            <input type="checkbox" name="" id="" class="sittings-of-users__element-input">
+                            <lable class="sittings-of-users__element-text">Проль должен содержать специпальные символы</lable>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="group-access" style="display: none;">
+                      <h2 class="group-access__title">Группы доступа</h2>
+                      <div class="group-access__content-wrapper">
+                        <nav class="group-access__navifation">
+                          <ul class="group-access__navigation-list">
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Сохранить изменения">Сохранить</button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Добавить группу">Добавить</button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Удалить группу">Удалить</button></li>
+                            <li class="group-access__navigation-element"><button class="group-access__navigation-button" title="Редактировать название группы">Редактировать</button></li>
+                          </ul>
+                        </nav>
+                        <table class="group-access__table">
+                          <tr class="group-access__table-row">
+                            <td>></td>
+                            <td>
+                              <img src="" alt="Иконка" title="Иконка" sizes="" srcset="">
+                              <strong>Все</strong>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </section>
+                    <section class="file-storage" style="display: none;">
+                      <h2 class="file-storage__title">Хранение файлов</h2>
+                      <form class="file-storage__form-content" action="" method="post">
+                        <nav class="file-storage__navigation">
+                          <ul class="file-storage__navigation-list">
+                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Сохранить изменения">Сохранить</button></li>
+                            <li class="file-storage__navigation-element"><button class="file-storage__navigation-button" type="submit" title="Проверить соединение">Проверить соединение</button></li>
+                          </ul>
+                        </nav>
+                        <input class="file-storage__input" type="number" title="Адрес FTP-сервера">
+                        <input class="file-storage__input" type="text" title="Логин">
+                        <input class="file-storage__input" type="password" title="Пароль">
+                      </form>
+                    </section>
+                    <section class="protocols" style="display: none;">
+                      <h2 class="protocols__title">Протоколы</h2>
+                      <nav class="protocols__navigations">
+                        <ul class="protocols__navigations-list">
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="archivedProtocols">Архивные протоколы</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="protocolsAction">Протоколы действий</button></li>
+                          <li class="protocols__navigations-element"><button class="protocols__navigations-button" id="protocolsSittings">Настройки протоколов</button></li>
+                        </ul>
+                      </nav>
+                      <div class="archived-protocols" style="display: block;">
+                        <nav class="archived-protocols__navigations">
+                          <ul class="archived-protocols__navigations-list">
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Обновить">Обновить</button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Печать">Печать</button></li>
+                            <li class="archived-protocols__navigations-element"><button class="archived-protocols__navigations-button" title="Сохранить">Сохранить</button></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="datetime-local" placeholder="Период с"><input type="datetime-local" placeholder="Период по"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Комментарий"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Пользователь"></li>
+                            <li class="archived-protocols__navigations-element"><input class="archived-protocols__navigations-input" type="text" placeholder="Количество отображений"></li>
+                          </ul>
+                        </nav>
+                        <table class="archived-protocols__table">
+                          <thead>
+                            <tr>
+                              <th>Дата и время</th>
+                              <th>Тип</th>
+                              <th>Пользователь</th>
+                              <th>Комментарий</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                              <td>ТЕКСТТЕКСТТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ МТЕКСТМТЕКСТ ТЕКСТ М ТЕКСТ ТЕКСТ ТЕКСТТЕКСТ ТЕКСТТЕКСТТЕКСТ МТЕКСТ ТЕКСТТЕКСТТЕКСТ ТЕКСТТЕКСТ М </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="protocols-action" style="display: none;">
+                        <nav class="protocols-action__navigations">
+                          <ul class="protocols-action__navigations-list">
+                            <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Обновить">Обновить</button></li>
+                            <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Печать">Печать</button></li>
+                            <li class="protocols-action__navigations-element"><button class="protocols-action__navigations-button" title="Сохранить в файл">Сохранить</button></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="datetime-local" placeholder="Период с"><input type="datetime-local" placeholder="Период по"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Комментарий"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Пользователь"></li>
+                            <li class="protocols-action__navigations-element"><input class="protocols-action__navigations-input" type="text" placeholder="Количество отображений"></li>
+                          </ul>
+                        </nav>
+                        <table class="protocols-action__table">
+                          <thead>
+                            <tr>
+                              <th>Дата и время</th>
+                              <th>Показатель</th>
+                              <th>Комментарий</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>30.12.2019 16:52</td>
+                              <td>Ганжа Н.И./Делопроизводитель</td>
+                              <td>Документ ID3214521, название "переоформление №123421 от 30.12.2019" сдал с редактирования</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="protocols__sittings" style="display: none">
+                        <form class="protocols__sittings-form" action="" method="post">
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings"><strong> Действия с документами</strong></lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание документа</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Перемещение документа</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Взятие документа на редактирование</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Измерение присоединенных файлов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Просмотр документов</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings"><strong> Пользовательские действия</strong></lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Вход и выход из системы</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Печать содержимого PKK</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Печать присоединенных файлов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отправка документоа по почте</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings"><strong> Административные действия</strong></lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Созданение пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение профиля пользователя</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Отключение пользователей</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание групп</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление групп</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение настроек системы</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление протоколов</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение прав пользователям</span></li>
+                            </ul>
+                          </div>
+                          <div class="protocols__content-container">
+                            <lable class="protocols__title-sittings"><strong> Действия с папками</strong></lable>
+                            <ul class="protocols__sittings-list">
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Создание папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Удаление папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Изменение свойств папки</span></li>
+                              <li class="protocols_sittings-element"><input type="checkbox" name="" id="" class="protocols__checkbox"><span class="protocols__sittings-text">Перемещение папки</span></li>
+                            </ul>
+                          </div>
+                        </form>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"></footer>
+  <script src="./js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+:root {
+  --calculation-of-one-pixel: calc(1vw + 1vh);
+  --pixel: calc(var(--calculation-of-one-pixel) * 0.041789);
+}
+
+html,
+body,
+.page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+  -webkit-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+  -moz-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+  -o-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+  color: #fff;
+  overflow: hidden;
+}
+
+* {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.page {
+  position: absolute;
+  padding-top: calc(var(--pixel) * 30);
+  padding-left: calc(var(--pixel) * 30);
+}
+
+#p1 {
+  left: 0;
+}
+
+#p2,
+#p3,
+#p4,
+#p5 {
+  left: 200%;
+}
+
+#p1 {
+  background: #faebd7;
+}
+
+#p2 {
+  background: #bfbdbb;
+}
+
+#p3 {
+  background: #bfbdbb;
+}
+
+#p4 {
+  background: #bfbdbb;
+}
+
+#p5 {
+  background: #bfbdbb;
+}
+
+#t2:target #p2,
+#t3:target #p3,
+#t4:target #p4,
+#t5:target #p5 {
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .4s !important;
+}
+
+#t2:target #p1,
+#t3:target #p1,
+#t4:target #p1,
+#t5:target #p1 {
+  background: #faebd7;
+}
+
+#t2:target #p1 .menu__icon,
+#t3:target #p1 .menu__icon,
+#t4:target #p1 .menu__icon,
+#t5:target #p1 .menu__icon {
+  -webkit-filter: blur(calc(var(--pixel) * 3));
+}
+
+.menu__icon {
+  font-size: calc(var(--pixel) * 23);
+  display: block;
+  color: #000000;
+}
+
+ul .menu__icon:hover {
+  text-decoration: underline;
+}
+
+.page .menu__icon .title {
+  line-height: calc(var(--pixel) * 50);
+}
+
+#t2:target ul .menu__icon,
+#t3:target ul .menu__icon,
+#t4:target ul .menu__icon,
+#t5:target ul .menu__icon {
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#t2:target #dos,
+#t3:target #tres,
+#t4:target #cuatro,
+#t4:target #cinco {
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+#menu {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: calc(var(--pixel) * 280);
+  width: 10%;
+  padding: 0;
+  text-align: center;
+}
+
+#menu .menu__icon {
+  margin: calc(var(--pixel) * 30) 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title,
+.hint {
+  display: block;
+  line-height: 1.2;
+  color: black;
+}
+
+.title {
+  font-size: calc(var(--pixel) * 36);
+  width: calc(var(--pixel) * 500);
+  margin: 0;
+  padding: 0;
+}
+
+.hint {
+  font-size: calc(var(--pixel) * 22);
+  width: calc(var(--pixel) * 500);
+}
+
+#p4 .hint {
+  display: inherit !important;
+}
+
+.hint a {
+  color: yellow;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.line-trough {
+  text-decoration: line-through;
+}
+
+.page .menu__icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  left: 0;
+  width: calc(var(--pixel) * 270);
+  height: calc(var(--pixel) * 170);
+  margin: auto;
+  text-align: center;
+  font-size: calc(var(--pixel) * 80);
+  line-height: calc(var(--pixel) * 1.3);
+  transform: translateX(360%);
+  -webkit-transform: translateX(360%);
+  -moz-transform: translateX(360%);
+  -o-transform: translateX(360%);
+  transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+}
+
+.page#p1 .menu__icon {
+  height: calc(var(--pixel) * 220);
+}
+
+.page#p1 .menu__icon {
+  transform: translateX(10%) !important;
+}
+
+#t2:target .page#p2 .menu__icon,
+#t3:target .page#p3 .menu__icon,
+#t4:target .page#p4 .menu__icon,
+#t5:target .page#p5 .menu__icon {
+  transform: translateX(0) !important;
+  -webkit-transform: translateX(0) !important;
+  -moz-transform: translateX(0) !important;
+  -o-transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+
+

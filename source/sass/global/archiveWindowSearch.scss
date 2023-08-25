@@ -1,0 +1,90 @@
+// WINDOW SEARCH //
+.achive__container-file-search {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 70%;
+  padding: 20px;
+  line-height: calc(var(--pixel) * 15);
+  color: #000000;
+  background-color: #686868f5;
+  border-radius: 0.8%;
+  overflow: hidden;
+}
+
+.archive__container-file-search-title {
+  user-select: none;
+}
+
+.archive__container-file-search-of-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.archive__container-file-search-of-element-select {
+  width: 200px;
+  margin: 0 20px;
+}
+
+.archive__container-file-search-of-element-option {}
+
+.archive__container-file-search-of-element-input {
+  width: 200px;
+  margin: 20px;
+}
+
+.archive__container-file-search-of-element-wrapper {
+  position: relative;
+  height: 65px;
+  border: 1px solid black;
+}
+
+.archive__container-file-search-of-element-text {
+  position: absolute;
+  top: 22px;
+  &:nth-child(1) {
+    left: 5px;
+  }
+}
+
+.archive__container-file-search-of-element-input-date {}
+
+.archive__container-file-search-of-element-button {
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.archive__container-file-search-of-element-button-out {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  &:hover {
+    transition: 0.3s;
+    transform: rotate(360deg);
+    cursor: pointer;
+  }
+}
+
+#searchOfDateReg {
+  z-index: 3;
+  position: absolute;
+  right: 150px;
+  background-color: white;
+  border: 1px solid black;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.archive__container-file-search-of-element-wrapper--active {
+  z-index: 4;
+  color: black;
+}

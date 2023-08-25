@@ -1,0 +1,63 @@
+.sittings {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sittings__form {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  width: calc(var(--pixel) * 400);
+  height: calc(var(--pixel) * 500);
+  margin: calc(var(--pixel) * 50) 0 0 calc(var(--pixel) * 50);
+  border: calc(var(--pixel) * 1) solid black;
+
+  .sittings__input {
+    color: rgb(0, 0, 0);
+    background-color: #42424260;
+  }
+}
+
+.sittings__type {
+  font-size: calc(var(--pixel) * 30);
+  margin-bottom: calc(var(--pixel) * 10);
+  color: black;
+  text-decoration: underline;
+}
+
+.sittings__input {
+  width: calc(var(--pixel) * 250);
+  height: calc(var(--pixel) * 50);
+  margin: calc(var(--pixel) * 15) 0;
+  border-radius: 1%;
+}
+
+.sittings__password-current {}
+
+.sittings__password-new {}
+
+.sittings__password-new-confirmation {}
+
+.sittings__password-button {
+  font-size: calc(var(--pixel) * 15);
+  width: calc(var(--pixel) * 150);
+  height: calc(var(--pixel) * 30);
+  border: calc(var(--pixel) * 1) solid black;
+  &:hover {
+    transition: .3s;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.514);
+    border-radius: 1%;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: .3s;
+    color: rgba(0, 0, 0, 0.712);
+    background-color: transparent;
+  }
+}
