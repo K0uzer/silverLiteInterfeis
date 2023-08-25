@@ -33,6 +33,13 @@ export let levelOfFolder = 0;
 export let levelOfSubmerged = 0;
 export let counterSubmerged = 0;
 export const arrayOfImmersionPath = [];
+export const mainFolder = {
+  'idFolder': null,
+  'idParent': null,
+  'numberAgreement': 'Верхнего уровня',
+  'numberSubscriber': null,
+  'folderLevel': null,
+};
 
 // УРОВЕНЬ ПОЛЬЗОВАТЕЛЯ //
 
@@ -250,6 +257,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   goUpToTheFolderToTheTopLevel();
   goUpToTheFolderToTheHigherLevel();
+  levelOfFolder++;
   if (levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < (arrayChildrenOfTableBody[i].children).length; n++) {

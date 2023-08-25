@@ -1592,18 +1592,7 @@ function getDownInFolderLevelBelow() {
 
 // ФУНКЦИЯ ДЛЯ ПОГРУЖЕНИЯ //
 function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder, level) {
-  if (levelOfFolder === 0) {
-    console.log(currentFodler.textContent);
-    const folderAktual = folderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
-    arrayOfImmersionPath.push(folderAktual[0]);
-    console.log(arrayOfImmersionPath);
-  } else if (levelOfFolder > 0) {
-    const folderAktual = arrayChildrenOfFolderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
-    arrayOfImmersionPath.push(folderAktual[0]);
-    console.log(arrayOfImmersionPath);
-  }
-  console.log('РАБОТА ГЛАВНОЙ ФУНКЦИИ ПОГРУЖЕНИЯ');
-  levelOfFolder++;
+  createPathOfSubmergence(currentFodler, level);
   console.log('ПРИБАВЛЯЮ ЗНАЧЕНИЕ УРОВЕНЯ ПАПКИ НА 1', levelOfFolder);
   if (event.target.textContent === numberSubscriber) {
     currentFodler.textContent = `Текущая папка: ${event.target.textContent}`;
@@ -1620,6 +1609,7 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
   const arrayChildrenOfTableBody = Array.from(folderTableBody.children);
   goUpToTheFolderToTheTopLevel();
   goUpToTheFolderToTheHigherLevel();
+  levelOfFolder++;
   if (levelOfFolder !== 0) {
     for (let i = 0; i < arrayChildrenOfTableBody.length; i++) {
       for (let n = 1; n < arrayChildrenOfTableBody[i].children.length; n++) {
@@ -1627,6 +1617,22 @@ function submergence(numberSubscriber, currentFodler, folderTableBody, idFolder,
       }
     }
   }
+}
+
+// ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПУТИ ПОГРУЖЕНИЯ //
+function createPathOfSubmergence(currentFodler, level) {
+  if (level <= 1) {
+    console.log(folderThree);
+    const folderAktual = folderThree.filter(item => console.log(`Текущая папка: ${item.numberAgreement}`) === currentFodler.textContent);
+    arrayOfImmersionPath.push(folderAktual[0]);
+    console.log(arrayOfImmersionPath);
+  } else if (level >= 2) {
+    const folderAktual = arrayChildrenOfFolderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === currentFodler.textContent);
+    arrayOfImmersionPath.push(folderAktual[0]);
+    console.log(arrayOfImmersionPath);
+  }
+  level++;
+  return arrayOfImmersionPath;
 }
 
 // ФУНКЦИЯ ФИЛЬТРАЦИИ МАССИВОВ ДОК.ОВ И ПАПОК, ДЛЯ НАХОЖДЕНИЯ ДОК.ОВ ПРИВЯЗАННЫХ К ПАПКЕ ДЛЯ ОТРИСОВКИ ФАЙЛОВ //
