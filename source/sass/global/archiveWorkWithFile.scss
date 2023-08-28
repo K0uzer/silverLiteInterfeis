@@ -62,6 +62,7 @@
 .archive__file-button {
   width: calc(var(--pixel) * 45);
   height: calc(var(--pixel) * 45);
-  padding: 0 calc(var(--pixel) * 10);
+  padding: 0 calc(var(--pixel) * 5);
+  margin: 0 0 0 calc(var(--pixel) * 25);
   cursor: pointer;
 }

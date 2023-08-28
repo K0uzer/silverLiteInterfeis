@@ -4,7 +4,7 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
     <img src="./img/folder/icons8-верхнее-меню-24.png" class="archive__filder-menu-img--rotate" alt="Бургер">
     <span class="archive__filder-title">Текущая папка: Верхнего уровня</span>
   </div>
-  <div class="archive__folder-button-container">
+  <nav class="archive__folder-button-container">
     <img src="./img/folder/create-button.svg" class="archive__folder-button" id="createFolder" title="Создать папку" alt="">
     <img src="./img/folder/delete-button.svg" class="archive__folder-button" id="deleteFolder" title="Удалить папку" alt="">
     <img src="./img/folder/document-upload.svg" class="archive__folder-button" id="upLevelFolder" title="Папка на уровень выше" alt="">
@@ -12,7 +12,7 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
     <img src="./img/folder/insert-button.svg" class="archive__folder-button" id="putFolder" title="Вставить" alt="">
     <img src="./img/folder/refresh-button.svg" class="archive__folder-button" id="updateTableFolder" title="Обновить таблицу & сбросить поиск" alt="">
     <img src="./img/folder/scissor-button.svg" class="archive__folder-button" id="cutOutFolder" title="Вырезать" alt="">
-  </div>
+  </nav>
   <form action="" method="post" class="archive__folder-menu-form">
     <input class="archive__folder-input" type="text" title="Быстрый поиск" placeholder="Поиск">
     <div class="archive__folder-conteiner-checkbox-type-of-search">
@@ -36,15 +36,29 @@ export const archivePageMaxLever = () => `<img src="./img/folder/icons8-верх
   </div>
 </section>
 <section class="archive__file">
-  <div class="archive__file-menu">
-    <img src="./img/file/add-square.svg" class="archive__file-button" title="Создать документ" id="archiveCreateDoc" alt="">
-    <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" id="archiveDeleteDoc" alt="">
-    <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" id="archiveCutOut" alt="">
-    <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" id="archivePutIn" alt="">
-    <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
-    <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" id="archiveSearch" alt="">
+  <nav class="archive__file-menu">
+    <ul class="archive__file-nav-list" style="display: flex; justify-content: space-between; flex-direction: row; list-style-type: none;">
+      <li class="archive__file-nav-item">
+        <img src="./img/file/add-square.svg" class="archive__file-button" title="Создать документ" id="archiveCreateDoc" alt="">
+      </li>
+      <li class="archive__file-nav-item">
+        <img src="./img/file/minus-square.svg" class="archive__file-button" title="Удалить документ" id="archiveDeleteDoc" alt="">
+      </li>
+      <li class="archive__file-nav-item">
+        <img src="./img/file/scissor.svg" class="archive__file-button" title="Вырезать" id="archiveCutOut" alt="">
+      </li>
+      <li class="archive__file-nav-item">
+        <img src="./img/file/direct-inbox.svg" class="archive__file-button" title="Вставить" id="archivePutIn" alt="">
+      </li>
+      <li class="archive__file-nav-item">
+        <img src="./img/file/refresh.svg" class="archive__file-button" title="Обновить таблицу & Сбросить поиск" id="archiveUpdateTable" alt="">
+      </li>
+      <li class="archive__file-nav-item">
+        <img src="./img/file/search-status.svg" class="archive__file-button" title="Поиск" id="archiveSearch" alt="">
+      </li>
+    </ul>
     <div class="archive__file-menu-under-line"></div>
-  </div>
+  </nav>
   <div class="scroll-table">
     <table>
       <thead>
