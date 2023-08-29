@@ -221,43 +221,51 @@ export function closeWindowForFilterOfDocument() {
 
 // ФУНКЦИЯ-СБОРЩИК ДЛЯ ЗАПОЛНЕНИЯ ОТКРЫТОГО ДОКУМЕНТА ИНФОРМАЦИЕЙ //
 const openDocument = (target) => function getDoc() {
-  const archiveFile = document.querySelector('.archive__file');
-  archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, '10.01.2022', 'Абонентские дела');
-  const documentIdSubscriber = document.querySelector('.archive__document-of-id');
-  const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
-  const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
-  const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
-  for (let i = 0; i < data.length; i++) {
-    if (Number(target.id) === Number(data[i].id)) {
-      for (let n = 0; n < countElementOfDocument; n++) {
-        documentInputs[0].value = data[i].number_register;
-        documentInputs[1].value = data[i].date_registration;
-        documentInputs[2].value = data[i].id_subscriber;
-        documentInputs[3].value = data[i].type_document;
-        documentInputs[4].value = data[i].name_object;
-        documentInputs[5].value = data[i].name_sity;
-        documentInputs[6].value = data[i].name_street;
-        documentInputs[7].value = data[i].number__agreement;
-        documentInputs[8].value = data[i].number_home;
-        documentInputs[9].value = data[i].number_body;
-        documentInputs[10].value = data[i].number_flat;
+  try {
+    const archiveFile = document.querySelector('.archive__file');
+    archiveFile.innerHTML += getArchiveContainerOfOpenedDocument(nameUser, '10.01.2022', 'Абонентские дела');
+    const documentIdSubscriber = document.querySelector('.archive__document-of-id');
+    const documentInputs = document.querySelectorAll('.archive__opened-document-of-input');
+    const documentTextArea = document.querySelector('.archive__opened-document-of-textarea');
+    const documentTableOfFiles = document.querySelector('.archive__opened-document-of-table');
+    for (let i = 0; i < data.length; i++) {
+      if (Number(target.id) === Number(data[i].id)) {
+        for (let n = 0; n < countElementOfDocument; n++) {
+          documentInputs[0].value = data[i].number_register;
+          documentInputs[1].value = data[i].date_registration;
+          documentInputs[2].value = data[i].id_subscriber;
+          documentInputs[3].value = data[i].type_document;
+          documentInputs[4].value = data[i].name_object;
+          documentInputs[5].value = data[i].name_sity;
+          documentInputs[6].value = data[i].name_street;
+          documentInputs[7].value = data[i].number__agreement;
+          documentInputs[8].value = data[i].number_home;
+          documentInputs[9].value = data[i].number_body;
+          documentInputs[10].value = data[i].number_flat;
+        }
+        documentTextArea.value = data[i].comments;
+        documentIdSubscriber.textContent = data[i].id_subscriber;
+        // documentTableOfFiles
       }
-      documentTextArea.value = data[i].comments;
-      documentIdSubscriber.textContent = data[i].id_subscriber;
-      // documentTableOfFiles
+      editOfDocument();
+      closeDocument();
+      if (Array.from(archiveFile.children).length >= 4) Array.from(archiveFile.children)[3].remove();
     }
+  } catch (error) {
+    console.log(console.error)
   }
-  editOfDocument();
-  closeDocument();
-  if(Array.from(archiveFile.children).length >= 4) Array.from(archiveFile.children)[3].remove();
 };
 
 // ФУНКЦИЯ ДЛЯ ОТКРЫТИЯ ДОКУМЕНТА //
 export function getOpenedDocument() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
-    item.addEventListener('click', openDocument(item));
-  });
+  try {
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+      item.addEventListener('click', openDocument(item));
+    });
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 // ФУНКЦИЯ ДЛЯ ЗАКРЫТИЯ ДОКУМЕНТА //
@@ -328,7 +336,7 @@ export function editOfDocument() {
     windowForPrint.append(containerForImg);
     containerForImg.append(imgForPrint);
     windowForPrint.classList.add('container-for-print-file');
-    imgForPrint.onload = function() {
+    imgForPrint.onload = function () {
       imgForPrint.style = 'display: block; width: 200px; height: auto;';
       imgForPrint.src = '/photo_2023-05-23_10-20-03.jpg';
     }();
@@ -413,30 +421,38 @@ export function editOfDocument() {
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ //
 export function createNewRowInTableForDocuments(indexChildren, iElement) {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
-  tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
+  try {
+    tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
+    tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 // ФУНКЦИЯ ДЛЯ ЗАПОЛЕНИЯ ИНФОРМАЦИЕЙ ДОРОЖКИ ИЗ ТАБЛИЦЫ //
 export function getInformationsForTable(array) {
-  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
-  Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
-    try {
-      for (let i = 0; i < array.length; i++) {
-        if (Number(item.id) === Number(array[i].id)) {
-          item.children[1].textContent = array[i].id;
-          item.children[2].textContent = array[i].number_register;
-          item.children[3].textContent = array[i].id_subscriber;
-          item.children[4].textContent = array[i].type_document;
-          item.children[5].textContent = array[i].comments;
-          item.children[6].textContent = array[i].number__agreement;
-          item.children[7].textContent = array[i].name_object;
+  try {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+      try {
+        for (let i = 0; i < array.length; i++) {
+          if (Number(item.id) === Number(array[i].id)) {
+            item.children[1].textContent = array[i].id;
+            item.children[2].textContent = array[i].number_register;
+            item.children[3].textContent = array[i].id_subscriber;
+            item.children[4].textContent = array[i].type_document;
+            item.children[5].textContent = array[i].comments;
+            item.children[6].textContent = array[i].number__agreement;
+            item.children[7].textContent = array[i].name_object;
+          }
         }
+      } catch (error) {
+        console.log('Ошибка при заполнении данными таблицы');
       }
-    } catch (error) {
-      console.log('Ошибка при заполнении данными таблицы');
-    }
-  });
+    });
+  } catch (error) {
+    console.log(error);
+  }
   getOpenedDocument();
 };
 
