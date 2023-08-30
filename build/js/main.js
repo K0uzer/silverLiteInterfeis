@@ -1710,7 +1710,7 @@ function getDocumentsFromFolder(event, level, idFolder) {
 const moveToTheFolderAbove = (button, current, bodyFolder, buttonForRemoveListener, counterSub) => {
   try {
     const bodyDoc = document.querySelector('.scroll-table-body');
-    button.removeEventListener('click', buttonForRemoveListener);
+    // button.removeEventListener('click', buttonForRemoveListener);
     bodyDoc.innerHTML = '';
     bodyFolder.innerHTML = '';
     if (levelOfFolder === 1) {
@@ -1720,30 +1720,37 @@ const moveToTheFolderAbove = (button, current, bodyFolder, buttonForRemoveListen
     }
     if (levelOfFolder < 2) {
       levelOfFolder = 0;
+      alert('1');
       loadFolderParentInTable();
       getDownInFolderLevelBelow();
+      alert('2');
+      alert('3');
       console.log('< 2');
-    } else if (levelOfFolder === 2) {
-      const arrayWithCurrentFolder = folderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === current.textContent);
-      console.log(arrayWithCurrentFolder);
-      const arrayWithCurrentFolderChildren = arrayChildrenOfFolderThree.filter(item => item.idParent === arrayWithCurrentFolder[0].idFolder);
-      console.log(arrayWithCurrentFolderChildren, '=== 2');
-      arrayOfImmersionPath.pop(arrayOfImmersionPath[arrayOfImmersionPath.length - 1]);
-      // const arrayOfCurrentFodler = arrayChildrenOfFolderThree.filter((item) => console.log(`Текущая папка: ${item.numberAgreement}`) === current.textContent);
-      // console.log(arrayOfCurrentFodler[0].idFolder)
-      // const arrayFilteredOfDocuments = data.filter((item) => item.id_parent === arrayOfCurrentFodler[0].idFolder);
-      // console.log(arrayFilteredOfDocuments)
-      // fillInInformations();
-      submergence(arrayOfImmersionPath[arrayOfImmersionPath.length - 1].numberSubscriber, current, bodyFolder, arrayOfImmersionPath[arrayOfImmersionPath.length - 1].idFolder, levelOfFolder);
-      levelOfFolder--;
-    } else if (levelOfFolder > 2) {
-      const arrayWithCurrentFolder = arrayChildrenOfFolderThree.filter(item => `Текущая папка: ${item.numberAgreement}` === current.textContent);
-      const arrayWithCurrentFolderChildren = arrayChildrenOfFolderThree.filter(item => item.idParent === arrayWithCurrentFolder[0].idFolder);
-      console.log(arrayWithCurrentFolderChildren, '>2');
-      arrayOfImmersionPath.pop(arrayOfImmersionPath[arrayOfImmersionPath.length - 1]);
-      submergence(arrayOfImmersionPath[arrayOfImmersionPath.length - 1].numberSubscriber, current, bodyFolder, arrayOfImmersionPath[arrayOfImmersionPath.length - 1].idFolder, levelOfFolder);
-      levelOfFolder--;
     }
+    // else if (levelOfFolder === 2) {
+    //   const arrayWithCurrentFolder = folderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === current.textContent);
+    //   console.log(arrayWithCurrentFolder);
+    //   const arrayWithCurrentFolderChildren = arrayChildrenOfFolderThree.filter((item) => item.idParent === arrayWithCurrentFolder[0].idFolder);
+    //   console.log(arrayWithCurrentFolderChildren, '=== 2');
+    //   arrayOfImmersionPath.pop(arrayOfImmersionPath[arrayOfImmersionPath.length - 1]);
+    //   // const arrayOfCurrentFodler = arrayChildrenOfFolderThree.filter((item) => console.log(`Текущая папка: ${item.numberAgreement}`) === current.textContent);
+    //   // console.log(arrayOfCurrentFodler[0].idFolder)
+    //   // const arrayFilteredOfDocuments = data.filter((item) => item.id_parent === arrayOfCurrentFodler[0].idFolder);
+    //   // console.log(arrayFilteredOfDocuments)
+    //   // fillInInformations();
+    //   alert('Я сработал для 2 уровня')
+    //   // submergence(arrayOfImmersionPath[arrayOfImmersionPath.length - 1].numberSubscriber, current, bodyFolder, arrayOfImmersionPath[arrayOfImmersionPath.length - 1].idFolder, levelOfFolder);
+    //   alert('и я сработал для 2 уровня')
+    //   levelOfFolder--;
+    // } else if (levelOfFolder > 2) {
+    //   const arrayWithCurrentFolder = arrayChildrenOfFolderThree.filter((item) => `Текущая папка: ${item.numberAgreement}` === current.textContent);
+    //   const arrayWithCurrentFolderChildren = arrayChildrenOfFolderThree.filter((item) => item.idParent === arrayWithCurrentFolder[0].idFolder);
+    //   console.log(arrayWithCurrentFolderChildren, '>2');
+    //   arrayOfImmersionPath.pop(arrayOfImmersionPath[arrayOfImmersionPath.length - 1]);
+    //   alert('я сработал для 3 и выше уровня')
+    //   // submergence(arrayOfImmersionPath[arrayOfImmersionPath.length - 1].numberSubscriber, current, bodyFolder, arrayOfImmersionPath[arrayOfImmersionPath.length - 1].idFolder, levelOfFolder);
+    //   alert('и я сработал для 3 и выше уровня')
+    //   levelOfFolder--;
   } catch (error) {
     console.log(error);
   }
@@ -1756,13 +1763,15 @@ function goUpToTheFolderToTheHigherLevel() {
     const goUpToTheFolder = () => {
       const folderTableBody = document.getElementById('folderTalbeBody');
       const currentFodler = document.querySelector('.archive__filder-title');
-      if (counterSubmerged === 0) setTimeout(counterSubmerged++, 1000);else if (levelOfFolder !== 0) {
-        moveToTheFolderAbove(buttonOfLevelUp, currentFodler, folderTableBody, goUpToTheFolder, counterSubmerged);
-        counterSubmerged = 0;
-      }
+      // if (counterSubmerged === 0) setTimeout(counterSubmerged++, 1000);
+      // else if(levelOfFolder !== 0) {
+      moveToTheFolderAbove(buttonOfLevelUp, currentFodler, folderTableBody, goUpToTheFolder, counterSubmerged);
+      counterSubmerged = 0;
+      // };
     };
+
     levelOfFolder === 0 ? buttonOfLevelUp.disabled = true : buttonOfLevelUp.disabled = false;
-    buttonOfLevelUp.addEventListener('click', goUpToTheFolder);
+    buttonOfLevelUp.onclick = goUpToTheFolder;
   } catch (error) {
     console.log(error);
   }
