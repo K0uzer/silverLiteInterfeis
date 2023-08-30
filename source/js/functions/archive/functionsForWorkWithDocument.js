@@ -260,9 +260,11 @@ const openDocument = (target) => function getDoc() {
 export function getOpenedDocument() {
   const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   try {
-    Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
-      item.addEventListener('click', openDocument(item));
-    });
+    if(Array.from(tableBodyDocumentsOfArchive.children).length !== 0) {
+      Array.from(tableBodyDocumentsOfArchive.children).forEach((item) => {
+        item.addEventListener('click', openDocument(item));
+      });
+    }
   } catch (error) {
     console.log(error)
   }
@@ -420,10 +422,13 @@ export function editOfDocument() {
 
 // ФУНЦИЯ ДЛЯ СОЗДАНИЯ НОВОЙ ДОРОЖКИ В ТАБЛИЦЕ //
 export function createNewRowInTableForDocuments(indexChildren, iElement) {
-  const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
   try {
+    const tableBodyDocumentsOfArchive = document.getElementById('fileTalbeBody');
+    console.log(tableBodyDocumentsOfArchive);
     tableBodyDocumentsOfArchive.innerHTML += rowTableDocument();
-    tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
+    if(Array.from(tableBodyDocumentsOfArchive.children).length !== 0) {
+      tableBodyDocumentsOfArchive.children[iElement].id = indexChildren;
+    }
   } catch (error) {
     console.log(error)
   }
